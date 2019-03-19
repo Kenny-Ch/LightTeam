@@ -18,17 +18,18 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pagePath",
-      "text": "text",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath"
-    },
-    {
-      "pagePath": "pagePath",
-      "text": "text",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "团队",
+        "iconPath": "/images/tabbar/about.png",
+        "selectedIconPath": "/images/tabbar/about_cur.png"
+      },
+      {
+        "pagePath": "pages/task2/task2",
+        "text": "任务",
+        "iconPath": "/images/tabbar/about.png",
+        "selectedIconPath": "/images/tabbar/about_cur.png"
+      }]
   }
 }
