@@ -6,10 +6,9 @@
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
-
-  ]
-  ,
+    "pages/chooseLib/chooseLib",
+    "pages/ceshi/ceshi"
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
