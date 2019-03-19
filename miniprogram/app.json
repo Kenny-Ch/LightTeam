@@ -6,7 +6,8 @@
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/chooseLib/chooseLib",
+    "pages/maintask/maintask"
 
   ]
   ,
@@ -22,14 +23,14 @@
       {
         "pagePath": "pages/index/index",
         "text": "团队",
-        "iconPath": "/images/tabbar/about.png",
-        "selectedIconPath": "/images/tabbar/about_cur.png"
+        "iconPath":"/images/tabbar2.png",
+        "selectedIconPath":"/images/tabbar1.png"
       },
       {
-        "pagePath": "pages/task2/task2",
+        "pagePath": "pages/maintask/maintask",
         "text": "任务",
-        "iconPath": "/images/tabbar/about.png",
-        "selectedIconPath": "/images/tabbar/about_cur.png"
+        "iconPath": "/images/tabbar4.png",
+        "selectedIconPath": "/images/tabbar3.png"
       }]
   }
 }
