@@ -1,1 +1,65 @@
-/* pages/maintask/maintask.wxss */
+page{
+background-color: #ececec;
+}
+/*任务盒子*/
+.box_task{
+  position: relative;
+	width: 670rpx;
+	height: 193rpx;
+	left: 40rpx;
+	top: 150rpx;
+	color: rgba(80, 80, 80, 1);
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 9rpx;
+	font-size: 28rpx;
+	line-height: 150%;
+ margin-bottom: 60rpx;
+}
+
+.text_taskname{
+  position: absolute;
+	width: 196rpx;
+	height: 42rpx;
+	left: 50rpx;
+	top: 25rpx;
+	color: rgba(80, 80, 80, 1);
+	font-size: 30rpx;
+	line-height: 150%;
+	text-align: left;
+}
+/*任务进行时间*/
+.text_title1{
+  position: absolute;
+	width: 300rpx;
+	height: 30rpx;
+	left: 55rpx;
+	top: 90rpx;
+	color: rgba(140, 140, 140, 1);
+	font-size: 20rpx;
+	line-height: 150%;
+	text-align: left;
+}
+.text_title2{
+  position: absolute;
+	width: 300rpx;
+	height: 36rpx;
+	left: 55rpx;
+	top: 131rpx;
+	color: rgba(102, 102, 102, 1);
+	font-size: 24rpx;
+	line-height: 150%;
+	text-align: left;
+}
+
+.box_card{
+  position: absolute;
+	width: 11rpx;
+	height: 45rpx;
+	left: 0rpx;
+	top: 10rpx;
+	color: rgba(80, 80, 80, 1);
+	background-color: #6bb8ff;
+	font-size: 28rpx;
+	line-height: 150%;
+	text-align: center;
+}

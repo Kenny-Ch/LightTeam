@@ -1,24 +1,4 @@
-<<<<<<< HEAD
-{
-  "pages": [
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/ceshi/ceshi"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "ColorUI",
-    "navigationStyle": "custom",
-    "navigationBarTextStyle": "white"
-  }
-}
-=======
+
 {
   "pages": [
     "pages/index/index",
@@ -55,4 +35,3 @@
       }]
   }
 }
->>>>>>> master

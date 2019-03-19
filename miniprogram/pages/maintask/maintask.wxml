@@ -1,2 +1,8 @@
-<!--pages/maintask/maintask.wxml-->
-<text>pages/maintask/maintask.wxml</text>
+<view class='box_task'>
+<view class='text_taskname'>完成ui设计</view>
+<view class='text_title1'>任务进行时间</view>
+<view class='text_title1' style='left:450rpx'>所属团队</view>
+<view class='text_title2'>2019-3-11—2019-3-18</view>
+<view class='text_title2' style='left:450rpx;'>icode小分队</view>
+<view class='box_card'></view>
+</view>
