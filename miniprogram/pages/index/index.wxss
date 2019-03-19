@@ -1,35 +1,4 @@
-
-.homepage_team_list{
-  position: relative;
-  font-family: SimHeYouYuani;
-  box-shadow: 0rpx 0rpx 20rpx #888888;
-  font-size: 35rpx;
-  font-weight: bold;
-  height: 120rpx;
-  width: 600rpx;
-  color: black;
-  left: 10%;
-  top: 100rpx;
-  border-radius:20rpx;
-  text-indent: 10%;
-  line-height: 120rpx;
-  padding-left: 20rpx;
-  padding-right: 20rpx;
-  margin-bottom: 30rpx;
-
-}
-.homepage_team_logo{
-  text-indent: 0rpx;
-  float: left;
-}
-.homepage_team_number{
-  font-family: SimHeYouYuani;
-  font-size: 30rpx;
-  color: grey;
-  text-indent: 0rpx;
-  float:right;
-}
-
+/*创建团队按钮*/
 .homepage_team_add{
   border-radius:100px;
   position: fixed;
@@ -38,11 +7,12 @@
   top: 85%;
   height: 100rpx;
   width: 100rpx;
-  line-height: 100rpx;
+  line-height: 90rpx;
   text-align: center;
   background-color: rgba(107, 184, 255, 1);
   color: white;
 }
+/* 未完成*/
 .text_top{
   position: relative;
 	width: 140rpx;
@@ -55,7 +25,7 @@
 	text-align: left;
 	font-weight: bold;
 }
-
+/*框架*/
 .position{
   position: relative;
   top: 100rpx;
@@ -64,7 +34,7 @@
   height: 200rpx;
   margin-bottom: 60rpx;
 }
-
+/*任务盒子*/
 .box{
   position: relative;
 	width: 649rpx;
@@ -80,6 +50,7 @@
 	text-align: center;
   margin-bottom: 30rpx;
 }
+/*任务名字*/
 .text_name{
   position: relative;
 	width: 158rpx;
@@ -91,6 +62,8 @@
 	line-height: 150%;
 	text-align: left;
 }
+
+/*未完成任务数*/
 .box_icon{
   position: absolute;
 	width: 74rpx;
@@ -104,6 +77,7 @@
 	line-height: 150%;
 	text-align: center;
 }
+/*团队人数*/
 .text_number{
   position: absolute;
 	width: 44rpx;
@@ -115,6 +89,8 @@
 	line-height: 150%;
 	text-align: left;
 }
+
+/*团队简介*/
 .text_intro{
   position: absolute;
 	width: 220rpx;
@@ -126,6 +102,7 @@
 	line-height: 150%;
 	text-align: left;
 }
+/*团队logo*/
 .icon_team{
   position: absolute;
 	width: 91rpx;
@@ -135,9 +112,10 @@
 	font-size: 91rpx;
 	color: rgba(104, 182, 241, 1);
 }
+/*团队人数*/
 .people{
   position: absolute;
-	width: 60rpx;
+	width: 65rpx;
 	height: 42rpx;
 	left: 527rpx;
 	top: 75rpx;

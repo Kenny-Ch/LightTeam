@@ -18,3 +18,5 @@
   </view>
 <view class='box_icon'><view class='text_number'>3</view></view>
 </view>
+
+<view class='homepage_team_add'>+</view>
