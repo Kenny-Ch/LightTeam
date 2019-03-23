@@ -1,0 +1,9 @@
+<!--pages/detail-task/detal-task.wxml-->
+<view class='box_top'>
+<view class='text_teamname'>icode小分队</view>
+<view class='text_number'>3人</view>
+<view class='buttom'>
+<view class='buttom_text'>任务</view>
+</view>
+<image src='/images/pen.svg' class='icon_pen'></image>
+</view>
