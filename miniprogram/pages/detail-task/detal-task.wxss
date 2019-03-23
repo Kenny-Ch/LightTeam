@@ -1,6 +1,6 @@
 .box_top{
 	width: 750rpx;
-	height: 353rpx;
+	height: 393rpx;
 	left: 0rpx;
 	top: 20rpx;
 	color: rgba(80, 80, 80, 1);
@@ -37,7 +37,7 @@
 	width: 217rpx;
 	height: 70rpx;
 	left: 183rpx;
-	top: 252rpx;
+	top: 292rpx;
 	color: rgba(80, 80, 80, 1);
 	background-color: rgba(42, 130, 228, 1);
 	border-radius: 40rpx;
@@ -50,7 +50,7 @@
 	width: 64rpx;
 	height: 48rpx;
 	left: 77rpx;
-	top: 7rpx;
+	top: 8rpx;
 	color: rgba(245, 245, 245, 1);
 	font-size: 32rpx;
 	line-height: 150%;
@@ -61,7 +61,43 @@
 	width: 48rpx;
 	height: 48rpx;
 	left: 671rpx;
-	top: 262rpx;
+	top: 302rpx;
 	font-size: 48rpx;
 	color: rgba(255, 255, 255, 1);
 }
+.text_intro{
+  position: absolute;
+	width: 384rpx;
+	height: 36rpx;
+	left: 182rpx;
+	top: 240rpx;
+	color: rgba(255, 255, 255, 1);
+	font-size: 24rpx;
+	line-height: 150%;
+	text-align: center;
+}
+.buttom2{
+  position: absolute;
+	width: 346rpx;
+	height: 42rpx;
+	left: 230rpx;
+	top: 307rpx;
+	color: rgba(80, 80, 80, 1);
+	background-color: rgba(255, 255, 255, 0.25);
+	border-radius: 33rpx;
+	font-size: 28rpx;
+	line-height: 150%;
+	text-align: center;
+}
+.buttom_team{
+  position: absolute;
+	width: 64rpx;
+	height: 40rpx;
+	left: 214rpx;
+	top: 0rpx;
+	color: rgba(245, 245, 245, 1);
+	font-size: 28rpx;
+	line-height: 150%;
+	text-align: center;
+}
+@import"/pages/maintask/maintask.wxss";

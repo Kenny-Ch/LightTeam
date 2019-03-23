@@ -2,8 +2,21 @@
 <view class='box_top'>
 <view class='text_teamname'>icode小分队</view>
 <view class='text_number'>3人</view>
+<view class='buttom2'>
+<view class='buttom_team' >成员</view>
+</view>
 <view class='buttom'>
 <view class='buttom_text'>任务</view>
 </view>
+<view class='text_intro'>团队简介</view>
 <image src='/images/pen.svg' class='icon_pen'></image>
+</view>
+
+<view class='box_task' style='top:20rpx;'>
+<view class='text_taskname'>完成ui设计</view>
+<view class='text_title1'>任务进行时间</view>
+<view class='text_title1' style='left:450rpx'>所属团队</view>
+<view class='text_title2'>2019-3-11—2019-3-18</view>
+<view class='text_title2' style='left:450rpx;'>icode小分队</view>
+<view class='box_card'></view>
 </view>
