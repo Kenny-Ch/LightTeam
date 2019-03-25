@@ -1,0 +1,17 @@
+<view class='icon'>
+  <image src='/images/pencil.svg'></image>
+</view>
+<view class='blank1'></view>
+<view class='team-name'>
+  <input type="text" placeholder="团队名称" placeholder-class='text' ></input>
+</view>
+<view class='blank2'></view>
+<view class='team-info'>
+  <textarea placeholder="团队简介" placeholder-style='color:#dee1e3; ' ></textarea>
+</view>
+<view>
+  <button form-type='submit' class='submit'></button>
+</view>
+<view class='submit-text'>
+<text>创建团队</text>
+</view>

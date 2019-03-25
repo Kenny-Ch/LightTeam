@@ -1,0 +1,51 @@
+<view>
+
+  <view class='item'>
+    <view class='title'>icode小分队</view>
+    <view class='input-border'><input type='text' placeholder=' 请输入标题' placeholder-class='placeholder'></input></view>
+  </view>
+
+  <view class='item'>
+    <view class='title'>起始与结束</view>
+      <view style='position:relative;'>
+       <picker mode="date" value="" start="0001-01-01" end="9999-12-32">
+          <text class='picker-text'>请选择开始时间</text>
+        </picker>
+        <image src='/images/datepicker.svg' class="DatePickerImg"></image>
+      </view>
+      <view style='position:relative;'>
+        <picker mode="date" value="" start="0001-01-01" end="9999-12-32">
+          <text class='picker-text'>请选择结束时间</text>
+        </picker>
+        <image src='/images/datepicker.svg' class="DatePickerImg"></image>
+      </view>
+  </view>
+
+  <view class='item'>
+    <view class='title'>参与成员</view>
+    <view class='peopleimg-box'><image src='/images/img.jpg'></image></view>
+  </view>
+
+  <view class='item'>
+    <view class='title'>提醒方式</view>
+    <view class='checkbox-box'>
+      <checkbox-group bindchange="checkboxChange">
+        <label>
+        <view class='checkbox' style='margin:8rpx 10rpx 8rpx 10rpx;'> <checkbox/>创建任务后马上提醒大家</view>
+        <view class='checkbox' style='margin:8rpx 10rpx 8rpx 10rpx;'> <checkbox/>创建任务后马上提醒大家</view>
+        <view class='checkbox' style='margin:8rpx 10rpx 8rpx 10rpx;'> <checkbox/>创建任务后马上提醒大家</view>
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+
+  <view class='item'>
+    <view class='title'>标签</view>
+    <view></view>
+  </view>
+
+  <view>
+    <button class='button'>保存</button>
+  </view>
+</view>
+

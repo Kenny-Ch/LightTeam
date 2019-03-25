@@ -1,0 +1,67 @@
+page{
+  background-color: #6bb8ff;
+}
+.text{
+  color: #dee1e3;
+}
+.icon{
+  position: absolute;
+  top: 116rpx;
+  left: 271rpx;
+}
+.icon image{
+  width: 208rpx;
+  height: 208rpx;
+}
+.blank1{
+  width: 585rpx;
+  height: 70rpx;
+  position: absolute;
+  top: 400rpx;
+  left: 84rpx;
+  border-radius:10rpx; 
+  background-color: #fff;
+}
+.team-name{
+  position: absolute;
+  top: 400rpx;
+  left:114rpx;
+}
+.team-name input{
+  background-color: #fff;
+  width: 521rpx;
+  height: 70rpx;
+  border-radius:10rpx; 
+}
+.blank2{
+  width: 585rpx;
+  height: 200rpx;
+  position: absolute;
+  top: 520rpx;
+  left: 84rpx;
+  border-radius:10rpx; 
+  background-color: #fff;
+}
+.team-info{
+  position: absolute;
+  top: 532rpx;
+  left: 114rpx;
+}
+.team-info textarea{
+  background-color: #fff;
+  width: 521rpx;
+  height: 176rpx;
+}
+.submit{
+  width: 585rpx;
+  height: 80rpx;
+  position: absolute;
+  top: 800rpx;
+  left: 84rpx;
+}
+.submit-text{
+  position: absolute;
+  top: 815rpx;
+  left: 300rpx;
+  color: #6bb8ff;
+}

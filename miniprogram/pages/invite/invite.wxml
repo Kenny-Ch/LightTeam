@@ -1,0 +1,17 @@
+<!--图标-->
+<view style='width:280rpx;text-align:center;position:absolute;top:100rpx;left:235rpx'>
+  <image src="/images/yes.svg" class="icon"></image>
+  <text class='icon-text'>创建团队成功</text>           
+</view>
+
+<!--图标下的两行文字-->
+<view class='center-text'>
+  <text style='display:block;'>快分享给好友或群聊</text>
+  <text style='display:block;'>邀请你的团队成员加入吧</text>
+</view>
+
+<!--邀请成员按钮-->
+<view class='button'>
+  <button></button>
+</view>
+<view class='button-text'><span>邀请成员</span></view>

@@ -1,10 +1,17 @@
+
+.back{
+  background-color: #ececec;
+}
+
+
 .box_top{
+  position: fixed;
 	width: 750rpx;
-	height: 393rpx;
+	height: 293rpx;
 	left: 0rpx;
-	top: 20rpx;
+	top: 0rpx;
 	color: rgba(80, 80, 80, 1);
-	background-color: rgba(107, 154, 255, 1);
+	background-color: #6b9aff;
 	font-size: 28rpx;
 	line-height: 150%;
 	box-shadow: 0rpx 0rpx 0rpx 0rpx rgba(0, 0, 0, 0.2428571428571429);
@@ -15,7 +22,7 @@
   width: 326rpx;
 	height: 86rpx;
 	left: 213rpx;
-	top: 102rpx;
+	top: 0rpx;
 	color: rgba(255, 255, 255, 1);
 	font-size: 57rpx;
 	line-height: 150%;
@@ -26,7 +33,7 @@
 	width: 52rpx;
 	height: 48rpx;
 	left: 349rpx;
-	top: 190rpx;
+	top: 90rpx;
 	color: rgba(255, 255, 255, 1);
 	font-size: 32rpx;
 	line-height: 150%;
@@ -37,7 +44,7 @@
 	width: 217rpx;
 	height: 70rpx;
 	left: 183rpx;
-	top: 292rpx;
+	top: 192rpx;
 	color: rgba(80, 80, 80, 1);
 	background-color: rgba(42, 130, 228, 1);
 	border-radius: 40rpx;
@@ -61,7 +68,7 @@
 	width: 48rpx;
 	height: 48rpx;
 	left: 671rpx;
-	top: 302rpx;
+	top: 202rpx;
 	font-size: 48rpx;
 	color: rgba(255, 255, 255, 1);
 }
@@ -70,7 +77,7 @@
 	width: 384rpx;
 	height: 36rpx;
 	left: 182rpx;
-	top: 240rpx;
+	top: 140rpx;
 	color: rgba(255, 255, 255, 1);
 	font-size: 24rpx;
 	line-height: 150%;
@@ -81,7 +88,7 @@
 	width: 346rpx;
 	height: 42rpx;
 	left: 230rpx;
-	top: 307rpx;
+	top: 207rpx;
 	color: rgba(80, 80, 80, 1);
 	background-color: rgba(255, 255, 255, 0.25);
 	border-radius: 33rpx;

@@ -1,0 +1,37 @@
+.icon{
+	width: 280rpx;
+	height: 280rpx;
+	font-size: 280rpx;
+}
+.icon-text{
+  display:block; 
+  text-align:center;
+  color: #6bb8ff;
+}
+.center-text{
+  text-align: center;
+  align-content: center;
+  color: #505050;
+  position:absolute;
+  top:530rpx;
+  left:168.81rpx;
+}
+.button{
+  position:absolute;
+  top:750rpx;
+  left:125rpx;
+}
+button{
+  width: 500rpx;
+  height: 90rpx;
+  background-color: #6bb8ff;
+  box-shadow:0rpx 5rpx 20rpx 5rpx #c8cccf;
+  text-align: center;
+}
+.button-text{
+  font-size: 50rpx;
+  position: absolute;
+  top: 756.5rpx;
+  left: 280rpx;
+  color: white;
+}
