@@ -13,7 +13,7 @@ background-color: #ececec;
 	border-radius: 9rpx;
 	font-size: 28rpx;
 	line-height: 150%;
- margin-bottom: 40rpx;
+  margin-bottom: 40rpx;
 }
 
 .text_taskname{

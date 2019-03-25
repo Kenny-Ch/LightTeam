@@ -1,16 +1,53 @@
 // pages/create_task/create_task.js
 Page({
-
-  /**
-   * 页面的初始数据
+   
+   /* 页面的初始数据
    */
   data: {
     checkbox:[
       { name:"创建任务后马上提醒大家"},
       { name: "创建任务后马上提醒大家"},
       { name: "创建任务后马上提醒大家"},
-      ]
-
+      ],
+    multiIndex: [0, 0, 0],
+    dateBegin: '请选择开始日期',
+    dateEnd: '请选择结束日期',
+    timeBegin: '请选择开始时间',
+    timeEnd:'请选择结束时间',
+    index: 1,
+    tag: ['','重要且紧急', '不重要且紧急', '重要且不紧急','不重要且不紧急'],
+    tagicon:['transparenttag','redtag','','',''],
+    tagItem: '全部',
+    },
+  bindDateBeginChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      dateBegin: e.detail.value
+    })
+  },
+  bindDateEndChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      dateEnd: e.detail.value
+    })
+  },
+  bindTimeBeginChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      timeBegin: e.detail.value
+    })
+  },
+  bindTimeEndChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      timeEnd: e.detail.value
+    })
+  },
+  bindTagChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
   },
 
   /**

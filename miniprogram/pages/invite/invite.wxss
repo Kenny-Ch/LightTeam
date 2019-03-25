@@ -1,3 +1,6 @@
+page{
+  
+}
 .icon{
 	width: 280rpx;
 	height: 280rpx;

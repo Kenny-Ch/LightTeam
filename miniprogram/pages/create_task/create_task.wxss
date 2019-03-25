@@ -3,8 +3,10 @@ input{
   width: 650rpx;
   height: 77rpx;
   border-radius: 10rpx;
+  color: #383838;
+  font-size: 30rpx;
 }
-picker{
+.picker{
   border: 1rpx solid #e6e6e6;
   width: 650rpx;
   height: 77rpx;
@@ -37,7 +39,7 @@ picker{
   height: 48rpx;
   position: absolute;
   top:15rpx;
-  right: 110rpx;
+  right: 10rpx;
 }
 .peopleimg-box{
   border: 1rpx solid #e6e6e6;
@@ -91,4 +93,24 @@ button{
   background-color: #6bb8ff;
   color: #fff;
   font-weight: bold;
+}
+.tag{
+  border: 1rpx solid #e6e6e6;
+  width: 600rpx;
+  height: 77rpx;
+  border-radius: 10rpx;
+  position:relative;
+}
+.tag image{
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  top:15rpx;
+  left: 15rpx;
+}
+.tag text{
+  position: absolute;
+  top:12rpx;
+  left: 90rpx;
+  color: #383838;
 }

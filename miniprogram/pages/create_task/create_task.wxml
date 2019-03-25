@@ -2,20 +2,27 @@
 
   <view class='item'>
     <view class='title'>icode小分队</view>
-    <view class='input-border'><input type='text' placeholder=' 请输入标题' placeholder-class='placeholder'></input></view>
+    <view ><text></text><input type='text' placeholder=' 请输入标题' placeholder-class='placeholder'></input></view>
   </view>
 
   <view class='item'>
     <view class='title'>起始与结束</view>
-      <view style='position:relative;'>
-       <picker mode="date" value="" start="0001-01-01" end="9999-12-32">
-          <text class='picker-text'>请选择开始时间</text>
+      <view class='picker' style='position:relative;'>
+        <picker mode="date" value="" start="0001-01-01" end="9999-12-32" bindchange='bindDateBeginChange'style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{dateBegin}}</text>
+        </picker>
+        <picker mode="time" value="" start="00:00" end="99:99" bindchange='bindTimeBeginChange'style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{timeBegin}}</text>
         </picker>
         <image src='/images/datepicker.svg' class="DatePickerImg"></image>
       </view>
-      <view style='position:relative;'>
-        <picker mode="date" value="" start="0001-01-01" end="9999-12-32">
-          <text class='picker-text'>请选择结束时间</text>
+
+      <view class='picker' style='position:relative;'>
+        <picker mode="date" value="" start="0001-01-01" end="9999-12-32" bindchange='bindDateEndChange'style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{dateEnd}}</text>
+        </picker>
+        <picker mode="time" value="" start="00:00" end="99:99" bindchange='bindTimeEndChange'style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{timeEnd}}</text>
         </picker>
         <image src='/images/datepicker.svg' class="DatePickerImg"></image>
       </view>
@@ -41,7 +48,13 @@
 
   <view class='item'>
     <view class='title'>标签</view>
-    <view></view>
+    <view class='picker'>
+      <picker bindchange="bindTagChange" value="{{index}}" range="{{tag}}">
+        <view class='tag' style='margin:0rpx;'>
+          <image src='/images/{{tagicon[index]}}.svg'></image><text>{{tag[index]}}</text>
+        </view>
+      </picker>
+    </view>
   </view>
 
   <view>

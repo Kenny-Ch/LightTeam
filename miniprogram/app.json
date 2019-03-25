@@ -10,7 +10,10 @@
     "pages/chooseLib/chooseLib",
     "pages/maintask/maintask",
     "pages/detail-task/detal-task",
-    "pages/ceshi/ceshi"
+    "pages/ceshi/ceshi",
+    "pages/create_team/create_team",
+    "pages/create_task/create_task",
+    "pages/invite/invite"
   ]
 
 
