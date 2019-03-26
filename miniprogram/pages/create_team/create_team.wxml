@@ -10,7 +10,7 @@
   <textarea placeholder="团队简介" placeholder-style='color:#dee1e3; ' ></textarea>
 </view>
 <view>
-  <button form-type='submit' class='submit'></button>
+  <navigator url='/pages/invite/invite'><button form-type='submit' class='submit'></button></navigator>
 </view>
 <view class='submit-text'>
 <text>创建团队</text>

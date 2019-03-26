@@ -1,6 +1,7 @@
 <view class='text_top'>未完成</view>
 
 <view class='position'>
+<navigator url='/pages/detail-task/detal-task'>
   <view class='box'>
 <view class='text_name'>icode</view>
 <view class='text_intro'>用心做出最好看的小程序</view>
@@ -9,15 +10,20 @@
   </view>
 <view class='box_icon'><view class='text_number'>3</view></view>
 <view></view>
+</navigator>
 </view>
 
+
+
 <view class='position'>
+<navigator url='/pages/detail-task/detal-task'>
   <view class='box'>
 <view class='text_name'>icode</view>
 <view class='text_intro'>用心做出最好看的小程序</view>
 <image class='icon_team' src='/images/team1.svg'></image>
   </view>
 <view class='box_icon'><view class='text_number'>3</view></view>
+</navigator>
 </view>
 
-<view class='homepage_team_add'>+</view>
+<navigator url='/pages/create_team/create_team'><view class='homepage_team_add'>+</view></navigator>

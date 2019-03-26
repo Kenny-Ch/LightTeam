@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -51,8 +51,8 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "团队详情页面1",
+					"id": 3,
+					"name": "团队详情页面",
 					"pathName": "pages/detail-task/detal-task",
 					"query": "",
 					"scene": null
@@ -75,6 +75,13 @@
 					"id": -1,
 					"name": "邀请成员",
 					"pathName": "pages/invite/invite",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "团队详情页面",
+					"pathName": "pages/detail-task/detal-task",
 					"query": "",
 					"scene": null
 				}
