@@ -1,0 +1,19 @@
+<view style='padding-top:27rpx;padding-left:58rpx;padding-right:68rpx;position:relative;'>
+  <text style='font-size:40rpx;color:#505050;font-weight:bold;'>Icode小分队</text>
+  <text style='position:absolute;right:68rpx;top:37rpx;color:#505050;font-size:28rpx;'>3人</text>
+</view>
+<view style='border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative'>
+  <image src='/images/img.jpg' class='img'></image>
+  <text class='member-name'>成员名</text>
+  <checkbox class='checkbox'></checkbox>
+</view>
+<view style='border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative'>
+  <image src='/images/img.jpg' class='img'></image>
+  <text class='member-name'>成员名</text>
+  <checkbox class='checkbox'></checkbox>
+</view>
+<view style='border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative'>
+  <image src='/images/img.jpg' class='img'></image>
+  <text class='member-name'>成员名</text>
+  <checkbox class='checkbox'></checkbox>
+</view>

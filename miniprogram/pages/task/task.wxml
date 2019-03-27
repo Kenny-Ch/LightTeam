@@ -1,0 +1,53 @@
+<view class='box' style='height:150rpx;'>
+  <text class='team-name'>Icode小分队\n</text>
+  <text class='task-name'>完成前端设计工作</text>
+</view>
+
+<view class='box'>
+  <image src='/images/member.svg' class='icon'></image>
+  <view style='position: absolute;top: 23rpx;left: 134rpx;'>
+    <image src='/images/img.jpg' class='member-img'></image>
+    <image src='/images/img.jpg' class='member-img'></image>
+    <image src='/images/img.jpg' class='member-img'></image>
+  </view>
+  
+</view>
+
+<view class='box'>
+  <image src='/images/situation.svg' class='icon'></image>
+  <text class='font' style='position: absolute;left:134rpx;'>状态：正在进行中</text>
+</view>
+
+<view class='box'>
+  <image src='/images/date.svg' class='icon'></image>
+  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>2019-03-31</text><text style='margin-left:15rpx;'>23：59</text></text>
+</view>
+
+<view class='box'>
+  <image src='/images/date.svg' class='icon'></image>
+  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>2019-03-31</text><text style='margin-left:15rpx;'>23：59</text></text>
+</view>
+
+<view class='box'>
+<view>
+<image src='/images/nulltag.svg' class='icon'></image>
+  <text  class='font' style='position: absolute;left:134rpx;'><text>标签：</text><text>未确定内容</text></text>
+</view>
+  
+</view>
+
+<view style='position:relative;margin-top:74rpx;'hidden="{{!buttonHidden}}" bindtouchend='haveReceive'>
+  <button type='submit' class='button'></button>
+  <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view>
+</view>
+
+<view hidden="{{buttonHidden}}">
+  <view style='position:relative;margin-top:57rpx;'>
+    <button type='submit' class='button'></button>
+    <view style='position:absolute;top:18rpx;left:298rpx;color:#fff;font-size:40rpx;'>完成任务</view>
+  </view>
+  <view style='position:relative;margin-top:27rpx;'>
+    <button type='submit' class='button'></button>
+    <view style='position:absolute;top:18rpx;left:254rpx;color:#fff;font-size:40rpx;'>延时完成任务</view>
+  </view>
+</view>

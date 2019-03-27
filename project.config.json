@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -47,13 +47,6 @@
 					"id": -1,
 					"name": "总任务",
 					"pathName": "pages/maintask/maintask",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 3,
-					"name": "团队详情页面",
-					"pathName": "pages/detail-task/detal-task",
 					"query": "",
 					"scene": null
 				},
@@ -80,8 +73,22 @@
 				},
 				{
 					"id": -1,
-					"name": "团队详情页面",
-					"pathName": "pages/detail-task/detal-task",
+					"name": "选择成员",
+					"pathName": "pages/choosemember/choosemember",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "任务详情",
+					"pathName": "pages/task/task",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "团队详情（任务列表）",
+					"pathName": "pages/task-list/task-list",
 					"query": "",
 					"scene": null
 				}

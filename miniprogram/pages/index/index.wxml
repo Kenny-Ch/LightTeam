@@ -1,7 +1,7 @@
 <view class='text_top'>未完成</view>
 
 <view class='position'>
-<navigator url='/pages/detail-task/detal-task'>
+<navigator url='/pages/task-list/task-list'>
   <view class='box'>
 <view class='text_name'>icode</view>
 <view class='text_intro'>用心做出最好看的小程序</view>
@@ -16,7 +16,7 @@
 
 
 <view class='position'>
-<navigator url='/pages/detail-task/detal-task'>
+<navigator url='/pages/task-list/task-list'>
   <view class='box'>
 <view class='text_name'>icode</view>
 <view class='text_intro'>用心做出最好看的小程序</view>

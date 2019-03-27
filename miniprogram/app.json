@@ -9,11 +9,13 @@
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
     "pages/maintask/maintask",
-    "pages/detail-task/detal-task",
+    "pages/task-list/task-list",
     "pages/ceshi/ceshi",
     "pages/create_team/create_team",
     "pages/create_task/create_task",
-    "pages/invite/invite"
+    "pages/invite/invite",
+    "pages/task/task",
+    "pages/choosemember/choosemember"
   ]
 
 

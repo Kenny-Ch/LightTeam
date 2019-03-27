@@ -1,0 +1,48 @@
+.box{
+  border-bottom: 1rpx solid #e3e3e3;
+  padding-left: 42rpx;
+  height: 110rpx;
+  width: 100%;
+  position: relative;
+}
+.font{
+  color: #505050;
+  font-size: 28rpx;
+  position: absolute;
+  top:30rpx;
+}
+.team-name{
+  font-size: 24rpx;
+  color: #6b9aff;
+  position: absolute;
+  top: 23rpx;
+  left: 52rpx;
+}
+.task-name{
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #505050;
+  position: absolute;
+  top: 71rpx;
+  left: 52rpx;
+}
+.icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right:52rpx;
+  position: absolute;
+  top:30rpx;
+}
+.member-img{
+  width:61rpx;
+  height:61rpx;
+  border-radius: 50%;
+  margin-right:22rpx;
+}
+.button{
+  border-radius: 10rpx;
+  height: 90rpx;
+  width: 658rpx;
+  background-color: #6b9aff;
+  color: #fff;
+}
