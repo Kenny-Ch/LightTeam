@@ -12,6 +12,6 @@
 
 <!--邀请成员按钮-->
 <view class='button'>
-  <button></button>
+  <button open-type='share'></button>
 </view>
 <view class='button-text'><span>邀请成员</span></view>

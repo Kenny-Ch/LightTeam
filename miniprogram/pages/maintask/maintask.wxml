@@ -1,8 +1,23 @@
+<view class='box_task' style='height:100rpx;'>
+<view class='text_taskname'>完成ui设计</view>
+
+<view class='box_card'></view>
+
+</view>
+
 <view class='box_task'>
 <view class='text_taskname'>完成ui设计</view>
+<view class='box_card' style='background-color:#ffeb3b;'></view>
+<button   bindtap='onChangeShowState' plain='ture' class='hide_button'>  
+<image src='/images/down.png' class='hide_icon' ></image>
+</button>
+
+
+
+<view class="hide{{showView?'show':''}}">
 <view class='text_title1'>任务进行时间</view>
 <view class='text_title1' style='left:450rpx'>所属团队</view>
 <view class='text_title2'>2019-3-11—2019-3-18</view>
 <view class='text_title2' style='left:450rpx;'>icode小分队</view>
-<view class='box_card'></view>
+</view>
 </view>

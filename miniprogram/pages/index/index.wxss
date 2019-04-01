@@ -43,10 +43,10 @@
 	top: 50rpx;
 	color: rgba(80, 80, 80, 1);
 	background-color: rgba(255, 255, 255, 1);
-	border-radius: 33rpx;
+	border-radius: 11rpx;
 	font-size: 28rpx;
 	line-height: 150%;
-	box-shadow: 0rpx 19rpx 50rpx 0rpx rgba(0, 0, 0, 0.2142857142857143);
+	box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(0, 0, 0, 0.2142857142857143);
 	text-align: center;
   margin-bottom: 30rpx;
 }
