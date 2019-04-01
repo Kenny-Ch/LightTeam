@@ -65,7 +65,7 @@
 	text-align: center;
 }
 
-.hide_button{
+.hide_icon{
   position: absolute;
   width: 60rpx;
   height: 60rpx;
@@ -74,18 +74,9 @@
   border: none;
   outline: none;
 }
-.hide_icon{
-  position: absolute;
-  left: 0;
-  width: 50rpx;
-  height: 60rpx;
-}
 .hide{
  display: none;
 }
 .show{
   display: block;
-}
-hide_button::after{
-  border: none;
 }
