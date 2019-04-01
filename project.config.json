@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -89,6 +89,13 @@
 					"id": -1,
 					"name": "团队详情（任务列表）",
 					"pathName": "pages/task-list/task-list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "授权页面",
+					"pathName": "pages/authorization/authorization",
 					"query": "",
 					"scene": null
 				}

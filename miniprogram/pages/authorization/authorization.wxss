@@ -1,0 +1,15 @@
+/* pages/authorization/authorization.wxss */
+.text{
+  position: fixed;
+  top: 500rpx;
+  left: 240rpx;
+  
+}
+.icon{
+  position: fixed;
+  top: 900rpx;
+  left: 140rpx;
+  width: 500rpx;
+  height: 100rpx;
+  text-align: center;
+}

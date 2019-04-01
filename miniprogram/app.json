@@ -15,7 +15,8 @@
     "pages/create_task/create_task",
     "pages/invite/invite",
     "pages/task/task",
-    "pages/choosemember/choosemember"
+    "pages/choosemember/choosemember",
+    "pages/authorization/authorization"
   ],
 "window": {
   "backgroundTextStyle": "light",
