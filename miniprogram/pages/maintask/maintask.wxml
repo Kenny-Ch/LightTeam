@@ -1,13 +1,18 @@
-<view class='box_task' style='height:100rpx;'>
+<view class='box_b'>
 <view class='text_taskname'>完成ui设计</view>
 <image src='/images/down.png' class='hide_icon'  bindtap='onChangeShowState'></image>
 <view class='box_card'></view>
 </view>
 
-<view class='box_task'>
+<view class="{{showView?'box_a':'box_b'}}">
 <view class='text_taskname'>完成ui设计</view>
 <view class='box_card' style='background-color:#ffeb3b;'></view>
+<view class="{{showView?'hide':'show'}}">
 <image src='/images/down.png' class='hide_icon'  bindtap='onChangeShowState'></image>
+</view>
+<view class="{{showView?'show':'hide'}}">
+<image src='/images/up.png' class='hide_icon'  bindtap='onChangeShowState'></image>
+</view>
 <view class="hide{{showView?'show':''}}">
 <view class='text_title1'>任务进行时间</view>
 <view class='text_title1' style='left:450rpx'>所属团队</view>

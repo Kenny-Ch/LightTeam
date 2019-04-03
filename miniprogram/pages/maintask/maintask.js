@@ -20,6 +20,7 @@ Page({
       showView: (!that.data.showView)
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -67,5 +68,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  height:function(e){
+    if(showView)
+    {
+      var box=e.target.id;
+      
+    }
   }
 })
