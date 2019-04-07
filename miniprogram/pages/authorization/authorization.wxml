@@ -1,3 +1,3 @@
 <!--pages/authorization/authorization.wxml-->
 <view class='text'>请允许授权</view>
-<button open-type='getUserInfo' class='icon'>授权</button>
+<button open-type='getUserInfo' class='icon' bindtap='addData'>授权</button>

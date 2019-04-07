@@ -1,5 +1,4 @@
-// pages/choosemember/choosemember.js
-
+// page/test/test.js
 Page({
 
   /**

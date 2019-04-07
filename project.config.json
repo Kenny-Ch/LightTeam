@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -97,6 +97,12 @@
 					"name": "授权页面",
 					"pathName": "pages/authorization/authorization",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/test",
 					"scene": null
 				}
 			]

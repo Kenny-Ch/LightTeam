@@ -1,0 +1,69 @@
+//查询数据：
+const db = wx.cloud.database()
+    // 查询当前用户所有的 counters
+    db.collection('counters').where({
+      _openid: this.data.openid
+}).get({
+      success: res => {
+        this.setData({
+          queryResult: JSON.stringify(res.data,
+      null,
+      2)
+    })
+        console.log('[数据库
+    ] [查询记录
+    ] 成功: ', res)
+  },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询记录失败'
+    })
+        console.error('[数据库
+    ] [查询记录
+    ] 失败：', err)
+  }
+})
+
+// 修改数据
+const db = wx.cloud.database()
+    const newCount = this.data.count + 1
+    db.collection('counters').doc(this.data.counterId).update({
+      data: {
+        count: newCount
+  },
+      success: res => {
+        this.setData({
+          count: newCount
+    })
+  },
+      fail: err => {
+        icon: 'none',
+        console.error('[数据库
+    ] [更新记录
+    ] 失败：', err)
+  }
+})    
+
+//  删除数据
+const db = wx.cloud.database()
+      db.collection('counters').doc(this.data.counterId).remove({
+        success: res => {
+          wx.showToast({
+            title: '删除成功',
+    })
+          this.setData({
+            counterId: '',
+            count: null,
+    })
+  },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '删除失败',
+    })
+          console.error('[数据库
+    ] [删除记录
+    ] 失败：', err)
+  }
+})
