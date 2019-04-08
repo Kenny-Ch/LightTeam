@@ -85,8 +85,12 @@ Page({
     console.log(event)
     teamCollection.add({
       data: {
-        "teamname": this.data.teamName
+        "teamname": this.data.teamName,
+        "teambrief" : this.data.teamBrief
       },
+      success: res => {
+        console.log(res)
+      }
     })
   }
 })

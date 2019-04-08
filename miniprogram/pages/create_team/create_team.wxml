@@ -12,6 +12,6 @@
 <view>
   <navigator url='/pages/invite/invite'><button form-type='submit' class='submit'></button></navigator>
 </view>
-<view class='submit-text' bindtap='loginBtnClick'>
+<view class='submit-text' bindtap='addData'>
 <text>创建团队</text>
 </view>
