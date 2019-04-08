@@ -14,8 +14,13 @@ Page({
   onLoad: function (options) {
     showView: (options.showView == "true" ? true : false)
   },
-  onChangeShowState: function () {
+  onChangeShowState: function (event) {
     var that = this;
+    // var toggleBtnVal = that.data.uhide;
+    // var itemId = event.currenTarget.id;
+    // if(toggleBtnVal == itemId){
+      
+    // }
     that.setData({
       showView: (!that.data.showView)
     })

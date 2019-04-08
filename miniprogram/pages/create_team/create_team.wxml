@@ -3,15 +3,15 @@
 </view>
 <view class='blank1'></view>
 <view class='team-name'>
-  <input type="text" placeholder="团队名称" placeholder-class='text' ></input>
+  <input type="text" placeholder="团队名称" placeholder-class='text'  bindinput='teamNameInput'></input>
 </view>
 <view class='blank2'></view>
 <view class='team-info'>
-  <textarea placeholder="团队简介" placeholder-style='color:#dee1e3; ' ></textarea>
+  <textarea placeholder="团队简介" placeholder-style='color:#dee1e3; ' bindinput='briefInput'></textarea>
 </view>
 <view>
   <navigator url='/pages/invite/invite'><button form-type='submit' class='submit'></button></navigator>
 </view>
-<view class='submit-text'>
+<view class='submit-text' bindtap='loginBtnClick'>
 <text>创建团队</text>
 </view>

@@ -1,10 +1,28 @@
 // pages/create_team/create_team.js
+const db = wx.cloud.database()
+const teamCollection = db.collection('team')
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    teamName: '',
+    teamBrief:''
+  },
 
+  teamNameInput: function (e) {
+    this.setData({
+      teamName: e.detail.value
+    })
+  },
+  briefInput: function (e) {
+    this.setData({
+      teamBrief: e.detail.value
+    })
+  },
+
+  loginBtnClick: function (e) {
+    console.log("团队：" + this.data.teamName + " 简介：" + this.data.teamBrief)
   },
 
   /**
@@ -61,5 +79,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  addData: function (event) {
+    console.log(event)
+    teamCollection.add({
+      data: {
+        "teamname": this.data.teamName
+      },
+    })
   }
 })
