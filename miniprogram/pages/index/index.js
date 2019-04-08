@@ -1,6 +1,7 @@
 //index.js
 const app = getApp()
-
+const db = wx.cloud.database()
+const teamCollection = db.collection('team')
 Page({
   data: {
     avatarUrl: './user-unlogin.png',
@@ -11,29 +12,11 @@ Page({
   },
 
   onLoad: function() {
-    if (!wx.cloud) {
-      wx.redirectTo({
-        url: '../chooseLib/chooseLib',
-      })
-      return
-    }
-
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo'] ) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              this.setData({
-                avatarUrl: res.userInfo.avatarUrl,
-                userInfo: res.userInfo
-              })
-            }
-          })
-        }
-      }
-    })
+   teamCollection.get().then(res => {
+     this.setData({
+       team : res.data
+     })
+   })
   },
 
   onGetUserInfo: function(e) {

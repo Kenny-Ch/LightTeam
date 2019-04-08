@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    teamName: '',
-    teamBrief:''
+    teamName: "",
+    teamBrief:""
   },
 
   teamNameInput: function (e) {
