@@ -19,7 +19,7 @@
 }
 .text_teamname{
   position: absolute;
-  width: 326rpx;
+  width: 426rpx;
 	height: 86rpx;
 	left: 213rpx;
 	top: 0rpx;
