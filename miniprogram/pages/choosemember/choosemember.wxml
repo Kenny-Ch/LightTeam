@@ -9,7 +9,4 @@
   <text class='member-name'>{{item.nickName}}</text>
   <checkbox class='checkbox'></checkbox>
 </view>
-
-
-
 </block>

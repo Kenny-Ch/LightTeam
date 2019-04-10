@@ -1,6 +1,6 @@
-// pages/detail-task/detal-task.js
+// pages/number-list/number-list.js
 const db = wx.cloud.database()
-const teamCollection = db.collection('team')
+const nameCollection = db.collection('name')
 Page({
 
   /**
@@ -14,13 +14,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    teamCollection.get().then(res => {
+    nameCollection.get().then(res => {
       this.setData({
-        team: res.data
+        name: res.data
       })
     })
-
-    showView: (options.showView == "true" ? true : false)
   },
 
   /**
@@ -29,17 +27,7 @@ Page({
   onReady: function () {
 
   },
-  onChangeShowState: function (event) {
-    var that = this;
-    // var toggleBtnVal = that.data.uhide;
-    // var itemId = event.currenTarget.id;
-    // if(toggleBtnVal == itemId){
 
-    // }
-    that.setData({
-      showView: (!that.data.showView)
-    })
-  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -80,11 +68,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  height: function (e) {
-    if (showView) {
-      var box = e.target.id;
-
-    }
   }
 })

@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -103,6 +103,13 @@
 					"id": -1,
 					"name": "test",
 					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "团队详情（成员列表）",
+					"pathName": "pages/number-list/number-list",
 					"query": "",
 					"scene": null
 				}
