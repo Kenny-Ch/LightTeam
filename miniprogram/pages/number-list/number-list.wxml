@@ -1,10 +1,9 @@
-
 <view class='box_top'>
 <view>
 <view class='text_teamname'>icode小分队</view>
 <view class='text_number'>3人</view>
 <view class='buttom2'>
-<navigator url='/pages/task-list/task-list'><view class='buttom_team' style='left:60rpx;'>任务</view></navigator>
+<view class='buttom_team' style='left:60rpx;'>任务</view>
 </view>
 <view class='buttom' style='left:390rpx;'>
 <view class='buttom_text'>成员</view>
