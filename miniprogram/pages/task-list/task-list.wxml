@@ -1,23 +1,27 @@
 <!--pages/detail-task/detal-task.wxml-->
 
 
-
+<block wx:for="{{team}}">
 <view class='box_top'>
 
 
 <view>
-<view class='text_teamname'>icode小分队</view>
+
+<view class='text_teamname'>{{item.name}}</view>
 <view class='text_number'>3人</view>
 <view class='buttom2'>
-<view class='buttom_team' >成员</view>
+
+<navigator url='/pages/member-list/member-list'><view class='buttom_team' >成员</view></navigator>
+
 </view>
 <view class='buttom'>
 <view class='buttom_text'>任务</view>
 </view>
-<view class='text_intro'>团队简介</view>
+<view class='text_intro'>{{item.introduce}}</view>
 <image src='/images/pen.svg' class='icon_pen'></image>
 </view>
 </view>
+</block>
 
 
 
@@ -39,21 +43,6 @@
 </view>
 </view>
 
-<view class="{{showView?'box_a':'box_b'}}" style='top:20rpx;'>
-<view class='text_taskname'>完成ui设计</view>
-<view class='box_card' style='background-color:#ffeb3b;'></view>
-<view class="{{showView?'hide':'show'}}">
-<image src='/images/down.png' class='hide_icon'  bindtap='onChangeShowState'></image>
-</view>
-<view class="{{showView?'show':'hide'}}">
-<image src='/images/up.png' class='hide_icon'  bindtap='onChangeShowState'></image>
-</view>
-<view class="hide{{showView?'show':''}}">
-<view class='text_title1'>任务进行时间</view>
-<view class='text_title1' style='left:450rpx'>所属团队</view>
-<view class='text_title2'>2019-3-11—2019-3-18</view>
-<view class='text_title2' style='left:450rpx;'>icode小分队</view>
-</view>
 </view>
 
-</view>
+<navigator url='/pages/create_task/create_task'><view class='homepage_team_add'>+</view></navigator>

@@ -4,16 +4,20 @@
 <block wx:for="{{team}}">
 
 <view class='position'>
-  <view class='box' bindtap='teamDetail'>
-    <view class='text_name'>{{item.teamname}}</view>
-    <view class='text_intro'>{{item.teambrief}}</view>
-    <image class='icon_team' src='/images/team1.svg'></image>
-    <view class='people'>10人</view>
+<navigator url='/pages/task-list/task-list'>
+  <view class='box'>
+<view class='text_name'>{{item.teamname}}</view>
+<view class='text_intro'>{{item.teambrief}}</view>
+<image class='icon_team' src='/images/team1.svg'></image>
+<view class='people'>10人</view>
   </view>
-    <view class='box_icon' bindtap='teamDetail'><view class='text_number'>3</view></view>
+<view class='box_icon'><view class='text_number'>3</view></view>
+<view></view>
+</navigator>
 </view>
 
 </block>
-<view class='homepage_team_add' bindtap='addTeam'>+</view>
+
+<navigator url='/pages/create_team/create_team'><view class='homepage_team_add'>+</view></navigator>
 
 

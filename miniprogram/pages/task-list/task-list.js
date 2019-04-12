@@ -19,8 +19,9 @@ Page({
         team: res.data
       })
     })
-
     showView: (options.showView == "true" ? true : false)
+    var that = this;
+    var taskName = that.data.taskName;
   },
 
   /**

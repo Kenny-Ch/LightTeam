@@ -2,7 +2,20 @@
 .back{
   background-color: #ffffff;
 }
-
+/*创建团队按钮*/
+.homepage_team_add{
+  border-radius:100px;
+  position: fixed;
+  font-size: 80rpx;
+  left: 620rpx;
+  top: 85%;
+  height: 100rpx;
+  width: 100rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: rgba(107, 184, 255, 1);
+  color: white;
+}
 
 .box_top{
   position: fixed;
@@ -19,7 +32,7 @@
 }
 .text_teamname{
   position: absolute;
-  width: 326rpx;
+  width: 426rpx;
 	height: 86rpx;
 	left: 213rpx;
 	top: 0rpx;
