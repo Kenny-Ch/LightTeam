@@ -21,10 +21,10 @@ Page({
         this.setData({
           team: res.data
         })
-        console.log(res.data)
+        console.log(team)
       }
-
     })
+    
     // taskCollection.get().then(res => {
     //   this.setData({
     //     task: res.data
@@ -99,13 +99,19 @@ Page({
     var that = this;
     var Id = e.currentTarget.dataset.id;
     console.log('Id:' + Id);
-    taskCollection.where({
-      _id: 'XK4SWVsqTi00trGh'}
-    ).get().then(res => {
+    taskCollection.where({_id: Id}).get().then(res => {
       that.setData({
         task: res.data
       })
       console.log(res.data)
+    })
+    // var toggleBtnVal = that.data.uhide;
+    // var itemId = event.currenTarget.id;
+    // if(toggleBtnVal == itemId){
+
+    // }
+    that.setData({
+      showView: (!that.data.showView)
     })
   },
   

@@ -18,40 +18,33 @@
 <image src='/images/pen.svg' class='icon_pen'></image>
 </view>
 </view>
+<view wx:for="{{item.taskList}}" wx:for-index="num" wx:for-item="tags" data-id="{{tags}}">
+</view>
 </block>
 
 
-<!-- <view wx:for="{{team}}"> -->
-<view class='back' style='position:relative;top:320rpx;'   catchtap="catchTheID" >
-<view class="{{showView?'box_a':'box_b'}}" style='top:20rpx;' data-id="{{tags}}">
 
-
-<view wx:for="{{team.taskList}}" wx:for-index="num" wx:for-item="tags">
-<view class='text_taskname'>{{tags}}</view>
-</view>
- 
-
-
+<view class='back' style='position:relative;top:320rpx;'   catchtap="catchTheID">
+<view class="{{showView?'box_a':'box_b'}}" style='top:20rpx;' >
 <view class='box_card' style='background-color:#ffeb3b;'></view>
 <view class="{{showView?'hide':'show'}}">
-<image src='/images/down.png' class='hide_icon'  bindtap='onChangeShowState' ></image>
+<image src='/images/down.png' class='hide_icon'  bcatchtap="catchTheID" ></image>
 </view>
 <view class="{{showView?'show':'hide'}}">
-<image src='/images/up.png' class='hide_icon'  bindtap='onChangeShowState'></image>
+<image src='/images/up.png' class='hide_icon'  catchtap="catchTheID"></image>
 </view>
 
 
-<view wx:for="{{task}}">
+<view wx:for="{{task}}" wx:for-index="number" wx:for-item="tag" >
+<view class='text_taskname'>{{tag.name}}</view>
 <view class="hide{{showView?'show':''}}">
 <view class='text_title1'>任务进行时间</view>
 <view class='text_title1' style='left:450rpx'>所属团队</view>
-<view class='text_title2'>{{item.endTime}}</view>
-<view class='text_title2' style='left:450rpx;'>{{item.team}}</view>
+<view class='text_title2'>{{tag.endTime}}</view>
+<view class='text_title2' style='left:450rpx;'>{{tag.team}}</view>
+</view>
 </view>
 </view>
 </view>
 
-
-</view>
-<!-- </view> -->
 <navigator url='/pages/create_task/create_task'><view class='homepage_team_add'>+</view></navigator>
