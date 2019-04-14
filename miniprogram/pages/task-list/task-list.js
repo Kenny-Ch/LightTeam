@@ -1,6 +1,7 @@
 // pages/detail-task/detal-task.js
 const db = wx.cloud.database()
 const teamCollection = db.collection('team')
+const taskCollection = db.collection('task')
 Page({
 
   /**
@@ -14,14 +15,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    teamCollection.get().then(res => {
-      this.setData({
-        team: res.data
-      })
+    // console.log(options)
+    teamCollection.doc(options.id).get({
+      success: res => {
+        this.setData({
+          team: res.data
+        })
+        console.log(res.data)
+      }
+
     })
-    showView: (options.showView == "true" ? true : false)
-    var that = this;
-    var taskName = that.data.taskName;
+    // taskCollection.get().then(res => {
+    //   this.setData({
+    //     task: res.data
+    //   })
+    // })
+   
+    // teamCollection('team')
+    //   .where({
+    //     _id: XK4VkXkPDdDCJ860
+    //   })
   },
 
   /**
@@ -82,10 +95,23 @@ Page({
   onShareAppMessage: function () {
 
   },
+  catchTheID: function (e) {
+    var that = this;
+    var Id = e.currentTarget.dataset.id;
+    console.log('Id:' + Id);
+    taskCollection.where({
+      _id: 'XK4SWVsqTi00trGh'}
+    ).get().then(res => {
+      that.setData({
+        task: res.data
+      })
+      console.log(res.data)
+    })
+  },
+  
   height: function (e) {
     if (showView) {
       var box = e.target.id;
-
     }
   }
 })

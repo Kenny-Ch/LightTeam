@@ -27,6 +27,7 @@ Page({
       avatarUrl:true,
       nickName:true
     })
+
   },
 
   /**
@@ -79,7 +80,7 @@ Page({
   },
   longPress: function (e) {
     var that = this;
-    var user = that.data.user;
+    var team = that.data.userList2;
     var index = e.currentTarget.dataset.index;//获取当前名片下标
     wx.showModal({ //使用模态框提示用户进行操作
       title: 'FBI Warning',
@@ -91,9 +92,12 @@ Page({
           //     console.log(that.data.id)
           //   }
           // })
-          user.splice(index, 1);
+          team.splice(index, 0);
           console.log(res);
         }
+        that.setData({
+          userList2
+        });
       }
     })
   }
