@@ -1,0 +1,25 @@
+<view class='box_top'>
+<view>
+<view class='text_teamname'>icode小分队</view>
+<view class='text_number'>3人</view>
+<view class='buttom2'>
+<view class='buttom_team' style='left:60rpx;'>任务</view>
+</view>
+<view class='buttom' style='left:390rpx;'>
+<view class='buttom_text'>成员</view>
+</view>
+<view class='text_intro'>团队简介</view>
+<image src='/images/pen.svg' class='icon_pen'></image>
+</view>
+</view>
+
+
+<view class='back' style='position:relative;top:320rpx;'>
+<block wx:for="{{name}}">
+<view style='border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative'>
+  <image src='{{item.avatarUrl}}' class='img'></image>
+  <text class='member-name'>{{item.nickName}}</text>
+  <!-- <checkbox class='checkbox'></checkbox> -->
+</view>
+</block>
+</view>

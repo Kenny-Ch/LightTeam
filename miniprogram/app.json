@@ -17,7 +17,7 @@
     "pages/task/task",
     "pages/choosemember/choosemember",
     "pages/authorization/authorization",
-    "pages/member-list/member-list"
+    "pages/number-list/number-list"
   ],
 "window": {
   "backgroundTextStyle": "light",

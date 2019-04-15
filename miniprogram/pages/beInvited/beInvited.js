@@ -1,4 +1,3 @@
-// pages/detail-task/detal-task.js
 const db = wx.cloud.database()
 const teamCollection = db.collection('team')
 Page({
@@ -7,20 +6,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    hide:false,
+    teamId:'',
+    userId:'',
+    teamName:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    teamCollection.get().then(res => {
-      this.setData({
-        team: res.data
+    console.log('【传入新建团队id参数】【传入团队id参数成功】',options)
+    this.data.teamId=options.teamId
+    this.userId =getApp().globalData.openId
+    teamCollection.doc(options.teamId)
+      .get({
+        success: res => {
+          console.log('【获取指定用户team信息】【获取成功】', res.data),
+            this.setData({
+              leaderId: res.data.name
+            })
+        }
       })
-    })
-
-    showView: (options.showView == "true" ? true : false)
   },
 
   /**
@@ -29,17 +36,7 @@ Page({
   onReady: function () {
 
   },
-  onChangeShowState: function (event) {
-    var that = this;
-    // var toggleBtnVal = that.data.uhide;
-    // var itemId = event.currenTarget.id;
-    // if(toggleBtnVal == itemId){
 
-    // }
-    that.setData({
-      showView: (!that.data.showView)
-    })
-  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -80,11 +77,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  height: function (e) {
-    if (showView) {
-      var box = e.target.id;
-
-    }
   }
 })

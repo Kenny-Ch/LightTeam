@@ -4,15 +4,21 @@ const db = wx.cloud.database()
 const teamCollection = db.collection('team')
 Page({
   data: {
-    // avatarUrl: './user-unlogin.png',
-    // userInfo: {},
-    // logged: false,
-    // takeSession: false,
-    // requestResult: ''
+    avatarUrl: './user-unlogin.png',
+    userInfo: {},
+    logged: false,
+    takeSession: false,
+    requestResult: '',
   },
-
-  onLoad: function() {
-   teamCollection.get().then(res => {
+  
+  onLoad: function(options) {
+    // wx.getShareInfo({
+    //   // shareTicket: shareTickets[0],
+    //   success: function (res) {
+    //     console.log(res,'获取tickies')
+    //   }
+    // }),
+    teamCollection.get().then(res => {
      this.setData({
        team : res.data
      })
@@ -99,5 +105,14 @@ Page({
       }
     })
   },
-
+  addTeam:function(){
+    wx.navigateTo({
+      url: '/pages/create_team/create_team'
+    })
+  },
+  teamDetail:function(){
+    wx.navigateTo({
+      url: '/pages/task-list/task-list'
+    })
+  }
 })
