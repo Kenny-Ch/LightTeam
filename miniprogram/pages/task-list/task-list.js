@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+   uhide:0
   },
 
   /**
@@ -95,26 +95,28 @@ Page({
   onShareAppMessage: function () {
 
   },
-  catchTheID: function (e) {
+  catchTheID: function (event) {
     var that = this;
-    var Id = e.currentTarget.dataset.id;
-    console.log('Id:' + Id);
-    taskCollection.where({_id: Id}).get().then(res => {
-      that.setData({
-        task: res.data
+    var Id = event.currentTarget.id;
+    var boxid = that.data.uhide;
+    console.log('boxid:' + boxid)
+    if (boxid == Id) {
+      console.log('Id:' + Id);
+      taskCollection.where({ _id: Id }).get().then(res => {
+        that.setData({
+          task: res.data,
+          uhide: 0
+        })
+        console.log(res.data)
       })
-      console.log(res.data)
-    })
-    // var toggleBtnVal = that.data.uhide;
-    // var itemId = event.currenTarget.id;
-    // if(toggleBtnVal == itemId){
-
-    // }
-    that.setData({
-      showView: (!that.data.showView)
-    })
+    } else {
+      that.setData({
+        uhide: Id
+      })
+    }
+      
+    
   },
-  
   height: function (e) {
     if (showView) {
       var box = e.target.id;

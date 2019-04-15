@@ -2,7 +2,7 @@
 <block wx:for="{{team}}">
 <view class='box_top'>
 <view>
-<view class='text_teamname'>{{team.name}}</view>
+<view class='text_teamname'>{{task.name}}</view>
 <view class='text_number'>3人</view>
 <view class='buttom2'>
 
@@ -16,23 +16,23 @@
 <image src='/images/pen.svg' class='icon_pen'></image>
 </view>
 </view>
-<view wx:for="{{team.taskList}}" wx:for-index="num" wx:for-item="tags" data-id="{{tags.taskid}}">
+<view wx:for="{{team.taskList}}" wx:for-index="num" wx:for-item="tags">
 
-<view class='back' style='position:relative;top:320rpx;'  data-id="{{tags.taskid}}"  catchtap="catchTheID">
-<view class="{{showView?'box_a':'box_b'}}" style='top:20rpx;' >
+<view class='back' style='position:relative;top:320rpx;'  id="{{tags.taskid}}"  catchtap="catchTheID">
+<view class="{{(uhide==tags.taskid)?'box_a':'box_b'}}" style='top:20rpx;' >
 <view class='box_card' style='background-color:#ffeb3b;'></view>
-<view class="{{showView?'hide':'show'}}">
-<image src='/images/down.png' class='hide_icon'  bcatchtap="catchTheID" ></image>
+<view class="{{(uhide==tags.taskid)?'hide':'show'}}">
+<image src='/images/down.png' class='hide_icon' ></image>
 </view>
-<view class="{{showView?'show':'hide'}}">
-<image src='/images/up.png' class='hide_icon'  catchtap="catchTheID"></image>
+<view class="{{(uhide==tags.taskid)?'show':'hide'}}">
+<image src='/images/up.png' class='hide_icon'  ></image>
 </view>
 
 <view class='text_taskname'>{{tags.taskname}}</view>
 <view wx:for="{{task}}" wx:for-index="number" wx:for-item="tag" >
 
 
-<view class="hide{{showView?'show':''}}">
+<view class="hide{{( uhide==tags.taskid)?'show':''}}">
 <view class='text_title1'>任务进行时间</view>
 <view class='text_title1' style='left:450rpx'>所属团队</view>
 <view class='text_title2'>{{tag.endTime}}</view>
