@@ -1,6 +1,4 @@
 <!--pages/detail-task/detal-task.wxml-->
-
-
 <block wx:for="{{team}}">
 <view class='box_top'>
 <view>
@@ -18,13 +16,9 @@
 <image src='/images/pen.svg' class='icon_pen'></image>
 </view>
 </view>
-<view wx:for="{{item.taskList}}" wx:for-index="num" wx:for-item="tags" data-id="{{tags}}">
-</view>
-</block>
+<view wx:for="{{team.taskList}}" wx:for-index="num" wx:for-item="tags" data-id="{{tags.taskid}}">
 
-
-
-<view class='back' style='position:relative;top:320rpx;'   catchtap="catchTheID">
+<view class='back' style='position:relative;top:320rpx;'  data-id="{{tags.taskid}}"  catchtap="catchTheID">
 <view class="{{showView?'box_a':'box_b'}}" style='top:20rpx;' >
 <view class='box_card' style='background-color:#ffeb3b;'></view>
 <view class="{{showView?'hide':'show'}}">
@@ -34,9 +28,10 @@
 <image src='/images/up.png' class='hide_icon'  catchtap="catchTheID"></image>
 </view>
 
-
+<view class='text_taskname'>{{tags.taskname}}</view>
 <view wx:for="{{task}}" wx:for-index="number" wx:for-item="tag" >
-<view class='text_taskname'>{{tag.name}}</view>
+
+
 <view class="hide{{showView?'show':''}}">
 <view class='text_title1'>任务进行时间</view>
 <view class='text_title1' style='left:450rpx'>所属团队</view>
@@ -46,5 +41,12 @@
 </view>
 </view>
 </view>
+
+</view>
+</block>
+
+
+
+
 
 <navigator url='/pages/create_task/create_task'><view class='homepage_team_add'>+</view></navigator>
