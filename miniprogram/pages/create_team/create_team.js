@@ -7,8 +7,7 @@ Page({
    */
   data: {
     teamName: "",
-    teamBrief:"",
-    teamid:"5555"
+    teamBrief:""
   },
 
   teamNameInput: function (e) {
@@ -20,6 +19,10 @@ Page({
     this.setData({
       teamBrief: e.detail.value
     })
+  },
+
+  loginBtnClick: function (e) {
+    console.log("团队：" + this.data.teamName + " 简介：" + this.data.teamBrief)
   },
 
   /**
@@ -79,44 +82,15 @@ Page({
   },
 
   addData: function (event) {
-    if(!this.data.teamName){
-      console.log('【团队名称输入情况】【未输入】',event)
-      wx.showToast({
-        title: '团队的名称未填写哟~',
-        icon: 'none',
-        duration: 2000
-      })
-        // success(res) {
-        //   if (res.confirm) {
-        //     console.log('【弹窗点击情况】【用户点击确定】')
-        //   } else if (res.cancel) {
-        //     console.log('【弹窗点击情况】【用户点击取消】')
-        //   }
-        // }
-    }
-    else{
-      teamCollection.add({
-        data: {
-          "teamname": this.data.teamName,
-          "teambrief": this.data.teamBrief,
-          "leader":getApp().globalData.openid,
-          "taskList":[],
-          "unfinishedTask":0,
-          "userList":[],
-          "userNum":0
-        },
-        success: res => {
-          this.setData({
-            teamid:res._id
-          })
-          console.log('【添加团队信息】【成功添加团队信息】', this.data)
-          wx.redirectTo({
-            url: '/pages/invite/invite?teamid=' + res._id
-          })
-        }
-      })
-      
-    }
-  
+    console.log(event)
+    teamCollection.add({
+      data: {
+        "teamname": this.data.teamName,
+        "teambrief" : this.data.teamBrief
+      },
+      success: res => {
+        console.log(res)
+      }
+    })
   }
 })

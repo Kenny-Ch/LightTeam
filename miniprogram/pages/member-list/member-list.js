@@ -1,6 +1,8 @@
 // pages/number-list/number-list.js
 const db = wx.cloud.database()
 const nameCollection = db.collection('name')
+const teamCollection = db.collection('team')
+const _ =db.command
 Page({
 
   /**
@@ -14,11 +16,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    nameCollection.get().then(res => {
+    teamCollection.get().then(res => {
       this.setData({
-        name: res.data
+        team: res.data
       })
+
     })
+    nameCollection.doc(options.id).field({
+      gender:true,
+      avatarUrl:true,
+      nickName:true
+    })
+
   },
 
   /**
@@ -68,5 +77,28 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  longPress: function (e) {
+    var that = this;
+    var team = that.data.userList2;
+    var index = e.currentTarget.dataset.index;//获取当前名片下标
+    wx.showModal({ //使用模态框提示用户进行操作
+      title: 'FBI Warning',
+      content: '你确认要删除吗？',
+      success: function (res) {
+        if (res.confirm) { //判断用户是否点击了确定
+          // teamCollection.doc(that.data.id).remove({
+          //   success(res) {
+          //     console.log(that.data.id)
+          //   }
+          // })
+          team.splice(index, 0);
+          console.log(res);
+        }
+        that.setData({
+          userList2
+        });
+      }
+    })
   }
 })

@@ -1,6 +1,6 @@
 // pages/authorization/authorization.js
 const db = wx.cloud.database()
-const nameCollection = db.collection('name')
+const userCollection = db.collection('user')
 Page({
 
   /**
@@ -24,7 +24,6 @@ Page({
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
-          console.log("【用户授权】【成功授权】")
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
@@ -32,8 +31,8 @@ Page({
               this.setData({
                 userInfo: res.userInfo//把成功获取的内容存到这个page的data里面
               })
+              console.log("success")//若完成上一步走到这一步的话输出“成功”
               console.log(this.data.userInfo)//输出page的data里面userInfo这个列表，判断是否成功存进去了
-              console.log("【用户信息存入】【信息成功存入该页面的data中】")//若完成上一步走到这一步的话输出“成功”
             }
           })
         }

@@ -1,14 +1,14 @@
 <view class='box' style='height:150rpx;'>
-  <text class='team-name'>{{teamName}}</text>
-  <text class='task-name'>{{taskName}}</text>
+  <text class='team-name'>Icode小分队\n</text>
+  <text class='task-name'>完成前端设计工作</text>
 </view>
 
 <view class='box'>
   <image src='/images/member.svg' class='icon'></image>
-  <view  wx:for="{{memberImgList}}">
-  <view style='position: absolute;top: 23rpx;left: {{index*80+134}}rpx;'>
-    <image src='{{item}}' class='member-img'></image>
-  </view>
+  <view style='position: absolute;top: 23rpx;left: 134rpx;'>
+    <image src='/images/img.jpg' class='member-img'></image>
+    <image src='/images/img.jpg' class='member-img'></image>
+    <image src='/images/img.jpg' class='member-img'></image>
   </view>
   
 </view>
@@ -20,18 +20,18 @@
 
 <view class='box'>
   <image src='/images/date.svg' class='icon'></image>
-  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>{{dateBegin}}</text><text style='margin-left:15rpx;'>{{timeBegin}}</text></text>
+  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>2019-03-31</text><text style='margin-left:15rpx;'>23：59</text></text>
 </view>
 
 <view class='box'>
   <image src='/images/date.svg' class='icon'></image>
-  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>{{dateEnd}}</text><text style='margin-left:15rpx;'>{{timeEnd}}</text></text>
+  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>2019-03-31</text><text style='margin-left:15rpx;'>23：59</text></text>
 </view>
 
 <view class='box'>
 <view>
 <image src='/images/nulltag.svg' class='icon'></image>
-  <text  class='font' style='position: absolute;left:134rpx;'><text>标签：</text><text>{{tag[tagNum]}}</text></text>
+  <text  class='font' style='position: absolute;left:134rpx;'><text>标签：</text><text>未确定内容</text></text>
 </view>
   
 </view>

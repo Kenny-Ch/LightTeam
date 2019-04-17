@@ -1,6 +1,7 @@
 // pages/choosemember/choosemember.js
 const db =wx. cloud.database()
-const nameCollection = db.collection('name')
+const teamCollection = db.collection('team')
+const userCollection = db.collection('user')
 Page({
 
   /**
@@ -14,11 +15,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  nameCollection.get().then(res => {
-    this.setData({
-      name:res.data
+    var that = this;
+    console.log(options.id)
+    userCollection.where({
+      'teamList' : options.id
+    }).get({
+      success: res => {
+        that.setData({
+          user : res.data,
+        })
+ 
+        // console.log(Id)
+        // userCollection.doc(Id).get({
+        //   success: res => {
+        //     that.setData({
+        //       user: res.data
+        //     })
+        //   }
+        // })
+      }
     })
-  })
+
   },
 
   /**
