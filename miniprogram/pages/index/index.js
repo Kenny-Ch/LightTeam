@@ -2,21 +2,24 @@
 const app = getApp()
 const db = wx.cloud.database()
 const teamCollection = db.collection('team')
+const userCollection = db.collection('user')
 Page({
   data: {
-    // avatarUrl: './user-unlogin.png',
-    // userInfo: {},
-    // logged: false,
-    // takeSession: false,
-    // requestResult: ''
+    
   },
 
-  onLoad: function() {
-   teamCollection.get().then(res => {
-     this.setData({
-       team : res.data
-     })
-   })
+  onLoad: function(options) {
+    var that = this;
+    console.log(options.id)
+    // var Id = options
+    teamCollection.where({
+      'userList.id': options.id
+    }).get().then(res => {
+      that.setData({
+        team: res.data
+      })
+      console.log(res.data)
+    })
   },
 
   onGetUserInfo: function(e) {

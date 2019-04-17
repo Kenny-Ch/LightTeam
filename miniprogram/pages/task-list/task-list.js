@@ -2,6 +2,7 @@
 const db = wx.cloud.database()
 const teamCollection = db.collection('team')
 const taskCollection = db.collection('task')
+
 Page({
 
   /**
@@ -16,12 +17,24 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options)
+    var that = this;
+    console.log(options.id)
     teamCollection.doc(options.id).get({
       success: res => {
-        this.setData({
-          team: res.data
+        that.setData({
+          team : res.data
         })
-        console.log(team)
+        console.log(res.data)
+      }
+    }),
+    taskCollection.where({
+      team : options.id
+    }).get({
+      success: res => {
+        that.setData({
+          task: res.data
+        })
+        console.log(res.data)
       }
     })
     
@@ -101,14 +114,9 @@ Page({
     var boxid = that.data.uhide;
     console.log('boxid:' + boxid)
     if (boxid == Id) {
-      console.log('Id:' + Id);
-      taskCollection.where({ _id: Id }).get().then(res => {
         that.setData({
-          task: res.data,
           uhide: 0
         })
-        console.log(res.data)
-      })
     } else {
       that.setData({
         uhide: Id

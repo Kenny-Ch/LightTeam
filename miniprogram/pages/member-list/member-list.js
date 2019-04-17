@@ -1,6 +1,6 @@
 // pages/number-list/number-list.js
 const db = wx.cloud.database()
-const nameCollection = db.collection('name')
+const userCollection = db.collection('user')
 const teamCollection = db.collection('team')
 const _ =db.command
 Page({
@@ -16,17 +16,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    teamCollection.get().then(res => {
-      this.setData({
-        team: res.data
+    var that = this;
+    console.log(options.id)
+    userCollection.where({
+      'teamList' : options.id
+    }).get({
+      success: res => {
+        that.setData({
+          user: res.data
       })
+        console.log(res.data)
+      }
+    })
 
-    })
-    nameCollection.doc(options.id).field({
-      gender:true,
-      avatarUrl:true,
-      nickName:true
-    })
 
   },
 

@@ -40,14 +40,14 @@
 					"id": 1,
 					"name": "主页面",
 					"pathName": "pages/index/index",
-					"query": "",
+					"query": "id=XK4Oq4nnuWjci08g",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "总任务",
 					"pathName": "pages/maintask/maintask",
-					"query": "",
+					"query": "id=XK4Oq4nnuWjci08g",
 					"scene": null
 				},
 				{
@@ -72,10 +72,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "选择成员",
 					"pathName": "pages/choosemember/choosemember",
-					"query": "",
+					"query": "id=XK4VkXkPDdDCJ860",
 					"scene": null
 				},
 				{
@@ -89,7 +89,7 @@
 					"id": 8,
 					"name": "团队详情（任务列表）",
 					"pathName": "pages/task-list/task-list",
-					"query": "id = XK4VkXkPDdDCJ860",
+					"query": "id=XK4VkXkPDdDCJ860",
 					"scene": null
 				},
 				{
@@ -103,7 +103,7 @@
 					"id": 10,
 					"name": "团队详情（成员列表）",
 					"pathName": "pages/member-list/member-list",
-					"query": "",
+					"query": "id=XK4VkXkPDdDCJ860",
 					"scene": null
 				}
 			]
