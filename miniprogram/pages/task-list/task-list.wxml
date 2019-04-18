@@ -5,7 +5,7 @@
 <view class='text_teamname'>{{team.name}}</view>
 <view class='text_number'>{{team.userNum}}人</view>
 <view class='buttom2'>
-<navigator url='/pages/member-list/member-list'><view class='buttom_team' >成员</view></navigator>
+<navigator url='/pages/member-list/member-list?id={{team._id}}'><view class='buttom_team' >成员</view></navigator>
 </view>
 <view class='buttom'>
 <view class='buttom_text'>任务</view>

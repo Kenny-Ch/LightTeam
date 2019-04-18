@@ -4,7 +4,7 @@
 <block wx:for="{{team}}"  wx:for-index="num" wx:for-item="tags">
 
 <view class='position'>
-<navigator url='/pages/task-list/task-list'>
+<navigator url='/pages/task-list/task-list?id={{tags._id}}'>
   <view class='box'>
 <view class='text_name'>{{tags.name}}</view>
 <view class='text_intro'>{{tags.introduce}}</view>

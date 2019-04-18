@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -89,7 +89,7 @@
 					"id": 8,
 					"name": "团队详情（任务列表）",
 					"pathName": "pages/task-list/task-list",
-					"query": "id=XK4VkXkPDdDCJ860",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -103,7 +103,7 @@
 					"id": 10,
 					"name": "团队详情（成员列表）",
 					"pathName": "pages/member-list/member-list",
-					"query": "id=XK4VkXkPDdDCJ860",
+					"query": "",
 					"scene": null
 				}
 			]
