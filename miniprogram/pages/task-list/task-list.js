@@ -1,53 +1,30 @@
 // pages/detail-task/detal-task.js
 const db = wx.cloud.database()
 const teamCollection = db.collection('team')
-const taskCollection = db.collection('task')
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   uhide:0
-  },
 
+  },
+  bindMemberList: function () {
+    wx.redirectTo({
+      url: '/pages/number-list/number-list',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options)
-    var that = this;
-    console.log(options.id)
-    teamCollection.doc(options.id).get({
-      success: res => {
-        that.setData({
-          team : res.data
-        })
-        console.log(res.data)
-      }
-    }),
-    taskCollection.where({
-      team : options.id
-    }).get({
-      success: res => {
-        that.setData({
-          task: res.data
-        })
-        console.log(res.data)
-      }
+    teamCollection.get().then(res => {
+      this.setData({
+        team: res.data
+      })
     })
-    
-    // taskCollection.get().then(res => {
-    //   this.setData({
-    //     task: res.data
-    //   })
-    // })
-   
-    // teamCollection('team')
-    //   .where({
-    //     _id: XK4VkXkPDdDCJ860
-    //   })
+
+    showView: (options.showView == "true" ? true : false)
   },
 
   /**
@@ -108,26 +85,10 @@ Page({
   onShareAppMessage: function () {
 
   },
-  catchTheID: function (event) {
-    var that = this;
-    var Id = event.currentTarget.id;
-    var boxid = that.data.uhide;
-    console.log('boxid:' + boxid)
-    if (boxid == Id) {
-        that.setData({
-          uhide: 0
-        })
-    } else {
-      that.setData({
-        uhide: Id
-      })
-    }
-      
-    
-  },
   height: function (e) {
     if (showView) {
       var box = e.target.id;
+
     }
   }
 })
