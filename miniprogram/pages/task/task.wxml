@@ -5,9 +5,9 @@
 
 <view class='box'>
   <image src='/images/member.svg' class='icon'></image>
-  <view  wx:for="{{memberImgList}}">
+  <view  wx:for="{{memberList}}">
   <view style='position: absolute;top: 23rpx;left: {{index*80+134}}rpx;'>
-    <image src='{{item}}' class='member-img'></image>
+    <image src='{{item.Url}}' class='member-img'></image>
   </view>
   </view>
   
@@ -36,7 +36,7 @@
   
 </view>
 
-<view style='position:relative;margin-top:74rpx;'hidden="{{!buttonHidden}}" bindtouchend='haveReceive'>
+<view style='position:relative;margin-top:74rpx;'hidden="{{!buttonHidden}}" bindtouchend='bindReceiveTask'>
   <button type='submit' class='button'></button>
   <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view>
 </view>

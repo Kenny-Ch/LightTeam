@@ -9,15 +9,38 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
+    openId:''
   },
   
   onLoad: function(options) {
-    // wx.getShareInfo({
-    //   // shareTicket: shareTickets[0],
-    //   success: function (res) {
-    //     console.log(res,'获取tickies')
-    //   }
-    // }),
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) { // 已经授权
+          wx.getUserInfo({
+            success: res => {
+              this.setData({
+                userInfo: res.userInfo//把成功获取的内容存到这个page的data里面
+              })
+              console.log("【index.js】【用户信息存入】【userInfo信息成功存入data中】", res.userInfo )//若完成上一步走到这一步的话输出“成功”
+            }
+          })
+        }
+      }
+    })
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        console.log('【index.js】【云函数获取openid】【成功获取】', res.result.openid)
+        this.setData({
+          openId: res.result.openid
+        })
+        app.globalData.openid = res.result.openid
+      },
+      fail: err => {
+        console.error('【云函数获取openid】【失败】', err)
+      }
+    })
     teamCollection.get().then(res => {
      this.setData({
        team : res.data
@@ -34,80 +57,10 @@ Page({
       })
     }
   },
-
-  onGetOpenid: function() {
-    // 调用云函数
-    wx.cloud.callFunction({
-      name: 'login',
-      data: {},
-      success: res => {
-        console.log('[云函数] [login] user openid: ', res.result.openid)
-        app.globalData.openid = res.result.openid
-        wx.navigateTo({
-          url: '../userConsole/userConsole',
-        })
-      },
-      fail: err => {
-        console.error('[云函数] [login] 调用失败', err)
-        wx.navigateTo({
-          url: '../deployFunctions/deployFunctions',
-        })
-      }
-    })
-  },
-
-  // 上传图片
-  doUpload: function () {
-    // 选择图片
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      sourceType: ['album', 'camera'],
-      success: function (res) {
-
-        wx.showLoading({
-          title: '上传中',
-        })
-
-        const filePath = res.tempFilePaths[0]
-        
-        // 上传图片
-        const cloudPath = 'my-image' + filePath.match(/\.[^.]+?$/)[0]
-        wx.cloud.uploadFile({
-          cloudPath,
-          filePath,
-          success: res => {
-            console.log('[上传文件] 成功：', res)
-
-            app.globalData.fileID = res.fileID
-            app.globalData.cloudPath = cloudPath
-            app.globalData.imagePath = filePath
-            
-            wx.navigateTo({
-              url: '../storageConsole/storageConsole'
-            })
-          },
-          fail: e => {
-            console.error('[上传文件] 失败：', e)
-            wx.showToast({
-              icon: 'none',
-              title: '上传失败',
-            })
-          },
-          complete: () => {
-            wx.hideLoading()
-          }
-        })
-
-      },
-      fail: e => {
-        console.error(e)
-      }
-    })
-  },
   addTeam:function(){
+    console.log(this.data.userInfo, this.data.openId)
     wx.navigateTo({
-      url: '/pages/create_team/create_team'
+      url: '/pages/create_team/create_team?nickName='+this.data.userInfo.nickName+'&url='+this.data.userInfo.avatarUrl+'&openId='+this.data.openId
     })
   },
   teamDetail:function(){

@@ -21,6 +21,7 @@ Page({
     tag: ['','重要且紧急', '不重要且紧急', '重要且不紧急','不重要且不紧急'],
     tagicon:['transparenttag','redtag','','',''],
     tagItem: '全部',
+    teamId:''
     },
   bindTaskNameInput: function (e) {
     this.setData({
@@ -61,12 +62,15 @@ Page({
     taskCollection.add({
       data: {
         "name":this.data.taskName,
-        "startTime":this.data.dateBegin+this.data.timeBegin,
-        "endTime":this.data.dateEnd+this.data.timeEnd,
+        "startDate": this.data.dateBegin,
+        "endDate": this.data.dateEnd,
+        "startTime":this.data.timeBegin,
+        "endTime":this.data.timeEnd,
         "accept":[],
         "finish":false,
         "tag":0,
-        "userList":[]
+        "userList":[{'id':''}],
+        "team":options.teamId
       },
       success: res => {
         console.log(this.data)
@@ -81,7 +85,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      teamId:options.teamId
+    })
   },
 
   /**

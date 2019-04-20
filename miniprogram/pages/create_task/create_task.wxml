@@ -39,18 +39,11 @@
   </view>
 
   <view class='item'>
-    <view class='title'>提醒方式</view>
-    <view class='checkbox-box'>
-      <checkbox-group bindchange="checkboxChange">
-        <label>
-          <view class='checkbox' style='margin:8rpx 10rpx 8rpx 10rpx;'>
-            <checkbox/>创建任务后马上提醒大家</view>
-          <view class='checkbox' style='margin:8rpx 10rpx 8rpx 10rpx;'>
-            <checkbox/>创建任务后马上提醒大家</view>
-          <view class='checkbox' style='margin:8rpx 10rpx 8rpx 10rpx;'>
-            <checkbox/>创建任务后马上提醒大家</view>
-        </label>
-      </checkbox-group>
+    <view class='title'>结束前提醒</view>
+    <view class='mention-box'>
+      <view class='mentionButton' bindtap='bindMentionTime'>提前一小时</view>
+      <view class='mentionButton' bindtap='bindMentionTime'>提前一天</view>
+      <view class='mentionButton' bindtap='bindMentionTime'>提</view>
     </view>
   </view>
 

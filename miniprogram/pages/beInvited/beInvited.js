@@ -14,7 +14,8 @@ Page({
     userId:'',
     userOtherName:'',
     listLength:-1,
-    hasLogined:false
+    hasLogined:false,
+    userInfo:{}
   },
 
   /**
@@ -44,10 +45,10 @@ Page({
                 // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
                 wx.getUserInfo({
                   success: res => {
-                    console.log('【获取用户信息】【获取openid信息成功】', res.userInfo)//调试：输出获取到的用户信息判断是否成功获取
-                    // this.setData({
-                    //   userInfo: res.userInfo//把成功获取的内容存到这个page的data里面
-                    // })
+                    console.log('【获取用户信息】【获取信息成功】', res.userInfo)//调试：输出获取到的用户信息判断是否成功获取
+                    this.setData({
+                      userInfo: res.userInfo//把成功获取的内容存到这个page的data里面
+                    })
                     // this.globalData.userInfo=res.userInfo
                     // wx.cloud.callFunction({
                     //   name: 'getOpenid', 
@@ -141,7 +142,7 @@ Page({
                           for (var i = 0; i <= this.data.userList.length; i++) {
                             if (i == this.data.userList.length && this.data.hide == false) {
                               this.setData({
-                                // hide:true
+                                hide:true
                               })
                               console.log('【用户是否已存在团队之中】，【不存在同时显示加入团队按钮】')
                               break;
@@ -210,10 +211,28 @@ Page({
     })
   },
   addTeam:function(e){
-    if(this.data.userOtherName)
-      wx.switchTab({
-       url: '/pages/index/index',
+    if(this.data.userOtherName){
+      wx.cloud.callFunction({
+        name: 'addTeamMember',
+        data: {
+          id:this.data.userId,
+          nickName: this.data.userInfo.nickName,
+          url:this.data.userInfo.avatarUrl
+        },
+        success: res => {
+          // output: res.result === 3
+        },
+        fail: err => {
+          // handle error
+        },
+        complete: () => {
+          // ...
+        }
       })
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

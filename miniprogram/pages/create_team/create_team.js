@@ -8,9 +8,37 @@ Page({
   data: {
     teamName: "",
     teamBrief:"",
-    teamid:""
+    teamid:"",
+    openId:'',
+    userId:'',
+    nickName:'',
+    url:''
   },
-
+  onLoad:function(options){
+    console.log('【index界面传入参数】【传入成功】',options)
+    this.setData({
+      openId:options.openId,
+      nickName:options.nickName,
+      url:options.url
+    })
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        db.collection('user').where({
+          openid: res.result.openid
+        })
+          .get({
+            success: res => {
+              console.log('【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id)
+              this.setData({
+                userId: res.data[0]._id
+              })
+            }
+          })
+      }
+    })
+  },
   teamNameInput: function (e) {
     this.setData({
       teamName: e.detail.value
@@ -22,62 +50,6 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
   addData: function (event) {
     if(!this.data.teamName){
       console.log('【团队名称输入情况】【未输入】',event)
@@ -86,23 +58,20 @@ Page({
         icon: 'none',
         duration: 2000
       })
-        // success(res) {
-        //   if (res.confirm) {
-        //     console.log('【弹窗点击情况】【用户点击确定】')
-        //   } else if (res.cancel) {
-        //     console.log('【弹窗点击情况】【用户点击取消】')
-        //   }
-        // }
     }
     else{
       teamCollection.add({
         data: {
           "name": this.data.teamName,
           "introduce": this.data.teamBrief,
-          "leader":getApp().globalData.openid,
+          "leader":this.data.openId,
           "taskList":[],
           "unfinishedTask":-1,
-          "userList":[],
+          "userList":[{
+            "Url":this.data.url,
+            "nickName":this.data.nickName,
+            "id":this.data.userId
+          }],
           "userNum":-1
         },
         success: res => {

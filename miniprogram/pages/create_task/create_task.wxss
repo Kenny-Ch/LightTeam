@@ -53,40 +53,28 @@ input{
   border-radius: 50%;
   margin: 4rpx 14rpx;
 }
-.checkbox-box{
+.mention-box{
   border: 1rpx solid #e6e6e6;
   width: 650rpx;
-  height: 170rpx;
+  height: 150rpx;
   border-radius: 10rpx;
   color: #383838;
   font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-/*  checkbox 样式  */
-/* 未选中的 背景样式 */
-checkbox .wx-checkbox-input{
-   width: 40rpx; /* 背景的宽 */
-   height: 40rpx; /* 背景的高 */
+.mentionButton{
+  border: solid 2rpx #cccccc;
+  border-radius: 7rpx;
+  width: 200rpx;
+  height: 100rpx;
+  color: #cccccc;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
-checkbox .wx-checkbox-input.wx-checkbox-input-checked{
-   border: none;
-   background: #6bb8ff;
-   width: 45rpx; /* 背景的宽 */
-   height: 45rpx; /* 背景的高 */
-}
-/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
-checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
-   width: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
-   height: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
-   line-height: 40rpx;
-   text-align: center;
-   font-size:30rpx; /* 对勾大小 30rpx */
-   color:#fff; /* 对勾颜色 白色 */
-   background: transparent;
-   transform:translate(-50%, -50%) scale(1);
-   -webkit-transform:translate(-50%, -50%) scale(1);
-}
-/*  checkbox 样式end */
 button{
   width: 650rpx;
   height: 100rpx;
