@@ -1,19 +1,23 @@
 <view class='text_top'>未完成</view>
 
 
-<block wx:for="{{team}}">
+<block wx:for="{{team}}"  wx:for-index="num" wx:for-item="tags">
 
 <view class='position'>
-  <view class='box' bindtap='teamDetail'>
-    <view class='text_name'>{{item.name}}</view>
-    <view class='text_intro'>{{item.introduce}}</view>
-    <image class='icon_team' src='/images/team1.svg'></image>
-    <view class='people'>{{item.userNum}}</view>
+<navigator url='/pages/task-list/task-list?id={{tags._id}}'>
+  <view class='box'>
+<view class='text_name'>{{tags.name}}</view>
+<view class='text_intro'>{{tags.introduce}}</view>
+<image class='icon_team' src='/images/team1.svg'></image>
+<view class='people'>{{tags.userNum}}人</view>
   </view>
-    <view class='box_icon' bindtap='teamDetail'><view class='text_number'>{{item.unfinishTask}}</view></view>
+<view class='box_icon'><view class='text_number'>{{tags.unfinishTask}}</view></view>
+<view></view>
+</navigator>
 </view>
 
 </block>
-<view class='homepage_team_add' bindtap='addTeam'>+</view>
+
+<navigator url='/pages/create_team/create_team'><view class='homepage_team_add'>+</view></navigator>
 
 

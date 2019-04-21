@@ -2,48 +2,47 @@
 
   <view class='item'>
     <view class='title'>icode小分队</view>
-    <view>
-      <text></text>
-      <input type='text' placeholder=' 请输入标题' placeholder-class='placeholder' bindinput='bindTaskNameInput'></input>
-    </view>
+    <view ><text></text><input type='text' placeholder=' 请输入标题' placeholder-class='placeholder'></input></view>
   </view>
 
   <view class='item'>
     <view class='title'>起始与结束</view>
-    <view class='picker' style='position:relative;'>
-      <picker mode="date" value="" start="0001-01-01" end="9999-12-32" bindchange='bindDateBeginChange' style='width:220rpx;display:inline-block;'>
-        <text class='picker-text'>{{dateBegin}}</text>
-      </picker>
-      <picker mode="time" value="" start="00:00" end="99:99" bindchange='bindTimeBeginChange' style='width:220rpx;display:inline-block;'>
-        <text class='picker-text'>{{timeBegin}}</text>
-      </picker>
-      <image src='/images/datepicker.svg' class="DatePickerImg"></image>
-    </view>
+      <view class='picker' style='position:relative;'>
+        <picker mode="date" value="" start="0001-01-01" end="9999-12-32" bindchange='bindDateBeginChange'style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{dateBegin}}</text>
+        </picker>
+        <picker mode="time" value="" start="00:00" end="99:99" bindchange='bindTimeBeginChange'style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{timeBegin}}</text>
+        </picker>
+        <image src='/images/datepicker.svg' class="DatePickerImg"></image>
+      </view>
 
-    <view class='picker' style='position:relative;'>
-      <picker mode="date" value="" start="0001-01-01" end="9999-12-32" bindchange='bindDateEndChange' style='width:220rpx;display:inline-block;'>
-        <text class='picker-text'>{{dateEnd}}</text>
-      </picker>
-      <picker mode="time" value="" start="00:00" end="99:99" bindchange='bindTimeEndChange' style='width:220rpx;display:inline-block;'>
-        <text class='picker-text'>{{timeEnd}}</text>
-      </picker>
-      <image src='/images/datepicker.svg' class="DatePickerImg"></image>
-    </view>
+      <view class='picker' style='position:relative;'>
+        <picker mode="date" value="" start="0001-01-01" end="9999-12-32" bindchange='bindDateEndChange'style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{dateEnd}}</text>
+        </picker>
+        <picker mode="time" value="" start="00:00" end="99:99" bindchange='bindTimeEndChange'style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{timeEnd}}</text>
+        </picker>
+        <image src='/images/datepicker.svg' class="DatePickerImg"></image>
+      </view>
   </view>
 
   <view class='item'>
     <view class='title'>参与成员</view>
-    <view class='peopleimg-box'>
-      <image src='/images/img.jpg'></image>
-    </view>
+    <view class='peopleimg-box'><image src='/images/img.jpg'></image></view>
   </view>
 
   <view class='item'>
-    <view class='title'>结束前提醒</view>
-    <view class='mention-box'>
-      <view class='mentionButton' bindtap='bindMentionTime'>提前一小时</view>
-      <view class='mentionButton' bindtap='bindMentionTime'>提前一天</view>
-      <view class='mentionButton' bindtap='bindMentionTime'>提</view>
+    <view class='title'>提醒方式</view>
+    <view class='checkbox-box'>
+      <checkbox-group bindchange="checkboxChange">
+        <label>
+        <view class='checkbox' style='margin:8rpx 10rpx 8rpx 10rpx;'> <checkbox/>创建任务后马上提醒大家</view>
+        <view class='checkbox' style='margin:8rpx 10rpx 8rpx 10rpx;'> <checkbox/>创建任务后马上提醒大家</view>
+        <view class='checkbox' style='margin:8rpx 10rpx 8rpx 10rpx;'> <checkbox/>创建任务后马上提醒大家</view>
+        </label>
+      </checkbox-group>
     </view>
   </view>
 
@@ -52,14 +51,14 @@
     <view class='picker'>
       <picker bindchange="bindTagChange" value="{{index}}" range="{{tag}}">
         <view class='tag' style='margin:0rpx;'>
-          <image src='/images/{{tagicon[index]}}.svg'></image>
-          <text>{{tag[index]}}</text>
+          <image src='/images/{{tagicon[index]}}.svg'></image><text>{{tag[index]}}</text>
         </view>
       </picker>
     </view>
   </view>
 
   <view>
-    <button class='button' bindtap='bindSave'>保存</button>
+    <button class='button'>保存</button>
   </view>
 </view>
+

@@ -10,14 +10,14 @@
     "pages/chooseLib/chooseLib",
     "pages/maintask/maintask",
     "pages/task-list/task-list",
+    "pages/ceshi/ceshi",
     "pages/create_team/create_team",
     "pages/create_task/create_task",
     "pages/invite/invite",
     "pages/task/task",
     "pages/choosemember/choosemember",
     "pages/authorization/authorization",
-    "pages/number-list/number-list",
-    "pages/beInvited/beInvited"
+    "pages/member-list/member-list"
   ],
 "window": {
   "backgroundTextStyle": "light",
