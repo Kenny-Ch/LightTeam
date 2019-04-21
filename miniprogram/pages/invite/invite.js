@@ -21,13 +21,6 @@ Page({
     title: '邀请你加入新团队',
     path: '/pages/index/index?teamId=' + this.data.teamId ,
     imageUrl: '/images/share.png',
-    success(res) {
-      console.log('成功');
-      wx.redirectTo({
-        url: '/pages/index/index',
-      })
-      
-    }
     }
   }
 })

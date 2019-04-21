@@ -9,7 +9,9 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-    openId:''
+    openId:'',
+    teamList: [],
+    team:[]
   },
   
   onLoad: function(options) {
@@ -27,6 +29,7 @@ Page({
         }
       }
     })
+    var that = this;
     wx.cloud.callFunction({
       name: 'login',
       data: {},
@@ -35,17 +38,37 @@ Page({
         this.setData({
           openId: res.result.openid
         })
+      //  从user集合中获取该用户所参与的所有teamid：
+        db.collection('user').where({
+          openid: res.result.openid 
+        }).get({
+          success(res) {
+            that.setData({
+              teamList: res.data[0].teamList
+            })
+            console.log('【index.js】【user集合中获取该用户所参与的所有teamid】【获取成功】',that.data.teamList)
+            for (var i = 0; i < that.data.teamList.length; i++) {
+              db.collection('team').where({
+                _id: that.data.teamList[i]
+              }).get({
+                success(res) {
+                  that.data.team.push(res.data[0])
+                  that.setData({
+                    team: that.data.team
+                  })
+                }
+              })
+            }
+            console.log('【index.js】【通过openid获得用户的所有team】【成功复制至data中team数组中】', that.data.team)
+          }
+        })
         app.globalData.openid = res.result.openid
       },
       fail: err => {
-        console.error('【云函数获取openid】【失败】', err)
+        console.error('【index.js】【云函数获取openid】【失败】', err)
       }
     })
-    teamCollection.get().then(res => {
-     this.setData({
-       team : res.data
-     })
-   })
+    
   },
 
   onGetUserInfo: function(e) {

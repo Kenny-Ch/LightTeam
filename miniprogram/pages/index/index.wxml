@@ -5,12 +5,12 @@
 
 <view class='position'>
   <view class='box' bindtap='teamDetail'>
-    <view class='text_name'>{{item.teamname}}</view>
-    <view class='text_intro'>{{item.teambrief}}</view>
+    <view class='text_name'>{{item.name}}</view>
+    <view class='text_intro'>{{item.introduce}}</view>
     <image class='icon_team' src='/images/team1.svg'></image>
-    <view class='people'>10人</view>
+    <view class='people'>{{item.userNum}}</view>
   </view>
-    <view class='box_icon' bindtap='teamDetail'><view class='text_number'>3</view></view>
+    <view class='box_icon' bindtap='teamDetail'><view class='text_number'>{{item.unfinishTask}}</view></view>
 </view>
 
 </block>

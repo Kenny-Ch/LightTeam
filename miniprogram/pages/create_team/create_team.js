@@ -66,7 +66,7 @@ Page({
           "introduce": this.data.teamBrief,
           "leader":this.data.openId,
           "taskList":[],
-          "unfinishedTask":-1,
+          "unfinishTask":-1,
           "userList":[{
             "Url":this.data.url,
             "nickName":this.data.nickName,
