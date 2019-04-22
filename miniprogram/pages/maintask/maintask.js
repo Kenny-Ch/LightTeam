@@ -7,7 +7,7 @@ Page({
     userInfo:{},
     taskList:[],
     task:[],
-    showView: false
+    showView:[]
   },
 
   /**
@@ -49,20 +49,22 @@ Page({
           // userId: res.data[0]._id,
           taskList: res.data[0].taskList
         })
-        console.log('【index.js】【user集合中获取该用户所参与的所有taskid】【获取成功】', that.data.taskList)
+        console.log('【maintask.js】【user集合中获取该用户所参与的所有taskid】【获取成功】', that.data.taskList)
         for (var i = 0; i < that.data.taskList.length; i++) {
           db.collection('task').where({
             _id: that.data.taskList[i]
           }).get({
             success(res) {
               that.data.task.push(res.data[0])
+              that.data.showView.push(0)
               that.setData({
-                task: that.data.task
+                task: that.data.task,
+                showView:that.data.showView
               })
             }
           })
         }
-        console.log('【index.js】【通过openid获得用户的所有team】【成功复制至data中team数组中】', that.data.team)
+        console.log('【maintask.js】【通过openid获得用户的所有task】【成功复制至data中task数组中】', that.data.task)
       }
     })
     showView: (options.showView == "true" ? true : false)

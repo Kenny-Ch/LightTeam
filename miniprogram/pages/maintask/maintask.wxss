@@ -1,4 +1,15 @@
-
+.tagsColor1{
+  background-color: 
+}
+.tagsColor2{
+  background-color: 
+}
+.tagsColor3{
+  background-color: 
+}
+.tagsColor4{
+  background-color: 
+}
 /*任务盒子*/
 .box_a{
   position: relative;
