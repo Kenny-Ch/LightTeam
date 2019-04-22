@@ -44,6 +44,7 @@ Page({
         }).get({
           success(res) {
             that.setData({
+              userId:res.data[0]._id,
               teamList: res.data[0].teamList
             })
             console.log('【index.js】【user集合中获取该用户所参与的所有teamid】【获取成功】',that.data.teamList)
@@ -86,9 +87,11 @@ Page({
       url: '/pages/create_team/create_team?nickName='+this.data.userInfo.nickName+'&url='+this.data.userInfo.avatarUrl+'&openId='+this.data.openId
     })
   },
-  teamDetail:function(){
+  teamDetail:function(e){
+    console.log(e.currentTarget)
+    var index = e.currentTarget.id
     wx.navigateTo({
-      url: '/pages/task-list/task-list'
+      url: '/pages/task-list/task-list?openId=' + this.data.openId + '&uerId=' + this.data.userId + '&teamId=' + this.data.team[index]._id
     })
   }
 })

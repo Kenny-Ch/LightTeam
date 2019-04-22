@@ -1,5 +1,6 @@
 // pages/detail-task/detal-task.js
 const db = wx.cloud.database()
+const _ = db.command
 const teamCollection = db.collection('team')
 Page({
 
@@ -7,6 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    boxStyle:'box_b',
+    up:true,
+    down:false,
     teamName:'',
     memberNum:'',
     teamIntroduce:'',
@@ -22,6 +26,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('index界面传入参数',options)
     this.setData({
       teamId:options.teamId
     })
@@ -56,12 +61,35 @@ Page({
 
     showView: (options.showView == "true" ? true : false)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  longtapDelete:function(e){
+    var that = this;
+    var task = that.data.task;
+    var taskList = that.data.taskList;
+    var index = e.currentTarget.dataset.index;//获取当前长按图片下标
+    console.log(e)
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除此任务吗？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('【长按删除】【点击确定】', '索引为：', index);
+          task.splice(index, 1);
+          taskList.splice(index, 1);
+          db.collection('user').doc('').update({
+            data: {
+              style: _.remove()
+            }
+          })
+        } else if (res.cancel) {
+          console.log('【长按删除】【点击取消】');
+          return false;
+        }
+        that.setData({
+          task,
+          taskList
+        });
+      }
+    })
   },
   onChangeShowState: function (event) {
     var that = this;
@@ -74,51 +102,10 @@ Page({
       showView: (!that.data.showView)
     })
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   height: function (e) {
     if (showView) {
       var box = e.target.id;
-
     }
   }
 })

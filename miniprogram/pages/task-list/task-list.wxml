@@ -21,8 +21,8 @@
 
 
 
-<view class='back' style='position:relative;top:320rpx;' wx:for="{{task}}">
-  <view class="{{showView?'box_a':'box_b'}}" style='top:20rpx;'>
+<view class='back' style='position:relative;top:320rpx;'>
+  <view class="{{showView?'box_a':'box_b'}}" style='top:20rpx;' wx:for="{{task}}" bindlongtap='longtapDelete' id="{{index}}">
     <view class='text_taskname'>{{item.name}}</view>
     <view class='box_card' style='background-color:#ffeb3b;'></view>
     <view class="{{showView?'hide':'show'}}">

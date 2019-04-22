@@ -4,7 +4,7 @@
 <block wx:for="{{team}}">
 
 <view class='position'>
-  <view class='box' bindtap='teamDetail'>
+  <view class='box' bindtap='teamDetail' id='{{index}}'>
     <view class='text_name'>{{item.name}}</view>
     <view class='text_intro'>{{item.introduce}}</view>
     <image class='icon_team' src='/images/team1.svg'></image>
