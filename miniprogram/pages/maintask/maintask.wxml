@@ -3,37 +3,21 @@
 <image src='/images/down.png' class='hide_icon'  bindtap='onChangeShowState'></image>
 <view class='box_card'></view>
 </view> -->
-
-<view class="{{showView?'box_a':'box_b'}}">
-<view class='text_taskname'>完成ui设计</view>
-<view class='box_card' style='background-color:#ffeb3b;'></view>
-<view class="{{showView?'hide':'show'}}">
-<image src='/images/down.png' class='hide_icon'  bindtap='onChangeShowState'></image>
-</view>
-<view class="{{showView?'show':'hide'}}">
-<image src='/images/up.png' class='hide_icon'  bindtap='onChangeShowState'></image>
-</view>
-<view class="hide{{showView?'show':''}}">
-<view class='text_title1'>任务进行时间</view>
-<view class='text_title1' style='left:450rpx'>所属团队</view>
-<view class='text_title2'>2019-3-11—2019-3-18</view>
-<view class='text_title2' style='left:450rpx;'>icode小分队</view>
-</view>
-</view>
-
-<view class="{{showView?'box_a':'box_b'}}">
-<view class='text_taskname'>完成ui设计</view>
-<view class='box_card' style='background-color:#ffeb3b;'></view>
-<view class="{{showView?'hide':'show'}}">
-<image src='/images/down.png' class='hide_icon'  bindtap='onChangeShowState'></image>
-</view>
-<view class="{{showView?'show':'hide'}}">
-<image src='/images/up.png' class='hide_icon'  bindtap='onChangeShowState'></image>
-</view>
-<view class="hide{{showView?'show':''}}">
-<view class='text_title1'>任务进行时间</view>
-<view class='text_title1' style='left:450rpx'>所属团队</view>
-<view class='text_title2'>2019-3-11—2019-3-18</view>
-<view class='text_title2' style='left:450rpx;'>icode小分队</view>
-</view>
+<view wx:for="{{task}}">
+  <view class="{{showView?'box_a':'box_b'}}">
+    <view class='text_taskname'>{{item.name}}</view>
+    <view class='box_card' style='background-color:#ffeb3b;'></view>
+    <view class="{{showView?'hide':'show'}}">
+      <image src='/images/down.png' class='hide_icon' bindtap='onChangeShowState'></image>
+    </view>
+    <view class="{{showView?'show':'hide'}}">
+      <image src='/images/up.png' class='hide_icon' bindtap='onChangeShowState'></image>
+    </view>
+    <view class="hide{{showView?'show':''}}">
+      <view class='text_title1'>任务进行时间</view>
+      <view class='text_title1' style='left:450rpx'>所属团队</view>
+      <view class='text_title2'>{{item.startDate}}{{item.startTime}}{{item.endDate}}{{item.endTime}}</view>
+      <view class='text_title2' style='left:450rpx;'>{{item.team}}</view>
+    </view>
+  </view>
 </view>
