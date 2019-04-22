@@ -1,14 +1,14 @@
 <view class='box' style='height:150rpx;'>
-  <text class='team-name'>Icode小分队\n</text>
-  <text class='task-name'>完成前端设计工作</text>
+  <text class='team-name'>{{teamName}}</text>
+  <text class='task-name'>{{taskName}}</text>
 </view>
 
 <view class='box'>
   <image src='/images/member.svg' class='icon'></image>
-  <view style='position: absolute;top: 23rpx;left: 134rpx;'>
-    <image src='/images/img.jpg' class='member-img'></image>
-    <image src='/images/img.jpg' class='member-img'></image>
-    <image src='/images/img.jpg' class='member-img'></image>
+  <view  wx:for="{{memberList}}">
+  <view style='position: absolute;top: 23rpx;left: {{index*80+134}}rpx;'>
+    <image src='{{item.Url}}' class='member-img'></image>
+  </view>
   </view>
   
 </view>
@@ -20,23 +20,23 @@
 
 <view class='box'>
   <image src='/images/date.svg' class='icon'></image>
-  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>2019-03-31</text><text style='margin-left:15rpx;'>23：59</text></text>
+  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>{{dateBegin}}</text><text style='margin-left:15rpx;'>{{timeBegin}}</text></text>
 </view>
 
 <view class='box'>
   <image src='/images/date.svg' class='icon'></image>
-  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>2019-03-31</text><text style='margin-left:15rpx;'>23：59</text></text>
+  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>{{dateEnd}}</text><text style='margin-left:15rpx;'>{{timeEnd}}</text></text>
 </view>
 
 <view class='box'>
 <view>
 <image src='/images/nulltag.svg' class='icon'></image>
-  <text  class='font' style='position: absolute;left:134rpx;'><text>标签：</text><text>未确定内容</text></text>
+  <text  class='font' style='position: absolute;left:134rpx;'><text>标签：</text><text>{{tag[tagNum]}}</text></text>
 </view>
   
 </view>
 
-<view style='position:relative;margin-top:74rpx;'hidden="{{!buttonHidden}}" bindtouchend='haveReceive'>
+<view style='position:relative;margin-top:74rpx;'hidden="{{!buttonHidden}}" bindtouchend='bindReceiveTask'>
   <button type='submit' class='button'></button>
   <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view>
 </view>

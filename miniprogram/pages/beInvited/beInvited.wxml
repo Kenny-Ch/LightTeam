@@ -1,0 +1,14 @@
+<view class='welcome'>欢迎！</view>
+<view hidden='{{hide}}'>
+<view class='welcomeAfter'>请允许我们获得权限以便继续</view>
+<view class='authorizeButton'><button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权</button></view>
+<!-- <view class='buttonWord1'>授权</view> -->
+</view>
+
+<view hidden='{{!hide}}'>
+<view class='welcomeAfter'>您将会加入{{teamName}}</view>
+<view class='inputTitle'>请输入您在团队中的备注名</view>
+<view class='input'><input type='text' bindinput="onUserOtherNameInput"></input></view>
+<view class='joinButton' bindtap='addTeam'><button>加入</button></view>
+<!-- <view class='buttonWord2'>加入</view> -->
+</view>

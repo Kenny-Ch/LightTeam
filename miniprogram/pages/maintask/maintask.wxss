@@ -32,7 +32,7 @@
 
 .text_taskname{
   position: absolute;
-	width: 350rpx;
+	width: 196rpx;
 	height: 42rpx;
 	left: 50rpx;
 	top: 25rpx;

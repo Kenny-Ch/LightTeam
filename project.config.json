@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -40,14 +40,14 @@
 					"id": 1,
 					"name": "主页面",
 					"pathName": "pages/index/index",
-					"query": "id=XK4Oq4nnuWjci08g",
-					"scene": null
+					"query": "",
+					"scene": 1047
 				},
 				{
-					"id": 2,
+					"id": -1,
 					"name": "总任务",
 					"pathName": "pages/maintask/maintask",
-					"query": "id=XK4Oq4nnuWjci08g",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -58,38 +58,38 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "创建任务",
 					"pathName": "pages/create_task/create_task",
-					"query": "",
+					"query": "teamId=XK4VkXkPDdDCJ860",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "邀请成员",
 					"pathName": "pages/invite/invite",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 6,
-					"name": "选择成员",
-					"pathName": "pages/choosemember/choosemember",
-					"query": "id=XK4VkXkPDdDCJ860",
+					"query": "teamid=XK4VkXkPDdDCJ860",
 					"scene": null
 				},
 				{
 					"id": -1,
+					"name": "选择成员",
+					"pathName": "pages/choosemember/choosemember",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
 					"name": "任务详情",
 					"pathName": "pages/task/task",
-					"query": "",
+					"query": "taskId=XK4SWVsqTi00trGh&teamId=XK4VkXkPDdDCJ860",
 					"scene": null
 				},
 				{
 					"id": 8,
 					"name": "团队详情（任务列表）",
 					"pathName": "pages/task-list/task-list",
-					"query": "",
+					"query": "teamId=XK4VkXkPDdDCJ860",
 					"scene": null
 				},
 				{
@@ -100,10 +100,24 @@
 					"scene": null
 				},
 				{
-					"id": 10,
-					"name": "团队详情（成员列表）",
-					"pathName": "pages/member-list/member-list",
+					"id": 11,
+					"name": "addfunction",
+					"pathName": "pages/addFunction/addFunction",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "团队成员列表",
+					"pathName": "pages/number-list/number-list",
+					"query": "taskId=3fc2c9075caf33c7045a89906bf9c4e9&teamId=XK4VkXkPDdDCJ860",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "受邀请进入界面",
+					"pathName": "pages/beInvited/beInvited",
+					"query": "teamId=XK4VkXkPDdDCJ860&openid=oPr175Rn4q_rxIIz1OT2wx5wJJBI",
 					"scene": null
 				}
 			]

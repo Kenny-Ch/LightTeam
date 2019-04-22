@@ -1,16 +1,15 @@
-// 云函数入口文件
 const cloud = require('wx-server-sdk')
-
 cloud.init()
-
-// 云函数入口函数
+const db = cloud.database()
+const _ = db.command
 exports.main = async (event, context) => {
-  const wxContext = cloud.getWXContext()
-
-  return {
-    event,
-    openid: wxContext.OPENID,
-    appid: wxContext.APPID,
-    unionid: wxContext.UNIONID,
+  try {
+    return await db.collection('team').doc('event.id').update({
+      data: {
+        style: _.remove()
+      }
+    })
+  } catch (e) {
+    console.error(e)
   }
 }
