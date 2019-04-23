@@ -1,14 +1,17 @@
-.tagsColor1{
-  background-color: 
-}
-.tagsColor2{
-  background-color: 
-}
-.tagsColor3{
-  background-color: 
+.tagsColor0{
+  background-color: #fff
 }
 .tagsColor4{
-  background-color: 
+  background-color: #a0d991
+}
+.tagsColor3{
+  background-color: #36cfc9
+}
+.tagsColor2{
+  background-color: #ffec3d
+}
+.tagsColor1{
+  background-color: #ff7875
 }
 /*任务盒子*/
 .box_a{
@@ -85,7 +88,6 @@
 	left: 0rpx;
 	top: 10rpx;
 	color: rgba(80, 80, 80, 1);
-	background-color: #6bb8ff;
 	font-size: 28rpx;
 	line-height: 150%;
 	text-align: center;

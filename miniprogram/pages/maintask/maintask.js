@@ -41,6 +41,7 @@ Page({
       }
     })
     var that = this;
+    var count = 0
     db.collection('user').where({
       openid: that.data.openid
     }).get({
@@ -56,11 +57,28 @@ Page({
           }).get({
             success(res) {
               that.data.task.push(res.data[0])
-              that.data.showView.push(0)
+              that.data.task[count].show=false
               that.setData({
                 task: that.data.task,
                 showView:that.data.showView
               })
+              count++
+            }
+          })
+        }
+        var count = 0;
+        for (var i = 0; i < that.data.task.length; i++){
+          console.log(count)
+          db.collection('team').where({
+            _id: that.data.task[count].team
+          }).get({
+            success(res) {
+              console.log(res)
+              that.data.task[count].team = res.data.name
+              that.setData({
+                task: that.data.task,
+              })
+              count++
             }
           })
         }
@@ -69,15 +87,39 @@ Page({
     })
     showView: (options.showView == "true" ? true : false)
   },
-  onChangeShowState: function (event) {
+  deleteTask:function(e){
+    console.log(e)
     var that = this;
-    // var toggleBtnVal = that.data.uhide;
-    // var itemId = event.currenTarget.id;
-    // if(toggleBtnVal == itemId){
-      
-    // }
+    var task = that.data.tsak;
+    var taskList = that.data.taskList;
+    var index = e.currentTarget.dataset.index;//获取当前长按图片下标
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除此任务吗？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('【触发长按删除事件】【点击确定删除】');
+          that.data.task.splice(index, 1);
+          that.data.taskList.splice(index,1)
+        } else if (res.cancel) {
+          console.log('【触发长按删除事件】【点击取消】');
+          return false;
+        }
+        that.setData({
+          task:that.data.task,
+          taskList:that.data.taskList
+        });
+      }
+    })
+  },
+  
+  onChangeShowState: function (e) {
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+    console.log()
+    that.data.task[index].show = !that.data.task[index].show
     that.setData({
-      showView: (!that.data.showView)
+      task:that.data.task
     })
   },
 

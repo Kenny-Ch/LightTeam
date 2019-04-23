@@ -4,16 +4,16 @@
 <view class='box_card'></view>
 </view> -->
 <view wx:for="{{task}}">
-  <view class="{{showView?'box_a':'box_b'}}">
+  <view class="{{item.show?'box_a':'box_b'}}" bindlongpress="deleteTask" data-index="{{index}}">
     <view class='text_taskname'>{{item.name}}</view>
-    <view class='box_card' style='background-color:#ffeb3b;'></view>
-    <view class="{{showView?'hide':'show'}}">
-      <image src='/images/down.png' class='hide_icon' bindtap='onChangeShowState'></image>
+    <view class='box_card tagsColor{{index+1}}' ></view>
+    <view class="{{item.show?'hide':'show'}}">
+      <image src='/images/down.png' class='hide_icon' bindtap='onChangeShowState' data-index="{{index}}"></image>
     </view>
-    <view class="{{showView?'show':'hide'}}">
-      <image src='/images/up.png' class='hide_icon' bindtap='onChangeShowState'></image>
+    <view class="{{item.show?'show':'hide'}}">
+      <image src='/images/up.png' class='hide_icon' bindtap='onChangeShowState'data-index="{{index}}"></image>
     </view>
-    <view class="hide{{showView?'show':''}}">
+    <view class="{{item.show?'show':'hide'}}">
       <view class='text_title1'>任务进行时间</view>
       <view class='text_title1' style='left:450rpx'>团队名称</view>
       <view class='text_title2'>{{item.startDate}}{{item.startTime}}{{item.endDate}}{{item.endTime}}</view>
