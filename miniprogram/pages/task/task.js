@@ -30,7 +30,7 @@ Page({
     taskCollection.doc(options.taskId)
       .get({
         success: res => {
-          console.log('【获取指定用户task信息】【获取成功】', res.data),
+          console.log('【task】【获取指定用户task信息】【获取成功】', res.data),
             this.setData({
               taskName: res.data.name,
               dateBegin: res.data.startDate,
@@ -46,7 +46,7 @@ Page({
       teamCollection.doc(options.teamId)
         .get({
           success: res => {
-            console.log('【获取指定用户team信息】【获取成功】', res.data),
+            console.log('【task】【获取指定用户team信息】【获取成功】', res.data),
               this.setData({
                 teamName: res.data.name
               })
@@ -57,7 +57,7 @@ Page({
     teamCollection.doc(options.teamId)
       .get({
         success: res => {
-          console.log('【获取指定team信息】【获取成功】', res.data)
+          console.log('【task】【获取指定team信息】【获取成功】', res.data)
                     // this.setData({
                     //   leaderId: res.data.name,
                     //   userList: res.data.userList,
@@ -74,7 +74,7 @@ Page({
               })
                 .get({
                   success: res => {
-                    console.log('【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id, uList[0].id)
+                    console.log('【task】【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id, uList[0].id)
                     //通过上面通过openid在集合获得的id去对照成员列表
                     //并且通过遍历找到是否存由该成员
                     for (var i = 0; i <= uList.length; i++) {
@@ -82,14 +82,14 @@ Page({
                         this.setData({
                           // hide:true
                         })
-                        console.log('【用户是否已存在团队之中】，【不存在同时显示加入团队按钮】')
+                        console.log('【task】【用户是否已存在团队之中】，【不存在同时显示加入团队按钮】')
                         break;
                       }
                       if (uList[i].id == res.data[0]._id) {
                         this.setData({
                           buttonHidden: false
                         })
-                        console.log('【用户是否已存在团队之中】，【已存在并跳转首页】')
+                        console.log('【task】【用户是否已存在团队之中】，【已存在并跳转首页】')
                         break;
                       }
                     }
@@ -102,52 +102,5 @@ Page({
           }
         })
         },
-        /**
-         * 生命周期函数--监听页面初次渲染完成
-         */
-        onReady: function () {
-          
-        },
-
-        /**
-         * 生命周期函数--监听页面显示
-         */
-        onShow: function () {
-
-        },
-
-        /**
-         * 生命周期函数--监听页面隐藏
-         */
-        onHide: function () {
-
-        },
-
-        /**
-         * 生命周期函数--监听页面卸载
-         */
-        onUnload: function () {
-
-        },
-
-        /**
-         * 页面相关事件处理函数--监听用户下拉动作
-         */
-        onPullDownRefresh: function () {
-
-        },
-
-        /**
-         * 页面上拉触底事件的处理函数
-         */
-        onReachBottom: function () {
-
-        },
-
-        /**
-         * 用户点击右上角分享
-         */
-        onShareAppMessage: function () {
-
-        }
+        
       })

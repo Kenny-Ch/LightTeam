@@ -15,7 +15,8 @@ Page({
     memberNum:'',
     teamIntroduce:'',
     taskList:[],
-    task:[]
+    task:[],
+    userList:[]
   },
   bindMemberList: function () {
     wx.redirectTo({
@@ -26,7 +27,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('index界面传入参数',options)
+    console.log('【task-list】【index界面传入参数】',options)
     this.setData({
       teamId:options.teamId
     })
@@ -39,9 +40,10 @@ Page({
           teamName:res.data[0].name,
           memberNum:res.data[0].userNum,
           teamIntroduce:res.data[0].introduce,
-          taskList:res.data[0].taskList
+          taskList:res.data[0].taskList,
+          userList:res.data[0].userList
         })
-        console.log('【获取指定的team信息】【获取成功】',res.data[0])
+        console.log('【task-list】【获取指定的team信息】【获取成功】',res.data[0])
         for (var i = 0; i < that.data.taskList.length; i++) {
           db.collection('task').where({
             _id: that.data.taskList[i]
@@ -54,7 +56,7 @@ Page({
             }
           })
         }
-        console.log('【获取指定的task信息】【获取成功】',that.data.task)
+        console.log('【task-list】【获取指定的task信息】【获取成功】',that.data.task)
       }
     })
     
@@ -72,7 +74,7 @@ Page({
       content: '确定要删除此任务吗？',
       success: function (res) {
         if (res.confirm) {
-          console.log('【长按删除】【点击确定】', '索引为：', index);
+          console.log('【task-list】【长按删除】【点击确定】', '索引为：', index);
           task.splice(index, 1);
           taskList.splice(index, 1);
           db.collection('user').doc('').update({
@@ -81,7 +83,7 @@ Page({
             }
           })
         } else if (res.cancel) {
-          console.log('【长按删除】【点击取消】');
+          console.log('【task-list】【长按删除】【点击取消】');
           return false;
         }
         that.setData({

@@ -29,31 +29,26 @@ Page({
     })
   },
   bindDateBeginChange(e) {
-    console.log('【开始日期】', e.detail.value)
     this.setData({
       dateBegin: e.detail.value
     })
   },
   bindDateEndChange(e) {
-    console.log('【截止日期】', e.detail.value)
     this.setData({
       dateEnd: e.detail.value
     })
   },
   bindTimeBeginChange(e) {
-    console.log('【开始时间】', e.detail.value)
     this.setData({
       timeBegin: e.detail.value
     })
   },
   bindTimeEndChange(e) {
-    console.log('【截止时间】', e.detail.value)
     this.setData({
       timeEnd: e.detail.value
     })
   },
   bindTagChange: function (e) {
-    console.log('【标签选择】', e.detail.value)
     this.setData({
       index: e.detail.value
     })
@@ -77,7 +72,7 @@ Page({
         this.setData({
           taskid: res._id
         })
-        console.log('【添加任务信息】【成功添加任务信息】', res)
+        console.log('【create_task】【添加任务信息】【成功添加任务信息】', res)
       }
     })
   },
@@ -90,52 +85,4 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

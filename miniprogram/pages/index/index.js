@@ -23,7 +23,7 @@ Page({
               this.setData({
                 userInfo: res.userInfo//把成功获取的内容存到这个page的data里面
               })
-              console.log("【index.js】【用户信息存入】【userInfo信息成功存入data中】", res.userInfo )//若完成上一步走到这一步的话输出“成功”
+              console.log("【index】【用户信息存入】【userInfo信息成功存入data中】", res.userInfo )//若完成上一步走到这一步的话输出“成功”
             }
           })
         }
@@ -34,7 +34,7 @@ Page({
       name: 'login',
       data: {},
       success: res => {
-        console.log('【index.js】【云函数获取openid】【成功获取】', res.result.openid)
+        console.log('【index】【云函数获取openid】【成功获取】', res.result.openid)
         this.setData({
           openId: res.result.openid
         })
@@ -47,7 +47,7 @@ Page({
               userId:res.data[0]._id,
               teamList: res.data[0].teamList
             })
-            console.log('【index.js】【user集合中获取该用户所参与的所有teamid】【获取成功】',that.data.teamList)
+            console.log('【index】【user集合中获取该用户所参与的所有teamid】【获取成功】',that.data.teamList)
             for (var i = 0; i < that.data.teamList.length; i++) {
               db.collection('team').where({
                 _id: that.data.teamList[i]
@@ -60,13 +60,13 @@ Page({
                 }
               })
             }
-            console.log('【index.js】【通过openid获得用户的所有team】【成功复制至data中team数组中】', that.data.team)
+            console.log('【index】【通过openid获得用户的所有team】【成功复制至data中team数组中】', that.data.team)
           }
         })
         app.globalData.openid = res.result.openid
       },
       fail: err => {
-        console.error('【index.js】【云函数获取openid】【失败】', err)
+        console.error('【index】【云函数获取openid】【失败】', err)
       }
     })
     
@@ -91,7 +91,7 @@ Page({
     console.log(e.currentTarget)
     var index = e.currentTarget.id
     wx.navigateTo({
-      url: '/pages/task-list/task-list?openId=' + this.data.openId + '&uerId=' + this.data.userId + '&teamId=' + this.data.team[index]._id
+      url: '/pages/task-list/task-list?openId=' + this.data.openId + '&uerId=' + this.data.userId + '&teamId=' + this.data.team[index]._id+'&userList='+this.data.team[index].userList
     })
   }
 })

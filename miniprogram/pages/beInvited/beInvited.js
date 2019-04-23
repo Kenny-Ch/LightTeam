@@ -22,13 +22,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('【传入新建团队id参数】【传入团队id参数成功】',options)
+    console.log('【beinvited】【传入新建团队id参数】【传入团队id参数成功】',options)
     this.data.teamId=options.teamId
     this.data.userId =getApp().globalData.openId
     teamCollection.doc(options.teamId)
       .get({
         success: res => {
-          console.log('【获取指定team信息】【获取成功】', res.data),
+          console.log('【beinvited】【获取指定team信息】【获取成功】', res.data),
             this.setData({
               leaderId: res.data.name,
               userList:res.data.userList,
@@ -41,11 +41,11 @@ Page({
             success: res => {
               //先判断是否授权，未授权要跳到第一个授权界面
               if (res.authSetting['scope.userInfo']) {
-                console.log("【用户授权】【已授权】")
+                console.log("【beinvited】【用户授权】【已授权】")
                 // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
                 wx.getUserInfo({
                   success: res => {
-                    console.log('【获取用户信息】【获取信息成功】', res.userInfo)//调试：输出获取到的用户信息判断是否成功获取
+                    console.log('【beinvited】【获取用户信息】【获取信息成功】', res.userInfo)//调试：输出获取到的用户信息判断是否成功获取
                     this.setData({
                       userInfo: res.userInfo//把成功获取的内容存到这个page的data里面
                     })
@@ -64,7 +64,7 @@ Page({
                           openid:res.result.openid})
                           .get({
                             success: res => {
-                              console.log('【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id,uList[0].id)
+                              console.log('【beinvited】【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id,uList[0].id)
                               //通过上面通过openid在集合获得的id去对照成员列表
                               //并且通过遍历找到是否存由该成员
                               //有则去index界面
@@ -74,14 +74,14 @@ Page({
                                   this.setData({
                                     // hide:true
                                   })
-                                  console.log('【用户是否已存在团队之中】，【不存在同时显示加入团队按钮】')
+                                  console.log('【beinvited】【用户是否已存在团队之中】，【不存在同时显示加入团队按钮】')
                                   break;
                                 }
                                 if (uList[i].id ==res.data[0]._id) {
                                   wx.switchTab({
                                     url: '/pages/index/index'
                                   })
-                                  console.log('【用户是否已存在团队之中】，【已存在并跳转首页】')
+                                  console.log('【beinvited】【用户是否已存在团队之中】，【已存在并跳转首页】')
                                   break;
                                 }
                               }
@@ -110,11 +110,11 @@ Page({
         success: res => {
           //先判断是否授权，未授权要跳到第一个授权界面
           if (res.authSetting['scope.userInfo']) {
-            console.log("【用户授权】【已授权】")
+            console.log("【beinvited】【用户授权】【已授权】")
             // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
             wx.getUserInfo({
               success: res => {
-                console.log('【获取用户信息】【获取openid信息成功】', res.userInfo)//调试：输出获取到的用户信息判断是否成功获取
+                console.log('【beinvited】【获取用户信息】【获取openid信息成功】', res.userInfo)//调试：输出获取到的用户信息判断是否成功获取
                 // this.setData({
                 //   userInfo: res.userInfo//把成功获取的内容存到这个page的data里面
                 // })
@@ -134,7 +134,7 @@ Page({
                     })
                       .get({
                         success: res => {
-                          console.log('【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id, this.data.userList[0].id)
+                          console.log('【beinvited】【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id, this.data.userList[0].id)
                           //通过上面通过openid在集合获得的id去对照成员列表
                           //并且通过遍历找到是否存由该成员
                           //有则去index界面
@@ -144,14 +144,14 @@ Page({
                               this.setData({
                                 hide:true
                               })
-                              console.log('【用户是否已存在团队之中】，【不存在同时显示加入团队按钮】')
+                              console.log('【beinvited】【用户是否已存在团队之中】，【不存在同时显示加入团队按钮】')
                               break;
                             }
                             if (this.data.userList[i].id == res.data[0]._id) {
                               wx.switchTab({
                                 url: '/pages/index/index'
                               })
-                              console.log('【用户是否已存在团队之中】，【已存在并跳转首页】')
+                              console.log('【beinvited】【用户是否已存在团队之中】，【已存在并跳转首页】')
                               break;
                             }
                           }
@@ -194,12 +194,12 @@ Page({
       //用户按了拒绝按钮
       wx.showModal({
         title: '提示',
-        content: '您点击了拒绝授权，将无法进入团队，请授权之后再进入!!!',
+        content: '您点击了拒绝授权，将无法进入团队，请授权之后再进入!',
         showCancel: false,
         confirmText: '返回授权',
         success: function (res) {
           if (res.confirm) {
-            console.log('用户点击了“返回授权”')
+            console.log('【beinvited】【用户点击了“返回授权”】')
           }
         }
       })
@@ -234,52 +234,5 @@ Page({
       })
     }
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  
 })
