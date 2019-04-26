@@ -80,13 +80,21 @@ Page({
             teamid:res._id
           })
           console.log('【create_team】【添加团队信息】【成功添加团队信息】', this.data,this.data.userId,this.data.teamid)
-          db.collection('user').doc('XK4Oqkftrkci08g').update({
-            data: {
-              teamList: db.command.push(['123','hjh'])
-            }
-          }).then(res=>{
-            console.log(res)
-          })
+          // db.collection('user').doc('XK4Oqkftrkci08g').update({
+          //   data: {
+          //     nickName:"hello"
+          //   },
+          //   success: console.log,
+          //   fail: console.error
+          // })
+
+          // db.collection('user').doc('XK4Oqkftrkci08g').update({
+          //   data: {
+          //     nickName:"hello"
+          //   }
+          // }).then(res=>{
+          //   console.log(res)
+          // })
           wx.redirectTo({
             url: '/pages/invite/invite?teamid=' + res._id
           })

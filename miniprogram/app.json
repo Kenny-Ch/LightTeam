@@ -9,7 +9,6 @@
     "pages/task/task",
     "pages/choosemember/choosemember",
     "pages/authorization/authorization",
-    "pages/number-list/number-list",
     "pages/beInvited/beInvited"
   ],
   "window": {

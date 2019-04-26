@@ -17,7 +17,7 @@
       <view class='text_title1'>任务进行时间</view>
       <view class='text_title1' style='left:450rpx'>团队名称</view>
       <view class='text_title2'>{{item.startDate}}{{item.startTime}}{{item.endDate}}{{item.endTime}}</view>
-      <view class='text_title2' style='left:450rpx;'>{{item.team}}</view>
+      <view class='text_title2' style='left:450rpx;'>{{item.teamname}}</view>
     </view>
   </view>
 </view>

@@ -1,3 +1,0 @@
-/* pages/number-list/number-list.wxss */
-@import"/pages/task-list/task-list.wxss";
-@import"/pages/choosemember/choosemember";

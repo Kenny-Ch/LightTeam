@@ -96,13 +96,6 @@
 					"scene": null
 				},
 				{
-					"id": 11,
-					"name": "addfunction",
-					"pathName": "pages/addFunction/addFunction",
-					"query": "",
-					"scene": null
-				},
-				{
 					"id": -1,
 					"name": "团队成员列表",
 					"pathName": "pages/number-list/number-list",
@@ -110,10 +103,10 @@
 					"scene": null
 				},
 				{
-					"id": 12,
+					"id": 11,
 					"name": "受邀请进入界面",
 					"pathName": "pages/beInvited/beInvited",
-					"query": "teamId=XK4VkXkPDdDCJ860&openid=oPr175Rn4q_rxIIz1OT2wx5wJJBI",
+					"query": "",
 					"scene": null
 				}
 			]
