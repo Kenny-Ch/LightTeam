@@ -17,9 +17,8 @@ Page({
     dateEnd: '请选择结束日期',
     timeBegin: '请选择开始时间',
     timeEnd:'请选择结束时间',
-    index: 1,
+    index: 0,
     tag: ['','重要且紧急', '不重要且紧急', '重要且不紧急','不重要且不紧急'],
-    tagicon:['transparenttag','redtag','','',''], 
     tagItem: '全部',
     teamId:'',
     userId:'',
@@ -91,6 +90,13 @@ Page({
             fail: console.error
           })
         })
+        db.collection('team').doc(that.data.userId).update({
+          data:{
+
+          },
+          success:console.log,
+          fail:console.error
+        })
         console.log('【create_task】【添加任务信息】【成功添加任务信息】', res)
       }
     })
@@ -103,7 +109,8 @@ Page({
     this.setData({
       teamId:options.teamId,
       openId:options.openId,
-      userId:options.userId
+      userId:options.userId,
+      teamName:options.teamName
     })
     var that = this;
     db.collection('user').where({

@@ -125,7 +125,7 @@ Page({
   },
   addTask:function(){
     wx.navigateTo({
-      url: '/pages/create_task/create_task?teamId='+this.data.teamId+'&openId='+this.data.openId+'&userId='+this.data.userId
+      url: '/pages/create_task/create_task?teamId='+this.data.teamId+'&openId='+this.data.openId+'&userId='+this.data.userId+'&teamName='+this.data.teamName
     })
   },
   bindTaskDetail:function(e){

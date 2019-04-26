@@ -1,7 +1,7 @@
 <view>
 
   <view class='item'>
-    <view class='title'>icode小分队</view>
+    <view class='title'>{{teamName}}</view>
     <view>
       <text></text>
       <input type='text' placeholder=' 请输入标题' placeholder-class='placeholder' bindinput='bindTaskNameInput'></input>
