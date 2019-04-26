@@ -23,7 +23,7 @@ Page({
     uhide:0,
     currentTab:'',
     taskListLength:1,
-    boxcolor: ["#eaff8f", "#43cf7c", "#fff566", "#ff7875"],
+    boxcolor: ["", "#fc2100", "#fff659", "#27e530", "#5a97f6"],
   },
   bindMemberList: function () {
     wx.redirectTo({

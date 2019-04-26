@@ -19,11 +19,12 @@ Page({
     timeEnd:'请选择结束时间',
     index: 1,
     tag: ['','重要且紧急', '不重要且紧急', '重要且不紧急','不重要且不紧急'],
-    tagicon:['transparenttag','redtag','','',''],
+    tagicon:['transparenttag','redtag','','',''], 
     tagItem: '全部',
     teamId:'',
     userId:'',
-    taskList:[]
+    taskList:[],
+    url:''
     },
   bindTaskNameInput: function (e) {
     this.setData({
@@ -104,6 +105,16 @@ Page({
       openId:options.openId,
       userId:options.userId
     })
-  },
+    var that = this;
+    db.collection('user').where({
+      _id: that.data.userId
+    }).get({
+      success(res) {
+        that.setData({
+          url: res.data[0].avatarUrl
+        })
+      }
+    })
+  }
 
 })

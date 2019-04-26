@@ -34,7 +34,7 @@
   <view class='item'>
     <view class='title'>参与成员</view>
     <view class='peopleimg-box'>
-      <image src='/images/img.jpg'></image>
+      <image src='{{url}}'></image>
     </view>
   </view>
 
@@ -52,7 +52,7 @@
     <view class='picker'>
       <picker bindchange="bindTagChange" value="{{index}}" range="{{tag}}">
         <view class='tag' style='margin:0rpx;'>
-          <image src='/images/{{tagicon[index]}}.svg'></image>
+          <image src='/images/{{index}}.svg'></image>
           <text>{{tag[index]}}</text>
         </view>
       </picker>
