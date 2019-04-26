@@ -1,41 +1,62 @@
 <!--pages/detail-task/detal-task.wxml-->
 
 
+<scroll-view scroll-x="true" scroll-y="true">
+  <view class='box_top'>
 
-<view class='box_top'>
 
-
-  <view>
-    <view class='text_teamname'>{{teamName}}</view>
-    <view class='text_number'>{{memberNum}}人</view>
-    <view class='buttom2' bindtap='bindMemberList'>
+    <view>
+      <view class='text_teamname'>{{teamName}}</view>
+      <view class='text_number'>{{memberNum}}人</view>
+      <!-- <view class='buttom2' bindtap='bindMemberList'>
       <view class='buttom_team'>成员</view>
     </view>
     <view class='buttom'>
       <view class='buttom_text'>任务</view>
-    </view>
-    <view class='text_intro'>{{teamIntroduce}}</view>
-    <image src='/images/pen.svg' class='icon_pen'></image>
-  </view>
-</view>
-
-
-
-<view class='back' style='position:relative;top:320rpx;'>
-  <view class="{{showView?'box_a':'box_b'}}" style='top:20rpx;' wx:for="{{task}}" bindlongtap='longtapDelete' id="{{index}}">
-    <view class='text_taskname'>{{item.name}}</view>
-    <view class='box_card' style='background-color:#ffeb3b;'></view>
-    <view class="{{showView?'hide':'show'}}">
-      <image src='/images/down.png' class='hide_icon' bindtap='onChangeShowState'></image>
-    </view>
-    <view class="{{showView?'show':'hide'}}">
-      <image src='/images/up.png' class='hide_icon' bindtap='onChangeShowState'></image>
-    </view>
-    <view class="hide{{showView?'show':''}}">
-      <view class='text_title1'>任务进行时间</view>
-      <view class='text_title1' style='left:450rpx'>所属团队</view>
-      <view class='text_title2'>{{item.startDate}} {{item.startTime}}——{{item.endDate}} {{item.endTime}}</view>
-      <view class='text_title2' style='left:450rpx;'>{{teamName}}</view>
+    </view> -->
+      <view class="buttom_1 {{currentTab==0 ? 'b_1' : 'b_2'}}" data-current="0" catchtap="swichNav">任务</view>
+      <!-- </navigator> -->
+      <view class="buttom_2 {{currentTab==1 ? 'b_1' : 'b_2'}}" data-current="1" catchtap="swichNav">成员</view>
+      <view class='text_intro'>{{teamIntroduce}}</view>
+      <image src='/images/pen.svg' class='icon_pen'></image>
     </view>
   </view>
-</view>
+
+
+  <swiper current="{{currentTab}}" class="back" duration="300" style="height:{{taskListLength}}rpx" bindchange="bindChange">
+    <swiper-item>
+      <view wx:for="{{task}}">
+        <view class='back' style='position:relative;top:320rpx;' bindtap='bindTaskDetail'  data-index="{{index}}">
+          <view class="box_a" style='top:20rpx;' bindlongtap='longtapDelete' id="{{index}}">
+            <view class='box_card' style='background-color:{{boxcolor[item.tag]}}'></view>
+            <view class="{{(uhide==tags._id)?'hide':'show'}}">
+
+            </view>
+            <view class="{{(uhide==tags._id)?'show':'hide'}}">
+
+            </view>
+            <view class='text_taskname'>{{item.name}}</view>
+            <view class='text_title1'>任务进行时间</view>
+            <view class='text_title2'>{{item.startDate}} {{item.startTime}} — {{item.endDate}} {{item.endTime}}</view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+
+    <swiper-item>
+      <view class='back' style='position:relative;top:320rpx;'>
+        <view wx:for="{{userList}}">
+          <view style='border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative' bindlongpress='longPress'>
+            <view class='member-name'>{{item.nickName}}</view>
+            <image src='{{item.Url}}' class='img'></image>
+          </view>
+        </view>
+
+        <!-- </block> -->
+      </view>
+    </swiper-item>
+  </swiper>
+</scroll-view>
+<button bindtap='addTask'>
+  <view class='homepage_team_add'>+</view>
+</button>

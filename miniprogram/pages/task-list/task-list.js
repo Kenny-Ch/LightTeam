@@ -14,9 +14,16 @@ Page({
     teamName:'',
     memberNum:'',
     teamIntroduce:'',
+    openId:'',
+    teamId:'',
+    userId:'',
     taskList:[],
     task:[],
-    userList:[]
+    userList:[],
+    uhide:0,
+    currentTab:'',
+    taskListLength:1,
+    boxcolor: ["#eaff8f", "#43cf7c", "#fff566", "#ff7875"],
   },
   bindMemberList: function () {
     wx.redirectTo({
@@ -29,7 +36,9 @@ Page({
   onLoad: function (options) {
     console.log('【task-list】【index界面传入参数】',options)
     this.setData({
-      teamId:options.teamId
+      teamId:options.teamId,
+      openId:options.openId,
+      userId:options.userId
     })
     var that = this;
     db.collection('team').where({
@@ -41,7 +50,8 @@ Page({
           memberNum:res.data[0].userNum,
           teamIntroduce:res.data[0].introduce,
           taskList:res.data[0].taskList,
-          userList:res.data[0].userList
+          userList:res.data[0].userList,
+          taskListLength:res.data[0].taskList.length*510
         })
         console.log('【task-list】【获取指定的team信息】【获取成功】',res.data[0])
         for (var i = 0; i < that.data.taskList.length; i++) {
@@ -59,9 +69,21 @@ Page({
         console.log('【task-list】【获取指定的task信息】【获取成功】',that.data.task)
       }
     })
-    
-
-    showView: (options.showView == "true" ? true : false)
+ 
+  },
+  /*** 滑动切换tab***/
+  bindChange: function (e) {
+    var that = this;
+    that.setData({
+      currentTab: e.detail.current
+    });
+  },
+  /*** 点击tab切换***/
+  swichNav: function (e) {
+    var that = this;
+    that.setData({
+      currentTab: e.target.dataset.current
+    })
   },
   longtapDelete:function(e){
     var that = this;
@@ -100,14 +122,18 @@ Page({
     // if(toggleBtnVal == itemId){
 
     // }
-    that.setData({
-      showView: (!that.data.showView)
+  },
+  addTask:function(){
+    wx.navigateTo({
+      url: '/pages/create_task/create_task?teamId='+this.data.teamId+'&openId='+this.data.openId+'&userId='+this.data.userId
     })
   },
-
-  height: function (e) {
-    if (showView) {
-      var box = e.target.id;
-    }
+  bindTaskDetail:function(e){
+    var index = e.currentTarget.dataset.index;
+    console.log(this.data.task[index]);
+    var that = this;
+    wx.navigateTo({
+      url: '/pages/task/task?taskId='+that.data.task[index]._id+'&teamId='+that.data.teamId
+    })
   }
 })

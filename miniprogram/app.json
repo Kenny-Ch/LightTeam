@@ -1,4 +1,3 @@
-
 {
   "pages": [
     "pages/index/index",
@@ -13,27 +12,26 @@
     "pages/number-list/number-list",
     "pages/beInvited/beInvited"
   ],
-"window": {
-  "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTitleText": ""
-},
-"tabBar": {
-  "list": [
-    {
-      "pagePath": "pages/index/index",
-      "text": "团队",
-      "iconPath": "/images/tabbar2.png",
-      "selectedIconPath": "/images/tabbar1.png"
-    },
-    {
-      "pagePath": "pages/maintask/maintask",
-      "text": "任务",
-      "iconPath": "/images/tabbar4.png",
-      "selectedIconPath": "/images/tabbar3.png"
-    }
-  ]
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": ""
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "团队",
+        "iconPath": "/images/tabbar2.png",
+        "selectedIconPath": "/images/tabbar1.png"
+      },
+      {
+        "pagePath": "pages/maintask/maintask",
+        "text": "任务",
+        "iconPath": "/images/tabbar4.png",
+        "selectedIconPath": "/images/tabbar3.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }
-
-}
-

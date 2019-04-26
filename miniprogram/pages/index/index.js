@@ -91,7 +91,7 @@ Page({
     console.log(e.currentTarget)
     var index = e.currentTarget.id
     wx.navigateTo({
-      url: '/pages/task-list/task-list?openId=' + this.data.openId + '&uerId=' + this.data.userId + '&teamId=' + this.data.team[index]._id+'&userList='+this.data.team[index].userList
+      url: '/pages/task-list/task-list?openId=' + this.data.openId + '&userId=' + this.data.userId + '&teamId=' + this.data.team[index]._id
     })
   }
 })

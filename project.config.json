@@ -11,6 +11,8 @@
 	"appid": "wx649b51cafacdd3a1",
 	"projectname": "icode",
 	"libVersion": "2.2.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -28,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -82,7 +84,7 @@
 					"id": 7,
 					"name": "任务详情",
 					"pathName": "pages/task/task",
-					"query": "taskId=XK4SWVsqTi00trGh&teamId=XK4VkXkPDdDCJ860",
+					"query": "",
 					"scene": null
 				},
 				{

@@ -88,7 +88,6 @@ Page({
     showView: (options.showView == "true" ? true : false)
   },
   deleteTask:function(e){
-    console.log(e)
     var that = this;
     var task = that.data.tsak;
     var taskList = that.data.taskList;
@@ -122,11 +121,5 @@ Page({
       task:that.data.task
     })
   },
-
-  height:function(e){
-    if(showView)
-    {
-      var box=e.target.id;
-    }
-  }
+  
 })
