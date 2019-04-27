@@ -84,7 +84,7 @@ button{
 }
 .tag{
   border: 1rpx solid #e6e6e6;
-  width: 600rpx;
+  width: 100%;
   height: 77rpx;
   border-radius: 10rpx;
   position:relative;

@@ -12,23 +12,23 @@
   background-color: rgba(107, 184, 255, 1);
   color: white;
 }
-/* 未完成*/
+/* 未完成
 .text_top{
   position: relative;
 	width: 140rpx;
 	height: 42rpx;
 	left: 26rpx;
-	top: 102rpx;
+	top: 0rpx;
 	color: rgba(80, 80, 80, 1);
 	font-size: 28rpx;
 	line-height: 150%;
 	text-align: left;
 	font-weight: bold;
-}
+} */
 /*框架*/
 .position{
   position: relative;
-  top: 100rpx;
+  top: 0rpx;
   left: 40rpx;
   width: 720rpx;
   height: 200rpx;

@@ -25,6 +25,25 @@ Page({
     taskList:[],
     url:''
     },
+  onLoad: function (options) {
+    console.log('【create_task】【task-list界面传入参数】', options)
+    this.setData({
+      teamId: options.teamId,
+      openId: options.openId,
+      userId: options.userId,
+      teamName: options.teamName
+    })
+    var that = this;
+    db.collection('user').where({
+      _id: that.data.userId
+    }).get({
+      success(res) {
+        that.setData({
+          url: res.data[0].avatarUrl
+        })
+      }
+    })
+  },
   bindTaskNameInput: function (e) {
     this.setData({
       taskName: e.detail.value
@@ -67,7 +86,8 @@ Page({
         "finish":false,
         "tag":0,
         "userList":[{'id':''}],
-        "team":this.data.teamId
+        "team":this.data.teamId,
+        "teamName":this.data.teamName
       },
       success: res => {
         console.log(this.data)
@@ -75,27 +95,23 @@ Page({
           taskid: res._id
         })
         var that = this;
-        db.collection('user').where({
-          _id: that.data.userId 
-        }).get().then(res => {
-          that.setData({
-            taskList:res.data[0].taskList
-          })
-          that.data.taskList.push(that.data.taskid)
+        // db.collection('user').where({
+        //   _id: that.data.userId 
+        // }).get().then(res => {
+        //   that.setData({
+        //     taskList:res.data[0].taskList
+        //   })
+        //   that.data.taskList.push(that.data.taskid)
           db.collection('user').doc(that.data.userId).update({
             data: {
-              taskList:that.data.taskList
+              taskList:db.command.push(that.data.taskid)
             },
-            success: console.log,
-            fail: console.error
           })
-        })
-        db.collection('team').doc(that.data.userId).update({
+        // })
+        db.collection('team').doc(that.data.teamId).update({
           data:{
-
+            taskList:db.command.push(that.data.taskid)
           },
-          success:console.log,
-          fail:console.error
         })
         console.log('【create_task】【添加任务信息】【成功添加任务信息】', res)
       }
@@ -104,24 +120,6 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log('【create_task】【task-list界面传入参数】',options)
-    this.setData({
-      teamId:options.teamId,
-      openId:options.openId,
-      userId:options.userId,
-      teamName:options.teamName
-    })
-    var that = this;
-    db.collection('user').where({
-      _id: that.data.userId
-    }).get({
-      success(res) {
-        that.setData({
-          url: res.data[0].avatarUrl
-        })
-      }
-    })
-  }
+  
 
 })

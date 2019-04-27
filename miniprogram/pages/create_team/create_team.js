@@ -73,28 +73,18 @@ Page({
             "nickName":this.data.nickName,
             "id":this.data.userId
           }],
-          "userNum":0
+          "userNum":1
         },
         success: res => {
           this.setData({
             teamid:res._id
           })
           console.log('【create_team】【添加团队信息】【成功添加团队信息】', this.data,this.data.userId,this.data.teamid)
-          // db.collection('user').doc('XK4Oqkftrkci08g').update({
-          //   data: {
-          //     nickName:"hello"
-          //   },
-          //   success: console.log,
-          //   fail: console.error
-          // })
-
-          // db.collection('user').doc('XK4Oqkftrkci08g').update({
-          //   data: {
-          //     nickName:"hello"
-          //   }
-          // }).then(res=>{
-          //   console.log(res)
-          // })
+          db.collection('user').doc(this.data.userId).update({
+            data: {
+              teamList:db.command.push(this.data.teamid)
+            }
+          })
           wx.redirectTo({
             url: '/pages/invite/invite?teamid=' + res._id
           })

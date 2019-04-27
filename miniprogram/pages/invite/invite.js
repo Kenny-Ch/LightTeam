@@ -19,7 +19,7 @@ Page({
   }
   return{
     title: '邀请你加入新团队',
-    path: '/pages/index/index?teamId=' + this.data.teamId ,
+    path: '/pages/beInvited/beInvited?teamId=' + this.data.teamId ,
     imageUrl: '/images/share.png',
     }
   }
