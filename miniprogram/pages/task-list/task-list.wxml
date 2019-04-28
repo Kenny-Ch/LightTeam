@@ -24,9 +24,10 @@
 
 
   <swiper current="{{currentTab}}" class="back" duration="300" style="height:{{taskListLength}}rpx" bindchange="bindChange">
+  
     <swiper-item>
       <view wx:for="{{task}}">
-        <view class='back' style='position:relative;top:320rpx;' bindtap='bindTaskDetail'  data-index="{{index}}">
+        <view class='back' style='position:relative;top:320rpx;' bindtap='bindTaskDetail' data-index="{{index}}">
           <view class="box_a" style='top:20rpx;' bindlongtap='longtapDelete' id="{{index}}">
             <view class='box_card' style='background-color:{{boxcolor[item.tag]}}'></view>
             <view class="{{(uhide==tags._id)?'hide':'show'}}">
@@ -38,9 +39,11 @@
             <view class='text_taskname'>{{item.name}}</view>
             <view class='text_title1'>任务进行时间</view>
             <view class='text_title2'>{{item.startDate}} {{item.startTime}} — {{item.endDate}} {{item.endTime}}</view>
+           
           </view>
         </view>
       </view>
+       
     </swiper-item>
 
     <swiper-item>
@@ -49,6 +52,7 @@
           <view style='border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative;background-color:#fff' bindlongpress='longPress'>
             <view class='member-name'>{{item.nickName}}</view>
             <image src='{{item.Url}}' class='img'></image>
+            
           </view>
         </view>
 
@@ -57,6 +61,6 @@
     </swiper-item>
   </swiper>
 </scroll-view>
-<button bindtap='addTask'>
+<button bindtap='addTask' open-type="{{currentTab? 'share':'' }}">
   <view class='homepage_team_add'>+</view>
 </button>
