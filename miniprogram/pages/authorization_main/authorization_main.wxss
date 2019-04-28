@@ -1,0 +1,12 @@
+/* pages/authorization_main/authorization_main.wxss */
+.background{
+	width: 750rpx;
+	height: 1044rpx;
+	top: 20rpx;
+	color: rgba(80, 80, 80, 1);
+	background-color: rgba(107, 154, 255, 1);
+	font-size: 28rpx;
+	line-height: 150%;
+	box-shadow: 0rpx 0rpx 0rpx 0rpx rgba(0, 0, 0, 0.2428571428571429);
+	text-align: center;
+}

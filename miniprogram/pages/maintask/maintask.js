@@ -52,17 +52,23 @@ Page({
         })
         console.log('【maintask】【user集合中获取该用户所参与的所有taskid】【获取成功】', that.data.taskList)
         for (var i = 0; i < that.data.taskList.length; i++) {
+          var c = 0;
           db.collection('task').where({
             _id: that.data.taskList[i]
           }).get({
             success(res) {
               that.data.task.push(res.data[0])
               that.data.task[count].show=false
+              var taskstart = "task["+c+"].startDate"
+              var taskend = "task["+c+"].endDate"
               that.setData({
                 task: that.data.task,
+                [taskstart]: that.data.task[c].startDate.substring(5,10)+' ',
+                [taskend]: ' to '+that.data.task[c].endDate.substring(5,10) + ' ',
                 showView:that.data.showView
               })
               count++
+              c++
             }
           })
         }
@@ -76,7 +82,7 @@ Page({
               console.log(res)
               that.data.task[count].team = res.data.name
               that.setData({
-                task: that.data.task,
+                task: that.data.task
               })
               count++
             }
