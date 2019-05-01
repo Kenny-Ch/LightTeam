@@ -76,7 +76,8 @@ Page({
     var that = this;
     that.setData({
       currentTab: e.detail.current
-    });
+    })
+    // console.log(e.detail.current)
   },
   /*** 点击tab切换***/
   swichNav: function(e) {
@@ -84,6 +85,7 @@ Page({
     that.setData({
       currentTab: e.target.dataset.current
     })
+    // console.log(e.detail.setdata.current)
   },
   longtapDelete: function(e) {
     var that = this;
