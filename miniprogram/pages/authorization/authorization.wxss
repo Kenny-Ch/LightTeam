@@ -1,15 +1,36 @@
 /* pages/authorization/authorization.wxss */
+.welcome{
+  position: fixed;
+	width: 180rpx;
+	height: 90rpx;
+	left: 31rpx;
+	top: 120rpx;
+	color: rgba(80, 80, 80, 1);
+	font-size: 60rpx;
+	line-height: 150%;
+	text-align: left;
+}
 .text{
   position: fixed;
-  top: 500rpx;
-  left: 240rpx;
-  
+	width: 364rpx;
+	height: 42rpx;
+	left: 31rpx;
+	top: 205rpx;
+	color: rgba(153, 153, 153, 1);
+	font-size: 28rpx;
+	line-height: 150%;
+	text-align: left;
 }
 .icon{
   position: fixed;
-  top: 900rpx;
-  left: 140rpx;
-  width: 500rpx;
-  height: 100rpx;
-  text-align: center;
+	width: 230rpx;
+	height: 70rpx;
+	left: 46rpx;
+	top: 404rpx;
+	background-color: rgba(107, 154, 255, 1);
+	border-radius: 32rpx;
+	text-align: center;
+  color: rgba(255, 255, 255, 1);
+	font-size: 30rpx;
+	line-height: 220%;
 }

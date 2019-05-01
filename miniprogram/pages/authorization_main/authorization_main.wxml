@@ -1,2 +1,10 @@
 <!--pages/authorization_main/authorization_main.wxml-->
-<view class='background'></view>
+<view class='background'>
+<view class='shadow'></view>
+</view>
+<view class='text-box'>
+<view class='title'>在微信中组建团队</view>
+<view class='text-main'>请允许我们获得以下信息以便获得更好的体验 </view>
+<view class='text-main' style='top:930rpx;font-size:26rpx;color:#9d9d9d;'>获得你的公开信息（昵称、头像等）</view>
+<button>授权并登陆</button>
+</view>

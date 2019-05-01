@@ -1,12 +1,74 @@
 /* pages/authorization_main/authorization_main.wxss */
 .background{
 	width: 750rpx;
-	height: 1044rpx;
+	height: 944rpx;
 	top: 20rpx;
 	color: rgba(80, 80, 80, 1);
 	background-color: rgba(107, 154, 255, 1);
 	font-size: 28rpx;
 	line-height: 150%;
 	box-shadow: 0rpx 0rpx 0rpx 0rpx rgba(0, 0, 0, 0.2428571428571429);
+	text-align: center;
+}
+.text-box{
+  position: fixed;
+ width: 682rpx;
+	height: 432rpx;
+	left: 35rpx;
+	top: 733rpx;
+	color: rgba(80, 80, 80, 1);
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 16rpx;
+	font-size: 28rpx;
+	line-height: 150%;
+	box-shadow: 0rpx 14rpx 14rpx 0rpx rgba(0, 0, 0, 0.17142857142857137);
+	text-align: center;
+}
+.title{
+  position: fixed;
+	width: 432rpx;
+	height: 80rpx;
+	left: 158rpx;
+	top: 770rpx;
+	color: rgba(107, 154, 255, 1);
+	font-size: 54rpx;
+	line-height: 150%;
+	text-align: left;
+}
+.text-main{
+  position: fixed;
+	width: 568rpx;
+	height: 42rpx;
+	left: 86rpx;
+	top: 880rpx;
+	color: rgba(80, 80, 80, 1);
+	font-size: 28rpx;
+	line-height: 150%;
+	text-align: center;
+}
+button{
+  position: fixed;
+	width: 540rpx;
+	height: 76rpx;
+	left: 102rpx;
+	top: 1000rpx;
+	background-color: rgba(107, 154, 255, 1);
+	border-radius: 33rpx;
+	text-align: center;
+  font-size: 32rpx;
+	line-height: 220%;
+  color: #fff
+}
+.shadow{
+  position: fixed;
+	width: 394rpx;
+	height: 394rpx;
+	left: 185rpx;
+	top: 117rpx;
+	color: rgba(80, 80, 80, 1);
+	background-color: rgba(108, 104, 222, 0.27857142857142864);
+	border-radius: 197rpx;
+	font-size: 28rpx;
+	line-height: 150%;
 	text-align: center;
 }

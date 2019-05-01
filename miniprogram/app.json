@@ -9,7 +9,8 @@
     "pages/task/task",
     "pages/choosemember/choosemember",
     "pages/authorization/authorization",
-    "pages/beInvited/beInvited"
+    "pages/beInvited/beInvited",
+    "pages/authorization_main/authorization_main"
   ],
   "window": {
     "backgroundTextStyle": "light",
