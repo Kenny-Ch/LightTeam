@@ -5,6 +5,7 @@ input{
   border-radius: 10rpx;
   color: #383838;
   font-size: 30rpx;
+  padding-left: 10rpx;
 }
 .picker{
   border: 1rpx solid #e6e6e6;
@@ -101,4 +102,8 @@ button{
   top:12rpx;
   left: 90rpx;
   color: #383838;
+}
+.on{
+  background-color:  #6bb8ff;
+  color: #fff;
 }

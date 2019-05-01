@@ -5,6 +5,7 @@ Page({
    /* 页面的初始数据
    */
   data: {
+    remind:0,
     checkbox:[
       { name:"创建任务后马上提醒大家"},
       { name: "创建任务后马上提醒大家"},
@@ -48,6 +49,12 @@ Page({
     this.setData({
       taskName: e.detail.value
     })
+  },
+  bindMentionTime(e){
+this.setData({
+  remind: e.target.dataset.remind
+})
+
   },
   bindDateBeginChange(e) {
     this.setData({
@@ -120,6 +127,6 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  
+
 
 })
