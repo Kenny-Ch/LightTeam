@@ -25,12 +25,12 @@
 
 <view class='box'>
   <image src='/images/date.svg' class='icon'></image>
-  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>{{dateEnd}}</text><text style='margin-left:15rpx;'>{{timeEnd}}</text></text>
+  <text class='font' style='position: absolute;left:134rpx;'><text>截止时间：</text><text>{{dateEnd}}</text><text style='margin-left:15rpx;'>{{timeEnd}}</text></text>
 </view>
 
 <view class='box'>
 <view>
-<image src='/images/nulltag.svg' class='icon'></image>
+<image src='/images/{{tagNum}}.svg' class='icon'></image>
   <text  class='font' style='position: absolute;left:134rpx;'><text>标签：</text><text>{{tag[tagNum]}}</text></text>
 </view>
   

@@ -89,10 +89,10 @@ this.setData({
         "endDate": this.data.dateEnd,
         "startTime":this.data.timeBegin,
         "endTime":this.data.timeEnd,
-        "accept":[],
+        "accept":[false],
         "finish":false,
-        "tag":0,
-        "userList":[{'id':''}],
+        "tag":this.data.index,
+        "userList":[{'id':this.data.userId,'Url':'','nickName':''}],
         "team":this.data.teamId,
         "teamName":this.data.teamName
       },
@@ -120,6 +120,9 @@ this.setData({
             taskList:db.command.push(that.data.taskid)
           },
         })
+        // wx.redirectTo({
+        //   url: '/pages/task-list/task-list',
+        // })
         console.log('【create_task】【添加任务信息】【成功添加任务信息】', res)
       }
     })

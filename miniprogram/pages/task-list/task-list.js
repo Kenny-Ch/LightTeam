@@ -149,7 +149,7 @@ Page({
     console.log(this.data.task[index]);
     var that = this;
     wx.navigateTo({
-      url: '/pages/task/task?taskId=' + that.data.task[index]._id + '&teamId=' + that.data.teamId
+      url: '/pages/task/task?taskId=' + that.data.task[index]._id + '&teamName=' + that.data.teamName+'&userId='+that.data.userId
     })
   }
 })
