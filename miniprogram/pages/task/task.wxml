@@ -15,7 +15,7 @@
 
 <view class='box'>
   <image src='/images/situation.svg' class='icon'></image>
-  <text class='font' style='position: absolute;left:134rpx;'>状态：正在进行中</text>
+  <text class='font' style='position: absolute;left:134rpx;'>状态：{{state}}</text>
 </view>
 
 <view class='box'>

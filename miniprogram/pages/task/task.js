@@ -22,7 +22,8 @@ Page({
     accept:[],
     userId:'',
     buttonHidden: true,
-    i:0
+    i:0,
+    state:''
   },
 
   /**
@@ -50,6 +51,14 @@ Page({
               memberList: res.data.userList,
               accept:res.data.accept
             })
+          var date = new Date();
+          var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate()<10?"0"+date.getDate():date.getDate())+ date.getHours() + ':' + date.getMinutes();
+          var begin = this.data.dateBegin + this.data.timeBegin;
+          var end = this.data.dateEnd + this.data.timeEnd;
+          this.setData({
+            state:currentDate < begin ? "未开始" : currentDate <=end ? "进行中" : "已截止"
+          })
+          console.log(currentDate, begin, 'fhdfjdfjdhfhdjfhdhfj', end)
             for(var i=this.data.i;i<this.data.memberList.length;i++)
             {
               if(this.data.memberList[i].id==this.data.userId)
@@ -67,12 +76,18 @@ Page({
   bindReceiveTask: function () {
     this.data.accept[this.data.i]=true;
     var that=this;
-    db.collection('task').doc(that.data.taskId).update({
+    wx.cloud.callFunction({
+      name:"updateAccept",
       data: {
-        accept: that.data.accept
+        accept: that.data.accept,
+        taskId: that.data.taskId
       },
-      success: console.log,
-      fail: console.error
+    }).then(res=>{
+      that.setData({
+        accept:that.data.accept,
+        buttonHidden:false
+      })
+      console.log("【task】【已接受任务】【更新成功】")
     })
     },
         
