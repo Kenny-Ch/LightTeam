@@ -82,6 +82,7 @@ this.setData({
     })
   },
   bindSave: function(){
+    // if()
     taskCollection.add({
       data: {
         "name":this.data.taskName,
@@ -102,19 +103,11 @@ this.setData({
           taskid: res._id
         })
         var that = this;
-        // db.collection('user').where({
-        //   _id: that.data.userId 
-        // }).get().then(res => {
-        //   that.setData({
-        //     taskList:res.data[0].taskList
-        //   })
-        //   that.data.taskList.push(that.data.taskid)
           db.collection('user').doc(that.data.userId).update({
             data: {
               taskList:db.command.push(that.data.taskid)
             },
           })
-        // })
         db.collection('team').doc(that.data.teamId).update({
           data:{
             taskList:db.command.push(that.data.taskid)
@@ -127,9 +120,4 @@ this.setData({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-
-
 })

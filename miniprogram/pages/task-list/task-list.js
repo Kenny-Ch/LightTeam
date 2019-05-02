@@ -24,11 +24,8 @@ Page({
     currentTab: '',
     taskListLength: 1,
     boxcolor: ["", "#fc2100", "#fff659", "#27e530", "#5a97f6"],
-  },
-  bindMemberList: function() {
-    wx.redirectTo({
-      url: '/pages/number-list/number-list',
-    })
+    touchEnd:'',
+    touchStart:''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -87,7 +84,12 @@ Page({
     })
     // console.log(e.detail.setdata.current)
   },
-  longtapDelete: function(e) {
+  bindMemberList: function () {
+      wx.redirectTo({
+        url: '/pages/number-list/number-list',
+      })
+  },
+  longPressDelete: function(e) {
     var that = this;
     var task = that.data.task;
     var taskList = that.data.taskList;

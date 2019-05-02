@@ -55,6 +55,7 @@ Page({
           var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate()<10?"0"+date.getDate():date.getDate())+ date.getHours() + ':' + date.getMinutes();
           var begin = this.data.dateBegin + this.data.timeBegin;
           var end = this.data.dateEnd + this.data.timeEnd;
+          // if()
           this.setData({
             state:currentDate < begin ? "未开始" : currentDate <=end ? "进行中" : "已截止"
           })

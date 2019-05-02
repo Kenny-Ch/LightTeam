@@ -8,7 +8,7 @@
   <swiper-item>
     <view wx:for="{{task}}">
       <view class='back' style='position:relative;top:320rpx;' bindtap='bindTaskDetail' data-index="{{index}}">
-        <view class="box_a" style='top:20rpx;' bindlongtap='longtapDelete' id="{{index}}">
+        <view class="box_a" style='top:20rpx;' bindlongpress='longPressDelete' id="{{index}}">
           <view class='box_card' style='background-color:{{boxcolor[item.tag]}}'></view>
           <view class="{{(uhide==tags._id)?'hide':'show'}}">
 
