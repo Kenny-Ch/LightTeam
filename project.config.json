@@ -71,7 +71,7 @@
 					"id": 5,
 					"name": "选择成员",
 					"pathName": "pages/choosemember/choosemember",
-					"query": "id=XK4VkXkPDdDCJ860",
+					"query": "teamId=XK4VkXkPDdDCJ860",
 					"scene": null
 				},
 				{

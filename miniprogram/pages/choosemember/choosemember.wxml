@@ -1,9 +1,9 @@
 <view style='padding-top:27rpx;padding-left:58rpx;padding-right:68rpx;position:relative;'>
-  <text style='font-size:40rpx;color:#505050;font-weight:bold;'>Icode小分队</text>
-  <text style='position:absolute;right:68rpx;top:37rpx;color:#505050;font-size:28rpx;'>3人</text>
+  <text style='font-size:40rpx;color:#505050;font-weight:bold;'>{{teamName}}</text>
+  <text style='position:absolute;right:68rpx;top:37rpx;color:#505050;font-size:28rpx;'>{{memberNum}}人</text>
 </view>
 
-<block wx:for="{{team}}">
+<block wx:for="{{userList}}">
 
 <!-- <view wx:for="{{userList}}">
 <view style='border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative'>
@@ -13,13 +13,13 @@
 </view>
 </view> -->
 
-<view class='back' style='position:relative;top:320rpx;'>
-      <view wx:for="{{userList}}">
-        <view style='border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative;background-color:#fff' bindlongpress='longPress'>
+<view class='back' style='position:relative;top:40rpx;'>
+      <!-- <view wx:for="{{userList}}"> -->
+        <view style="border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative;background-color:#fff;{{index==0?'border-top:1rpx solid #e3e3e3;':''}}" bindlongpress='longPress'>
           <view class='member-name'>{{item.nickName}}</view>
           <image src='{{item.Url}}' class='img'></image>
-
+          
         </view>
-      </view>
+      <!-- </view> -->
     </view>
 </block>

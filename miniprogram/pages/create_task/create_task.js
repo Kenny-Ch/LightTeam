@@ -120,4 +120,9 @@ this.setData({
       }
     })
   },
+  bindChooseMember:function(){
+    wx.navigateTo({
+      url: '/pages/choosemember/choosemember?teamId='+this.data.teamId+'&userId='+this.data.userId+'&openId='+this.data.openId
+    })
+  }
 })
