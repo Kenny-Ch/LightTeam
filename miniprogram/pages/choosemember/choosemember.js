@@ -43,43 +43,27 @@ Page({
 
   },
   selectall: function (e) {
-    // console.log(e)
+    console.log(e)
     var that = this;
     var arr = [];   //存放选中id的数组
     for (var i = 0; i < that.data.userList.length; i++) {
-      that.data.userList[i].checked = (!that.data.select_all)
+      that.data.userList[i].checked = !that.data.select_all
       if (that.data.userList[i].checked == true) {
         // 全选获取选中的值
         arr = arr.concat(that.data.userList[i].id.split(","));
       }
     }
-    console.log(arr)
     that.setData({
       userList: that.data.userList,
       select_all: (!that.data.select_all),
       batchIds: arr
     })
-
   },
 
-  bindall:function(e){
+  bindchange:function(e){
     var that = this;
-    // var arr = [];   //存放选中id的数组
-    // for (var i = 0; i < that.data.userList.length; i++) {
-    //   that.data.userList[i].checked = (!that.data.select_all)
-    //   // console.log(that.data.userList[i].checked)
-    //   if (that.data.userList[i].checked == true) {
-    //     // 全选获取选中的值
-    //     // console.log(that.data.userList[i].id)
-    //     arr = arr.concat(that.data.userList[i].id.split(","));
-    //   }
-    // }
-    // console.log(e)
-    // that.setData({
-    //   batchIds: e.detail.value  //单个选中的值
-    // })
-    console.log(e.detail.value)
-    if (e.detail.checked)
+    console.log(e)
+    if (e.detail.value.length==this.data.userList.length)
     {
       that.setData({
         select_all : true,
@@ -87,11 +71,13 @@ Page({
     }
     else
     {
+      
       that.setData({
         select_all : false,
       })
     }
-    // console.log(that.data.select_all)
-  }
-
+    that.setData({
+      batchIds:e.detail.value
+    })
+  },
 })
