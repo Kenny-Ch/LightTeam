@@ -53,6 +53,14 @@ Page({
         arr = arr.concat(that.data.userList[i].id.split(","));
       }
     }
+    for(var i=0;i< arr.length;i++){
+      for(var j=0;j< that.data.userList.length;j++){
+        if(arr[i]==that.data.userList[j].id){
+          arr[i]=that.data.userList[j];
+          break;
+        }
+      }
+    }
     that.setData({
       userList: that.data.userList,
       select_all: (!that.data.select_all),
@@ -62,7 +70,6 @@ Page({
 
   bindchange:function(e){
     var that = this;
-    console.log(e)
     if (e.detail.value.length==this.data.userList.length)
     {
       that.setData({
@@ -76,8 +83,17 @@ Page({
         select_all : false,
       })
     }
+    var arr = [];
+    for (var i = 0; i < e.detail.value.length; i++) {
+      for (var j = 0; j < that.data.userList.length; j++) {
+        if (e.detail.value[i] == that.data.userList[j].id) {
+          arr[i] = that.data.userList[j];
+          break;
+        }
+      }
+    }
     that.setData({
-      batchIds:e.detail.value
+      batchIds:arr,
     })
   },
 })

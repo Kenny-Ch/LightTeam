@@ -24,7 +24,8 @@ Page({
     teamId:'',
     userId:'',
     taskList:[],
-    url:''
+    url:'',
+    batchIds:[]
     },
   onLoad: function (options) {
     console.log('【create_task】【task-list界面传入参数】', options)
@@ -44,6 +45,7 @@ Page({
         })
       }
     })
+
   },
   bindTaskNameInput: function (e) {
     this.setData({
