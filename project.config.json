@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 12,
 			"list": [
 				{
 					"id": 1,
@@ -96,7 +96,7 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 9,
 					"name": "团队成员列表",
 					"pathName": "pages/number-list/number-list",
 					"query": "taskId=3fc2c9075caf33c7045a89906bf9c4e9&teamId=XK4VkXkPDdDCJ860",
@@ -114,6 +114,13 @@
 					"name": "授权并登陆",
 					"pathName": "pages/authorization_main/authorization_main",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "成员列表",
+					"pathName": "pages/memberList/memberList",
+					"query": "teamId=XK4VkXkPDdDCJ860",
 					"scene": null
 				}
 			]

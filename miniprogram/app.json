@@ -10,7 +10,8 @@
     "pages/choosemember/choosemember",
     "pages/authorization/authorization",
     "pages/beInvited/beInvited",
-    "pages/authorization_main/authorization_main"
+    "pages/authorization_main/authorization_main",
+    "pages/memberList/memberList"
   ],
   "window": {
     "backgroundTextStyle": "light",

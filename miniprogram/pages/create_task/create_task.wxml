@@ -43,9 +43,9 @@
   <view class='item'>
     <view class='title'>结束前提醒</view>
     <view class='mention-box'>
-      <view class="mentionButton {{(remind==0 )?'on':' '}} " bindtap='bindMentionTime' data-remind="0">提前一小时</view>
-      <view class="mentionButton {{(remind==1 )?'on':' '}} " bindtap='bindMentionTime' data-remind="1">提前一天</view>
-      <view class="mentionButton {{(remind==2 )?'on':' '}} " bindtap='bindMentionTime' data-remind="2">提</view>
+      <view class="mentionButton {{(remind==0 )?'on':' '}} " bindtap='bindMentionTime' data-remind="0" style='left:65rpx;top:640rpx'>提前一小时</view>
+      <view class="mentionButton {{(remind==1 )?'on':' '}} " bindtap='bindMentionTime' data-remind="1" style='left:285rpx;top:640rpx' >提前一天</view>
+      <view class="mentionButton {{(remind==2 )?'on':' '}} " bindtap='bindMentionTime' data-remind="2" style='left:505rpx;top:640rpx'>提前一周</view>
     </view>
   </view>
 

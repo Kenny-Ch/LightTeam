@@ -1,6 +1,6 @@
 <!--pages/detail-task/detal-task.wxml-->
 
-
+<!-- <view style='position:relative;top:200rpx'> -->
 <swiper current="{{currentTab}}" class="back" duration="300" style="height:{{taskListLength}}rpx" bindchange="bindChange">
 
 
@@ -39,7 +39,7 @@
     </view>
   </swiper-item>
 </swiper>
-
+<!-- </view> -->
 
 
 <view class='box_top'>

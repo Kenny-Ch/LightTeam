@@ -54,7 +54,7 @@
 .text_name{
   position: relative;
 	width: 158rpx;
-	height: 380rpx;
+	height: 50rpx;
 	left: 168rpx;
 	top: 50rpx;
 	color: rgba(80, 80, 80, 1);
