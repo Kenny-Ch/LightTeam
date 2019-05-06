@@ -36,7 +36,10 @@
   <view class='item'>
     <view class='title'>参与成员</view>
     <view class='peopleimg-box'>
-      <image src='{{url}}'></image>
+    <view wx:for='{{batchIds}}'style='padding-left:20rpx;'>
+      <image src='{{item.Url}}' style='left:{{index*70+10}}rpx;'></image>
+    </view>
+      <view><button style='width:20rpx;height:40rpx;position:absolute;right:50rpx;' bindtap='bindChooseMember'>保存</button></view>
     </view>
   </view>
 

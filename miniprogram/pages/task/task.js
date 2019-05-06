@@ -59,7 +59,6 @@ Page({
           this.setData({
             state:currentDate < begin ? "未开始" : currentDate <=end ? "进行中" : "已截止"
           })
-          console.log(currentDate, begin, 'fhdfjdfjdhfhdjfhdhfj', end)
             for(var i=this.data.i;i<this.data.memberList.length;i++)
             {
               if(this.data.memberList[i].id==this.data.userId)

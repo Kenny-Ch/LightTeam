@@ -47,12 +47,14 @@ input{
   width: 650rpx;
   height: 77rpx;
   border-radius: 10rpx;
+  position: relative;
 }
 .peopleimg-box image{
-  width: 69rpx;
-  height: 69rpx;
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
   border-radius: 50%;
-  margin: 4rpx 14rpx;
+  top: 8rpx;
 }
 .mention-box{
   

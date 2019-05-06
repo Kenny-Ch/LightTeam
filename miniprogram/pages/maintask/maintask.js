@@ -30,6 +30,58 @@ Page({
                     openId:res.result.openid
                   })
                   console.log("【maintask】【已授权】【已获取用户信息】【信息成功存入data中】", this.data.openId,this.data.userInfo)
+                  var that = this;
+                  var count = 0
+                  db.collection('user').where({
+                    openid: that.data.openId
+                  }).get({
+                    success(res) {
+                      console.log(res, '1213131', that.data.openId)
+                      that.setData({
+                        // userId: res.data[0]._id,
+                        taskList: res.data[0].taskList
+                      })
+                      console.log('【maintask】【user集合中获取该用户所参与的所有taskid】【获取成功】', that.data.taskList)
+                      for (var i = 0; i < that.data.taskList.length; i++) {
+                        var c = 0;
+                        db.collection('task').where({
+                          _id: that.data.taskList[i]
+                        }).get({
+                          success(res) {
+                            that.data.task.push(res.data[0])
+                            that.data.task[count].show = false
+                            var taskstart = "task[" + c + "].startDate"
+                            var taskend = "task[" + c + "].endDate"
+                            that.setData({
+                              task: that.data.task,
+                              [taskstart]: that.data.task[c].startDate.substring(5, 10) + ' ',
+                              [taskend]: ' to ' + that.data.task[c].endDate.substring(5, 10) + ' ',
+                              showView: that.data.showView
+                            })
+                            count++
+                            c++
+                          }
+                        })
+                      }
+                      var count = 0;
+                      for (var i = 0; i < that.data.task.length; i++) {
+                        console.log(count)
+                        db.collection('team').where({
+                          _id: that.data.task[count].team
+                        }).get({
+                          success(res) {
+                            console.log(res)
+                            that.data.task[count].team = res.data.name
+                            that.setData({
+                              task: that.data.task
+                            })
+                            count++
+                          }
+                        })
+                      }
+                      console.log('【maintask】【通过openid获得用户的所有task】【成功复制至data中task数组中】', that.data.task)
+                    }
+                  })
                 },
                 fail: err => {
                   console.error('【maintask】【已授权】【获取信息失败】', err)
@@ -40,57 +92,7 @@ Page({
         }
       }
     })
-    var that = this;
-    var count = 0
-    db.collection('user').where({
-      openid: that.data.openid
-    }).get({
-      success(res) {
-        that.setData({
-          // userId: res.data[0]._id,
-          taskList: res.data[0].taskList
-        })
-        console.log('【maintask】【user集合中获取该用户所参与的所有taskid】【获取成功】', that.data.taskList)
-        for (var i = 0; i < that.data.taskList.length; i++) {
-          var c = 0;
-          db.collection('task').where({
-            _id: that.data.taskList[i]
-          }).get({
-            success(res) {
-              that.data.task.push(res.data[0])
-              that.data.task[count].show=false
-              var taskstart = "task["+c+"].startDate"
-              var taskend = "task["+c+"].endDate"
-              that.setData({
-                task: that.data.task,
-                [taskstart]: that.data.task[c].startDate.substring(5,10)+' ',
-                [taskend]: ' to '+that.data.task[c].endDate.substring(5,10) + ' ',
-                showView:that.data.showView
-              })
-              count++
-              c++
-            }
-          })
-        }
-        var count = 0;
-        for (var i = 0; i < that.data.task.length; i++){
-          console.log(count)
-          db.collection('team').where({
-            _id: that.data.task[count].team
-          }).get({
-            success(res) {
-              console.log(res)
-              that.data.task[count].team = res.data.name
-              that.setData({
-                task: that.data.task
-              })
-              count++
-            }
-          })
-        }
-        console.log('【maintask】【通过openid获得用户的所有task】【成功复制至data中task数组中】', that.data.task)
-      }
-    })
+    
     showView: (options.showView == "true" ? true : false)
   },
   deleteTask:function(e){

@@ -29,4 +29,4 @@
 </block>
     </checkbox-group>
 
-<view class='button'>提交</view>
+<view class='button'bindtap='submit'>完成</view>
