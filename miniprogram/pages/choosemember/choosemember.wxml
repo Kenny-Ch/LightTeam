@@ -28,3 +28,5 @@
 
 </block>
     </checkbox-group>
+
+<view class='button'>提交</view>

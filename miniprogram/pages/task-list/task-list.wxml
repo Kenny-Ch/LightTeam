@@ -1,5 +1,18 @@
 <!--pages/detail-task/detal-task.wxml-->
+<view class='box_top'>
 
+  <view>
+    <view class='text_teamname'>{{teamName}}</view>
+    <view class='text_number'>{{memberNum}}人</view>
+
+    <view class="buttom_1 {{currentTab==0 ? 'b_1' : 'b_2'}}" data-current="0" bindtap="swichNav">任务</view>
+
+    <view class="buttom_2 {{currentTab==1 ? 'b_1' : 'b_2'}}" data-current="1" bindtap="swichNav">成员</view>
+
+    <view class='text_intro'>{{teamIntroduce}}</view>
+    <image src='/images/pen.svg' class='icon_pen'></image>
+  </view>
+</view>
 <!-- <view style='position:relative;top:200rpx'> -->
 <swiper current="{{currentTab}}" class="back" duration="300" style="height:{{taskListLength}}rpx" bindchange="bindChange">
 
@@ -41,21 +54,10 @@
 </swiper>
 <!-- </view> -->
 
+<!-- 透明图层 -->
+<view class="buttom_1 hide{{currentTab==0 ? 'b_1' : 'b_2'}}" data-current="0" bindtap="swichNav"></view>
+<view class="buttom_2 hide{{currentTab==1 ? 'b_1' : 'b_2'}}" data-current="1" bindtap="swichNav"></view>
 
-<view class='box_top'>
-
-  <view>
-    <view class='text_teamname'>{{teamName}}</view>
-    <view class='text_number'>{{memberNum}}人</view>
-
-    <view class="buttom_1 {{currentTab==0 ? 'b_1' : 'b_2'}}" data-current="0" bindtap="swichNav">任务</view>
-
-    <view class="buttom_2 {{currentTab==1 ? 'b_1' : 'b_2'}}" data-current="1" bindtap="swichNav">成员</view>
-
-    <view class='text_intro'>{{teamIntroduce}}</view>
-    <image src='/images/pen.svg' class='icon_pen'></image>
-  </view>
-</view>
 
 <button bindtap='addTask' open-type="{{currentTab? 'share':'' }}">
   <view class='homepage_team_add'>+</view>

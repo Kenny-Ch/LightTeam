@@ -1,20 +1,21 @@
 <view style='padding-top:27rpx;padding-left:58rpx;padding-right:68rpx;position:relative;'>
   <text style='font-size:40rpx;color:#505050;font-weight:bold;'>{{teamName}}</text>
   <text style='position:absolute;right:308rpx;top:37rpx;color:#505050;font-size:28rpx;'>已选2/{{memberNum}}人</text>
-   
+
   <!-- <checkbox style='position:absolute;right:60rpx;top:37rpx;color:#505050;font-size:28rpx;' value='all' bindtap='selectall'></checkbox> -->
 </view>
 <image src='/images/icon-pen.svg' class='icon_pen'></image>
 
 <block wx:for="{{userList}}">
-<!-- <checkbox-group bindchange="bindall"> -->
-<view class='back' style='position:relative;top:40rpx;'>
-        <view style="border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative;background-color:#fff;{{index==0?'border-top:1rpx solid #e3e3e3;':''}}" bindlongpress='longPress'>
-          <view class='member-name'>{{item.nickName}}</view>
-          <view class='state'>已完成</view>
-          <image src='{{item.Url}}' class='img'></image>
-          <!-- <checkbox class='checkbox' checked="{{item.checked}}"  value="{{item.id}}"></checkbox> -->
-        </view>
+  <!-- <checkbox-group bindchange="bindall"> -->
+  <view class='back' style='position:relative;top:40rpx;'>
+    <view style="border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative;background-color:#fff;{{index==0?'border-top:1rpx solid #e3e3e3;':''}}" bindlongpress='longPress'>
+      <view class='member-name'>{{item.nickName}}</view>
+      <view class='state'>已完成</view>
+      <image src='{{item.Url}}' class='img'></image>
+      <!-- <checkbox class='checkbox' checked="{{item.checked}}"  value="{{item.id}}"></checkbox> -->
     </view>
-    <!-- </checkbox-group> -->
+  </view>
+  <!-- </checkbox-group> -->
 </block>
+
