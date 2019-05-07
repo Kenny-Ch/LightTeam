@@ -91,6 +91,6 @@ Page({
     })
     },
     finishtask:function(){
-      db.taskCollection
+      
     }
       })
