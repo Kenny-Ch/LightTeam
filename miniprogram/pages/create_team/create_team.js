@@ -26,7 +26,7 @@ Page({
       data: {},
       success: res => {
         db.collection('user').where({
-          _openid: res.result.openid
+          openid: res.result.openid
         })
           .get({
             success: res => {

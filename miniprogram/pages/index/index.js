@@ -40,7 +40,7 @@ Page({
         })
       //  从user集合中获取该用户所参与的所有teamid：
         db.collection('user').where({
-          _openid: res.result.openid 
+          openid: res.result.openid 
         }).get({
           success(res) {
             that.setData({
@@ -71,9 +71,7 @@ Page({
     })
     
   },
-  onShow(){
-    this.onLoad()
-  },
+
   onGetUserInfo: function(e) {
     if (!this.logged && e.detail.userInfo) {
       this.setData({

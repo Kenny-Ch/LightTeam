@@ -23,7 +23,7 @@ Page({
     uhide: 0,
     currentTab: '',
     taskListLength: 1,
-    boxcolor: ["#fffff4", "#fc2100", "#fff659", "#27e530", "#5a97f6"]
+    boxcolor: ["", "#fc2100", "#fff659", "#27e530", "#5a97f6"]
   },
   /**
    * 生命周期函数--监听页面加载
@@ -46,8 +46,7 @@ Page({
           teamIntroduce: res.data[0].introduce,
           taskList: res.data[0].taskList,
           userList: res.data[0].userList,
-          taskListLength: (res.data[0].taskList.length)*335+500,
-          taskListLength2: (res.data[0].taskList.length)*230+500
+          taskListLength: res.data[0].taskList.length * 410
         })
         console.log('【task-list】【获取指定的team信息】【获取成功】', res.data[0])
         for (var i = 0; i < that.data.taskList.length; i++) {

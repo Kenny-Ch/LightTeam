@@ -58,7 +58,7 @@ input{
 }
 .mention-box{
   
-  border: 0rpx solid #e6e6e6;
+  border: 1rpx solid #e6e6e6;
   width: 650rpx;
   height: 150rpx;
   border-radius: 10rpx;
@@ -113,5 +113,4 @@ button{
 .on{
   background-color:  #6bb8ff;
   color: #fff;
-  box-shadow: 0px 5px 5px 0px rgba(107, 154, 255, 0.5928571428571429);
 }

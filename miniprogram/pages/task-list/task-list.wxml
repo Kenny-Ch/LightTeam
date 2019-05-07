@@ -14,12 +14,13 @@
   </view>
 </view>
 <!-- <view style='position:relative;top:200rpx'> -->
-<swiper current="{{currentTab}}" class="back" duration="300" style="height:{{taskListLength2}}rpx" bindchange="bindChange">
+<swiper current="{{currentTab}}" class="back" duration="300" style="height:{{taskListLength}}rpx" bindchange="bindChange">
 
 
 
-  <swiper-item style="height:{{taskListLength}}rpx">
-      <view wx:for="{{task}}" class='back' style='position:relative;top:320rpx;' bindtap='bindTaskDetail' data-index="{{index}}">
+  <swiper-item>
+    <view wx:for="{{task}}">
+      <view class='back' style='position:relative;top:320rpx;background-color:#fff;' bindtap='bindTaskDetail' data-index="{{index}}">
         <view class="box_a" style='top:20rpx;' bindlongpress='longPressDelete' id="{{index}}">
           <view class='box_card' style='background-color:{{boxcolor[item.tag]}}'></view>
           <view class="{{(uhide==tags._id)?'hide':'show'}}">
@@ -34,10 +35,11 @@
 
         </view>
       </view>
+    </view>
 
   </swiper-item>
 
-  <swiper-item style="height:{{taskListLength}}rpx">
+  <swiper-item>
     <view class='back' style='position:relative;top:320rpx;'>
       <view wx:for="{{userList}}">
         <view style='border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative;background-color:#fff' bindlongpress='longPress'>
