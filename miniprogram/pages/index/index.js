@@ -71,7 +71,9 @@ Page({
     })
     
   },
-
+  onShow(){
+    this.onLoad()
+  },
   onGetUserInfo: function(e) {
     if (!this.logged && e.detail.userInfo) {
       this.setData({

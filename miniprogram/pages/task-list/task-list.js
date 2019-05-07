@@ -23,7 +23,7 @@ Page({
     uhide: 0,
     currentTab: '',
     taskListLength: 1,
-    boxcolor: ["", "#fc2100", "#fff659", "#27e530", "#5a97f6"]
+    boxcolor: ["#fffff4", "#fc2100", "#fff659", "#27e530", "#5a97f6"]
   },
   /**
    * 生命周期函数--监听页面加载
