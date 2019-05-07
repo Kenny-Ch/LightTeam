@@ -60,7 +60,7 @@
   width: 152rpx;
   height: 44rpx;
   left: 113px;
-  top: 120px;
+  top: 110px;
   /* color: rgba(80, 80, 80, 1); */
   border-radius: 16px;
   font-size: 28rpx;
@@ -73,7 +73,7 @@
   width: 152rpx;
   height: 44rpx;
   left: 207px;
-  top: 120px;
+  top: 110px;
   /* color: rgba(80, 80, 80, 1); */
   border-radius: 16px;
   font-size: 28rpx;
