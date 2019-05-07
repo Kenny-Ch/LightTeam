@@ -43,11 +43,11 @@
 
 <view hidden="{{buttonHidden}}">
   <view style='position:relative;margin-top:57rpx;'>
-    <button type='submit' class='button'></button>
+    <button class='button' bindtap='finishtask'></button>
     <view style='position:absolute;top:18rpx;left:298rpx;color:#fff;font-size:40rpx;'>完成任务</view>
   </view>
-  <view style='position:relative;margin-top:27rpx;'>
+  <!-- <view style='position:relative;margin-top:27rpx;'>
     <button type='submit' class='button'></button>
     <view style='position:absolute;top:18rpx;left:254rpx;color:#fff;font-size:40rpx;'>延时完成任务</view>
-  </view>
+  </view> -->
 </view>

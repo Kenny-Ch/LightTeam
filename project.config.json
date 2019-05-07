@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": -1,
 			"list": [
 				{
 					"id": 1,
@@ -93,13 +93,6 @@
 					"name": "授权页面",
 					"pathName": "pages/authorization/authorization",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": 9,
-					"name": "团队成员列表",
-					"pathName": "pages/number-list/number-list",
-					"query": "taskId=3fc2c9075caf33c7045a89906bf9c4e9&teamId=XK4VkXkPDdDCJ860",
 					"scene": null
 				},
 				{

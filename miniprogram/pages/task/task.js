@@ -90,5 +90,7 @@ Page({
       console.log("【task】【已接受任务】【更新成功】")
     })
     },
-        
+    finishtask:function(){
+      db.taskCollection
+    }
       })

@@ -36,13 +36,12 @@ Page({
                     openid: that.data.openId
                   }).get({
                     success(res) {
-                      console.log(res, '1213131', that.data.openId)
                       that.setData({
                         // userId: res.data[0]._id,
                         taskList: res.data[0].taskList
                       })
                       console.log('【maintask】【user集合中获取该用户所参与的所有taskid】【获取成功】', that.data.taskList)
-                      for (var i = 0; i < that.data.taskList.length; i++) {
+                      for (var i = that.data.taskList.length-1; i >=0; i--) {
                         var c = 0;
                         db.collection('task').where({
                           _id: that.data.taskList[i]
