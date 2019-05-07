@@ -37,7 +37,7 @@
 
   </swiper-item>
 
-  <swiper-item>
+  <swiper-item style="height:{{taskListLength}}rpx">
     <view class='back' style='position:relative;top:320rpx;'>
       <view wx:for="{{userList}}">
         <view style='border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative;background-color:#fff' bindlongpress='longPress'>

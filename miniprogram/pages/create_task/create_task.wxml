@@ -39,16 +39,16 @@
     <view wx:for='{{batchIds}}'style='padding-left:20rpx;'>
       <image src='{{item.Url}}' style='left:{{index*70+10}}rpx;'></image>
     </view>
-      <view><button style='width:20rpx;height:40rpx;position:absolute;right:50rpx;' bindtap='bindChooseMember'>保存</button></view>
+      <view><img src='/images/icon-pen.svg' style='width:20rpx;height:40rpx;position:absolute;right:50rpx;' bindtap='bindChooseMember'/></view>
     </view>
   </view>
 
   <view class='item'>
     <view class='title'>结束前提醒</view>
     <view class='mention-box'>
-      <view class="mentionButton {{(remind==0 )?'on':' '}} " bindtap='bindMentionTime' data-remind="0" style='left:65rpx;top:640rpx'>提前一小时</view>
-      <view class="mentionButton {{(remind==1 )?'on':' '}} " bindtap='bindMentionTime' data-remind="1" style='left:285rpx;top:640rpx' >提前一天</view>
-      <view class="mentionButton {{(remind==2 )?'on':' '}} " bindtap='bindMentionTime' data-remind="2" style='left:505rpx;top:640rpx'>提前一周</view>
+      <view class="mentionButton {{(remind==1 )?'on':' '}} " bindtap='bindMentionTime' data-remind="1" style='left:65rpx;top:640rpx'>提前一小时</view>
+      <view class="mentionButton {{(remind==2 )?'on':' '}} " bindtap='bindMentionTime' data-remind="2" style='left:285rpx;top:640rpx' >提前一天</view>
+      <view class="mentionButton {{(remind==3 )?'on':' '}} " bindtap='bindMentionTime' data-remind="3" style='left:505rpx;top:640rpx'>提前一周</view>
     </view>
   </view>
 
