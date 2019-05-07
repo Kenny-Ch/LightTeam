@@ -40,7 +40,7 @@ Page({
         })
       //  从user集合中获取该用户所参与的所有teamid：
         db.collection('user').where({
-          openid: res.result.openid 
+          _openid: res.result.openid 
         }).get({
           success(res) {
             that.setData({

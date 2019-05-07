@@ -59,8 +59,8 @@
   position: absolute;
   width: 152rpx;
   height: 44rpx;
-  left: 113px;
-  top: 120px;
+  left: 200rpx;
+  top: 220rpx;
   /* color: rgba(80, 80, 80, 1); */
   border-radius: 16px;
   font-size: 28rpx;
@@ -72,8 +72,8 @@
   position: absolute;
   width: 152rpx;
   height: 44rpx;
-  left: 207px;
-  top: 120px;
+  left: 380rpx;
+  top: 220rpx;
   /* color: rgba(80, 80, 80, 1); */
   border-radius: 16px;
   font-size: 28rpx;
