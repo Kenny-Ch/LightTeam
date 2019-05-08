@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 9,
 			"list": [
 				{
 					"id": 1,
@@ -96,10 +96,10 @@
 					"scene": null
 				},
 				{
-					"id": 11,
+					"id": 9,
 					"name": "受邀请进入界面",
 					"pathName": "pages/beInvited/beInvited",
-					"query": "",
+					"query": "teamId=96c1cbbe5cd300840e72c57227d28485",
 					"scene": null
 				},
 				{

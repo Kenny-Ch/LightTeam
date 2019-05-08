@@ -24,13 +24,13 @@ Page({
   onLoad: function (options) {
     console.log('【beinvited】【传入新建团队id参数】【传入团队id参数成功】',options)
     this.data.teamId=options.teamId
-    this.data.userId =getApp().globalData.openId
+    this.data.teamName=options.teamName
+    this.data.userId =getApp().globalData.openid
     teamCollection.doc(options.teamId)
       .get({
         success: res => {
           console.log('【beinvited】【获取指定team信息】【获取成功】', res.data),
             this.setData({
-              leaderId: res.data.name,
               userList:res.data.userList,
               listLength:res.data.userList.length
             })
@@ -60,11 +60,12 @@ Page({
                       name: 'login',
                       data: {},
                       success:res=> {
+                        console.log(res)
                         db.collection('user').where({
-                          openid:res.result.openid})
+                          _openid:res.result.openid})
                           .get({
                             success: res => {
-                              console.log('【beinvited】【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id,uList[0].id)
+                              console.log('【beinvited】【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id,res)
                               //通过上面通过openid在集合获得的id去对照成员列表
                               //并且通过遍历找到是否存由该成员
                               //有则去index界面
@@ -115,79 +116,39 @@ Page({
             wx.getUserInfo({
               success: res => {
                 console.log('【beinvited】【获取用户信息】【获取openid信息成功】', res.userInfo)//调试：输出获取到的用户信息判断是否成功获取
-                // this.setData({
-                //   userInfo: res.userInfo//把成功获取的内容存到这个page的data里面
-                // })
-                // this.globalData.userInfo=res.userInfo
-                // wx.cloud.callFunction({
-                //   name: 'getOpenid', 
-                //   complete: res => {
-                //     this.globalData.openid = res.result.openid;
-                //   }
-                // }),
-                wx.cloud.callFunction({
-                  name: 'login',
-                  data: {},
-                  success: res => {
-                    db.collection('user').where({
-                      openid: res.result.openid
-                    })
-                      .get({
-                        success: res => {
-                          console.log('【beinvited】【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id, this.data.userList[0].id)
-                          //通过上面通过openid在集合获得的id去对照成员列表
-                          //并且通过遍历找到是否存由该成员
-                          //有则去index界面
-                          //无则去填入备注并加入团队
-                          for (var i = 0; i <= this.data.userList.length; i++) {
-                            if (i == this.data.userList.length && this.data.hide == false) {
-                              this.setData({
-                                hide:true
-                              })
-                              console.log('【beinvited】【用户是否已存在团队之中】，【不存在同时显示加入团队按钮】')
-                              break;
-                            }
-                            if (this.data.userList[i].id == res.data[0]._id) {
-                              wx.switchTab({
-                                url: '/pages/index/index'
-                              })
-                              console.log('【beinvited】【用户是否已存在团队之中】，【已存在并跳转首页】')
-                              break;
-                            }
-                          }
-                        }
-                      })
+                //插入登录的用户的相关信息到数据库
+                userCollection.add({
+                  data: {
+                    "nickName": this.data.userInfo.nickName,//读取这个页面的data里面userInfo这个列表的nickName项
+                    "avatarUrl": this.data.userInfo.avatarUrl,
+                    "taskList": [],
+                    "teamList": []
                   }
-
-
                 })
-                // console.log("【用户信息存入】【信息成功存入globalData中】", getApp().globalData)//若完成上一步走到这一步的话输出“成功”
+                // wx.cloud.callFunction({
+                //   name: 'login',
+                //   data: {},
+                //   success: res => {
+                //     db.collection('user').where({
+                //       _openid: res.result.openid
+                //     })
+                //       .get({
+                //         success: res => {
+                //           console.log('【beinvited】【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id, this.data.userList[0].id)
+                          
+                        
+                //         }
+                //       })
+                //   }
+
+
+                // })
               }
             })
           }
         }
       })
-      //插入登录的用户的相关信息到数据库
-      userCollection.add({
-        data: {
-          "nickName": this.data.userInfo.nickName,//读取这个页面的data里面userInfo这个列表的nickName项
-          // "gender": this.data.userInfo.gender,//同理
-          "avatarUrl": this.data.userInfo.avatarUrl
-          // "city": "CITY",
-          // "province": "PROVINCE",
-          // "country": "COUNTRY",
-          // "avatarUrl": "AVATARURL",
-          // "unionId": "UNIONID"
-          // "avatarUrl": res.userInfo.avatarUrl,
-          // "userInfo": res.userInfo
-          // "watermark":
-          // {
-          //   "appid": "APPID",
-          //   "timestamp": TIMESTAMP
-          // }
 
-        }
-      })
       //授权成功后，跳转进入小程序首页
       
     } else {
@@ -212,25 +173,27 @@ Page({
   },
   addTeam:function(e){
     if(this.data.userOtherName){
+      teamCollection.doc(this.data.teamId)
+        .get({
+          success: res => {
+            console.log('【beinvited】【获取指定team信息】【获取成功】', res.data),
+              this.setData({
+                listLength: res.data.userList.length
+              })
+          }
+          })
       wx.cloud.callFunction({
         name: 'addTeamMember',
         data: {
+          teamId:this.data.teamId,
           id:this.data.userId,
           nickName: this.data.userInfo.nickName,
-          url:this.data.userInfo.avatarUrl
+          url:this.data.userInfo.avatarUrl,
+          length:listLength
         },
-        // success: res => {
-        //   // output: res.result === 3
-        // },
-        // fail: err => {
-        //   // handle error
-        // },
-        // complete: () => {
-        //   // ...
-        // }
       })
       var that=this;
-      db.collection('user').doc('this.data.userId').update({
+      db.collection('user').doc(that.data.userId).update({
         data: {
           teamList: db.command.push(that.data.teamId)
         }

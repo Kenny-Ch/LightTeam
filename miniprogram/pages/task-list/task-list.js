@@ -131,11 +131,11 @@ Page({
     var that = this;
     if (this.data.currentTab) {
         if (res.from === 'button') {
-          console.log('【invite】【分享方式】【通过button分享】', res)
+          console.log('【task-list】【分享方式】【通过button分享】', res)
         }
         return {
           title: '邀请你加入新团队',
-          path: '/pages/beInvited/beInvited?teamId=' + that.data.teamId,
+          path: '/pages/beInvited/beInvited?teamId=' + this.data.teamId+'&teamName='+this.data.teamName,
           imageUrl: '/images/share.png',
         }
 

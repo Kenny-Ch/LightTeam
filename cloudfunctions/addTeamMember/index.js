@@ -1,12 +1,12 @@
 const cloud = require('wx-server-sdk')
 cloud.init()
 const db = cloud.database()
-const _ = db.command
 exports.main = async (event, context) => {
   try {
-    return await db.collection('team').doc('event.id').update({
+    return await db.collection('team').doc(event.teamId).update({
       data: {
-        userList: _.push([{"id":event.id,"nickName":event.nickName,"Url":event.url}])
+        userList: db.command.push({"id":event.id,"nickName":event.nickName,"Url":event.url}),
+        userNum:event.length+1
       }
     })
   } catch (e) {

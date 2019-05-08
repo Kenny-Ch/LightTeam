@@ -29,7 +29,7 @@ App({
                 data: {},
                 success: res => {
                   getApp().globalData.openid = res.result.openid
-                  console.log("【app.js】【已授权】【已获取用户信息】【信息成功存入globalData中】", res.result)
+                  console.log("【app.js】【已授权】【已获取用户信息】【信息成功存入globalData中】", res.result,getApp().globalData.openid)
                   // wx.navigateTo({
                   //   url: '../userConsole/userConsole',
                   // })

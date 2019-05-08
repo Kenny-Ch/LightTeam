@@ -33,7 +33,7 @@ Page({
                   var that = this;
                   var count = 0
                   db.collection('user').where({
-                    openid: that.data.openId
+                    _openid: that.data.openId
                   }).get({
                     success(res) {
                       that.setData({

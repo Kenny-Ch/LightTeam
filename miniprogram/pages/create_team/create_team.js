@@ -103,7 +103,7 @@ Page({
           // })
           //上一个页面内执行setData操作，将我们想要的信息保存住。当我们返回去的时候，页面已经处理完毕。
           wx.redirectTo({
-            url: '/pages/invite/invite?teamid=' + res._id
+            url: '/pages/invite/invite?teamid=' + res._id+'&teamName='+this.data.teamName
           })
         }
       })
