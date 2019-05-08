@@ -27,6 +27,11 @@ Page({
             }
           })
         }
+        else{
+          wx.redirectTo({
+            url: '/pages/authorization/authorization',
+          })
+        }
       }
     })
     var that = this;
@@ -53,7 +58,7 @@ Page({
                 _id: that.data.teamList[i]
               }).get({
                 success(res) {
-                  that.data.team.push(res.data[0])
+                  that.data.team.unshift(res.data[0])
                   that.setData({
                     team: that.data.team
                   })
@@ -74,11 +79,15 @@ Page({
 
   onGetUserInfo: function(e) {
     if (!this.logged && e.detail.userInfo) {
+      console.log('11111111')
       this.setData({
         logged: true,
         avatarUrl: e.detail.userInfo.avatarUrl,
         userInfo: e.detail.userInfo
       })
+    }
+    else{
+      console.log('12122121')
     }
   },
   addTeam:function(){
@@ -88,7 +97,6 @@ Page({
     })
   },
   teamDetail:function(e){
-    console.log(e.currentTarget)
     var index = e.currentTarget.id
     wx.navigateTo({
       url: '/pages/task-list/task-list?openId=' + this.data.openId + '&userId=' + this.data.userId + '&teamId=' + this.data.team[index]._id

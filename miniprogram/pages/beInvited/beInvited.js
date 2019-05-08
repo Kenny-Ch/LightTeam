@@ -219,14 +219,20 @@ Page({
           nickName: this.data.userInfo.nickName,
           url:this.data.userInfo.avatarUrl
         },
-        success: res => {
-          // output: res.result === 3
-        },
-        fail: err => {
-          // handle error
-        },
-        complete: () => {
-          // ...
+        // success: res => {
+        //   // output: res.result === 3
+        // },
+        // fail: err => {
+        //   // handle error
+        // },
+        // complete: () => {
+        //   // ...
+        // }
+      })
+      var that=this;
+      db.collection('user').doc('this.data.userId').update({
+        data: {
+          teamList: db.command.push(that.data.teamId)
         }
       })
       wx.switchTab({

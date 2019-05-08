@@ -85,6 +85,23 @@ Page({
               teamList:db.command.push(this.data.teamid)
             }
           })
+          let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
+          let prevPage = pages[pages.length - 2];//prevPage 是获取上一个页面的js里面的pages的所有信息。 -2 是上一个页面，-3是上上个页面以此类推。
+          let that = this;
+          db.collection('team').where({
+            _id: res._id
+          }).get({
+            success(res) {
+              prevPage.data.team.unshift(res.data[0])
+              prevPage.setData({
+                team: prevPage.data.team
+              })
+            }
+          })
+          // prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
+          //   batchIds: that.data.batchIds,
+          // })
+          //上一个页面内执行setData操作，将我们想要的信息保存住。当我们返回去的时候，页面已经处理完毕。
           wx.redirectTo({
             url: '/pages/invite/invite?teamid=' + res._id
           })

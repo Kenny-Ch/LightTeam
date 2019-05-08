@@ -136,7 +136,7 @@ this.setData({
           _id: res._id
         }).get({
           success(res) {
-            prevPage.data.task.push(res.data[0])
+            prevPage.data.task.unshift(res.data[0])
             prevPage.setData({
               task: prevPage.data.task
             })
