@@ -1,0 +1,268 @@
+<!-- 页面1 -->
+<view class="{{next2?'hide':'show'}}">
+  <!-- 图层1 -->
+  <view class="{{next1?'hide':'show'}}">
+    <view class='position'>
+      <view class="box" bindtap='teamDetail' id='{{index}}'>
+        <view class='text_name'>JAVA作业小组</view>
+        <view class='text_intro1'>软工5班作业讨论区</view>
+        <image class='icon_team' src='/images/team1.svg'></image>
+        <view class='people'>48人</view>
+      </view>
+      <view class='box_icon' bindtap='teamDetail'>
+        <view class='text_num'>3</view>
+      </view>
+
+    </view>
+    <view class='position'>
+      <view class='box' bindtap='teamDetail' id='{{index}}'>
+        <view class='text_name'>院团委组织部</view>
+        <view class='text_intro1'>组织校内活动</view>
+        <image class='icon_team' src='/images/team1.svg'></image>
+        <view class='people'>15人</view>
+      </view>
+      <view class='box_icon' bindtap='teamDetail'>
+        <view class='text_num'>6</view>
+      </view>
+    </view>
+    <!-- tabbar -->
+    <view class='tabbar'>
+      <!-- 左边 -->
+      <view>
+        <image src='/images/tabbar1.png' style='position:fixed;top:1115rpx;left:140rpx;height:50rpx;width:50rpx;'></image>
+        <text style='position:fixed;top:1135rpx;left:147rpx;height:50rpx;width:100rpx;font-size: 20rpx;color:green'>团队</text>
+      </view>
+      <!-- 右边 -->
+      <view>
+        <image src='/images/tabbar4.png' style='position:fixed;top:1115rpx;left:520rpx;height:50rpx;width:50rpx;'></image>
+        <text style='position:fixed;top:1135rpx;left:527rpx;height:50rpx;width:100rpx;font-size: 20rpx;'>任务</text>
+      </view>
+
+    </view>
+
+    <view class='lucency'>
+      <view class="guidance {{next1?'hide':''}}">
+        <image src='/images/guidance1.png' style='position:fixed;top:800rpx;left:200rpx;height:200rpx;width:400rpx;'></image>
+      </view>
+    </view>
+    <view class="homepage_team_add {{next1?'hide':''}}" bindtap="bind1" style='top:80%'>+</view>
+  </view>
+
+
+  <!-- 图层2 -->
+  <view class="{{next1?'show':'hide'}}">
+
+    <view class='position'>
+      <view class='box' bindtap='teamDetail' id='{{index}}'>
+        <view class='text_name'>院团委组织部</view>
+        <view class='text_intro1'>组织校内活动</view>
+        <image class='icon_team' src='/images/team1.svg'></image>
+        <view class='people'>15人</view>
+      </view>
+      <view class='box_icon' bindtap='teamDetail'>
+        <view class='text_num'>6</view>
+      </view>
+    </view>
+    <view class="homepage_team_add" bindtap="bind1" style='top:80%'>+</view>
+    <!-- tabbar -->
+    <view class='tabbar'>
+      <!-- 左边 -->
+      <view>
+        <image src='/images/tabbar1.png' style='position:fixed;top:1115rpx;left:140rpx;height:50rpx;width:50rpx;'></image>
+        <text style='position:fixed;top:1135rpx;left:147rpx;height:50rpx;width:100rpx;font-size: 20rpx;color:green'>团队</text>
+      </view>
+      <!-- 右边 -->
+      <view>
+        <image src='/images/tabbar4.png' style='position:fixed;top:1115rpx;left:520rpx;height:50rpx;width:50rpx;'></image>
+        <text style='position:fixed;top:1135rpx;left:527rpx;height:50rpx;width:100rpx;font-size: 20rpx;'>任务</text>
+      </view>
+    </view>
+
+    <view class='lucency'>
+      <view class="guidance {{next1?'show':'hide'}}" style='top:530rpx;left:200rpx'>
+        <image src='/images/guidance2.png' style='position:fixed;top:500rpx;left:150rpx;height:200rpx;width:400rpx;'></image>
+      </view>
+    </view>
+
+    <!-- 点击box跳转 -->
+    <view bindtap='bind2'>
+      <view class='position'>
+        <view class="box box_on" bindtap='teamDetail' id='{{index}}'>
+          <view class='text_name'>JAVA作业小组</view>
+          <view class='text_intro1'>软工5班作业讨论区</view>
+          <image class='icon_team' src='/images/team1.svg'></image>
+          <view class='people'>48人</view>
+        </view>
+        <view class='box_icon' bindtap='teamDetail'>
+          <view class='text_num'>3</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 页面2 -->
+<view class="{{next4?'hide':'show'}}">
+  <view class="{{next2?'show':'hide'}}">
+    <!-- 图层1 -->
+    <view class="{{next3?'hide':'show'}}">
+      <view class='box_top'>
+        <view>
+          <view class='text_teamname'>JAVA作业小组</view>
+          <view class='text_number'>48人</view>
+          <view class="buttom_1 b_1">任务</view>
+          <view class="buttom_2 b_2">成员</view>
+          <view class='text_intro'>软工5班作业讨论区</view>
+          <image src='/images/pen.svg' class='icon_pen'></image>
+        </view>
+      </view>
+
+
+      <view class='back' style='position:relative;top:320rpx;background-color:#fff;' bindtap='bindTaskDetail'>
+        <view class="box_a" style='top:20rpx;' bindlongpress='longPressDelete'>
+          <view class='box_card' style="background-color:#fc2100"></view>
+        </view>
+        <view class='text_taskname' style='top:45rpx;left:90rpx;'>下载eclipse</view>
+        <view class='text_title1' style='top:110rpx;left:90rpx;'>任务进行时间</view>
+        <view class='text_title2' style='top:150rpx;left:90rpx;'>2018-12-03 19:00— 2018-12-05 10:00</view>
+      </view>
+
+      <button bindtap='addTask' open-type="{{currentTab? 'share':'' }}">
+        <view class='homepage_team_add'>+</view>
+      </button>
+      <view class='lucency'>
+        <view class="guidance" style='top:830rpx;left:200rpx'>
+          <image src='/images/guidance3.png' style='position:fixed;top:800rpx;left:200rpx;height:200rpx;width:400rpx;'></image>
+        </view>
+      </view>
+
+      <view>
+        <view class="back {{next2? 'show':'hide' }}" style='position:relative;top:320rpx;' bindtap='bindTaskDetail'>
+          <view class="box_a " style='top:20rpx;' bindtap='bind3'>
+            <view class='box_card' style="background-color:#fff659"></view>
+          </view>
+          <view class='text_taskname' style='top:45rpx;left:90rpx;'>demo</view>
+          <view class='text_title1' style='top:110rpx;left:90rpx;'>任务进行时间</view>
+          <view class='text_title2' style='top:150rpx;left:90rpx;'>2018-12-03 19:00— 2018-12-05 10:00</view>
+        </view>
+
+      </view>
+    </view>
+
+    <!-- 图层2 -->
+    <view class="{{next3?'show':'hide'}}">
+      <view class='box_top'>
+        <view>
+          <view class='text_teamname'>JAVA作业小组</view>
+          <view class='text_number'>48人</view>
+          <view class="buttom_1 b_1">任务</view>
+          <view class="buttom_2 b_2">成员</view>
+          <view class='text_intro'>软工5班作业讨论区</view>
+          <image src='/images/pen.svg' class='icon_pen'></image>
+        </view>
+      </view>
+
+
+      <view class='back' style='position:relative;top:320rpx;background-color:#fff;' bindtap='bindTaskDetail'>
+        <view class="box_a" style='top:20rpx;' bindlongpress='longPressDelete'>
+          <view class='box_card' style="background-color:#fc2100"></view>
+        </view>
+        <view class='text_taskname' style='top:45rpx;left:90rpx;'>下载eclipse</view>
+        <view class='text_title1' style='top:110rpx;left:90rpx;'>任务进行时间</view>
+        <view class='text_title2' style='top:150rpx;left:90rpx;'>2018-12-03 19:00— 2018-12-05 10:00</view>
+      </view>
+      <view class="back" style='position:relative;top:320rpx;' bindtap='bindTaskDetail'>
+        <view class="box_a " style='top:20rpx;' bindtap='bind3'>
+          <view class='box_card' style="background-color:#fff659"></view>
+        </view>
+        <view class='text_taskname' style='top:45rpx;left:90rpx;'>demo</view>
+        <view class='text_title1' style='top:110rpx;left:90rpx;'>任务进行时间</view>
+        <view class='text_title2' style='top:150rpx;left:90rpx;'>2018-12-03 19:00— 2018-12-05 10:00</view>
+      </view>
+      <button bindtap='addTask' open-type="{{currentTab? 'share':'' }}">
+        <view class='homepage_team_add'>+</view>
+      </button>
+      <view class='lucency'>
+        <view class="guidance" style='top:330rpx;left:230rpx'>
+          <image src='/images/guidance4.png' style='position:fixed;top:270rpx;left:150rpx;height:200rpx;width:400rpx;'></image>
+        </view>
+      </view>
+      <view class="buttom_2 b_2" style='background-color:#6bb8ff' bindtap='bind4'>成员</view>
+    </view>
+  </view>
+</view>
+
+<!-- 页面3 -->
+<view class="{{next5?'hide':'show'}}">
+  <view class="{{next4?'show':'hide'}}">
+
+    <view class='position'>
+      <view class="box" bindtap='teamDetail' id='{{index}}'>
+        <view class='text_name'>JAVA作业小组</view>
+        <view class='text_intro1'>软工5班作业讨论区</view>
+        <image class='icon_team' src='/images/team1.svg'></image>
+        <view class='people'>48人</view>
+      </view>
+      <view class='box_icon' bindtap='teamDetail'>
+        <view class='text_num'>3</view>
+      </view>
+
+    </view>
+    <view class='position'>
+      <view class='box' bindtap='teamDetail' id='{{index}}'>
+        <view class='text_name'>院团委组织部</view>
+        <view class='text_intro1'>组织校内活动</view>
+        <image class='icon_team' src='/images/team1.svg'></image>
+        <view class='people'>15人</view>
+      </view>
+      <view class='box_icon' bindtap='teamDetail'>
+        <view class='text_num'>6</view>
+      </view>
+    </view>
+    <!-- tabbar -->
+    <view class='tabbar'>
+      <!-- 左边 -->
+      <view>
+        <image src='/images/tabbar1.png' style='position:fixed;top:1115rpx;left:140rpx;height:50rpx;width:50rpx;'></image>
+        <text style='position:fixed;top:1135rpx;left:147rpx;height:50rpx;width:100rpx;font-size: 20rpx;'>团队</text>
+      </view>
+      <!-- 右边 -->
+      <view>
+        <image src='/images/tabbar4.png' style='position:fixed;top:1115rpx;left:520rpx;height:50rpx;width:50rpx;'></image>
+        <text style='position:fixed;top:1135rpx;left:527rpx;height:50rpx;width:100rpx;font-size: 20rpx;color:green'>任务</text>
+      </view>
+    </view>
+    <view class="homepage_team_add" bindtap="bind1" style='top:80%'>+</view>
+    <view class='lucency'>
+      <view class="guidance">
+        demo
+      </view>
+    </view>
+    <view style='position:fixed;top:1130rpx;left:520rpx;height:70rpx;width:100rpx;' bindtap='bind5'></view>
+  </view>
+</view>
+
+<!-- 页面5 -->
+<view class="{{next5?'show':'hide'}}">
+  <view class='box_top'>
+    <view>
+      <view class='text_teamname'>JAVA作业小组</view>
+      <view class='text_number'>48人</view>
+      <view class="buttom_1 b_2">任务</view>
+      <view class="buttom_2 b_1">成员</view>
+      <view class='text_intro'>软工5班作业讨论区</view>
+      <image src='/images/pen.svg' class='icon_pen'></image>
+    </view>
+  </view>
+  <button bindtap='addTask' open-type="{{currentTab? 'share':'' }}">
+    <view class='homepage_team_add'>+</view>
+  </button>
+  <view class='lucency'>
+    <view class="guidance" style='top:830rpx;left:200rpx'>
+      demo
+    </view>
+  </view>
+  <view class='homepage_team_add'>+</view>
+  <view>
+  </view>
+</view>

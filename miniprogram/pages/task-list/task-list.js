@@ -47,8 +47,8 @@ Page({
           teamIntroduce: res.data[0].introduce,
           taskList: res.data[0].taskList,
           userList: res.data[0].userList,
-          taskListLength: (res.data[0].taskList.length)*335+500,
-          taskListLength2: (res.data[0].taskList.length)*230+500
+          taskListLength: (res.data[0].taskList.length)*180+500,
+          taskListLength2: (res.data[0].taskList.length)*70+500
         })
         console.log('【task-list】【获取指定的team信息】【获取成功】', res.data[0])
         for (var i = 0; i < that.data.taskList.length; i++) {

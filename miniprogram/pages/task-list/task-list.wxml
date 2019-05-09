@@ -14,7 +14,7 @@
   </view>
 </view>
 <!-- <view style='position:relative;top:200rpx'> -->
-<swiper current="{{currentTab}}" class="back" duration="300" style="height:{{taskListLength2}}rpx" bindchange="bindChange">
+<swiper current="{{currentTab}}" class="back" duration="300" style="height:{{currentTab?taskListLength2+'rpx':taskListLength+'rpx'}}" bindchange="bindChange">
 
 
 

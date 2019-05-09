@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 12,
 			"list": [
 				{
 					"id": 1,
@@ -114,6 +114,12 @@
 					"name": "成员列表",
 					"pathName": "pages/memberList/memberList",
 					"query": "teamId=XK4VkXkPDdDCJ860",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "引导页面",
+					"pathName": "pages/guidance/guidance",
 					"scene": null
 				}
 			]

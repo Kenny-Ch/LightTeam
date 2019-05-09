@@ -11,7 +11,8 @@
     "pages/authorization/authorization",
     "pages/beInvited/beInvited",
     "pages/authorization_main/authorization_main",
-    "pages/memberList/memberList"
+    "pages/memberList/memberList",
+    "pages/guidance/guidance"
   ],
   "window": {
     "backgroundTextStyle": "light",
