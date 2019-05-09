@@ -6,7 +6,7 @@ exports.main = async (event, context) => {
     return await db.collection('team').doc(event.teamId).update({
       data: {
         userList: db.command.push({"id":event.id,"nickName":event.nickName,"Url":event.url}),
-        userNum:event.length+1
+        userNum: event.len+1
       }
     })
   } catch (e) {

@@ -12,8 +12,9 @@ Page({
     userList:[],
     teamName:'',
     userId:'',
+    openId:'',
     userOtherName:'',
-    listLength:-1,
+    listLength:0,
     hasLogined:false,
     userInfo:{}
   },
@@ -25,7 +26,7 @@ Page({
     console.log('【beinvited】【传入新建团队id参数】【传入团队id参数成功】',options)
     this.data.teamId=options.teamId
     this.data.teamName=options.teamName
-    this.data.userId =getApp().globalData.openid
+    this.data.openId =getApp().globalData.openid
     teamCollection.doc(options.teamId)
       .get({
         success: res => {
@@ -173,34 +174,45 @@ Page({
   },
   addTeam:function(e){
     if(this.data.userOtherName){
-      teamCollection.doc(this.data.teamId)
-        .get({
-          success: res => {
-            console.log('【beinvited】【获取指定team信息】【获取成功】', res.data),
-              this.setData({
-                listLength: res.data.userList.length
-              })
-          }
+          db.collection('user').where({
+            _openid: this.data.openId
           })
-      wx.cloud.callFunction({
-        name: 'addTeamMember',
-        data: {
-          teamId:this.data.teamId,
-          id:this.data.userId,
-          nickName: this.data.userInfo.nickName,
-          url:this.data.userInfo.avatarUrl,
-          length:listLength
-        },
-      })
-      var that=this;
-      db.collection('user').doc(that.data.userId).update({
-        data: {
-          teamList: db.command.push(that.data.teamId)
-        }
-      })
-      wx.switchTab({
-        url: '/pages/index/index',
-      })
+            .get({
+              success: res => {
+                this.setData({
+                  userId:res.data[0]._id
+                })
+                console.log('【beinvited】【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id, res)
+                teamCollection.doc(this.data.teamId)
+                  .get({
+                    success: res => {
+                      console.log('【beinvited】【获取指定team信息】【获取成功】', res.data),
+                        this.setData({
+                          listLength: res.data.userList.length
+                        })
+                      wx.cloud.callFunction({
+                        name: 'addTeamMember',
+                        data: {
+                          teamId: this.data.teamId,
+                          id: this.data.userId,
+                          nickName: this.data.userInfo.nickName,
+                          url: this.data.userInfo.avatarUrl,
+                          len: this.data.listLength
+                        },
+                      })
+                      var that = this;
+                      db.collection('user').doc(that.data.userId).update({
+                        data: {
+                          teamList: db.command.push(that.data.teamId)
+                        }
+                      })
+                      wx.switchTab({
+                        url: '/pages/index/index',
+                      })
+                    }
+                  })
+              }
+            })
     }
   },
   

@@ -127,17 +127,27 @@ Page({
 
     // }
   },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      console.log('【task-list】【分享方式】【通过button分享】', res)
+    }
+    return {
+      title: '邀请你加入新团队',
+      path: '/pages/beInvited/beInvited?teamId=' + this.data.teamId + '&teamName=' + this.data.teamName,
+      imageUrl: '/images/share.png',
+    }
+  },
   addTask: function(res) {
     var that = this;
     if (this.data.currentTab) {
-        if (res.from === 'button') {
+        if (res.from == 'button') {
           console.log('【task-list】【分享方式】【通过button分享】', res)
         }
-        return {
-          title: '邀请你加入新团队',
-          path: '/pages/beInvited/beInvited?teamId=' + this.data.teamId+'&teamName='+this.data.teamName,
-          imageUrl: '/images/share.png',
-        }
+        // return {
+        //   title: '邀请你加入新团队',
+        //   path: '/pages/beInvited/beInvited?teamId=' + this.data.teamId+'&teamName='+this.data.teamName,
+        //   imageUrl: '/images/share.png',
+        // }
 
     } else {
       wx.navigateTo({
