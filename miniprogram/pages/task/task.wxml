@@ -36,12 +36,12 @@
   
 </view>
 
-<view style='position:relative;margin-top:74rpx;'hidden="{{!buttonHidden}}" bindtouchend='bindReceiveTask'>
+<view style='position:relative;margin-top:74rpx;'hidden="{{buttonHidden1}}" bindtouchend='bindReceiveTask'>
   <button type='submit' class='button'></button>
   <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view>
 </view>
 
-<view hidden="{{buttonHidden}}">
+<view hidden="{{buttonHidden2}}">
   <view style='position:relative;margin-top:57rpx;'>
     <button class='button' bindtap='finishtask'></button>
     <view style='position:absolute;top:18rpx;left:298rpx;color:#fff;font-size:40rpx;'>完成任务</view>

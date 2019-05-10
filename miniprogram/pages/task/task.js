@@ -19,11 +19,13 @@ Page({
     tagNum: 0,
     tag: ['', '重要且紧急', '不重要且紧急', '重要且不紧急', '不重要且不紧急'],
     userList: [],
-    accept:[],
-    userId:'',
-    buttonHidden: true,
-    i:0,
-    state:''
+    accept: [],
+    userId: '',
+    buttonHidden1: false,
+    buttonHidden2: true,
+    i: 0,
+    state: '',
+    taskId: ''
   },
 
   /**
@@ -31,11 +33,11 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      teamName:options.teamName,
-      taskId:options.taskId,
-      userId:options.userId
+      teamName: options.teamName,
+      taskId: options.taskId,
+      userId: options.userId
     })
-    console.log('【task】【task-list界面传参】',options)
+    console.log('【task】【task-list界面传参】', options)
     taskCollection.doc(options.taskId)
       .get({
         success: res => {
@@ -49,48 +51,56 @@ Page({
               finish: res.data.finish,
               tagNum: res.data.tag,
               memberList: res.data.userList,
-              accept:res.data.accept
+              accept: res.data.accept
             })
           var date = new Date();
-          var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate()<10?"0"+date.getDate():date.getDate())+ date.getHours() + ':' + date.getMinutes();
+          var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + date.getHours() + ':' + date.getMinutes();
           var begin = this.data.dateBegin + this.data.timeBegin;
           var end = this.data.dateEnd + this.data.timeEnd;
           // if()
           this.setData({
-            state:currentDate < begin ? "未开始" : currentDate <=end ? "进行中" : "已截止"
+            state: currentDate < begin ? "未开始" : currentDate <= end ? "进行中" : "已截止"
           })
-            for(var i=this.data.i;i<this.data.memberList.length;i++)
-            {
-              if(this.data.memberList[i].id==this.data.userId)
-              {
-                this.setData({
-                  buttonHidden:!this.data.accept[i],
-                  i:i
-                })
-              }
+          for (var i = this.data.i; i < this.data.memberList.length; i++) {
+            if (this.data.memberList[i].id == this.data.userId) {
+              this.setData({
+                buttonHidden1: this.data.accept[i],
+                buttonHidden2: this.data.finish,
+                i: i
+              })
             }
+          }
 
         }
       })
   },
   bindReceiveTask: function () {
-    this.data.accept[this.data.i]=true;
-    var that=this;
+    this.data.accept[this.data.i] = true;
+    var that = this;
     wx.cloud.callFunction({
-      name:"updateAccept",
+      name: "updateAccept",
       data: {
         accept: that.data.accept,
         taskId: that.data.taskId
       },
-    }).then(res=>{
+    }).then(res => {
       that.setData({
-        accept:that.data.accept,
-        buttonHidden:false
+        accept: that.data.accept,
+        buttonHidden1: true,
+        buttonHidden2: false
       })
       console.log("【task】【已接受任务】【更新成功】")
     })
-    },
-    finishtask:function(){
-      
-    }
-      })
+  },
+  finishtask: function () {
+    wx.cloud.callFunction({
+      name: 'finishTask',
+      data: {
+        taskId: this.data.taskId
+      },
+    })
+    this.setData({
+      buttonHidden2: true
+    })
+  }
+})
