@@ -61,6 +61,6 @@
 <view class="buttom_2 hide{{currentTab==1 ? 'b_1' : 'b_2'}}" data-current="1" bindtap="swichNav"></view>
 
 
-<button bindtap='addTask' open-type="{{currentTab? 'share':'' }}">
+<button bindtap='addTask' open-type="{{currentTab? 'share':'' }}" hidden='{{hiddenButton}}'>
   <view class='homepage_team_add'>+</view>
 </button>

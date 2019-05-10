@@ -195,7 +195,7 @@ Page({
                         data: {
                           teamId: this.data.teamId,
                           id: this.data.userId,
-                          nickName: this.data.userInfo.nickName,
+                          nickName: this.data.userOtherName,
                           url: this.data.userInfo.avatarUrl,
                           len: this.data.listLength
                         },

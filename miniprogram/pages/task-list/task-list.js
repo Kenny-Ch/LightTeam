@@ -17,11 +17,13 @@ Page({
     openId: '',
     teamId: '',
     userId: '',
+    leaderId:'',
     taskList: [],
     task: [],
     userList: [],
     uhide: 0,
     currentTab: '',
+    hiddenButton:true,
     taskListLength: 1,
     taskListLength2: 1,
     boxcolor: ["#fffff4", "#fc2100", "#fff659", "#27e530", "#5a97f6"]
@@ -48,10 +50,16 @@ Page({
           taskList: res.data[0].taskList,
           userList: res.data[0].userList,
           taskListLength: (res.data[0].taskList.length) * 180 + 500,
-          taskListLength2: (res.data[0].taskList.length) * 70 + 500,
-          unfinishTask: res.data[0].unfinishTask
+          taskListLength2: (res.data[0].userList.length) * 70 + 500,
+          unfinishTask: res.data[0].unfinishTask,
+          leaderId:res.data[0].leader
         })
         console.log('【task-list】【获取指定的team信息】【获取成功】', res.data[0])
+        if (that.data.leaderId == that.data.userId){
+          that.setData({
+            hiddenButton:false
+          })
+        }
         for (var i = 0; i < that.data.taskList.length; i++) {
           db.collection('task').where({
             _id: that.data.taskList[i]
@@ -162,7 +170,7 @@ Page({
     console.log(this.data.task[index]);
     var that = this;
     wx.navigateTo({
-      url: '/pages/task/task?taskId=' + that.data.task[index]._id + '&teamName=' + that.data.teamName + '&userId=' + that.data.userId
+      url: '/pages/task/task?taskId=' + that.data.task[index]._id + '&teamName=' + that.data.teamName + '&userId=' + that.data.userId + '&leaderId=' + that.data.leaderId
     })
   }
 })

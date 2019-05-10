@@ -21,7 +21,8 @@ Page({
     userList: [],
     accept: [],
     userId: '',
-    buttonHidden1: false,
+    leaderId:'',
+    buttonHidden1: true,
     buttonHidden2: true,
     i: 0,
     state: '',
@@ -35,7 +36,8 @@ Page({
     this.setData({
       teamName: options.teamName,
       taskId: options.taskId,
-      userId: options.userId
+      userId: options.userId,
+      leaderId:options.leaderId
     })
     console.log('【task】【task-list界面传参】', options)
     taskCollection.doc(options.taskId)
@@ -57,17 +59,36 @@ Page({
           var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + date.getHours() + ':' + date.getMinutes();
           var begin = this.data.dateBegin + this.data.timeBegin;
           var end = this.data.dateEnd + this.data.timeEnd;
-          // if()
           this.setData({
             state: currentDate < begin ? "未开始" : currentDate <= end ? "进行中" : "已截止"
           })
           for (var i = this.data.i; i < this.data.memberList.length; i++) {
+            if (this.data.userId == this.data.leaderId){
+              this.setData({
+                buttonHidden1: true,
+                buttonHidden2: this.data.finish,
+              })
+              this.data.accept[this.data.i] = true;
+              var that = this;
+              db.collection('task').doc(that.data.taskId).update({
+                data: {
+                  accept:that.data.accept
+                }
+              })
+              break;
+            }
             if (this.data.memberList[i].id == this.data.userId) {
               this.setData({
                 buttonHidden1: this.data.accept[i],
                 buttonHidden2: this.data.finish,
                 i: i
               })
+              if (!this.data.buttonHidden1) {
+                this.setData({
+                  buttonHidden2: true
+                })
+              }
+              break;
             }
           }
 
