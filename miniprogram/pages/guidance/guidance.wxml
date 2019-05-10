@@ -259,10 +259,10 @@
     <view class='tabbar'>
       <!-- 左边 -->
       <view>
-        <image src='/images/tabbar2.png' style='position:relative;top:94%;left:20%;height:50rpx;width:50rpx;'></image>
+        <image src='/images/tabbar1.png' style='position:relative;top:94%;left:20%;height:50rpx;width:50rpx;color:green;'></image>
         <text style='position:relative;top:37rpx;left:14%;height:50rpx;width:100rpx;font-size: 20rpx;'>团队</text>
       <!-- 右边 -->
-        <image src='/images/tabbar3.png' style='position:relative;top:94%;left:55%;height:50rpx;width:50rpx;color:green;'></image>
+        <image src='/images/tabbar4.png' style='position:relative;top:94%;left:55%;height:50rpx;width:50rpx;'></image>
         <text style='position:relative;top:37rpx;left:49%;height:50rpx;width:100rpx;font-size: 20rpx;'>任务</text>
       </view>
     </view>
@@ -272,7 +272,7 @@
         <image src='/images/guidance5.png' style='position:fixed;top:85%;left:130rpx;height:220rpx;width:440rpx;'></image>
       </view>
     </view>
-    <view style='position:fixed;top:93%;left:520rpx;height:70rpx;width:100rpx;' bindtap='bind7'></view>
+    <view style='position:fixed;top:93%;left:60%;height:90rpx;width:150rpx;' bindtap='bind7'></view>
   </view>
 </view>
 
@@ -281,6 +281,38 @@
   <view class="{{item.show?'box_a':'box_b'}}" bindlongpress="deleteTask" bindtap='onChangeShowState'>
     <view class='text_taskname'>确定提醒方式选择页面</view>
     <view class='box_card tagsColor{{index+1}}'></view>
+    <view class="{{item.show?'hide':'show'}}">
+      <image src='/images/down.png' class='hide_icon' data-index="{{index}}"></image>
+    </view>
+    <view class="{{item.show?'show':'hide'}}">
+      <image src='/images/up.png' class='hide_icon' data-index="{{index}}"></image>
+    </view>
+    <view class="{{item.show?'show':'hide'}}">
+      <view class='text_title1'>任务进行时间</view>
+      <view class='text_title1' style='left:450rpx'>团队名称</view>
+      <view class='text_title2'>04-11 9:00 to 04-12 12:00</view>
+      <view class='text_title2' style='left:450rpx;'>icode小分队</view>
+    </view>
+  </view>
+  <view class="box_a" bindlongpress="deleteTask" bindtap='onChangeShowState'>
+    <view class='text_taskname'>设计UI</view>
+    <view class='box_card tagsColor{{index+1}}' style='background-color:#fc2100'></view>
+    <view class="hide">
+      <image src='/images/down.png' class='hide_icon' data-index="{{index}}"></image>
+    </view>
+    <view class="show">
+      <image src='/images/up.png' class='hide_icon' data-index="{{index}}"></image>
+    </view>
+    <view class="show">
+      <view class='text_title1'>任务进行时间</view>
+      <view class='text_title1' style='left:450rpx'>团队名称</view>
+      <view class='text_title2'>04-11 9:00 to 04-12 12:00</view>
+      <view class='text_title2' style='left:450rpx;'>icode小分队</view>
+    </view>
+  </view>
+  <view class="{{item.show?'box_a':'box_b'}}" bindlongpress="deleteTask" bindtap='onChangeShowState'>
+    <view class='text_taskname'>完成页面布局</view>
+    <view class='box_card tagsColor{{index+1}}' style='background-color:#27e530'></view>
     <view class="{{item.show?'hide':'show'}}">
       <image src='/images/down.png' class='hide_icon' data-index="{{index}}"></image>
     </view>
