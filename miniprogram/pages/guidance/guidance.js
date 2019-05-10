@@ -8,7 +8,9 @@ Page({
     next2: false,
     next3:false,
     next4:false,
-    next5:false
+    next5:false,
+    next6:false,
+    next7:false
   },
   bind1: function() {
     var that = this;
@@ -39,7 +41,19 @@ Page({
     that.setData({
       next5: true
     })
-    console.log(that.data.next5)
+  },
+  bind6: function () {
+    var that = this;
+    that.setData({
+      next6: true
+    })
+  },
+  bind7: function () {
+    var that = this;
+    that.setData({
+      next7: true
+    })
+    console.log(that.data.next7)
   },
 
   /**

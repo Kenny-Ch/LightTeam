@@ -70,24 +70,12 @@
 	height: 74rpx;
 	left: 10rpx;
 	top: 30rpx;
-	color: rgba(80, 80, 80, 1);
 	background-color: rgba(107, 184, 255, 1);
 	border-radius: 38rpx;
-	font-size: 28rpx;
-	line-height: 150%;
-	text-align: center;
-}
-/*团队人数*/
-.text_number{
-  position: absolute;
-	width: 44rpx;
-	height: 56rpx;
-	left: 26rpx;
-	top: 12rpx;
-	color: rgba(255, 255, 255, 1);
 	font-size: 37rpx;
-	line-height: 150%;
-	text-align: left;
+	line-height: 200%;
+	text-align: center;
+  color: rgba(255, 255, 255, 1);
 }
 
 /*团队简介*/

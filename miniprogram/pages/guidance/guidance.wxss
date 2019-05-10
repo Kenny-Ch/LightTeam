@@ -174,8 +174,9 @@
   width: 100%;
   /* text-align: center; */
   color: #505050;
-  height: 100rpx;
+  height: 110rpx;
   background-color: #fff;
   line-height: 250%;
   border-top: 0.01rpx solid gray;
 }
+@import "../maintask/maintask.wxss"

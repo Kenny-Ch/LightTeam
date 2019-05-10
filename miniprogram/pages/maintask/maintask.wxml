@@ -1,8 +1,3 @@
-<!-- <view class='box_b'>
-<view class='text_taskname'>完成ui设计</view>
-<image src='/images/down.png' class='hide_icon'  bindtap='onChangeShowState'></image>
-<view class='box_card'></view>
-</view> -->
 <view wx:for="{{task}}">
   <view class="{{item.show?'box_a':'box_b'}}" bindlongpress="deleteTask" data-index="{{index}}" bindtap='onChangeShowState'>
     <view class='text_taskname'>{{item.name}}</view>
