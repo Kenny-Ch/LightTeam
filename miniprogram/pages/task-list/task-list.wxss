@@ -48,7 +48,8 @@
   text-align: center;
 }
 .text_intro{
-	width: 100%;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
 	height: 36rpx;
 	color: rgba(255, 255, 255, 1);
 	font-size: 24rpx;
