@@ -1,24 +1,37 @@
-.box{
+.top_box {
+  position: relative;
+  border-bottom: 1rpx solid #e3e3e3;
+  padding-left: 42rpx;
+  height: 200rpx;
+  width: 800rpx;
+  overflow-y: visible;
+}
+
+.box {
   border-bottom: 1rpx solid #e3e3e3;
   padding-left: 42rpx;
   height: 110rpx;
   width: 100%;
   position: relative;
+  overflow-y: visible;
 }
-.font{
+
+.font {
   color: #505050;
   font-size: 28rpx;
   position: absolute;
-  top:30rpx;
+  top: 30rpx;
 }
-.team-name{
+
+.team-name {
   font-size: 24rpx;
   color: #6b9aff;
   position: absolute;
   top: 23rpx;
   left: 52rpx;
 }
-.task-name{
+
+.task-name {
   font-size: 36rpx;
   font-weight: bold;
   color: #505050;
@@ -26,30 +39,37 @@
   top: 71rpx;
   left: 52rpx;
 }
-.icon{
+
+.icon {
   width: 40rpx;
   height: 40rpx;
-  margin-right:52rpx;
+  margin-right: 52rpx;
   position: absolute;
-  top:30rpx;
+  top: 30rpx;
 }
-.member-img{
-  width:61rpx;
-  height:61rpx;
+
+.member-img {
+  width: 61rpx;
+  height: 61rpx;
   border-radius: 50%;
-  margin-right:22rpx;
+  margin-right: 22rpx;
 }
-.button{
+
+.button {
   border-radius: 10rpx;
   height: 90rpx;
   width: 658rpx;
   background-color: #6b9aff;
   color: #fff;
 }
-.task-intro{
+
+.task-intro {
   font-size: 24rpx;
   color: gray;
   position: absolute;
   top: 150rpx;
   left: 52rpx;
+  width: 70%;
+  /* padding-right: 100rpx; */
+  overflow-y: visible;
 }

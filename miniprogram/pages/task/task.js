@@ -11,6 +11,7 @@ Page({
     teamName: 'icode',
     taskName: 'task',
     memberList: [],
+    taskIntroduction:"",
     dateBegin: '',
     dateEnd: '',
     timeBegin: '',
@@ -53,7 +54,8 @@ Page({
               finish: res.data.finish,
               tagNum: res.data.tag,
               memberList: res.data.userList,
-              accept: res.data.accept
+              accept: res.data.accept,
+              taskIntroduction:res.data.taskIntroduction
             })
           var date = new Date();
           var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + date.getHours() + ':' + date.getMinutes();
