@@ -4,7 +4,7 @@
 	height: 944rpx;
 	top: 20rpx;
 	color: rgba(80, 80, 80, 1);
-	background-color: rgba(107, 154, 255, 1);
+	background-color: #6bb8ff;
 	font-size: 28rpx;
 	line-height: 150%;
 	box-shadow: 0rpx 0rpx 0rpx 0rpx rgba(0, 0, 0, 0.2428571428571429);
@@ -52,7 +52,7 @@ button{
 	height: 76rpx;
 	left: 102rpx;
 	top: 1000rpx;
-	background-color: rgba(107, 154, 255, 1);
+	background-color: #6bb8ff;
 	border-radius: 33rpx;
 	text-align: center;
   font-size: 32rpx;

@@ -13,7 +13,7 @@
   width: 100rpx;
   line-height: 90rpx;
   text-align: center;
-  background-color: rgba(107, 184, 255, 1);
+  background-color: #6bb8ff;
   color: white;
 }
 
@@ -24,7 +24,7 @@
 	left: 0rpx;
 	top: 0rpx;
 	color: rgba(80, 80, 80, 1);
-	background-color: #6b9aff;
+	background-color: #6bb8ff;
 	font-size: 28rpx;
 	line-height: 150%;
 	box-shadow: 0rpx 0rpx 0rpx 0rpx rgba(0, 0, 0, 0.2428571428571429);
@@ -90,7 +90,7 @@
 .b_1 {
   position: absolute;
   color: #fff;
-  background-color: rgba(42, 130, 228, 1);
+  background-color: #45a1f5;
 }
 
 .box_a{

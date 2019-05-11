@@ -1,5 +1,5 @@
 {
-  "navigationBarBackgroundColor": "#6b9aff",
-  "navigationBarTitleText": " ",
-  "usingComponents": {}
+  "navigationBarBackgroundColor": "#6bb8ff",
+  "navigationBarTitleText": "新建任务",
+  "navigationBarTextStyle": "white"
 }

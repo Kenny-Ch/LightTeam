@@ -37,7 +37,7 @@
   left: 62rpx;
   top: 400rpx;
   font-size: 30rpx;
-  color:#6b9aff; 
+  color:#6bb8ff; 
 }
 .input{
   position: absolute;

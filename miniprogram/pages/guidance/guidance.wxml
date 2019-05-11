@@ -139,11 +139,11 @@
       <view>
         <view class="back" style='position:relative;top:320rpx;'>
           <view class="box_a " style='top:20rpx;' bindtap='bind3'>
-            <view class='box_card' bindtap='bind3' style="background-color:#fff659"></view>
+            <view class='box_card' bindlongtap='bind3' style="background-color:#fff659"></view>
           </view>
-          <view class='text_taskname' bindtap='bind3' style='top:45rpx;left:90rpx;'>demo</view>
-          <view class='text_title1' bindtap='bind3' style='top:110rpx;left:90rpx;'>任务进行时间</view>
-          <view class='text_title2' bindtap='bind3' style='top:150rpx;left:90rpx;width:1500rpx'>2018-12-03 19:00— 2018-12-05 10:00</view>
+          <view class='text_taskname' bindlongtap='bind3' style='top:45rpx;left:90rpx;'>demo</view>
+          <view class='text_title1' bindlongtap='bind3' style='top:110rpx;left:90rpx;'>任务进行时间</view>
+          <view class='text_title2' bindlongtap='bind3' style='top:150rpx;left:90rpx;width:1500rpx'>2018-12-03 19:00— 2018-12-05 10:00</view>
         </view>
 
       </view>
@@ -173,11 +173,11 @@
       </view>
       <view class="back" bindtap='bind3' style='position:relative;top:320rpx;'>
         <view class="box_a " style='top:20rpx;' >
-          <view class='box_card'bindtap="bind3" style="background-color:#fff659"></view>
+          <view class='box_card'bindlongtap="bind3" style="background-color:#fff659"></view>
         </view>
-        <view class='text_taskname'bindtap="bind3" style='top:45rpx;left:90rpx;'>demo</view>
-        <view class='text_title1'bindtap="bind3" style='top:110rpx;left:90rpx;'>任务进行时间</view>
-        <view class='text_title2'bindtap="bind3" style='top:150rpx;left:90rpx;width:1500rpx'>2018-12-03 19:00— 2018-12-05 10:00</view>
+        <view class='text_taskname'bindlongtap="bind3" style='top:45rpx;left:90rpx;'>demo</view>
+        <view class='text_title1'bindlongtap="bind3" style='top:110rpx;left:90rpx;'>任务进行时间</view>
+        <view class='text_title2'bindlongtap="bind3" style='top:150rpx;left:90rpx;width:1500rpx'>2018-12-03 19:00— 2018-12-05 10:00</view>
       </view>
       <button bindtap='addTask' open-type="{{currentTab? 'share':'' }}">
         <view class='homepage_team_add'>+</view>

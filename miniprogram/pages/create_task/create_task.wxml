@@ -43,6 +43,14 @@
     </view>
   </view>
 
+
+  <view class='item'>
+  <view class='title'>
+  任务详情
+  </view>
+  <textarea class='peopleimg-box' placeholder=' 请输入任务详情(50字)' placeholder-class='placeholder' style='height:200rpx;padding-left: 10rpx;padding-top: 10rpx;color: #383838; font-size: 30rpx;' type='text' ></textarea>
+  </view>
+
   <view class='item'>
     <view class='title'>结束前提醒</view>
     <view class='mention-box'>
