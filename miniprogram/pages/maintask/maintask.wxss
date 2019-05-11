@@ -19,7 +19,7 @@
 	width: 670rpx;
 	height: 193rpx;
 	left: 40rpx;
-	top: 150rpx;
+	top: 50rpx;
 	color: rgba(80, 80, 80, 1);
 	background-color: rgba(255, 255, 255, 1);
 	border-radius: 11rpx;
@@ -34,7 +34,7 @@
 	width: 670rpx;
 	height: 100rpx;
 	left: 40rpx;
-	top: 150rpx;
+	top: 50rpx;
 	color: rgba(80, 80, 80, 1);
 	background-color: rgba(255, 255, 255, 1);
 	border-radius: 11rpx;
