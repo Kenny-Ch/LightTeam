@@ -1,8 +1,15 @@
 /* pages/authorization_main/authorization_main.wxss */
+page{
+  height: 100%;
+}
+swiper{
+  height: 100%;
+  width: 100%;
+}
 .background{
 	width: 750rpx;
-	height: 944rpx;
-	top: 20rpx;
+	height: 80vh;
+	/* top: 20rpx; */
 	color: rgba(80, 80, 80, 1);
 	background-color: #6bb8ff;
 	font-size: 28rpx;
@@ -15,7 +22,7 @@
  width: 682rpx;
 	height: 432rpx;
 	left: 35rpx;
-	top: 733rpx;
+	top: 60%;
 	color: rgba(80, 80, 80, 1);
 	background-color: rgba(255, 255, 255, 1);
 	border-radius: 16rpx;
@@ -25,33 +32,33 @@
 	text-align: center;
 }
 .title{
-  position: fixed;
+  position: relative;
 	width: 432rpx;
 	height: 80rpx;
-	left: 158rpx;
-	top: 770rpx;
+	left: 118rpx;
+	top: 70rpx;
 	color: rgba(107, 154, 255, 1);
 	font-size: 54rpx;
 	line-height: 150%;
 	text-align: left;
 }
 .text-main{
-  position: fixed;
+  position: relative;
 	width: 568rpx;
 	height: 42rpx;
-	left: 86rpx;
-	top: 880rpx;
-	color: rgba(80, 80, 80, 1);
+	left: 50rpx;
+	top: 80rpx;
+	color: gray;
 	font-size: 28rpx;
 	line-height: 150%;
 	text-align: center;
 }
 button{
-  position: fixed;
+  position: relative;
 	width: 540rpx;
 	height: 76rpx;
-	left: 102rpx;
-	top: 1000rpx;
+	left: 0rpx;
+	top: 100rpx;
 	background-color: #6bb8ff;
 	border-radius: 33rpx;
 	text-align: center;
@@ -64,10 +71,34 @@ button{
 	width: 394rpx;
 	height: 394rpx;
 	left: 185rpx;
-	top: 117rpx;
+	top: 15vh;
 	color: rgba(80, 80, 80, 1);
 	background-color: rgba(108, 104, 222, 0.27857142857142864);
 	border-radius: 197rpx;
+	font-size: 28rpx;
+	line-height: 150%;
+	text-align: center;
+}
+.next{
+  position: relative;
+	width: 94rpx;
+	height: 94rpx;
+	left: -10rpx;
+	top: 90rpx;
+	color: rgba(80, 80, 80, 1);
+  background-color: rgba(0, 158, 255, 0.7);
+	border-radius: 47rpx;
+	font-size: 28rpx;
+	line-height: 150%;
+	box-shadow: 0rpx 12rpx 12rpx 0rpx rgba(0, 158, 255, 0.4142857142857143);
+	text-align: center;
+}
+.img{
+  position: fixed;
+	width: 500rpx;
+	height: 500rpx;
+	left: 120rpx;
+	top: 15vh;
 	font-size: 28rpx;
 	line-height: 150%;
 	text-align: center;

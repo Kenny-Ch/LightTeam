@@ -1,10 +1,48 @@
 <!--pages/authorization_main/authorization_main.wxml-->
-<view class='background'>
-<view class='shadow'></view>
-</view>
-<view class='text-box'>
-<view class='title'>在微信中组建团队</view>
-<view class='text-main'>请允许我们获得以下信息以便获得更好的体验 </view>
-<view class='text-main' style='top:930rpx;font-size:26rpx;color:#9d9d9d;'>获得你的公开信息（昵称、头像等）</view>
-<button>授权并登陆</button>
-</view>
+<view class='background' style='position:fixed'></view>
+<swiper duration="400" current="{{currentTab}}" bindchange="bindChange">
+  <!-- 滑块1 -->
+  <swiper-item>
+    <view class='background'>
+      <view class='shadow'></view>
+      <image src='/images/autho1.png' class='img'></image>
+    </view>
+    <view class='text-box'>
+      <view class='title'>在微信中组建团队</view>
+      <view class='text-main'>构建你的团队于微信之中，能更便于管理与新任务的分配与通知。</view>
+      <view class='text-main' style='top:240rpx;font-size:26rpx;color:#9d9d9d;'>继续表示您已同意我们的
+        <text style="color:rgba(0,113,255,0.54)">团队与隐私政策 </text> </view>
+      <image src='/images/next.svg' class='next' data-current="1" bindtap="swichNav"></image>
+    </view>
+  </swiper-item>
+
+  <!-- 滑块2 -->
+  <swiper-item>
+    <view class='background'>
+      <view class='shadow'></view>
+      <image src='/images/autho2.png' class='img'></image>
+    </view>
+    <view class='text-box'>
+      <view class='title' style='width:1000rpx;left:40rpx'>随时随地 创建并分配任务</view>
+      <view class='text-main'>构建你的团队于微信之中，能更便于管理与新任务的分配与通知。</view>
+      <view class='text-main' style='top:240rpx;font-size:26rpx;color:#9d9d9d;'>继续表示您已同意我们的
+        <text style="color:rgba(0,113,255,0.54)">团队与隐私政策 </text> </view>
+      <image src='/images/next.svg' class='next' data-current="2" bindtap="swichNav"></image>
+    </view>
+  </swiper-item>
+
+  <!-- 滑块3 -->
+  <swiper-item>
+    <view class='background'>
+      <view class='shadow'></view>
+      <image src='/images/autho3.png' class='img'></image>
+    </view>
+    <view class='text-box'>
+      <view class='title' style='width:1000rpx;left:40rpx'>同一个地方 查看所有任务</view>
+      <view class='text-main'>构建你的团队于微信之中，能更便于管理与新任务的分配与通知。</view>
+      <view class='text-main' style='top:240rpx;font-size:26rpx;color:#9d9d9d;'>继续表示您已同意我们的
+        <text style="color:rgba(0,113,255,0.54)">团队与隐私政策 </text> </view>
+      <button>授权并登陆</button>
+    </view>
+  </swiper-item>
+</swiper>

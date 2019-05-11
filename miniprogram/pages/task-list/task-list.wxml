@@ -5,9 +5,9 @@
     <view class='text_teamname'>{{teamName}}</view>
     <view class='text_number'>{{memberNum}}人</view>
 
-    <view class="buttom_1 {{currentTab==0 ? 'b_1' : 'b_2'}}" data-current="0" bindtap="swichNav">任务</view>
+    <view class="buttom_1 {{currentTab==0 ? 'b_1' : 'b_2'}}" data-current="1" bindtap="swichNav">任务</view>
 
-    <view class="buttom_2 {{currentTab==1 ? 'b_1' : 'b_2'}}" data-current="1" bindtap="swichNav">成员</view>
+    <view class="buttom_2 {{currentTab==1 ? 'b_1' : 'b_2'}}" data-current="0" bindtap="swichNav">成员</view>
 
     <view class='text_intro'>{{teamIntroduce}}</view>
     <image src='/images/pen.svg' class='icon_pen'></image>
