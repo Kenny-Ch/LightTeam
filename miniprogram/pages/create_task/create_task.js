@@ -14,6 +14,7 @@ Page({
     multiIndex: [0, 0, 0],
     taskid: '',
     taskName: '',
+    taskIntroduction:'',
     dateBegin: '请选择开始日期',
     dateEnd: '请选择结束日期',
     timeBegin: '请选择开始时间',
@@ -53,6 +54,11 @@ Page({
   bindTaskNameInput: function (e) {
     this.setData({
       taskName: e.detail.value
+    })
+  },
+  bindTaskIntroductionInput:function(e){
+    this.setData({
+      taskIntroduction: e.detail.value
     })
   },
   bindMentionTime(e) {

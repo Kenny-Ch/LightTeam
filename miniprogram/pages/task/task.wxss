@@ -46,3 +46,10 @@
   background-color: #6b9aff;
   color: #fff;
 }
+.task-intro{
+  font-size: 24rpx;
+  color: gray;
+  position: absolute;
+  top: 150rpx;
+  left: 52rpx;
+}

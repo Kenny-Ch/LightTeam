@@ -1,6 +1,7 @@
-<view class='box' style='height:150rpx;'>
+<view class='box' style='height:400rpx;'>
   <text class='team-name'>{{teamName}}</text>
   <text class='task-name'>{{taskName}}</text>
+  <text class='task-intro'>{{taskIntroduction}}</text>
 </view>
 
 <view class='box'>

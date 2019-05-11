@@ -340,7 +340,7 @@
     </view>
   <view class='lucency'>
     <view class="guidance" style='top:830rpx;left:200rpx'>
-      <image src='/images/guidance6.png' style='position:fixed;top:920rpx;left:250rpx;height:200rpx;width:400rpx;'></image>
+      <image src='/images/guidance7.png' style='position:fixed;top:820rpx;left:100rpx;height:300rpx;width:600rpx;'></image>
     </view>
   </view>
 </view>
