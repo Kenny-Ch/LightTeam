@@ -1,6 +1,5 @@
 // pages/detail-task/detal-task.js
 const db = wx.cloud.database()
-const _ = db.command
 const teamCollection = db.collection('team')
 Page({
 
@@ -104,17 +103,47 @@ Page({
     var taskList = that.data.taskList;
     var index = e.currentTarget.dataset.index; //获取当前长按图片下标
     console.log(e)
+    if(this.data.userId==this.data.leaderId){
     wx.showModal({
       title: '提示',
       content: '确定要删除此任务吗？',
       success: function (res) {
         if (res.confirm) {
-          console.log('【task-list】【长按删除】【点击确定】', '索引为：', index);
+          var that = this;
+          console.log('【task-list】【长按删除】【点击确定】', '索引为：', index, this.data.taskList[index]);
+          db.collection('task').doc(that.data.taskList[index]).remove({
+            success: console.log,
+            fail: console.error
+          })
+          db.collection('user').where({
+            _openid: that.data.openId
+          }).get({
+            success(res) {
+              that.setData({
+                userTaskList: res.data[0].taskList
+              })
+              var ii=0;
+              for(;ii<that.data.userTaskList;ii++){
+                if(userTaskList[ii]==that.data.taskList[index]){
+                  that.data.userTaskList.splice(ii,1)
+                  that.setData({
+                    userTaskList:that.data.userTaskList
+                  })
+                  db.collection('user').doc(that.data.userId).update({
+                    data: {
+                      taskList:that.data.userTaskList
+                    }
+                  })
+                  break;
+                }
+              }
+            }
+          })
           task.splice(index, 1);
           taskList.splice(index, 1);
-          db.collection('user').doc('').update({
+          db.collection('team').doc(that.data.userId).update({
             data: {
-              style: _.remove()
+              taskList: that.data.taskList
             }
           })
         } else if (res.cancel) {
@@ -127,6 +156,7 @@ Page({
         });
       }
     })
+    }
   },
   onChangeShowState: function (event) {
     var that = this;

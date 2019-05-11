@@ -87,7 +87,11 @@ Page({
     })
   },
   bindSave: function (event) {
-    if (!this.data.taskName || !this.data.dateBegin || !this.data.dateEnd || !this.data.timeBegin || !this.data.timeEnd || (this.data.batchIds.length == 0) || ((this.data.dateBegin + this.data.timeBegin) >= (this.data.dateEnd + this.data.timeEnd)) || this.data.dateBegin.length == 7 || this.data.timeBegin.length == 7 || this.data.dateEnd.length == 7 || this.data.timeEnd.length == 7) {
+    var date = new Date();
+    var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + date.getHours() + ':' + date.getMinutes();
+    var begin = this.data.dateBegin + this.data.timeBegin;
+    var end = this.data.dateEnd + this.data.timeEnd;
+    if (!this.data.taskName || !this.data.dateBegin || !this.data.dateEnd || !this.data.timeBegin || !this.data.timeEnd || (this.data.batchIds.length == 0) || ((this.data.dateBegin + this.data.timeBegin) >= (this.data.dateEnd + this.data.timeEnd)) ||(currentDate >= (this.data.dateEnd + this.data.timeEnd))|| this.data.dateBegin.length == 7 || this.data.timeBegin.length == 7 || this.data.dateEnd.length == 7 || this.data.timeEnd.length == 7) {
       console.log('【create_task】【创建任务信息输入情况】【输入不完整】', event)
       wx.showToast({
         title: '任务的信息填写有误或不完整',
@@ -97,6 +101,7 @@ Page({
     }
     else {
       var acceptarr = [];
+      var that = this;
       for (var i = 0; i < this.data.batchIds.length; i++) {
         acceptarr.push(false);
       }
@@ -122,7 +127,6 @@ Page({
             taskid: res._id,
             unfinishTask: this.data.unfinishTask
           })
-          var that = this;
           db.collection('user').doc(that.data.userId).update({
             data: {
               taskList: db.command.push(that.data.taskid)

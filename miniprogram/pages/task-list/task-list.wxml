@@ -22,7 +22,7 @@
     <scroll-view scroll-y="true" style="height:{{taskListLength}}rpx">
       <view wx:for="{{task}}">
         <view class='back' style='position:relative;top:320rpx;background-color:#fff;' bindtap='bindTaskDetail' data-index="{{index}}">
-          <view class="box_a" style='top:20rpx;' bindlongpress='longPressDelete' id="{{index}}">
+          <view class="box_a" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
             <view class='box_card' style='background-color:{{boxcolor[item.tag]}}'></view>
             <view class="{{(uhide==tags._id)?'hide':'show'}}">
 
