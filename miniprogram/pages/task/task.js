@@ -8,10 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    teamName: 'icode',
-    taskName: 'task',
+    teamName: '',
+    taskName: '',
+    taskIntroduction:'',
     memberList: [],
-    taskIntroduction:"",
     dateBegin: '',
     dateEnd: '',
     timeBegin: '',
@@ -55,10 +55,10 @@ Page({
               tagNum: res.data.tag,
               memberList: res.data.userList,
               accept: res.data.accept,
-              taskIntroduction:res.data.taskIntroduction
+              taskIntroduction: res.data.taskIntroduction
             })
           var date = new Date();
-          var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + date.getHours() + ':' + date.getMinutes();
+          var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes());
           var begin = this.data.dateBegin + this.data.timeBegin;
           var end = this.data.dateEnd + this.data.timeEnd;
           this.setData({

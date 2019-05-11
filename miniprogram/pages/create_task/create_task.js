@@ -3,13 +3,13 @@ const taskCollection = db.collection('task')
 Page({
 
   /* 页面的初始数据
-  */
+   */
   data: {
     remind: 0,
     checkbox: [
-      { name: "创建任务后马上提醒大家" },
-      { name: "创建任务后马上提醒大家" },
-      { name: "创建任务后马上提醒大家" },
+      {name: "创建任务后马上提醒大家"},
+      {name: "创建任务后马上提醒大家"},
+      {name: "创建任务后马上提醒大家"},
     ],
     multiIndex: [0, 0, 0],
     taskid: '',
@@ -30,7 +30,7 @@ Page({
     accept: [],
     unfinishTask: 88
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log('【create_task】【task-list界面传入参数】', options)
     this.setData({
       teamId: options.teamId,
@@ -51,12 +51,12 @@ Page({
     })
 
   },
-  bindTaskNameInput: function (e) {
+  bindTaskNameInput: function(e) {
     this.setData({
       taskName: e.detail.value
     })
   },
-  bindTaskIntroductionInput:function(e){
+  bindTaskIntroductionInput: function (e) {
     this.setData({
       taskIntroduction: e.detail.value
     })
@@ -87,25 +87,36 @@ Page({
       timeEnd: e.detail.value
     })
   },
-  bindTagChange: function (e) {
+  bindTagChange: function(e) {
     this.setData({
       index: e.detail.value
     })
   },
-  bindSave: function (event) {
+  bindSave: function(event) {
     var date = new Date();
-    var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + date.getHours() + ':' + date.getMinutes();
+    var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes())
+    console.log(currentDate)
     var begin = this.data.dateBegin + this.data.timeBegin;
     var end = this.data.dateEnd + this.data.timeEnd;
-    if (!this.data.taskName || !this.data.dateBegin || !this.data.dateEnd || !this.data.timeBegin || !this.data.timeEnd || (this.data.batchIds.length == 0) || ((this.data.dateBegin + this.data.timeBegin) >= (this.data.dateEnd + this.data.timeEnd)) ||(currentDate >= (this.data.dateEnd + this.data.timeEnd))|| this.data.dateBegin.length == 7 || this.data.timeBegin.length == 7 || this.data.dateEnd.length == 7 || this.data.timeEnd.length == 7) {
+    if (!this.data.taskName ||
+      !this.data.dateBegin ||
+      !this.data.dateEnd ||
+      !this.data.timeBegin ||
+      !this.data.timeEnd ||
+      (this.data.batchIds.length == 0) ||
+      ((this.data.dateBegin + this.data.timeBegin) >= (this.data.dateEnd + this.data.timeEnd)) ||
+      (currentDate >= (this.data.dateEnd + this.data.timeEnd)) ||
+      this.data.dateBegin.length == 7 ||
+      this.data.timeBegin.length == 7 ||
+      this.data.dateEnd.length == 7 ||
+      this.data.timeEnd.length == 7) {
       console.log('【create_task】【创建任务信息输入情况】【输入不完整】', event)
       wx.showToast({
         title: '任务的信息填写有误或不完整',
         icon: 'none',
         duration: 2000
       })
-    }
-    else {
+    } else {
       var acceptarr = [];
       var that = this;
       for (var i = 0; i < this.data.batchIds.length; i++) {
@@ -133,11 +144,21 @@ Page({
             taskid: res._id,
             unfinishTask: this.data.unfinishTask
           })
-          db.collection('user').doc(that.data.userId).update({
-            data: {
-              taskList: db.command.push(that.data.taskid)
-            },
-          })
+          // db.collection('user').doc(that.data.userId).update({
+          //   data: {
+          //     taskList: db.command.push(that.data.taskid)
+          //   },
+          // })
+          var ii=0;
+          for(;ii<that.data.batchIds.length;ii++){
+            wx.cloud.callFunction({
+              name: 'pushTaskId',
+              data: {
+                userId: that.data.batchIds[ii].id,
+                taskId: res._id
+              },
+            })
+          }
           db.collection('team').doc(that.data.teamId).update({
             data: {
               taskList: db.command.push(that.data.taskid),
@@ -145,7 +166,7 @@ Page({
             },
           })
           let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
-          let prevPage = pages[pages.length - 2];//prevPage 是获取上一个页面的js里面的pages的所有信息。 -2 是上一个页面，-3是上上个页面以此类推。
+          let prevPage = pages[pages.length - 2]; //prevPage 是获取上一个页面的js里面的pages的所有信息。 -2 是上一个页面，-3是上上个页面以此类推。
           db.collection('task').where({
             _id: res._id
           }).get({
@@ -157,7 +178,7 @@ Page({
               //上一个页面内执行setData操作，将我们想要的信息保存住。当我们返回去的时候，页面已经处理完毕。
               //最后就是返回上一个页面。
               wx.navigateBack({
-                delta: 1  // 返回上一级页面。
+                delta: 1 // 返回上一级页面。
               })
             }
           })
@@ -166,9 +187,8 @@ Page({
       })
     }
   },
-  bindChooseMember: function () {
+  bindChooseMember: function() {
     wx.navigateTo({
       url: '/pages/choosemember/choosemember?teamId=' + this.data.teamId + '&userId=' + this.data.userId + '&openId=' + this.data.openId
     })
   }
-})//h
