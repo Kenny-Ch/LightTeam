@@ -59,6 +59,22 @@ Page({
         duration: 2000
       })
     }
+    else if(this.data.teamName.length>12){
+      console.log('【create_team】【团队名称输入情况】【过长】', event)
+      wx.showToast({
+        title: '团队的名称过长哟~请限定在12字以内',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    else if (this.data.teamBrief.length > 50) {
+      console.log('【create_team】【团队简介输入情况】【过长】', event)
+      wx.showToast({
+        title: '团队的简介过长哟~请限定在50字以内',
+        icon: 'none',
+        duration: 2000
+      })
+    }
     else{
       var that = this;
       teamCollection.add({
