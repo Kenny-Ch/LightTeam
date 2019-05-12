@@ -1,17 +1,17 @@
 .tagsColor0{
-  background-color: #fff
+  background-color: rgba(210, 210, 210, 1)
 }
 .tagsColor4{
-  background-color: #a0d991
+  background-color: rgba(90, 151, 246, 1)
 }
 .tagsColor3{
-  background-color: #36cfc9
+  background-color: rgba(39, 229, 48, 1)
 }
 .tagsColor2{
-  background-color: #ffec3d
+  background-color: rgba(255, 246, 89, 1)
 }
 .tagsColor1{
-  background-color: #ff7875
+  background-color: rgba(252, 33, 0, 1)
 }
 /*任务盒子*/
 .box_a{

@@ -1,7 +1,7 @@
 <view wx:for="{{task}}">
   <view class="{{item.show?'box_a':'box_b'}}" bindlongpress="deleteTask" data-index="{{index}}" bindtap='onChangeShowState'>
     <view class='text_taskname'>{{item.name}}</view>
-    <view class='box_card tagsColor{{index+1}}' ></view>
+    <view class='box_card tagsColor{{item.tag}}' ></view>
     <view class="{{item.show?'hide':'show'}}">
       <image src='/images/down.png' class='hide_icon' data-index="{{index}}"></image>
     </view>

@@ -25,7 +25,7 @@ Page({
     hiddenButton:true,
     taskListLength: 1,
     taskListLength2: 1,
-    boxcolor: ["#fffff4", "#fc2100", "#fff659", "#27e530", "#5a97f6"]
+    boxcolor: ["rgba(210, 210, 210, 1)", "#fc2100", "#fff659", "#27e530", "#5a97f6"]
   },
   /**
    * 生命周期函数--监听页面加载
@@ -123,6 +123,7 @@ Page({
                   task.splice(index, 1);
                   taskList.splice(index, 1);
                   that.setData({
+                    taskListLength: that.data.taskListLength-180,
                     task,
                     taskList
                   })

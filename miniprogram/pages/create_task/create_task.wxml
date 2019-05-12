@@ -48,7 +48,7 @@
   <view class='title'>
   任务详情
   </view>
-  <textarea class='peopleimg-box' placeholder=' 请输入任务详情(50字)' placeholder-class='placeholder' style='height:200rpx;padding-left: 10rpx;padding-top: 10rpx;color: #383838; font-size: 30rpx;' type='text' bindinput='bindTaskIntroductionInput'></textarea>
+  <textarea class='peopleimg-box' placeholder=' 请输入任务详情' placeholder-class='placeholder' style='height:200rpx;padding-left: 10rpx;padding-top: 10rpx;color: #383838; font-size: 30rpx;' type='text' bindinput='bindTaskIntroductionInput' maxlength="-1"></textarea>
   </view>
 
   <view class='item'>

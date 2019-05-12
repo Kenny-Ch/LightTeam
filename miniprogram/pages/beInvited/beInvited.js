@@ -24,6 +24,7 @@ Page({
    */
   onLoad: function (options) {
     console.log('【beinvited】【传入新建团队id参数】【传入团队id参数成功】',options)
+    var that=this;
     this.data.teamId=options.teamId
     this.data.teamName=options.teamName
     this.data.openId =getApp().globalData.openid
@@ -48,6 +49,7 @@ Page({
                   success: res => {
                     console.log('【beinvited】【获取用户信息】【获取信息成功】', res.userInfo)//调试：输出获取到的用户信息判断是否成功获取
                     this.setData({
+                      hasLogined:true,
                       userInfo: res.userInfo//把成功获取的内容存到这个page的data里面
                     })
                     // this.globalData.userInfo=res.userInfo
@@ -74,7 +76,7 @@ Page({
                               for (var i = 0; i <=uList.length; i++) {
                                 if(i==uList.length&&this.data.hide==false){
                                   this.setData({
-                                    // hide:true
+                                    hide:true
                                   })
                                   console.log('【beinvited】【用户是否已存在团队之中】，【不存在同时显示加入团队按钮】')
                                   break;
@@ -95,6 +97,11 @@ Page({
                     })
                     // console.log("【用户信息存入】【信息成功存入globalData中】", getApp().globalData)//若完成上一步走到这一步的话输出“成功”
                   }
+                })
+              }
+              else{
+                that.setData({
+                  hasLogined:false
                 })
               }
             }
@@ -126,24 +133,6 @@ Page({
                     "teamList": []
                   }
                 })
-                // wx.cloud.callFunction({
-                //   name: 'login',
-                //   data: {},
-                //   success: res => {
-                //     db.collection('user').where({
-                //       _openid: res.result.openid
-                //     })
-                //       .get({
-                //         success: res => {
-                //           console.log('【beinvited】【获取指定用户user集合中的记录id】【获取成功】', res.data[0]._id, this.data.userList[0].id)
-                          
-                        
-                //         }
-                //       })
-                //   }
-
-
-                // })
               }
             })
           }
@@ -156,7 +145,7 @@ Page({
       //用户按了拒绝按钮
       wx.showModal({
         title: '提示',
-        content: '您点击了拒绝授权，将无法进入团队，请授权之后再进入!',
+        content: '您还未登录，登录后可获得完整体验哦',
         showCancel: false,
         confirmText: '返回授权',
         success: function (res) {
@@ -206,9 +195,16 @@ Page({
                           teamList: db.command.push(that.data.teamId)
                         }
                       })
-                      wx.switchTab({
-                        url: '/pages/index/index',
-                      })
+                      if (!this.data.hasLogined){
+                        wx.redirectTo({
+                          url: '/pages/guidance/guidance'
+                        })
+                      }
+                      else{
+                        wx.switchTab({
+                          url: '/pages/index/index',
+                        })
+                      }
                     }
                   })
               }

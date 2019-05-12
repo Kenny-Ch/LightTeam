@@ -29,7 +29,7 @@ Page({
         }
         else{
           wx.redirectTo({
-            url: '/pages/authorization/authorization',
+            url: '/pages/authorization_main/authorization_main',
           })
         }
       }

@@ -11,7 +11,7 @@
   <view class='back' style='position:relative;top:40rpx;'>
     <view style="border-bottom:1rpx solid #e3e3e3;height:114rpx;position:relative;background-color:#fff;{{index==0?'border-top:1rpx solid #e3e3e3;':''}}" bindlongpress='longPress'>
       <view class='member-name'>{{item.nickName}}</view>
-      <view class='state'>已完成</view>
+      <view class='state'>{{state[index]}}</view>
       <image src='{{item.Url}}' class='img'></image>
       <!-- <checkbox class='checkbox' checked="{{item.checked}}"  value="{{item.id}}"></checkbox> -->
     </view>

@@ -1,54 +1,63 @@
 <view class='top_box'>
   <text class='team-name'>{{teamName}}</text>
   <text class='task-name'>{{taskName}}</text>
-  <textarea class='task-intro'>{{taskIntroduction}}</textarea>
 </view>
+<view style='positon:relative;padding-left:52rpx;padding-bottom:15rpx;'>
+  <text class='task-intro' style='display:inline-block'>{{taskIntroduction}}</text>
+</view>
+<view style='position:relative;'>
+  <view class='box' style='border-top: 1rpx solid #e3e3e3;top:0rpx;'bindtap='bindMemberDetail'>
+    <image src='/images/member.svg' class='icon'></image>
+    <view wx:for="{{memberList}}">
+      <view style='position: absolute;top: 23rpx;left: {{index*80+134}}rpx;'>
+        <image src='{{item.Url}}' class='member-img'></image>
+      </view>
+    </view>
 
-<view class='box'>
-  <image src='/images/member.svg' class='icon'></image>
-  <view  wx:for="{{memberList}}">
-  <view style='position: absolute;top: 23rpx;left: {{index*80+134}}rpx;'>
-    <image src='{{item.Url}}' class='member-img'></image>
   </view>
+
+  <view class='box' style='top:110rpx;'>
+    <image src='/images/situation.svg' class='icon'></image>
+    <text class='font' style='position: absolute;left:134rpx;'>状态：{{state}}</text>
   </view>
-  
-</view>
 
-<view class='box'>
-  <image src='/images/situation.svg' class='icon'></image>
-  <text class='font' style='position: absolute;left:134rpx;'>状态：{{state}}</text>
-</view>
-
-<view class='box'>
-  <image src='/images/date.svg' class='icon'></image>
-  <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text><text>{{dateBegin}}</text><text style='margin-left:15rpx;'>{{timeBegin}}</text></text>
-</view>
-
-<view class='box'>
-  <image src='/images/date.svg' class='icon'></image>
-  <text class='font' style='position: absolute;left:134rpx;'><text>截止时间：</text><text>{{dateEnd}}</text><text style='margin-left:15rpx;'>{{timeEnd}}</text></text>
-</view>
-
-<view class='box'>
-<view>
-<image src='/images/{{tagNum}}.svg' class='icon'></image>
-  <text  class='font' style='position: absolute;left:134rpx;'><text>标签：</text><text>{{tag[tagNum]}}</text></text>
-</view>
-  
-</view>
-
-<view style='position:relative;margin-top:74rpx;'hidden="{{buttonHidden1}}" bindtouchend='bindReceiveTask'>
-  <button type='submit' class='button'></button>
-  <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view>
-</view>
-
-<view hidden="{{buttonHidden2}}">
-  <view style='position:relative;margin-top:57rpx;'>
-    <button class='button' bindtap='finishtask'></button>
-    <view style='position:absolute;top:18rpx;left:298rpx;color:#fff;font-size:40rpx;'>完成任务</view>
+  <view class='box' style='top:220rpx;'>
+    <image src='/images/date.svg' class='icon'></image>
+    <text class='font' style='position: absolute;left:134rpx;'><text>开始时间：</text>
+    <text>{{dateBegin}}</text>
+    <text style='margin-left:15rpx;'>{{timeBegin}}</text></text>
   </view>
-  <!-- <view style='position:relative;margin-top:27rpx;'>
+
+  <view class='box' style='top:330rpx;'>
+    <image src='/images/date.svg' class='icon'></image>
+    <text class='font' style='position: absolute;left:134rpx;'><text>截止时间：</text>
+    <text>{{dateEnd}}</text>
+    <text style='margin-left:15rpx;'>{{timeEnd}}</text></text>
+  </view>
+
+  <view class='box' style='top:440rpx;'>
+    <view>
+      <image src='/images/{{tagNum}}.svg' class='icon'></image>
+      <text class='font' style='position: absolute;left:134rpx;'><text>标签：</text>
+      <text>{{tag[tagNum]}}</text></text>
+    </view>
+
+  </view>
+  <view style='position:absolute;top:550rpx;width:100%;'>
+  <view style='position:relative;margin-top:74rpx;' hidden="{{buttonHidden1}}" bindtouchend='bindReceiveTask'>
     <button type='submit' class='button'></button>
-    <view style='position:absolute;top:18rpx;left:254rpx;color:#fff;font-size:40rpx;'>延时完成任务</view>
-  </view> -->
+    <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view>
+  </view>
+
+  <view hidden="{{buttonHidden2}}">
+    <view style='position:relative;margin-top:57rpx;'>
+      <button class='button' bindtap='finishtask'></button>
+      <view style='position:absolute;top:18rpx;left:298rpx;color:#fff;font-size:40rpx;' bindtap='finishtask'>完成任务</view>
+    </view>
+    <!-- <view style='position:relative;margin-top:27rpx;'>
+      <button type='submit' class='button'></button>
+      <view style='position:absolute;top:18rpx;left:254rpx;color:#fff;font-size:40rpx;'>延时完成任务</view>
+     </view> -->
+  </view>
+  </view>
 </view>

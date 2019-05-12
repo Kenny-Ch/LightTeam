@@ -97,6 +97,11 @@ Page({
         }
       })
   },
+  bindMemberDetail:function(){
+    wx.navigateTo({
+      url: '/pages/memberList/memberList?accept='+this.data.accept+'&taskId='+this.data.taskId+'&finish='+this.data.finish+'&teamName='+this.data.teamName
+    })
+  },
   bindReceiveTask: function () {
     this.data.accept[this.data.i] = true;
     var that = this;

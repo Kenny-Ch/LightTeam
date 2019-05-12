@@ -42,7 +42,7 @@
       <view class='text-main'>构建你的团队于微信之中，能更便于管理与新任务的分配与通知。</view>
       <view class='text-main' style='top:240rpx;font-size:26rpx;color:#9d9d9d;'>继续表示您已同意我们的
         <text style="color:rgba(0,113,255,0.54)">团队与隐私政策 </text> </view>
-      <button>授权并登陆</button>
+      <button open-type='getUserInfo' bindtap='onGetUserInfo'>授权并登陆</button>
     </view>
   </swiper-item>
 </swiper>

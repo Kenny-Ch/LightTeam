@@ -20,7 +20,7 @@ Page({
     timeBegin: '请选择开始时间',
     timeEnd: '请选择结束时间',
     index: 0,
-    tag: ['', '重要且紧急', '不重要且紧急', '重要且不紧急', '不重要且不紧急'],
+    tag: [' ', '重要且紧急', '不重要且紧急', '重要且不紧急', '不重要且不紧急'],
     tagItem: '全部',
     teamId: '',
     userId: '',
@@ -99,6 +99,7 @@ Page({
     var begin = this.data.dateBegin + this.data.timeBegin;
     var end = this.data.dateEnd + this.data.timeEnd;
     if (!this.data.taskName ||
+      !this.data.taskIntroduction||
       !this.data.dateBegin ||
       !this.data.dateEnd ||
       !this.data.timeBegin ||
@@ -128,6 +129,7 @@ Page({
       taskCollection.add({
         data: {
           "name": this.data.taskName,
+          "taskIntroduction": this.data.taskIntroduction,
           "startDate": this.data.dateBegin,
           "endDate": this.data.dateEnd,
           "startTime": this.data.timeBegin,
@@ -173,7 +175,8 @@ Page({
             success(res) {
               prevPage.data.task.unshift(res.data[0])
               prevPage.setData({
-                task: prevPage.data.task
+                task: prevPage.data.task,
+                taskListLength: prevPage.data.taskListLength+180
               })
               //上一个页面内执行setData操作，将我们想要的信息保存住。当我们返回去的时候，页面已经处理完毕。
               //最后就是返回上一个页面。
@@ -192,3 +195,4 @@ Page({
       url: '/pages/choosemember/choosemember?teamId=' + this.data.teamId + '&userId=' + this.data.userId + '&openId=' + this.data.openId
     })
   }
+})
