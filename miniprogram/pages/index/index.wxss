@@ -1,6 +1,7 @@
 /*创建团队按钮*/
-.homepage_team_add{
-  border-radius:100px;
+
+.homepage_team_add {
+  border-radius: 100px;
   position: fixed;
   font-size: 80rpx;
   left: 620rpx;
@@ -12,6 +13,7 @@
   background-color: rgba(107, 184, 255, 1);
   color: white;
 }
+
 /* 未完成
 .text_top{
   position: relative;
@@ -25,8 +27,10 @@
 	text-align: left;
 	font-weight: bold;
 } */
+
 /*框架*/
-.position{
+
+.position {
   position: relative;
   top: 0rpx;
   left: 40rpx;
@@ -34,81 +38,106 @@
   height: 200rpx;
   margin-bottom: 60rpx;
 }
+
 /*任务盒子*/
-.box{
+
+.box {
   position: relative;
-	width: 649rpx;
-	height: 186rpx;
-	left: 20rpx;
-	top: 50rpx;
-	color: rgba(80, 80, 80, 1);
-	background-color: rgba(255, 255, 255, 1);
-	border-radius: 11rpx;
-	font-size: 28rpx;
-	line-height: 150%;
-	box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(0, 0, 0, 0.2142857142857143);
-	text-align: center;
+  width: 649rpx;
+  height: 186rpx;
+  left: 20rpx;
+  top: 50rpx;
+  color: rgba(80, 80, 80, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 11rpx;
+  font-size: 28rpx;
+  line-height: 150%;
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(0, 0, 0, 0.2142857142857143);
+  text-align: center;
   margin-bottom: 30rpx;
 }
+
 /*任务名字*/
-.text_name{
+
+.text_name {
   position: relative;
-	width: 158rpx;
-	height: 50rpx;
-	left: 168rpx;
-	top: 50rpx;
-	color: rgba(80, 80, 80, 1);
-	font-size: 27rpx;
-	line-height: 150%;
-	text-align: left;
+  width: 158rpx;
+  height: 50rpx;
+  left: 168rpx;
+  top: 50rpx;
+  color: rgba(80, 80, 80, 1);
+  font-size: 27rpx;
+  line-height: 150%;
+  text-align: left;
 }
 
 /*未完成任务数*/
-.box_icon{
+
+.box_icon {
   position: absolute;
-	width: 74rpx;
-	height: 74rpx;
-	left: 10rpx;
-	top: 30rpx;
-	background-color: rgba(107, 184, 255, 1);
-	border-radius: 38rpx;
-	font-size: 37rpx;
-	line-height: 200%;
-	text-align: center;
+  width: 74rpx;
+  height: 74rpx;
+  left: 10rpx;
+  top: 30rpx;
+  background-color: rgba(107, 184, 255, 1);
+  border-radius: 38rpx;
+  font-size: 37rpx;
+  line-height: 200%;
+  text-align: center;
   color: rgba(255, 255, 255, 1);
 }
 
 /*团队简介*/
-.text_intro{
+
+.text_intro {
   position: absolute;
-	width: 220rpx;
-	height: 30rpx;
-	left: 167rpx;
-	top: 99rpx;
-	color: rgba(131, 131, 131, 1);
-	font-size: 20rpx;
-	line-height: 150%;
-	text-align: left;
+  width: 220rpx;
+  height: 30rpx;
+  left: 167rpx;
+  top: 99rpx;
+  color: rgba(131, 131, 131, 1);
+  font-size: 20rpx;
+  line-height: 150%;
+  text-align: left;
 }
+
 /*团队logo*/
-.icon_team{
+
+.icon_team {
   position: absolute;
-	width: 91rpx;
-	height: 91rpx;
-	left: 50rpx;
-	top: 50rpx;
-	font-size: 91rpx;
-	color: rgba(104, 182, 241, 1);
+  width: 91rpx;
+  height: 91rpx;
+  left: 50rpx;
+  top: 50rpx;
+  font-size: 91rpx;
+  color: rgba(104, 182, 241, 1);
 }
+
 /*团队人数*/
-.people{
+
+.people {
   position: absolute;
-	width: 65rpx;
-	height: 42rpx;
-	left: 527rpx;
-	top: 75rpx;
-	color: rgba(80, 80, 80, 1);
-	font-size: 28rpx;
-	line-height: 150%;
-	text-align: left;
+  width: 65rpx;
+  height: 42rpx;
+  left: 527rpx;
+  top: 75rpx;
+  color: rgba(80, 80, 80, 1);
+  font-size: 28rpx;
+  line-height: 150%;
+  text-align: left;
+}
+
+.hidden_default {
+  display: none;
+}
+
+.show_default {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 33%;
+  color: rgba(157, 157, 157, 1);
+  font-size: 14px;
+  line-height: 150%;
+  text-align: center;
 }

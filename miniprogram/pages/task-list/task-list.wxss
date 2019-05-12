@@ -249,3 +249,16 @@
   left: 57rpx;
   bottom: 18rpx;
 }
+.hidden_default{
+display: none;
+}
+.show_default{
+display: block;
+position: fixed;
+top: 90%;
+left: 35%;
+color: rgba(157, 157, 157, 1);
+  font-size: 14px;
+  line-height: 150%;
+  text-align: center;
+}

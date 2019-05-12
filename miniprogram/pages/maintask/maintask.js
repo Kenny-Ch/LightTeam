@@ -7,7 +7,8 @@ Page({
     userInfo: {},
     taskList: [],
     task: [],
-    showView: []
+    showView: [],
+    de: 0,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -78,6 +79,11 @@ Page({
                         })
                       }
                       console.log('【maintask】【通过openid获得用户的所有task】【成功复制至data中task数组中】', that.data.task)
+                      if (that.data.taskList.length == 0) {
+                        that.setData({
+                          de: 1
+                        })
+                      }
                     }
                   })
                 },

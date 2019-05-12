@@ -1,6 +1,6 @@
 <view style='padding-top:27rpx;padding-left:58rpx;padding-right:68rpx;position:relative;'>
   <text style='font-size:40rpx;color:#505050;font-weight:bold;'>{{teamName}}</text>
-  <text style='position:absolute;right:308rpx;top:37rpx;color:#505050;font-size:28rpx;'>已选2/{{memberNum}}人</text>
+  <!-- <text style='position:absolute;right:308rpx;top:37rpx;color:#505050;font-size:28rpx;'>已选2/{{memberNum}}人</text> -->
 
   <!-- <checkbox style='position:absolute;right:60rpx;top:37rpx;color:#505050;font-size:28rpx;' value='all' bindtap='selectall'></checkbox> -->
 </view>

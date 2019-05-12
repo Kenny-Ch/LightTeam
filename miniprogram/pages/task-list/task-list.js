@@ -25,7 +25,9 @@ Page({
     hiddenButton:true,
     taskListLength: 1,
     taskListLength2: 1,
-    boxcolor: ["rgba(210, 210, 210, 1)", "#fc2100", "#fff659", "#27e530", "#5a97f6"]
+    boxcolor: ["rgba(210, 210, 210, 1)", "#fc2100", "#fff659", "#27e530", "#5a97f6"],
+    de: 0,
+    nu: 0
   },
   /**
    * 生命周期函数--监听页面加载
@@ -54,6 +56,16 @@ Page({
           leaderId:res.data[0].leader
         })
         console.log('【task-list】【获取指定的team信息】【获取成功】', res.data[0])
+        if (that.data.taskList.length == 0) {
+          that.setData({
+            de: 1
+          })
+        }
+        if (that.data.userList.length == 0) {
+          that.setData({
+            nu: 1
+          })
+        }
         if (that.data.leaderId == that.data.userId){
           that.setData({
             hiddenButton:false

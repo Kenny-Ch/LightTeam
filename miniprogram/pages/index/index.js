@@ -11,7 +11,8 @@ Page({
     requestResult: '',
     openId:'',
     teamList: [],
-    team:[]
+    team:[],
+    de: 0,
   },
   
   onLoad: function(options) {
@@ -66,6 +67,11 @@ Page({
               })
             }
             console.log('【index】【通过openid获得用户的所有team】【成功复制至data中team数组中】', that.data.team)
+            if (that.data.taskList.length == 0) {
+              that.setData({
+                de: 1
+              })
+            }
           }
         })
         app.globalData.openid = res.result.openid

@@ -1,6 +1,7 @@
 <!-- <view class='text_top'>未完成</view> -->
 
-
+<view class="{{de==0?'hidden_default':'show_default'}}">您还没有加入团队呢</view>
+<view class="{{de==0?'hidden_default':'show_default'}}" style='top:54%;left:23%;'>点击右下角创建一个新的团队哦</view>
 <block wx:for="{{team}}">
 
 <view class='position'>
