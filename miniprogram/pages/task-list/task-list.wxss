@@ -256,7 +256,7 @@ display: none;
 display: block;
 position: fixed;
 top: 90%;
-left: 35%;
+left: 37%;
 color: rgba(157, 157, 157, 1);
   font-size: 14px;
   line-height: 150%;
