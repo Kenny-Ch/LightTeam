@@ -25,9 +25,12 @@ Page({
   onLoad: function (options) {
     console.log('【beinvited】【传入新建团队id参数】【传入团队id参数成功】',options)
     var that=this;
-    this.data.teamId=options.teamId
-    this.data.teamName=options.teamName
-    this.data.openId =getApp().globalData.openid
+    this.setData({
+      teamId : options.teamId,
+      teamName : options.teamName,
+      openId : getApp().globalData.openid
+    })
+    
     teamCollection.doc(options.teamId)
       .get({
         success: res => {

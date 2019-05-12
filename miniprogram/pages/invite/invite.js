@@ -4,12 +4,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    teamid:'',
+    teamId:'',
     teamName:''
   },
   onLoad: function(options){ 
-    this.data.teamid=options.teamid,
-    this.data.teamName=options.teamName,
+    this.setData({
+      teamId : options.teamid,
+      teamName : options.teamName
+    })
     console.log('【invite】【传入参数options】', options)
   },
   /**
