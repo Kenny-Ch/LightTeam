@@ -155,9 +155,9 @@ Page({
       console.log('【task-list】【分享方式】【通过button分享】', res)
     }
     return {
-      title: '邀请你加入新团队',
+      title: '邀请你加入'+this.data.teamName+'团队',
       path: '/pages/beInvited/beInvited?teamId=' + this.data.teamId + '&teamName=' + this.data.teamName,
-      imageUrl: '/images/share.png',
+      // imageUrl: '/images/share.png',
     }
   },
   addTask: function (res) {
