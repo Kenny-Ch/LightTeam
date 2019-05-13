@@ -10,7 +10,7 @@ Page({
   data: {
     teamName: '',
     taskName: '',
-    taskIntroduction:'',
+    taskIntroduction: '',
     memberList: [],
     dateBegin: '',
     dateEnd: '',
@@ -22,7 +22,7 @@ Page({
     userList: [],
     accept: [],
     userId: '',
-    leaderId:'',
+    leaderId: '',
     buttonHidden1: true,
     buttonHidden2: true,
     i: 0,
@@ -33,12 +33,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
       teamName: options.teamName,
       taskId: options.taskId,
       userId: options.userId,
-      leaderId:options.leaderId
+      leaderId: options.leaderId
     })
     console.log('【task】【task-list界面传参】', options)
     taskCollection.doc(options.taskId)
@@ -61,11 +61,17 @@ Page({
           var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes());
           var begin = this.data.dateBegin + this.data.timeBegin;
           var end = this.data.dateEnd + this.data.timeEnd;
-          this.setData({
-            state: currentDate < begin ? "未开始" : currentDate <= end ? "进行中" : "已截止"
-          })
+          if (this.data.finish) {
+            this.setData({
+              state: "已完成"
+            })
+          } else {
+            this.setData({
+              state: currentDate < begin ? "未开始" : currentDate <= end ? "进行中" : "已截止"
+            })
+          }
           for (var i = this.data.i; i < this.data.memberList.length; i++) {
-            if (this.data.userId == this.data.leaderId){
+            if (this.data.userId == this.data.leaderId) {
               this.setData({
                 buttonHidden1: true,
                 buttonHidden2: this.data.finish,
@@ -74,7 +80,7 @@ Page({
               var that = this;
               db.collection('task').doc(that.data.taskId).update({
                 data: {
-                  accept:that.data.accept
+                  accept: that.data.accept
                 }
               })
               break;
@@ -97,12 +103,12 @@ Page({
         }
       })
   },
-  bindMemberDetail:function(){
+  bindMemberDetail: function() {
     wx.navigateTo({
-      url: '/pages/memberList/memberList?accept='+this.data.accept+'&taskId='+this.data.taskId+'&finish='+this.data.finish+'&teamName='+this.data.teamName
+      url: '/pages/memberList/memberList?accept=' + this.data.accept + '&taskId=' + this.data.taskId + '&finish=' + this.data.finish + '&teamName=' + this.data.teamName
     })
   },
-  bindReceiveTask: function () {
+  bindReceiveTask: function() {
     this.data.accept[this.data.i] = true;
     var that = this;
     wx.cloud.callFunction({
@@ -120,7 +126,7 @@ Page({
       console.log("【task】【已接受任务】【更新成功】")
     })
   },
-  finishtask: function () {
+  finishtask: function() {
     wx.cloud.callFunction({
       name: 'finishTask',
       data: {
@@ -128,7 +134,8 @@ Page({
       },
     })
     this.setData({
-      buttonHidden2: true
+      buttonHidden2: true,
+      state: "已完成"
     })
   }
 })

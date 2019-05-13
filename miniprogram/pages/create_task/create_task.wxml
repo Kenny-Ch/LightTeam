@@ -4,9 +4,7 @@
     <view class='title'>{{teamName}}</view>
     <view>
       <text></text>
-      <input type='text' placeholder=' 请输入标题' placeholder-class='placeholder'
-      
-      bindinput='bindTaskNameInput'></input>
+      <input type='text' placeholder=' 请输入标题' placeholder-class='placeholder' bindinput='bindTaskNameInput'></input>
     </view>
   </view>
 
@@ -36,26 +34,26 @@
   <view class='item'>
     <view class='title'>参与成员</view>
     <view class='peopleimg-box' bindtap='bindChooseMember'>
-    <view wx:for='{{batchIds}}'style='padding-left:20rpx;'>
-      <image src='{{item.Url}}' style='left:{{index*70+10}}rpx;'></image>
-    </view>
+      <view wx:for='{{batchIds}}' style='padding-left:20rpx;'>
+        <image src='{{item.Url}}' style='left:{{index*70+10}}rpx;'></image>
+      </view>
       <!-- <view><image src='/images/icon-pen.svg' style='width:40rpx;height:40rpx;position:absolute;right:40rpx;top:20rpx' ></image></view> -->
     </view>
   </view>
 
 
   <view class='item'>
-  <view class='title'>
-  任务详情
-  </view>
-  <textarea class='peopleimg-box' placeholder=' 请输入任务详情' placeholder-class='placeholder' style='height:200rpx;padding-left: 10rpx;padding-top: 10rpx;color: #383838; font-size: 30rpx;' type='text' bindinput='bindTaskIntroductionInput' maxlength="-1"></textarea>
+    <view class='title'>
+      任务详情
+    </view>
+    <textarea class='peopleimg-box' placeholder=' 请输入任务详情' placeholder-class='placeholder' style='height:200rpx;padding-left: 10rpx;padding-top: 10rpx;color: #383838; font-size: 30rpx;' type='text' bindinput='bindTaskIntroductionInput' maxlength="-1"></textarea>
   </view>
 
   <view class='item'>
     <view class='title'>结束前提醒</view>
     <view class='mention-box'>
       <view class="mentionButton {{(remind==1 )?'on':' '}} " bindtap='bindMentionTime' data-remind="1" style='left:-20rpx;top:0rpx'>提前一小时</view>
-      <view class="mentionButton {{(remind==2 )?'on':' '}} " bindtap='bindMentionTime' data-remind="2" style='left:10rpx;top:0rpx' >提前一天</view>
+      <view class="mentionButton {{(remind==2 )?'on':' '}} " bindtap='bindMentionTime' data-remind="2" style='left:10rpx;top:0rpx'>提前一天</view>
       <view class="mentionButton {{(remind==3 )?'on':' '}} " bindtap='bindMentionTime' data-remind="3" style='left:40rpx;top:0rpx'>提前一周</view>
     </view>
   </view>
@@ -72,7 +70,7 @@
     </view>
   </view>
 
-  <view>
-    <button class='button' bindtap='bindSave'>保存</button>
-  </view>
+
 </view>
+
+<button bindtap='bindSave' style='margin-bottom:30rpx'>保存</button>

@@ -6,8 +6,8 @@
   <text class='task-intro' style='display:inline-block'>{{taskIntroduction}}</text>
 </view>
 <view style='position:relative;'>
-  <view class='box' style='border-top: 1rpx solid #e3e3e3;top:0rpx;'bindtap='bindMemberDetail'>
-  <image src='/images/eyes.svg' class='icon'style="left:80%;"></image>
+  <view class='box' style='border-top: 1rpx solid #e3e3e3;top:0rpx;' bindtap='bindMemberDetail'>
+    <image src='/images/eyes.svg' class='icon' style="left:80%;"></image>
     <image src='/images/member.svg' class='icon'></image>
     <view wx:for="{{memberList}}">
       <view style='position: absolute;top: 23rpx;left: {{index*80+134}}rpx;'>
@@ -45,20 +45,16 @@
 
   </view>
   <view style='position:absolute;top:550rpx;width:100%;'>
-  <view style='position:relative;margin-top:74rpx;' hidden="{{buttonHidden1}}" bindtouchend='bindReceiveTask'>
-    <button type='submit' class='button'></button>
-    <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view>
-  </view>
-
-  <view hidden="{{buttonHidden2}}">
-    <view style='position:relative;margin-top:57rpx;'>
-      <button class='button' bindtap='finishtask'></button>
-      <view style='position:absolute;top:18rpx;left:298rpx;color:#fff;font-size:40rpx;' bindtap='finishtask'>完成任务</view>
-    </view>
-    <!-- <view style='position:relative;margin-top:27rpx;'>
+    <view style='position:relative;margin-top:74rpx;' hidden="{{buttonHidden1}}" bindtouchend='bindReceiveTask'>
       <button type='submit' class='button'></button>
-      <view style='position:absolute;top:18rpx;left:254rpx;color:#fff;font-size:40rpx;'>延时完成任务</view>
-     </view> -->
-  </view>
+      <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view>
+    </view>
+
+    <view hidden="{{buttonHidden2}}">
+      <view style='position:relative;margin-top:74rpx;'>
+        <button class='button' bindtap='finishtask'></button>
+        <view style='position:absolute;top:18rpx;left:298rpx;color:#fff;font-size:40rpx;' bindtap='finishtask'>完成任务</view>
+      </view>
+    </view>
   </view>
 </view>
