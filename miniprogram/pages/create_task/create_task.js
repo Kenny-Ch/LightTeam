@@ -25,10 +25,10 @@ Page({
     teamId: '',
     userId: '',
     taskList: [],
-    url: '',
+    url: [],
     batchIds: [],
     accept: [],
-    unfinishTask: 88
+    unfinishTask: 0
   },
   onLoad: function(options) {
     console.log('【create_task】【task-list界面传入参数】', options)
@@ -50,6 +50,29 @@ Page({
       }
     })
 
+  },
+  onShow: function () {
+    var arr=new Array();
+    for (var i = 0; i < this.data.batchIds.length; i++) {
+      if (i <= 7) {
+        if (i == 7) {
+          arr.push('');
+        }
+        else {
+          arr.push(this.data.batchIds[i].Url);
+        }
+      }
+      else{
+        arr.push('');
+      }
+    }
+    // try {
+    //   wx.setStorageSync('batchIds', this.data.batchIds)
+    // } catch (e) {
+    // }
+    this.setData({
+      url: arr
+    })
   },
   bindTaskNameInput: function(e) {
     this.setData({
@@ -121,6 +144,7 @@ Page({
       var acceptarr = [];
       var that = this;
       for (var i = 0; i < this.data.batchIds.length; i++) {
+        console.log(i)
         acceptarr.push(false);
       }
       this.setData({
@@ -177,6 +201,7 @@ Page({
               prevPage.setData({
                 task: prevPage.data.task,
                 taskListLength: prevPage.data.taskListLength+180,
+                unfinishTask:prevPage.data.unfinishTask+1,
                 de: 0
               })
               //上一个页面内执行setData操作，将我们想要的信息保存住。当我们返回去的时候，页面已经处理完毕。

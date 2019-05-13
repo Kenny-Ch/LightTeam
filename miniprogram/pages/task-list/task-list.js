@@ -114,14 +114,16 @@ Page({
     var task = that.data.task;
     var taskList = that.data.taskList;
     var index = e.currentTarget.dataset.index; //获取当前长按图片下标
+    var taskIndexId = that.data.taskList[index];
+    var finish = that.data.task[index].finish;
     if(this.data.userId==this.data.leaderId){
     wx.showModal({
       title: '提示',
       content: '确定要删除此任务吗？',
       success: function (res) {
         if (res.confirm) {
-          console.log('【task-list】【长按删除】【点击确定】', '索引为：', index,that.data.taskList[index]);
-          db.collection('task').doc(that.data.taskList[index]).remove({
+          console.log('【task-list】【长按删除】【点击确定】', '索引为：', index,taskIndexId);
+          db.collection('task').doc(taskIndexId).remove({
             success: console.log,
             fail: console.error
           })
@@ -141,7 +143,8 @@ Page({
                   })
            db.collection('team').doc(that.data.teamId).update({
               data: {
-               taskList: that.data.taskList
+               taskList: that.data.taskList,
+               unfinishTask:finish?that.data.unfinishTask:that.data.unfinishTask-1
               }
             })
             if(that.data.taskList.length == 0){

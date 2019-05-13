@@ -35,7 +35,7 @@
     <view class='title'>参与成员</view>
     <view class='peopleimg-box' bindtap='bindChooseMember'>
       <view wx:for='{{batchIds}}' style='padding-left:20rpx;'>
-        <image src='{{item.Url}}' style='left:{{index*70+10}}rpx;'></image>
+        <image src='{{url[index]}}' style='left:{{index*70+10}}rpx;'></image>
       </view>
       <!-- <view><image src='/images/icon-pen.svg' style='width:40rpx;height:40rpx;position:absolute;right:40rpx;top:20rpx' ></image></view> -->
     </view>

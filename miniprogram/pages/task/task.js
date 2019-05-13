@@ -27,7 +27,8 @@ Page({
     buttonHidden2: true,
     i: 0,
     state: '',
-    taskId: ''
+    taskId: '',
+    url:[]
   },
 
   /**
@@ -99,7 +100,22 @@ Page({
               break;
             }
           }
-
+          for (var i = 0; i < this.data.memberList.length; i++) {
+            if (i <= 7) {
+              if (i == 7) {
+                this.data.url.push();
+              }
+              else {
+                this.data.url.push(this.data.memberList[i].Url);
+              }
+            }
+            else{
+              this.data.url.push();
+            }
+          }
+          this.setData({
+            url: this.data.url
+          })
         }
       })
   },

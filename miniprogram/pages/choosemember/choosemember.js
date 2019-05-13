@@ -43,9 +43,28 @@ Page({
 
   },
   onShow(){
-    this.setData({
-      batchIds:this.data.batchIds
-    })
+    // var that = this;
+    // try {
+    //   var value = wx.getStorageSync('batchIds')
+    //   if (value) {
+    //     that.setData({
+    //       batchIds:value
+    //     })
+    //   }
+    // } catch (e) {}
+    // for(var i=0;i<that.data.batchIds.length;i++){
+    //   for(var j=0;that.data.userList;j++){
+    //     if (that.data.batchIds[i].id == that.data.userList[j].id){
+    //       that.data.userList[j].checked = true;
+    //       break;
+    //     }
+    //   }
+    //   if(i==that.data.batchIds.length-1){
+    //     that.setData({
+    //       userList:that.data.userList
+    //     })
+    //   }
+    // }
   },
   selectall: function (e) {
     console.log(e)
@@ -75,6 +94,7 @@ Page({
   },
 
   bindchange:function(e){
+    console.log(e.detail)
     var that = this;
     if (e.detail.value.length==this.data.userList.length)
     {
@@ -93,6 +113,7 @@ Page({
     for (var i = 0; i < e.detail.value.length; i++) {
       for (var j = 0; j < that.data.userList.length; j++) {
         if (e.detail.value[i] == that.data.userList[j].id) {
+          console.log(e.detail.value[i],that.data.userList[j].id)
           array.push({ "id": that.data.userList[j].id, "Url": that.data.userList[j].Url, "nickName": that.data.userList[j].nickName })
           break;
         }

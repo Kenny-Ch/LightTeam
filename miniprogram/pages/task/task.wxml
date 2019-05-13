@@ -11,7 +11,7 @@
     <image src='/images/member.svg' class='icon'></image>
     <view wx:for="{{memberList}}">
       <view style='position: absolute;top: 23rpx;left: {{index*80+134}}rpx;'>
-        <image src='{{item.Url}}' class='member-img'></image>
+        <image src='{{url[index]}}' class='member-img'></image>
       </view>
     </view>
 
