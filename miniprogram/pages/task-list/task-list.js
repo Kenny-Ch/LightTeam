@@ -144,6 +144,11 @@ Page({
                taskList: that.data.taskList
               }
             })
+            if(that.data.taskList.length == 0){
+              that.setData({
+                de:1
+              })
+            }
         } 
         else if (res.cancel) {
         console.log('【task-list】【长按删除】【点击取消】');

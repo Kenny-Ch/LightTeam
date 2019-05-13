@@ -176,7 +176,8 @@ Page({
               prevPage.data.task.unshift(res.data[0])
               prevPage.setData({
                 task: prevPage.data.task,
-                taskListLength: prevPage.data.taskListLength+180
+                taskListLength: prevPage.data.taskListLength+180,
+                de: 0
               })
               //上一个页面内执行setData操作，将我们想要的信息保存住。当我们返回去的时候，页面已经处理完毕。
               //最后就是返回上一个页面。

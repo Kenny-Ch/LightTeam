@@ -72,6 +72,7 @@ Page({
                 de: 1
               })
             }
+            console.log(that.data.de)
           }
         })
         app.globalData.openid = res.result.openid

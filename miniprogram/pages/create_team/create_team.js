@@ -110,7 +110,8 @@ Page({
             success(res) {
               prevPage.data.team.unshift(res.data[0])
               prevPage.setData({
-                team: prevPage.data.team
+                team: prevPage.data.team,
+                de :0
               })
             }
           })
