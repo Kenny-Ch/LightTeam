@@ -67,7 +67,7 @@ Page({
               })
             }
             console.log('【index】【通过openid获得用户的所有team】【成功复制至data中team数组中】', that.data.team)
-            if (that.data.taskList.length == 0) {
+            if (that.data.teamList.length == 0) {
               that.setData({
                 de: 1
               })
