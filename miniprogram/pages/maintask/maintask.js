@@ -4,10 +4,12 @@ const taskCollection = db.collection('task')
 Page({
   data: {
     openId: '',
+    userId:'',
     userInfo: {},
     taskList: [],
     task: [],
     showView: [],
+    leaderId:'',
     de: 0,
   },
   /**
@@ -37,7 +39,7 @@ Page({
                   }).get({
                     success(res) {
                       that.setData({
-                        // userId: res.data[0]._id,
+                        userId: res.data[0]._id,
                         taskList: res.data[0].taskList
                       })
                       console.log('【maintask】【user集合中获取该用户所参与的所有taskid】【获取成功】', that.data.taskList)
@@ -71,8 +73,9 @@ Page({
                           success(res) {
                             console.log(res)
                             that.data.task[count].team = res.data.name
+                            that.data.task[count].leaderId = res.data.leader
                             that.setData({
-                              task: that.data.task
+                              task: that.data.task,
                             })
                             count++
                           }
@@ -123,7 +126,19 @@ Page({
       }
     })
   },
-
+  bindDetail:function(e){
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+    var teamNameIndex = that.data.task[index].teamName ;
+    var taskIdIndex = that.data.task[index]._id;
+    var leaderIdIndex = that.data.task[index].leaderId
+    wx.navigateTo({
+      url: '/pages/task/task?teamName' + teamNameIndex+
+      "&taskId="+taskIdIndex+
+      "&userId="+ that.data.userId+
+      "&leaderId="+ leaderIdIndex
+    })
+  },
   onChangeShowState: function(e) {
     var that = this;
     var index = e.currentTarget.dataset.index;
