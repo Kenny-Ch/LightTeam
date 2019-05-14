@@ -137,8 +137,8 @@
       </view>
 
       <view>
-        <view class="back" style='position:relative;top:320rpx;'>
-          <view class="box_a " style='top:20rpx;' bindtap='bind3'>
+        <view class="back" bindlongtap='bind3' style='position:relative;top:320rpx;'>
+          <view class="box_a" bindlongtap='bind3' style='top:20rpx;'>
             <view class='box_card' bindlongtap='bind3' style="background-color:#fff659"></view>
           </view>
           <view class='text_taskname' bindlongtap='bind3' style='top:45rpx;left:90rpx;'>demo</view>
@@ -171,7 +171,7 @@
         <view class='text_title1' style='top:110rpx;left:90rpx;'>任务进行时间</view>
         <view class='text_title2' style='top:150rpx;left:90rpx;width:1500rpx'>2018-12-03 19:00— 2018-12-05 10:00</view>
       </view>
-      <view class="back" bindtap='bind3' style='position:relative;top:320rpx;'>
+      <view class="back" bindlongtap='bind3' style='position:relative;top:320rpx;'>
         <view class="box_a " style='top:20rpx;' >
           <view class='box_card'bindlongtap="bind3" style="background-color:#fff659"></view>
         </view>
@@ -340,7 +340,8 @@
     </view>
   <view class='lucency'>
     <view class="guidance" style='top:830rpx;left:200rpx'>
-      <image src='/images/guidance7.png' style='position:fixed;top:820rpx;left:100rpx;height:300rpx;width:600rpx;'></image>
+      <image src='/images/guidance7.png' style='position:fixed;top:620rpx;left:10%;height:300rpx;width:600rpx;'></image>
+      <image src='/images/return.png' style='position:fixed;top:920rpx;left:20%;height:200rpx;width:400rpx;' bindtap='finish'></image>
     </view>
   </view>
 </view>
