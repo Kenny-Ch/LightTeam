@@ -3,19 +3,7 @@
   background-color: #fff;
   height: 240rpx;
 }
-.homepage_team_add {
-  border-radius: 100px;
-  position: fixed;
-  font-size: 80rpx;
-  left: 620rpx;
-  top: 85%;
-  height: 100rpx;
-  width: 100rpx;
-  line-height: 90rpx;
-  text-align: center;
-  background-color: #6bb8ff;
-  color: white;
-}
+
 
 .box_top{
   position: fixed;
@@ -261,4 +249,88 @@ color: rgba(157, 157, 157, 1);
   font-size: 14px;
   line-height: 150%;
   text-align: center;
+}
+
+
+
+
+
+
+.homepage_team_add {
+  border-radius: 100px;
+  position: fixed;
+  font-size: 80rpx;
+  left: 620rpx;
+  top: 85%;
+  height: 100rpx;
+  width: 100rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #6bb8ff;
+  color: white;
+}
+/** 按钮样式 **/
+.add {
+  position: fixed;
+  width: 400rpx;
+  height: 100rpx;
+  left: 620rpx;
+  top: 75%;
+  margin-left: -200rpx;
+  border-radius: 100rpx;
+}
+
+.add-item, .add-icon {
+  position: absolute;
+  bottom: 80rpx;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6bb8ff;
+  border-radius: 100rpx;
+  color: #fff;
+}
+
+.add-item {
+  margin-left: -50rpx;  
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 30rpx;
+  transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.add-icon {
+  margin-left: -60rpx; 
+  width: 120rpx;
+  height: 120rpx;
+  font-size: 80rpx;
+}
+
+.add-icon-txt {
+  margin-top: -10rpx;
+}
+
+.active .add-item:nth-of-type(1) {
+  transform: rotate(10deg) translateX(-140rpx);
+}
+
+.active .add-item:nth-of-type(1) .add-item-txt {
+  transform: rotate(-10deg);
+}
+
+.active .add-item:nth-of-type(2) {
+  transform: rotate(90deg) translateX(-140rpx);
+}
+
+.active .add-item:nth-of-type(2) .add-item-txt {
+  transform: rotate(-90deg);
+}
+
+.active .add-item:nth-of-type(3) {
+  transform: rotate(170deg) translateX(-140rpx);
+}
+
+.active .add-item:nth-of-type(3) .add-item-txt {
+  transform: rotate(-170deg);
 }

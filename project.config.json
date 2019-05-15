@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 14,
 			"list": [
 				{
 					"id": 1,
@@ -120,6 +120,20 @@
 					"id": -1,
 					"name": "引导页面",
 					"pathName": "pages/guidance/guidance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "通知",
+					"pathName": "pages/inform/inform",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "创建通知",
+					"pathName": "pages/create_inform/create_inform",
 					"query": "",
 					"scene": null
 				}

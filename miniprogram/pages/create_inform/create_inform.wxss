@@ -1,0 +1,2 @@
+/* pages/create_inform/create_inform.wxss */
+@import "/pages/create_task/create_task.wxss";

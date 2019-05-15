@@ -12,7 +12,9 @@
     "pages/beInvited/beInvited",
     "pages/authorization_main/authorization_main",
     "pages/memberList/memberList",
-    "pages/guidance/guidance"
+    "pages/guidance/guidance",
+    "pages/inform/inform",
+    "pages/create_inform/create_inform"
   ],
   "window": {
     "backgroundTextStyle": "light",

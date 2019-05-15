@@ -1,0 +1,28 @@
+<!--pages/inform/inform.wxml-->
+<view class='top_box'>
+  <text class='team-name'>{{teamName}}</text>
+  <text class='task-name'>{{taskName}}</text>
+</view>
+<view style='positon:relative;padding-left:52rpx;padding-bottom:15rpx;'>
+  <text class='task-intro' style='display:inline-block'>{{taskIntroduction}}</text>
+</view>
+<view style='position:relative;'>
+  <view class='member_inform' bindtap='bindMemberDetail'>
+    <image src='/images/eyes.svg' class='icon' style="left:80%;"></image>
+    <image src='/images/member.svg' class='icon'></image>
+    <view wx:for="{{memberList}}">
+      <view style='position: absolute;top: 23rpx;left: {{index*80+134}}rpx;'>
+        <image src='{{url[index]}}' class='member-img'></image>
+      </view>
+    </view>
+
+  </view>
+
+
+  <view style='position:relative;top:0rpx;width:100%;'>
+    <view style='position:relative;margin-top:74rpx;' hidden="{{buttonHidden1}}" bindtouchend='bindReceiveTask'>
+      <button type='submit' class='button'></button>
+      <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view>
+    </view>
+  </view>
+</view>

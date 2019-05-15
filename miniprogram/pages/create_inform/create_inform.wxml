@@ -1,0 +1,28 @@
+<view>
+
+  <view class='item'>
+    <view class='title'>{{teamName}}</view>
+    <view>
+      <text></text>
+      <input type='text' placeholder=' 请输入标题' placeholder-class='placeholder' bindinput='bindTaskNameInput'></input>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='title'>通知成员</view>
+    <view class='peopleimg-box' bindtap='bindChooseMember'>
+      <view wx:for='{{batchIds}}' style='padding-left:20rpx;'>
+        <image src='{{url[index]}}' style='left:{{index*70+10}}rpx;'></image>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='item'>
+    <view class='title'>
+      任务详情
+    </view>
+    <textarea class='peopleimg-box' placeholder=' 请输入任务详情' placeholder-class='placeholder' style='height:400rpx;padding-left: 10rpx;padding-top: 10rpx;color: #383838; font-size: 30rpx;' type='text' bindinput='bindTaskIntroductionInput' maxlength="-1"></textarea>
+  </view>
+</view>
+
+<button bindtap='bindSave' style='margin-bottom:30rpx'>保存</button>

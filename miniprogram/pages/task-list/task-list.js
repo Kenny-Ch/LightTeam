@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showToolbar: false,
     boxStyle: 'box_b',
     up: true,
     down: false,
@@ -206,5 +207,22 @@ Page({
     wx.navigateTo({
       url: '/pages/task/task?taskId=' + that.data.task[index]._id + '&teamName=' + that.data.teamName + '&userId=' + that.data.userId + '&leaderId=' + that.data.leaderId
     })
-  }
+  },
+   onToggle: function () {
+    this.setData({
+      showToolbar: !this.data.showToolbar
+    });
+  },
+
+  onAdd: function () {
+    wx.navigateTo({
+      url: '/pages/index/index',
+    });
+  },
+
+  onAddDigest: function () {
+    wx.navigateTo({
+      url: '/pages/index/index',
+    });
+  },
 })

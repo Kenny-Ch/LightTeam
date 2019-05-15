@@ -1,0 +1,13 @@
+/* pages/inform/inform.wxss */
+@import "/pages/task/task.wxss";
+
+.member_inform{
+	width: 375px;
+	height: 48px;
+	top: 133px;
+	color: rgba(80, 80, 80, 1);
+	background-color: rgba(230, 230, 230, 0.3571428571428571);
+	font-size: 14px;
+	line-height: 150%;
+	text-align: center;
+}
