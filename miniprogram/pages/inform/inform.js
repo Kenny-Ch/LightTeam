@@ -48,15 +48,15 @@ Page({
               accept: res.data.accept,
               taskIntroduction: res.data.taskIntroduction
             })
-          if (this.data.finish) {
-            this.setData({
-              state: "已完成"
-            })
-          } else {
-            this.setData({
-              state: currentDate < begin ? "未开始" : currentDate <= end ? "进行中" : "已截止"
-            })
-          }
+          // if (this.data.finish) {
+          //   this.setData({
+          //     state: "已完成"
+          //   })
+          // } else {
+          //   this.setData({
+          //     state: currentDate < begin ? "未开始" : currentDate <= end ? "进行中" : "已截止"
+          //   })
+          // }
           for (var i = this.data.i; i < this.data.memberList.length; i++) {
             if (this.data.userId == this.data.leaderId) {
               this.setData({
@@ -87,8 +87,8 @@ Page({
             }
           }
           for (var i = 0; i < this.data.memberList.length; i++) {
-            if (i <= 7) {
-              if (i == 7) {
+            if (i <= 6) {
+              if (i == 6) {
                 this.data.url.push();
               }
               else {

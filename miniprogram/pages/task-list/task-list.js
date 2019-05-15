@@ -204,9 +204,16 @@ Page({
     var index = e.currentTarget.dataset.index;
     console.log(this.data.task[index]);
     var that = this;
-    wx.navigateTo({
-      url: '/pages/task/task?taskId=' + that.data.task[index]._id + '&teamName=' + that.data.teamName + '&userId=' + that.data.userId + '&leaderId=' + that.data.leaderId
-    })
+    if(!that.data.task[index].type){
+      wx.navigateTo({
+        url: '/pages/task/task?taskId=' + that.data.task[index]._id + '&teamName=' + that.data.teamName + '&userId=' + that.data.userId + '&leaderId=' + that.data.leaderId
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/inform/inform?taskId=' + that.data.task[index]._id + '&teamName=' + that.data.teamName + '&userId=' + that.data.userId + '&leaderId=' + that.data.leaderId
+      })
+    }
+    
   },
    onToggle: function () {
     this.setData({
@@ -216,13 +223,13 @@ Page({
 
   onAdd: function () {
     wx.navigateTo({
-      url: '/pages/index/index',
+      url: '/pages/create_inform/create_inform?teamId=' + this.data.teamId + "&openId=" + this.data.openId + "&userId=" + this.data.userId + "&teamName=" + this.data.teamName + "&unfinishTask=" + this.data.unfinishTask
     });
   },
 
   onAddDigest: function () {
     wx.navigateTo({
-      url: '/pages/index/index',
-    });
+      url: '/pages/create_task/create_task?teamId=' + this.data.teamId + "&openId=" + this.data.openId + "&userId=" + this.data.userId + "&teamName=" + this.data.teamName + "&unfinishTask=" + this.data.unfinishTask
+    })
   },
 })
