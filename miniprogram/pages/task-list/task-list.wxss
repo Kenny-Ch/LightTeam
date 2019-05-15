@@ -263,7 +263,7 @@ color: rgba(157, 157, 157, 1);
   left: 620rpx;
   top: 85%;
   height: 100rpx;
-  width: 100rpx;
+  width: 120rpx;
   line-height: 90rpx;
   text-align: center;
   background-color: #6bb8ff;
@@ -272,8 +272,8 @@ color: rgba(157, 157, 157, 1);
 /** 按钮样式 **/
 .add {
   position: fixed;
-  width: 400rpx;
-  height: 100rpx;
+  width: 450rpx;
+  height: 300rpx;
   left: 620rpx;
   top: 75%;
   margin-left: -200rpx;
@@ -290,10 +290,12 @@ color: rgba(157, 157, 157, 1);
   background-color: #6bb8ff;
   border-radius: 100rpx;
   color: #fff;
+  width: 100rpx;
+  height: 100rpx;
 }
 
 .add-item {
-  margin-left: -50rpx;  
+  margin-left: -60rpx;  
   width: 100rpx;
   height: 100rpx;
   font-size: 30rpx;
@@ -302,9 +304,10 @@ color: rgba(157, 157, 157, 1);
 
 .add-icon {
   margin-left: -60rpx; 
-  width: 120rpx;
-  height: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
   font-size: 80rpx;
+  border-radius: 100rpx;
 }
 
 .add-icon-txt {
