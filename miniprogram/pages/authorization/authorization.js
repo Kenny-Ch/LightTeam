@@ -9,6 +9,7 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
+    openId:''
   },
 
 
@@ -48,57 +49,44 @@ Page({
         avatarUrl: e.detail.userInfo.avatarUrl,
         userInfo: e.detail.userInfo
       })
+      wx.cloud.callFunction({
+        name: 'login',
+        data: {},
+        success: res => {
+          console.log('【index】【云函数获取openid】【成功获取】', res.result.openid)
+          that.setData({
+            openId: res.result.openid
+          })
+          db.collection('user').where({
+            _openid: 'that.data.openId'
+          }).get({
+            success(res) {
+              console.log(res.data)
+              if (!res.data.length) {
+                db.collection('user').add({
+                  data: {
+                    avatarUrl: that.data.userInfo.avatarUrl,
+                    nickName: that.data.userInfo.nickName,
+                    taskList: [],
+                    teamList: []
+                  },
+                  success(res) {
+                    // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+                    console.log(res)
+                  },
+                  fail: console.error
+                })
+              }
+            }
+          })
+        },
+        fail: err => {
+          console.error('【index】【云函数获取openid】【失败】', err)
+        }
+      })
     }
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
+ 
   addData: function (event) {
     console.log(event)
     userCollection.add({
