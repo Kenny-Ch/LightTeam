@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hide:true,
+    hide:false,
     teamId:'',
     userList:[],
     teamName:'',
@@ -120,6 +120,7 @@ Page({
       //用户按了允许授权按钮
       wx.getSetting({
         success: res => {
+          var that = this;
           //先判断是否授权，未授权要跳到第一个授权界面
           if (res.authSetting['scope.userInfo']) {
             console.log("【beinvited】【用户授权】【已授权】")
@@ -128,15 +129,45 @@ Page({
               success: res => {
                 console.log('【beinvited】【获取用户信息】【获取openid信息成功】', res.userInfo)//调试：输出获取到的用户信息判断是否成功获取
                 //插入登录的用户的相关信息到数据库
-                userCollection.add({
-                  data: {
-                    "nickName": this.data.userInfo.nickName,//读取这个页面的data里面userInfo这个列表的nickName项
-                    "avatarUrl": this.data.userInfo.avatarUrl,
-                    "taskList": [],
-                    "teamList": []
+                wx.cloud.callFunction({
+                  name: 'login',
+                  data: {},
+                  success: res => {
+                    console.log('【index】【云函数获取openid】【成功获取】', res.result.openid)
+                    that.setData({
+                      openId: res.result.openid
+                    })
+                    db.collection('user').where({
+                      _openid: that.data.openId
+                    }).get({
+                      success(res) {
+                        console.log(res.data)
+                        if (!res.data.length) {
+                          db.collection('user').add({
+                            data: {
+                              avatarUrl: that.data.userInfo.avatarUrl,
+                              nickName: that.data.userInfo.nickName,
+                              taskList: [],
+                              teamList: []
+                            },
+                            success(res) {
+                              // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+                              console.log(res)
+                            },
+                            fail: console.error
+                          })
+                        }
+                      }
+                    })
+                  },
+                  fail: err => {
+                    console.error('【index】【云函数获取openid】【失败】', err)
                   }
                 })
               }
+            })
+            that.setData({
+              hide:true
             })
           }
         }
