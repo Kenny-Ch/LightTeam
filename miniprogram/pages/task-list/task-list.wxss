@@ -338,3 +338,12 @@ color: rgba(157, 157, 157, 1);
 .active .add-item:nth-of-type(3) .add-item-txt {
   transform: rotate(-170deg);
 }
+.finish {
+  position: relative;
+  width: 30rpx;
+  height: 30rpx;
+  left: 50rpx;
+  top: 330rpx;
+  font-size: 30rpx;
+  color: gray;
+}

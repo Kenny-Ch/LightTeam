@@ -20,38 +20,65 @@
 
   <swiper-item>
     <scroll-view scroll-y="true" style="height:{{taskListLength}}rpx">
-
       <view class="{{de==1?'show_default':'hidden_default'}}">你还没有任务哦</view>
-
       <view wx:for="{{task}}">
-
-        <view wx:if="{{item.type == 1}}">
-          <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:150rpx'>
-            <view view class="box_b" style='top:20rpx;'>
-              <view class='box_card' style='background-color:#fff'></view>
-              <view class='text_taskname'>{{item.name}}</view>
+        <view wx:if="{{item.finish == false}}">
+          <view wx:if="{{item.type == 1}}">
+            <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:150rpx'>
+              <view view class="box_b" style='top:20rpx;'>
+                <view class='box_card' style='background-color:#fff'></view>
+                <view class='text_taskname'>{{item.name}}</view>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{item.type == 0}}">
+            <view class='back' style='position:relative;top:320rpx;background-color:#fff;' bindtap='bindTaskDetail' data-index="{{index}}">
+              <view class="box_a" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
+                <view class='box_card' style='background-color:{{boxcolor[item.tag]}}'></view>
+                <view class="{{(uhide==tags._id)?'hide':'show'}}">
+                </view>
+                <view class="{{(uhide==tags._id)?'show':'hide'}}">
+                </view>
+                <view class='text_taskname'>{{item.name}}</view>
+                <view class='text_title1'>任务进行时间</view>
+                <view class='text_title2'>{{item.startDate}} {{item.startTime}} — {{item.endDate}} {{item.endTime}}</view>
+              </view>
             </view>
           </view>
         </view>
-
-        <view wx:if="{{item.type == 0}}">
-          <view class='back' style='position:relative;top:320rpx;background-color:#fff;' bindtap='bindTaskDetail' data-index="{{index}}">
-            <view class="box_a" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
-              <view class='box_card' style='background-color:{{boxcolor[item.tag]}}'></view>
-              <view class="{{(uhide==tags._id)?'hide':'show'}}">
+        
+      </view>
+      <!-- 已完成 -->
+      <view>
+        <image src='/images/down.png' class='finish' bindtap='onFinish'></image>
+        <text class='finish' style='left:70rpx' bindtap='onFinish'>已完成任务</text>
+      </view>
+      <view class="{{finished == true? 'show':'hide'}}" wx:for="{{task}}">
+        <view wx:if="{{item.finish == true}}">
+          <view wx:if="{{item.type == 1}}">
+            <view class='back' style='position:relative;top:350rpx;background-color:#fff;height:150rpx'>
+              <view view class="box_b" style='top:20rpx;'>
+                <view class='box_card' style='background-color:#fff'></view>
+                <view class='text_taskname'>{{item.name}}</view>
               </view>
-              <view class="{{(uhide==tags._id)?'show':'hide'}}">
-
+            </view>
+          </view>
+          <view wx:if="{{item.type == 0}}">
+            <view class='back' style='position:relative;top:320rpx;background-color:#fff;' bindtap='bindTaskDetail' data-index="{{index}}">
+              <view class="box_a" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
+                <view class='box_card' style='background-color:{{boxcolor[item.tag]}}'></view>
+                <view class="{{(uhide==tags._id)?'hide':'show'}}">
+                </view>
+                <view class="{{(uhide==tags._id)?'show':'hide'}}">
+                </view>
+                <view class='text_taskname'>{{item.name}}</view>
+                <view class='text_title1'>任务进行时间</view>
+                <view class='text_title2'>{{item.startDate}} {{item.startTime}} — {{item.endDate}} {{item.endTime}}</view>
               </view>
-              <view class='text_taskname'>{{item.name}}</view>
-              <view class='text_title1'>任务进行时间</view>
-              <view class='text_title2'>{{item.startDate}} {{item.startTime}} — {{item.endDate}} {{item.endTime}}</view>
-
             </view>
           </view>
         </view>
       </view>
-      
     </scroll-view>
   </swiper-item>
 
@@ -88,7 +115,8 @@
         <text class="add-item-txt {{currentTab? 'hide':'show'}}">通知</text>
       </view>
       <view class="add-icon" bindtap="onToggle">
-        <text class="add-icon-txt">+</text>
+        <text wx:if="{{showToolbar&&!currentTab}}" class="add-icon-txt {{currentTab? 'hide':'show'}}">×</text>
+        <text class="add-icon-txt" wx:if="{{!showToolbar||currentTab}}">+</text>
       </view>
     </view>
   </view>
@@ -102,7 +130,7 @@
     <text class="add-item-txt">通知</text>
   </view>
   <view class="add-icon" bindtap="onToggle">
-    <text wx:if="{{showToolbar}}" class="add-icon-txt">×</text>
+    
     <text class="add-icon-txt">+</text>
   </view>
 </view> -->

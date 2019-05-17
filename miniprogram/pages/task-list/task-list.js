@@ -30,7 +30,8 @@ Page({
     de: 0,
     nu: 0,
     type0: 0,
-    type1: 0
+    type1: 0,
+    finished: false
   },
   /**
    * 生命周期函数--监听页面加载
@@ -89,7 +90,7 @@ Page({
           })
         }
         console.log('【task-list】【获取指定的task信息】【获取成功】', that.data.task)
-        
+
         for (var i = 0; i < that.data.taskList.length; i++) {
           if (that.data.task[i].type == 0) {
             that.setData({
@@ -103,7 +104,7 @@ Page({
           }
         }
         that.setData({
-          taskListLength: that.data.type0 * 185 + 500 + that.data.type1 * 80,
+          taskListLength: that.data.type0 * 140 + that.data.type1 * 80,
         })
       }
     })
@@ -251,4 +252,9 @@ Page({
       url: '/pages/create_task/create_task?teamId=' + this.data.teamId + "&openId=" + this.data.openId + "&userId=" + this.data.userId + "&teamName=" + this.data.teamName + "&unfinishTask=" + this.data.unfinishTask
     })
   },
+  onFinish: function() {
+    this.setData({
+      finished: true
+    })
+  }
 })
