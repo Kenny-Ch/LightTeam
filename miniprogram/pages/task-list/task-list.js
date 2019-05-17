@@ -272,7 +272,7 @@ Page({
       }
     }
     that.setData({
-      taskListLength: that.data.type0 * 150 + that.data.type1 * 90 + 600,
+      taskListLength: that.data.type0 * 250 + that.data.type1 * 150 + 400,
       finished: true
     })
   },
@@ -298,7 +298,7 @@ Page({
     }
 
     that.setData({
-      taskListLength: that.data.type0 * 150 + that.data.type1 * 90 + 600,
+      taskListLength: that.data.type0 * 250 + that.data.type1 * 150 + 400,
       finished: false
     })
   }
