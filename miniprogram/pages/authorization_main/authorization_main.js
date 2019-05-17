@@ -49,7 +49,7 @@ Page({
                     openId: res.result.openid
                   })
                   db.collection('user').where({
-                    _openid: 'that.data.openId'
+                    _openid: that.data.openId
                   }).get({
                     success(res) {
                       console.log(res.data)
