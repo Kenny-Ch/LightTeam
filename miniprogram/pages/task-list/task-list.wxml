@@ -50,13 +50,14 @@
       </view>
       <!-- 已完成 -->
       <view>
-        <image src='/images/down.png' class='finish' bindtap='onFinish'></image>
-        <text class='finish' style='left:70rpx' bindtap='onFinish'>已完成任务</text>
+        <image src='/images/down.png' class="finish {{!finished?'show':'hide'}}" bindtap='onFinish'></image>
+        <image src='/images/up.png' class="finish {{finished?'show':'hide'}}" bindtap='onUnfinish'></image>
+        <text class='finish' style='left:100rpx;top:280rpx'>已完成任务</text>
       </view>
       <view class="{{finished == true? 'show':'hide'}}" wx:for="{{task}}">
         <view wx:if="{{item.finish == true}}">
           <view wx:if="{{item.type == 1}}">
-            <view class='back' style='position:relative;top:350rpx;background-color:#fff;height:150rpx'>
+            <view class='back' style='position:relative;top:300rpx;background-color:#fff;height:150rpx'>
               <view view class="box_b" style='top:20rpx;'>
                 <view class='box_card' style='background-color:#fff'></view>
                 <view class='text_taskname'>{{item.name}}</view>

@@ -256,5 +256,10 @@ Page({
     this.setData({
       finished: true
     })
+  },
+  onUnfinish:function(){
+    this.setData({
+      finished: false
+    })
   }
 })
