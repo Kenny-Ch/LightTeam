@@ -63,22 +63,32 @@
 <view class="buttom_2 hide{{currentTab==1 ? 'b_1' : 'b_2'}}" data-current="1" bindtap="swichNav"></view>
 
 
-<!-- <button  open-type="{{currentTab? 'share':'' }}" hidden='{{hiddenButton}}'>
-  <view class='homepage_team_add'>+</view>
-</button> -->
+<button open-type="{{currentTab? 'share':'' }}" hidden='{{hiddenButton}}'>
+  <!-- <view class='homepage_team_add'>+</view> -->
+  <view style="{{hiddenButton? 'show':'hide'}}">
+    <view class="add {{showToolbar ? 'active' : '' }}">
+      <view class="add-item" bindtap="onAddDigest" data-type="0" style="background-color:{{currentTab? '#ffffff':''}}">
+        <text class="add-item-txt {{currentTab? 'hide':'show'}}">任务</text>
+      </view>
+      <view class="add-item" bindtap="onAdd" data-type="1" style="background-color:{{currentTab? '#ffffff':''}}">
+        <text class="add-item-txt {{currentTab? 'hide':'show'}}">通知</text>
+      </view>
+      <view class="add-icon" bindtap="onToggle">
+        <text class="add-icon-txt">+</text>
+      </view>
+    </view>
+  </view>
+</button>
 
-<view class="add {{showToolbar ? 'active' : '' }}">
+<!-- <view class="add {{showToolbar ? 'active' : '' }}">
   <view class="add-item" bindtap="onAddDigest" data-type="0">
     <text class="add-item-txt">任务</text>
   </view>
   <view class="add-item" bindtap="onAdd" data-type="1">
     <text class="add-item-txt">通知</text>
   </view>
-  <!-- <view class="add-item" bindtap="onAdd" data-type="2">
-    <text class="add-item-txt">文章</text>
-  </view> -->
   <view class="add-icon" bindtap="onToggle">
-    <!-- <text wx:if="{{showToolbar}}" class="add-icon-txt">×</text> -->
+    <text wx:if="{{showToolbar}}" class="add-icon-txt">×</text>
     <text class="add-icon-txt">+</text>
   </view>
-</view>
+</view> -->

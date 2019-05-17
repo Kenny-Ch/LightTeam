@@ -192,6 +192,7 @@
 }
 .hide{
  display: none;
+ overflow:hidden;
 }
 .show{
   display: block;
