@@ -343,7 +343,7 @@ color: rgba(157, 157, 157, 1);
   width: 30rpx;
   height: 30rpx;
   left: 50rpx;
-  top: 330rpx;
+  top: 320rpx;
   font-size: 30rpx;
   color: gray;
 }

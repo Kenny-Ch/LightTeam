@@ -59,7 +59,7 @@ Page({
           unfinishTask: res.data[0].unfinishTask,
           leaderId: res.data[0].leader
         })
-        // console.log('taskListLength',that.data.taskList.length)
+        
 
         console.log('【task-list】【获取指定的team信息】【获取成功】', res.data[0])
         if (that.data.taskList.length == 0) {
@@ -106,6 +106,7 @@ Page({
         that.setData({
           taskListLength: that.data.type0 * 140 + that.data.type1 * 80,
         })
+        console.log('taskListLength', this.data.taskListLength)
       }
     })
 
@@ -253,12 +254,51 @@ Page({
     })
   },
   onFinish: function() {
-    this.setData({
+    var that = this;
+    that.setData({
+      type0 : 0,
+      type1 : 0
+    })
+    for (var i = 0; i < that.data.taskList.length; i++) {
+      if (that.data.task[i].type == 0) {
+        that.setData({
+          type0: that.data.type0 + 1
+        })
+      }
+      if (that.data.task[i].type == 1) {
+        that.setData({
+          type1: that.data.type1 + 1
+        })
+      }
+    }
+    that.setData({
+      taskListLength: that.data.type0 * 150 + that.data.type1 * 90 + 600,
       finished: true
     })
   },
-  onUnfinish:function(){
-    this.setData({
+  onUnfinish: function() {
+    var that = this;
+    that.setData({
+      type0: 0,
+      type1: 0
+    })
+    for (var i = 0; i < that.data.taskList.length; i++) {
+      if (that.data.task[i].finish == false) {
+        if (that.data.task[i].type == 0) {
+          that.setData({
+            type0: that.data.type0 + 1
+          })
+        }
+        if (that.data.task[i].type == 1) {
+          that.setData({
+            type1: that.data.type1 + 1
+          })
+        }
+      }
+    }
+
+    that.setData({
+      taskListLength: that.data.type0 * 150 + that.data.type1 * 90 + 600,
       finished: false
     })
   }
