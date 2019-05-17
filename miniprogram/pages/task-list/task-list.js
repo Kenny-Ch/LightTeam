@@ -51,7 +51,7 @@ Page({
           teamIntroduce: res.data[0].introduce,
           taskList: res.data[0].taskList,
           userList: res.data[0].userList,
-          taskListLength: (res.data[0].taskList.length) * 185 + 520,
+          taskListLength: (res.data[0].taskList.length) * 185 + 500,
           taskListLength2: (res.data[0].userList.length) * 70 + 500,
           unfinishTask: res.data[0].unfinishTask,
           leaderId:res.data[0].leader
