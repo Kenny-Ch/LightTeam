@@ -163,7 +163,8 @@ Page({
           "tag": this.data.index,
           "userList": this.data.batchIds,
           "team": this.data.teamId,
-          "teamName": this.data.teamName
+          "teamName": this.data.teamName,
+          "type": 0
         },
         success: res => {
           this.setData({

@@ -25,16 +25,16 @@
 
       <view wx:for="{{task}}">
 
-        <view wx:if="{{type}}">
-          <view class='back' style='position:relative;top:320rpx;background-color:#fff;'>
+        <view wx:if="{{item.type == 1}}">
+          <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:150rpx'>
             <view view class="box_b" style='top:20rpx;'>
-              <view class='box_card'></view>
+              <view class='box_card' style='background-color:#fff'></view>
               <view class='text_taskname'>{{item.name}}</view>
             </view>
           </view>
         </view>
 
-        <view wx:if="{{!type}}">
+        <view wx:if="{{item.type == 0}}">
           <view class='back' style='position:relative;top:320rpx;background-color:#fff;' bindtap='bindTaskDetail' data-index="{{index}}">
             <view class="box_a" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
               <view class='box_card' style='background-color:{{boxcolor[item.tag]}}'></view>
