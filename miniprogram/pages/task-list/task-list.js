@@ -127,11 +127,7 @@ Page({
     })
     // console.log(e.detail.setdata.current)
   },
-  bindMemberList: function() {
-    wx.redirectTo({
-      url: '/pages/number-list/number-list',
-    })
-  },
+
   longPressDelete: function(e) {
     var that = this;
     var task = that.data.task;

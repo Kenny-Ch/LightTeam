@@ -1,5 +1,5 @@
 <view class="{{de==1?'show_default':'hidden_default'}}">您还没有任务哦~</view>
-<view wx:for="{{task}}">
+<view wx:for="{{task}}" wx:key="{{_id}}">
 <view wx:if="{{!task[index].finish}}">
   <view class="{{item.show?'box_a':'box_b'}}" bindlongpress="deleteTask" data-index="{{index}}" bindtap='onChangeShowState'>
     <view class='text_taskname'>{{item.name}}</view>
