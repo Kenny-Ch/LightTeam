@@ -10,7 +10,7 @@
   width: 100rpx;
   line-height: 90rpx;
   text-align: center;
-  background-color: rgba(107, 184, 255, 1);
+  background-color: #6bb8ff;
   color: white;
 }
 
@@ -80,7 +80,7 @@
   left: 10rpx;
   top: 30rpx;
   color: rgba(80, 80, 80, 1);
-  background-color: rgba(107, 184, 255, 1);
+  background-color: #6bb8ff;
   border-radius: 38rpx;
   font-size: 28rpx;
   line-height: 150%;
@@ -124,7 +124,7 @@
   left: 50rpx;
   top: 50rpx;
   font-size: 91rpx;
-  color: rgba(104, 182, 241, 1);
+  color: #6bb8ff;
 }
 
 /*团队人数*/
