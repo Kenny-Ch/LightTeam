@@ -1,21 +1,40 @@
 <view class="{{de==1?'show_default':'hidden_default'}}">您还没有任务哦~</view>
-<view wx:for="{{task}}" wx:key="{{_id}}">
-<view wx:if="{{!task[index].finish}}">
-  <view class="{{item.show?'box_a':'box_b'}}" bindlongpress="deleteTask" data-index="{{index}}" bindtap='onChangeShowState'>
-    <view class='text_taskname'>{{item.name}}</view>
-    <view class='box_card tagsColor{{item.tag}}' ></view>
-    <view class="{{item.show?'hide':'show'}}">
-      <image src='/images/down.png' class='hide_icon' data-index="{{index}}"></image>
-    </view>
-    <view class="{{item.show?'show':'hide'}}">
-      <image src='/images/up.png' class='hide_icon' data-index="{{index}}"></image>
-    </view>
-    <view class="{{item.show?'show':'hide'}}" bindtap='bindDetail' data-index='{{index}}'>
-      <view class='text_title1'>任务进行时间</view>
-      <view class='text_title1' style='left:450rpx'>团队名称</view>
-      <view class='text_title2'>{{item.startDate}}{{item.startTime}}{{item.endDate}}{{item.endTime}}</view>
-      <view class='text_title2' style='left:450rpx;'>{{item.teamName}}</view>
+<view wx:for="{{task}}">
+  <!-- 任务 -->
+  <view wx:if="{{item.type == 0}}">
+    <view wx:if="{{!task[index].finish}}">
+      <view class="{{item.show?'box_a':'box_b'}}" bindlongpress="deleteTask" data-index="{{index}}" bindtap='onChangeShowState'>
+        <!-- 热区 strat-->
+        <view style='height:90rpx;' bindtap='bindDetail'></view>
+        <view class="{{!item.show?'hide':'show'}}" style='top:90rpx;height:120rpx;' bindtap='onChangeShowState'></view>
+        <!-- 热区 end -->
+        <view class='text_taskname'>{{item.name}}</view>
+        <view class='box_card tagsColor{{item.tag}}'></view>
+        <!-- up and down icon start -->
+        <view class="{{item.show?'hide':'show'}}">
+          <image src='/images/down.png' class='hide_icon' data-index="{{index}}"></image>
+        </view>
+        <view class="{{item.show?'show':'hide'}}">
+          <image src='/images/up.png' class='hide_icon' data-index="{{index}}"></image>
+        </view>
+        <!-- up and down icon end -->
+        <view class="{{item.show?'show':'hide'}}" data-index='{{index}}'>
+          <view class='text_title1'>任务进行时间</view>
+          <view class='text_title1' style='left:450rpx'>团队名称</view>
+          <view class='text_title2'>{{item.startDate}}{{item.startTime}}{{item.endDate}}{{item.endTime}}</view>
+          <view class='text_title2' style='left:450rpx;'>{{item.teamName}}</view>
+        </view>
+      </view>
+      <!-- 热区 -->
+
     </view>
   </view>
+  <!-- 通知 -->
+  <view wx:if="{{item.type == 1}}">
+    <view wx:if="{{!task[index].finish}}">
+      <view class="box_b" bindlongpress="deleteTask" bindtap='onChangeDetail' data-index="{{index}}">
+        <view class='text_taskname'>{{item.name}}</view>
+      </view>
+    </view>
   </view>
 </view>

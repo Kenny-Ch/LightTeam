@@ -51,18 +51,14 @@ Page({
                           success(res) {
                             that.data.task.push(res.data[0])
                             that.data.task[count].show = false
+                            var taskstart = "task[" + c + "].startDate"
+                            var taskend = "task[" + c + "].endDate"
                             that.setData({
                               task: that.data.task,
+                              // [taskstart]: that.data.task[c].startDate.substring(5, 10) + ' ',
+                              // [taskend]: ' to ' + that.data.task[c].endDate.substring(5, 10) + ' ',
                               showView: that.data.showView
                             })
-                            if(res.data[0].type==0){
-                              var taskstart = "task[" + c + "].startDate"
-                              var taskend = "task[" + c + "].endDate"
-                              that.setData({
-                                [taskstart]: that.data.task[c].startDate.substring(5, 10) + ' ',
-                                [taskend]: ' to ' + that.data.task[c].endDate.substring(5, 10) + ' ',
-                              })
-                            }
                             count++
                             c++
                           }
@@ -91,16 +87,6 @@ Page({
                           de: 1
                         })
                       }
-                      // else{
-                      //   for (var i = 0; i < that.data.taskList.length; i++) {
-                      //     if(!that.data.taskList[i].finish)
-                      //       break;
-                      //     if(i==that.data.taskList.length-1)
-                      //       that.setData({
-                      //         de: 1
-                      //       })
-                      //   }
-                      // }
                     }
                   })
                 },
@@ -162,5 +148,17 @@ Page({
       task: that.data.task
     })
   },
-
+onChangeDetail: function(e){
+  var that = this;
+  var index = e.currentTarget.dataset.index;
+  var teamNameIndex = that.data.task[index].teamName;
+  var taskIdIndex = that.data.task[index]._id;
+  var leaderIdIndex = that.data.task[index].leaderId
+  wx.navigateTo({
+    url: '/pages/inform/inform?teamName' + teamNameIndex +
+      "&taskId=" + taskIdIndex +
+      "&userId=" + that.data.userId +
+      "&leaderId=" + leaderIdIndex
+  })
+}
 })
