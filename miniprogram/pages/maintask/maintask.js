@@ -51,14 +51,22 @@ Page({
                           success(res) {
                             that.data.task.push(res.data[0])
                             that.data.task[count].show = false
-                            var taskstart = "task[" + c + "].startDate"
-                            var taskend = "task[" + c + "].endDate"
+                            // var taskstart = "task[" + c + "].startDate"
+                            // var taskend = "task[" + c + "].endDate"
                             that.setData({
                               task: that.data.task,
                               // [taskstart]: that.data.task[c].startDate.substring(5, 10) + ' ',
                               // [taskend]: ' to ' + that.data.task[c].endDate.substring(5, 10) + ' ',
                               showView: that.data.showView
                             })
+                            if (res.data[0].type == 0) {
+                              var taskstart = "task[" + c + "].startDate"
+                              var taskend = "task[" + c + "].endDate"
+                              that.setData({
+                                [taskstart]: that.data.task[c].startDate.substring(5, 10) + ' ',
+                                [taskend]: ' to ' + that.data.task[c].endDate.substring(5, 10) + ' ',
+                              })
+                            }
                             count++
                             c++
                           }

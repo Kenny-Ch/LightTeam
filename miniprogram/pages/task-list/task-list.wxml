@@ -21,11 +21,11 @@
   <swiper-item>
     <scroll-view scroll-y="true" style="height:{{taskListLength}}rpx">
       <view class="{{de==1?'show_default':'hidden_default'}}">你还没有任务哦</view>
-      <view wx:for="{{task}}">
+      <view wx:for="{{task}}" wx:key="{{_id}}">
         <view wx:if="{{item.finish == false}}">
           <view wx:if="{{item.type == 1}}">
-            <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:150rpx'>
-              <view view class="box_b" style='top:20rpx;'>
+            <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:150rpx' bindtap='bindTaskDetail' data-index="{{index}}">
+              <view view class="box_b" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
                 <view class='box_card' style='background-color:#fff'></view>
                 <view class='text_taskname'>{{item.name}}</view>
               </view>
@@ -46,7 +46,7 @@
             </view>
           </view>
         </view>
-        
+
       </view>
       <!-- 已完成 -->
       <view>
