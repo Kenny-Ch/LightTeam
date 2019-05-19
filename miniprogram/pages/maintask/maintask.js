@@ -71,6 +71,23 @@ Page({
                             c++
                           }
                         })
+                        if(i==0){
+                          console.log(that.data.task)
+                          for (var i = 0; i < that.data.task.length; i++) {
+                            console.log('12131321')
+                            if (!that.data.task[i].finish)
+                              console.log(that.data.task[i].finish);
+                            if (i == that.data.task.length - 1)
+                              that.setData({
+                                de: 1
+                              })
+                          }
+                          if (that.data.taskList.length == 0) {
+                            that.setData({
+                              de: 1
+                            })
+                          }
+                        }
                       }
                       var count = 0;
                       for (var i = 0; i < that.data.task.length; i++) {
@@ -90,11 +107,7 @@ Page({
                         })
                       }
                       console.log('【maintask】【通过openid获得用户的所有task】【成功复制至data中task数组中】', that.data.task)
-                      if (that.data.taskList.length == 0) {
-                        that.setData({
-                          de: 1
-                        })
-                      }
+                     
                     }
                   })
                 },

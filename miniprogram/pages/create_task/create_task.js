@@ -24,11 +24,13 @@ Page({
     tagItem: '全部',
     teamId: '',
     userId: '',
+    openId: '',
     taskList: [],
     url: [],
     batchIds: [],
     accept: [],
-    unfinishTask: 0
+    unfinishTask: 0,
+    formId:''
   },
   onLoad: function(options) {
     console.log('【create_task】【task-list界面传入参数】', options)
@@ -116,6 +118,7 @@ Page({
     })
   },
   bindSave: function(event) {
+    console.log(event)
     var date = new Date();
     var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes())
     console.log(currentDate)
@@ -133,8 +136,12 @@ Page({
       this.data.dateBegin.length == 7 ||
       this.data.timeBegin.length == 7 ||
       this.data.dateEnd.length == 7 ||
-      this.data.timeEnd.length == 7) {
+      this.data.timeEnd.length == 7||
+      this.data.remind == 0) {
       console.log('【create_task】【创建任务信息输入情况】【输入不完整】', event)
+      this.setData({
+        formId: event.detail.formId
+      })
       wx.showToast({
         title: '任务的信息填写有误或不完整',
         icon: 'none',
@@ -212,6 +219,25 @@ Page({
               })
             }
           })
+          if(that.data.remind!=3){
+          db.collection('templateMsg').add({
+            data: {
+              openId: [that.data.openId],
+              userId: [that.data.userId],
+              formId: [that.data.formId],
+              leaderId: that.data.userId,
+              taskId: res._id,
+              teamName: that.data.teamName,
+              taskName: that.data.taskName,
+              endTime: that.data.dateEnd + that.data.timeEnd,
+              remind: (that.data.remind==2)?'1天':'1小时'
+            },
+            success(res) {
+              console.log(res)
+            },
+            fail: console.error
+          })
+          }
           console.log('【create_task】【添加任务信息】【成功添加任务信息】', res)
         }
       })

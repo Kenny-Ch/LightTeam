@@ -1,5 +1,5 @@
 <view class="{{de==1?'show_default':'hidden_default'}}">您还没有任务哦~</view>
-<view wx:for="{{task}}">
+<view wx:for="{{task}}" wx:key="{{_id}}">
   <!-- 任务 -->
   <view wx:if="{{item.type == 0}}">
     <view wx:if="{{!task[index].finish}}">

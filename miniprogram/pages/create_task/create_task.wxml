@@ -1,5 +1,5 @@
+<form bindsubmit='bindSave' report-submit='true'>
 <view>
-
   <view class='item'>
     <view class='title'>{{teamName}}</view>
     <view>
@@ -54,7 +54,7 @@
     <view class='mention-box'>
       <view class="mentionButton {{(remind==1 )?'on':' '}} " bindtap='bindMentionTime' data-remind="1" style='left:-20rpx;top:0rpx'>提前一小时</view>
       <view class="mentionButton {{(remind==2 )?'on':' '}} " bindtap='bindMentionTime' data-remind="2" style='left:10rpx;top:0rpx'>提前一天</view>
-      <view class="mentionButton {{(remind==3 )?'on':' '}} " bindtap='bindMentionTime' data-remind="3" style='left:40rpx;top:0rpx'>提前一周</view>
+      <view class="mentionButton {{(remind==3 )?'on':' '}} " bindtap='bindMentionTime' data-remind="3" style='left:40rpx;top:0rpx'>不提醒</view>
     </view>
   </view>
 
@@ -73,4 +73,5 @@
 
 </view>
 
-<button bindtap='bindSave' style='margin-bottom:30rpx'>保存</button>
+<button style='margin-bottom:30rpx' form-type="submit">保存</button>
+</form>
