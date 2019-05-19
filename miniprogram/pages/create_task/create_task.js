@@ -139,15 +139,15 @@ Page({
       this.data.timeEnd.length == 7||
       this.data.remind == 0) {
       console.log('【create_task】【创建任务信息输入情况】【输入不完整】', event)
-      this.setData({
-        formId: event.detail.formId
-      })
       wx.showToast({
         title: '任务的信息填写有误或不完整',
         icon: 'none',
         duration: 2000
       })
     } else {
+      this.setData({
+        formId: event.detail.formId
+      })
       var acceptarr = [];
       var that = this;
       for (var i = 0; i < this.data.batchIds.length; i++) {
@@ -230,10 +230,20 @@ Page({
               teamName: that.data.teamName,
               taskName: that.data.taskName,
               endTime: that.data.dateEnd + that.data.timeEnd,
-              remind: (that.data.remind==2)?'1天':'1小时'
+              remind: (that.data.remind==2)?'1天':'1小时',
+              len:1
             },
             success(res) {
               console.log(res)
+              wx.cloud.callFunction({
+                name:'execute',
+                success:res=>{
+                  console.log(res)
+                },
+                fail: err => {
+                  console.log(err)
+                }
+              })
             },
             fail: console.error
           })

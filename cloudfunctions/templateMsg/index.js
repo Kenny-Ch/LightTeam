@@ -1,6 +1,6 @@
 // 云函数入口文件
+const got = require('got')
 const cloud = require('wx-server-sdk')
-const got=require('got')
 cloud.init()
 
 let appid = 'wx649b51cafacdd3a1';
@@ -40,7 +40,7 @@ exports.main = async (event, context) => {
       }
     })
   })
-
+  console.log('[[[[[[[[[[[[[',event,msgResponse,']]]]]]]]]]]]')
   return {
     event,
     msgResponse
