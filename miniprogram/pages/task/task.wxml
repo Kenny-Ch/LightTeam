@@ -45,16 +45,18 @@
 
   </view>
   <view style='position:absolute;top:550rpx;width:100%;'>
+  <form bindsubmit='bindReceiveTask' report-submit='true'>
     <view style='position:relative;margin-top:74rpx;' hidden="{{buttonHidden1}}" bindtouchend='bindReceiveTask'>
-      <button type='submit' class='button'></button>
+      <button form-type="submit" class='button'></button>
       <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view>
     </view>
-
+  </form>
     <view hidden="{{buttonHidden2}}">
       <view style='position:relative;margin-top:74rpx;'>
-        <button class='button' bindtap='finishtask'></button>
+        <button class='button'  bindtap='finishtask'></button>
         <view style='position:absolute;top:18rpx;left:298rpx;color:#fff;font-size:40rpx;' bindtap='finishtask'>完成任务</view>
       </view>
     </view>
+    
   </view>
 </view>

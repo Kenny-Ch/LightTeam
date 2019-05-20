@@ -23,7 +23,6 @@ exports.main = async (event, context) => {
       "template_id": template_id,
       "page": '/pages/task/task?taskId=' + event.taskId + '&teamName=' + event.teamName + '&userId=' + event.userId + '&leaderId=' + event.leaderId,
       "form_id": event.formId ,
-      "emphasis_keyword": "keyword4.DATA",
       "data": {
         "keyword1": {
           "value": event.taskName
@@ -40,9 +39,5 @@ exports.main = async (event, context) => {
       }
     })
   })
-  console.log('[[[[[[[[[[[[[',event,msgResponse,']]]]]]]]]]]]')
-  return {
-    event,
-    msgResponse
-  }
+  return 0;
 }

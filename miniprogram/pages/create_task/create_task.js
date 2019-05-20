@@ -6,15 +6,20 @@ Page({
    */
   data: {
     remind: 0,
-    checkbox: [
-      {name: "创建任务后马上提醒大家"},
-      {name: "创建任务后马上提醒大家"},
-      {name: "创建任务后马上提醒大家"},
+    checkbox: [{
+        name: "创建任务后马上提醒大家"
+      },
+      {
+        name: "创建任务后马上提醒大家"
+      },
+      {
+        name: "创建任务后马上提醒大家"
+      },
     ],
     multiIndex: [0, 0, 0],
     taskid: '',
     taskName: '',
-    taskIntroduction:'',
+    taskIntroduction: '',
     dateBegin: '请选择开始日期',
     dateEnd: '请选择结束日期',
     timeBegin: '请选择开始时间',
@@ -30,7 +35,7 @@ Page({
     batchIds: [],
     accept: [],
     unfinishTask: 0,
-    formId:''
+    formId: ''
   },
   onLoad: function(options) {
     console.log('【create_task】【task-list界面传入参数】', options)
@@ -53,18 +58,16 @@ Page({
     })
 
   },
-  onShow: function () {
-    var arr=new Array();
+  onShow: function() {
+    var arr = new Array();
     for (var i = 0; i < this.data.batchIds.length; i++) {
       if (i <= 7) {
         if (i == 7) {
           arr.push('');
-        }
-        else {
+        } else {
           arr.push(this.data.batchIds[i].Url);
         }
-      }
-      else{
+      } else {
         arr.push('');
       }
     }
@@ -81,7 +84,7 @@ Page({
       taskName: e.detail.value
     })
   },
-  bindTaskIntroductionInput: function (e) {
+  bindTaskIntroductionInput: function(e) {
     this.setData({
       taskIntroduction: e.detail.value
     })
@@ -125,7 +128,7 @@ Page({
     var begin = this.data.dateBegin + this.data.timeBegin;
     var end = this.data.dateEnd + this.data.timeEnd;
     if (!this.data.taskName ||
-      !this.data.taskIntroduction||
+      !this.data.taskIntroduction ||
       !this.data.dateBegin ||
       !this.data.dateEnd ||
       !this.data.timeBegin ||
@@ -136,7 +139,7 @@ Page({
       this.data.dateBegin.length == 7 ||
       this.data.timeBegin.length == 7 ||
       this.data.dateEnd.length == 7 ||
-      this.data.timeEnd.length == 7||
+      this.data.timeEnd.length == 7 ||
       this.data.remind == 0) {
       console.log('【create_task】【创建任务信息输入情况】【输入不完整】', event)
       wx.showToast({
@@ -171,7 +174,8 @@ Page({
           "userList": this.data.batchIds,
           "team": this.data.teamId,
           "teamName": this.data.teamName,
-          "type": 0
+          "type": 0,
+          "tmsgid": ''
         },
         success: res => {
           this.setData({
@@ -183,8 +187,8 @@ Page({
           //     taskList: db.command.push(that.data.taskid)
           //   },
           // })
-          var ii=0;
-          for(;ii<that.data.batchIds.length;ii++){
+          var ii = 0;
+          for (; ii < that.data.batchIds.length; ii++) {
             wx.cloud.callFunction({
               name: 'pushTaskId',
               data: {
@@ -208,8 +212,8 @@ Page({
               prevPage.data.task.unshift(res.data[0])
               prevPage.setData({
                 task: prevPage.data.task,
-                taskListLength: prevPage.data.taskListLength+180,
-                unfinishTask:prevPage.data.unfinishTask+1,
+                taskListLength: prevPage.data.taskListLength + 250,
+                unfinishTask: prevPage.data.unfinishTask + 1,
                 de: 0
               })
               //上一个页面内执行setData操作，将我们想要的信息保存住。当我们返回去的时候，页面已经处理完毕。
@@ -219,34 +223,31 @@ Page({
               })
             }
           })
-          if(that.data.remind!=3){
-          db.collection('templateMsg').add({
-            data: {
-              openId: [that.data.openId],
-              userId: [that.data.userId],
-              formId: [that.data.formId],
-              leaderId: that.data.userId,
-              taskId: res._id,
-              teamName: that.data.teamName,
-              taskName: that.data.taskName,
-              endTime: that.data.dateEnd + that.data.timeEnd,
-              remind: (that.data.remind==2)?'1天':'1小时',
-              len:1
-            },
-            success(res) {
-              console.log(res)
-              wx.cloud.callFunction({
-                name:'execute',
-                success:res=>{
-                  console.log(res)
-                },
-                fail: err => {
-                  console.log(err)
-                }
-              })
-            },
-            fail: console.error
-          })
+          if (that.data.remind != 3) {
+            db.collection('templateMsg').add({
+              data: {
+                openId: [that.data.openId],
+                userId: [that.data.userId],
+                formId: [that.data.formId],
+                leaderId: that.data.userId,
+                taskId: res._id,
+                teamName: that.data.teamName,
+                taskName: that.data.taskName,
+                endTime: that.data.dateEnd + ' ' + that.data.timeEnd,
+                remind: (that.data.remind == 2) ? '1天' : '1小时'
+              },
+              success(res) {
+                console.log(res)
+                db.collection('task').doc(that.data.taskid).update({
+                  data: {
+                    tmsgid: res._id
+                  },
+                  success: console.log,
+                  fail: console.error
+                })
+              },
+              fail: console.error
+            })
           }
           console.log('【create_task】【添加任务信息】【成功添加任务信息】', res)
         }

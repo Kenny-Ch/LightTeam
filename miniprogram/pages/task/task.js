@@ -28,7 +28,10 @@ Page({
     i: 0,
     state: '',
     taskId: '',
-    url:[]
+    url:[],
+    type:2,
+    tmsgid:'',
+    openId:''
   },
 
   /**
@@ -39,7 +42,8 @@ Page({
       teamName: options.teamName,
       taskId: options.taskId,
       userId: options.userId,
-      leaderId: options.leaderId
+      leaderId: options.leaderId,
+      openId: options.openId
     })
     console.log('【task】【task-list界面传参】', options)
     taskCollection.doc(options.taskId)
@@ -56,7 +60,9 @@ Page({
               tagNum: res.data.tag,
               memberList: res.data.userList,
               accept: res.data.accept,
-              taskIntroduction: res.data.taskIntroduction
+              taskIntroduction: res.data.taskIntroduction,
+              type:res.data.type,
+              tmsgid:res.data.tmsgid
             })
           var date = new Date();
           var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes());
@@ -124,14 +130,18 @@ Page({
       url: '/pages/memberList/memberList?accept=' + this.data.accept + '&taskId=' + this.data.taskId + '&finish=' + this.data.finish + '&teamName=' + this.data.teamName
     })
   },
-  bindReceiveTask: function() {
+  bindReceiveTask: function(e) {
     this.data.accept[this.data.i] = true;
     var that = this;
     wx.cloud.callFunction({
       name: "updateAccept",
       data: {
         accept: that.data.accept,
-        taskId: that.data.taskId
+        taskId: that.data.taskId,
+        formId: e.detail.formId,
+        openId: that.data.openId,
+        userId: that.data.userId,
+        tmsgid: that.data.tmsgid
       },
     }).then(res => {
       that.setData({

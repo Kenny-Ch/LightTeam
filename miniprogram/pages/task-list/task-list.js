@@ -26,6 +26,8 @@ Page({
     hiddenButton: true,
     taskListLength: 1,
     taskListLength2: 1,
+    typeunfinish: 0,
+    actualLength:1,
     boxcolor: ["rgba(210, 210, 210, 1)", "#fc2100", "#fff659", "#27e530", "#5a97f6"],
     de: 0,
     nu: 0,
@@ -54,7 +56,8 @@ Page({
           teamIntroduce: res.data[0].introduce,
           taskList: res.data[0].taskList,
           userList: res.data[0].userList,
-          taskListLength: (res.data[0].taskList.length) * 185 + 500,
+          taskListLength: 0,
+          // taskListLength: (res.data[0].taskList.length) * 185 + 500,
           taskListLength2: (res.data[0].userList.length) * 70 + 500,
           unfinishTask: res.data[0].unfinishTask,
           leaderId: res.data[0].leader
@@ -83,29 +86,28 @@ Page({
           }).get({
             success(res) {
               that.data.task.push(res.data[0])
+              if(res.data[0].type==0)
+                that.data.type0++;
+              else
+                that.data.type1++;
+              if(!res.data[0].finish)
+                if(res.data[0].type==0)
+                  that.data.typeunfinish=that.data.typeunfinish + 240
+                else
+                  that.data.typeunfinish = that.data.typeunfinish + 150
               that.setData({
-                task: that.data.task
+                task: that.data.task,
+                type0: that.data.type0,
+                type1: that.data.type1,
+                typeunfinish: that.data.typeunfinish,
+                taskListLength: that.data.typeunfinish + 400
               })
             }
           })
         }
         console.log('【task-list】【获取指定的task信息】【获取成功】', that.data.task)
-
-        for (var i = 0; i < that.data.taskList.length; i++) {
-          if (that.data.task[i].type == 0) {
-            that.setData({
-              type0: that.data.type0 + 1
-            })
-          }
-          if (that.data.task[i].type == 1) {
-            that.setData({
-              type1: that.data.type1 + 1
-            })
-          }
-        }
-        that.setData({
-          taskListLength: that.data.type0 * 140 + that.data.type1 * 80,
-        })
+        
+        
         console.log('taskListLength', this.data.taskListLength)
       }
     })
@@ -160,7 +162,7 @@ Page({
             task.splice(index, 1);
             taskList.splice(index, 1);
             that.setData({
-              taskListLength: that.data.taskListLength - 180,
+              taskListLength: that.data.taskListLength - 240,
               task,
               taskList
             })
@@ -227,7 +229,7 @@ Page({
     var that = this;
     if (!that.data.task[index].type) {
       wx.navigateTo({
-        url: '/pages/task/task?taskId=' + that.data.task[index]._id + '&teamName=' + that.data.teamName + '&userId=' + that.data.userId + '&leaderId=' + that.data.leaderId
+        url: '/pages/task/task?taskId=' + that.data.task[index]._id + '&teamName=' + that.data.teamName + '&userId=' + that.data.userId + '&leaderId=' + that.data.leaderId + '&openId=' + that.data.openId
       })
     } else {
       wx.navigateTo({
@@ -254,51 +256,14 @@ Page({
     })
   },
   onFinish: function() {
-    var that = this;
-    that.setData({
-      type0 : 0,
-      type1 : 0
-    })
-    for (var i = 0; i < that.data.taskList.length; i++) {
-      if (that.data.task[i].type == 0) {
-        that.setData({
-          type0: that.data.type0 + 1
-        })
-      }
-      if (that.data.task[i].type == 1) {
-        that.setData({
-          type1: that.data.type1 + 1
-        })
-      }
-    }
-    that.setData({
-      taskListLength: that.data.type0 * 250 + that.data.type1 * 150 + 400,
+    this.setData({
+      taskListLength:this.data.type0 * 240 + this.data.type1 * 150 + 400,
       finished: true
     })
   },
   onUnfinish: function() {
-    var that = this;
-    that.setData({
-      type0: 0,
-      type1: 0
-    })
-    for (var i = 0; i < that.data.taskList.length; i++) {
-      if (that.data.task[i].finish == false) {
-        if (that.data.task[i].type == 0) {
-          that.setData({
-            type0: that.data.type0 + 1
-          })
-        }
-        if (that.data.task[i].type == 1) {
-          that.setData({
-            type1: that.data.type1 + 1
-          })
-        }
-      }
-    }
-
-    that.setData({
-      taskListLength: that.data.type0 * 250 + that.data.type1 * 150 + 400,
+    this.setData({
+      taskListLength: this.data.typeunfinish + 400, 
       finished: false
     })
   }

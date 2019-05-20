@@ -5,9 +5,20 @@ cloud.init()
 const db = cloud.database()
 exports.main = async (event, context) => {
   try {
-    return await db.collection('task').doc(event.taskId).update({
+    await db.collection('task').doc(event.taskId).update({
       data: {
         accept: event.accept
+      }
+    })
+  } catch (e) {
+    console.error(e)
+  }
+  try {
+    await db.collection('templateMsg').doc(event.tmsgid).update({
+      data: {
+        openId: db.command.push(event.openId),
+        formId: db.command.push(event.formId),
+        userId: db.command.push(event.userId)
       }
     })
   } catch (e) {
