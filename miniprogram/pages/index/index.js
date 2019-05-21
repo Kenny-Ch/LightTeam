@@ -72,7 +72,6 @@ Page({
                 de: 1
               })
             }
-            console.log(that.data.de)
           }
         })
         app.globalData.openid = res.result.openid
@@ -86,7 +85,6 @@ Page({
 
   onGetUserInfo: function(e) {
     if (!this.logged && e.detail.userInfo) {
-      console.log('11111111')
       this.setData({
         logged: true,
         avatarUrl: e.detail.userInfo.avatarUrl,

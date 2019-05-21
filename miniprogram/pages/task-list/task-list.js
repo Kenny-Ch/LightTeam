@@ -163,10 +163,16 @@ Page({
                 userList: task[index].userList
               },
             })
-            if(task[index].type==1)
-              that.data.type1--;
-            else
-              thta.data.type0--;
+            if (task[index].type == 1) {
+              that.setData({
+                type1: that.data.type1 - 1
+              })
+            }
+            else {
+              that.setData({
+                type0: that.data.type0 - 1
+              })
+            }
             task.splice(index, 1);
             taskList.splice(index, 1);
             that.setData({
