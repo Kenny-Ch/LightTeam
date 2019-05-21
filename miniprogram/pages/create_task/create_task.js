@@ -121,10 +121,8 @@ Page({
     })
   },
   bindSave: function(event) {
-    console.log(event)
     var date = new Date();
     var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes())
-    console.log(currentDate)
     var begin = this.data.dateBegin + this.data.timeBegin;
     var end = this.data.dateEnd + this.data.timeEnd;
     if (!this.data.taskName ||
@@ -154,7 +152,6 @@ Page({
       var acceptarr = [];
       var that = this;
       for (var i = 0; i < this.data.batchIds.length; i++) {
-        console.log(i)
         acceptarr.push(false);
       }
       this.setData({
@@ -218,20 +215,17 @@ Page({
               })
               //上一个页面内执行setData操作，将我们想要的信息保存住。当我们返回去的时候，页面已经处理完毕。
               //最后就是返回上一个页面。
-              wx.navigateBack({
-                delta: 1 // 返回上一级页面。
-              })
             }
           })
           if (that.data.remind != 3) {
             var time = 0;
             if (that.data.remind == 2)
-              time = 86400000
+              time = 86400000;
             else
-              time = 3600000
+              time = 3600000;
             var endTime = that.data.dateEnd + ' ' + that.data.timeEnd;
             var endDate = new Date(Date.parse(endTime.replace(/-/g, "/")) - time);
-            var end = endDate.getFullYear() + '-' + (endDate.getMonth() + 1 < 10 ? "0" + (endDate.getMonth() + 1) : endDate.getMonth() + 1) + '-' + (endDate.getDate() < 10 ? "0" + endDate.getDate() : endDate.getDate()) + ' ' (endDate.getHours() < 10 ? "0" + endDate.getHours() : endDate.getHours()) + ':' + (endDate.getMinutes() < 10 ? "0" + endDate.getMinutes() : endDate.getMinutes());
+            var end = endDate.getFullYear() + '-' + (endDate.getMonth() + 1 < 10 ? "0" + (endDate.getMonth() + 1) : endDate.getMonth() + 1) + '-' + (endDate.getDate() < 10 ? "0" + endDate.getDate() : endDate.getDate()) + ' ' +(endDate.getHours() < 10 ? "0" + endDate.getHours() : endDate.getHours()) + ':' + (endDate.getMinutes() < 10 ? "0" + endDate.getMinutes() : endDate.getMinutes());
             db.collection('templateMsg').add({
               data: {
                 openId: [that.data.openId],
@@ -241,11 +235,12 @@ Page({
                 taskId: res._id,
                 teamName: that.data.teamName,
                 taskName: that.data.taskName,
+                actualEndTime: endTime,
                 endTime: end,
                 remind: (that.data.remind == 2) ? '1天' : '1小时'
               },
               success(res) {
-                console.log(res)
+                console.log(res,'dfdfdf')
                 db.collection('task').doc(that.data.taskid).update({
                   data: {
                     tmsgid: res._id
@@ -258,6 +253,9 @@ Page({
             })
           }
           console.log('【create_task】【添加任务信息】【成功添加任务信息】', res)
+          wx.navigateBack({
+            delta: 1 // 返回上一级页面。
+          })
         }
       })
     }

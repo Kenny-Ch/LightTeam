@@ -21,7 +21,7 @@ exports.main = async(event, context) => {
             taskId: arr[i].taskId,
             teamName: arr[i].teamName,
             taskName: arr[i].taskName,
-            endTime: arr[i].endTime,
+            endTime: arr[i].actualEndTime,
             remind: arr[i].remind,
           }
         })

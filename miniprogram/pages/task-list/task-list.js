@@ -89,17 +89,18 @@ Page({
                 that.data.type0++;
               else
                 that.data.type1++;
-              if(!res.data[0].finish)
+              if(!res.data[0].finish){
                 if(res.data[0].type==0)
-                  that.data.typeunfinish=that.data.typeunfinish + 240
+                  that.data.typeunfinish=that.data.typeunfinish + 250
                 else
                   that.data.typeunfinish = that.data.typeunfinish + 150
+              }
               that.setData({
                 task: that.data.task,
                 type0: that.data.type0,
                 type1: that.data.type1,
-                typeunfinish: that.data.typeunfinish,
-                taskListLength: that.data.typeunfinish + 400
+                taskListLength: that.data.typeunfinish + 400,
+                typeunfinish: that.data.typeunfinish + 400
               })
             }
           })
@@ -158,10 +159,17 @@ Page({
                 userList: task[index].userList
               },
             })
+            if(task[index].type==1)
+              that.data.type1--;
+            else
+              thta.data.type0--;
             task.splice(index, 1);
             taskList.splice(index, 1);
             that.setData({
-              taskListLength: that.data.taskListLength - 240,
+              taskListLength: that.data.taskListLength - 250,
+              typeunfinish: that.data.typeunfinish - 250,
+              type1: that.data.type1,
+              type0: that.data.type0,
               task,
               taskList
             })
@@ -257,7 +265,7 @@ Page({
   },
   onFinish: function() {
     this.setData({
-      taskListLength:this.data.type0 * 240 + this.data.type1 * 150 + 400,
+      taskListLength:this.data.type0 * 250 + this.data.type1 * 150 + 400,
       finished: true
     })
   },
