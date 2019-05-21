@@ -117,7 +117,8 @@ Page({
       name: "updateAccept",
       data: {
         accept: that.data.accept,
-        taskId: that.data.taskId
+        taskId: that.data.taskId,
+        type:1
       },
     }).then(res => {
       that.setData({

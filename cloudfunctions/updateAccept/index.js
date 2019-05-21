@@ -13,15 +13,17 @@ exports.main = async (event, context) => {
   } catch (e) {
     console.error(e)
   }
-  try {
-    await db.collection('templateMsg').doc(event.tmsgid).update({
-      data: {
-        openId: db.command.push(event.openId),
-        formId: db.command.push(event.formId),
-        userId: db.command.push(event.userId)
-      }
-    })
-  } catch (e) {
-    console.error(e)
+  if(event.type==0){
+    try {
+      await db.collection('templateMsg').doc(event.tmsgid).update({
+        data: {
+          openId: db.command.push(event.openId),
+          formId: db.command.push(event.formId),
+          userId: db.command.push(event.userId)
+        }
+      })
+    } catch (e) {
+      console.error(e)
+    }
   }
 }

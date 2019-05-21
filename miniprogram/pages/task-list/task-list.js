@@ -79,7 +79,7 @@ Page({
             hiddenButton: false
           })
         }
-        for (var i = 0; i < that.data.taskList.length; i++) {
+        for (let i = 0; i < that.data.taskList.length; i++) {
           db.collection('task').where({
             _id: that.data.taskList[i]
           }).get({
@@ -87,8 +87,9 @@ Page({
               that.data.task.push(res.data[0])
               if(res.data[0].type==0)
                 that.data.type0++;
-              else
+              else{
                 that.data.type1++;
+              }
               if(!res.data[0].finish){
                 if(res.data[0].type==0){
                   that.data.typeunfinish = that.data.typeunfinish + 220
@@ -107,6 +108,19 @@ Page({
             }
           })
         }
+        // for(var i=0;i<that.data.task.length;i++){
+        //   for (var j = 0; j < that.data.task[i].accept.length; j++) {
+        //     console.log('111111', j)
+        //     console.log('22222', i, j, that.data.userId, that.data.task[i].userList[j].id, that.data.task[i])
+        //     if (that.data.userId == that.data.task[i].userList[j].id) {
+        //       console.log('22222', i, j, that.data.userId, that.data.task[i].userList[j].id, that.data.task[ii])
+        //       if (that.data.task[i].accept[j]) {
+        //         console.log('3333333', that.data.task[i].finish)
+        //         that.data.task[i].finish = true
+        //       }
+        //     }
+        //   }
+        // }
         
         console.log('【task-list】【获取指定的task信息】【获取成功】', that.data.task)
       }

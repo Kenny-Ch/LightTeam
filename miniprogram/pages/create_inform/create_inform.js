@@ -109,11 +109,6 @@ Page({
             taskid: res._id,
             unfinishTask: this.data.unfinishTask
           })
-          // db.collection('user').doc(that.data.userId).update({
-          //   data: {
-          //     taskList: db.command.push(that.data.taskid)
-          //   },
-          // })
           var ii = 0;
           for (; ii < that.data.batchIds.length; ii++) {
             wx.cloud.callFunction({

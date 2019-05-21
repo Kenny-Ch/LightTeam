@@ -141,7 +141,8 @@ Page({
         formId: e.detail.formId,
         openId: that.data.openId,
         userId: that.data.userId,
-        tmsgid: that.data.tmsgid
+        tmsgid: that.data.tmsgid,
+        type:0
       },
     }).then(res => {
       that.setData({
