@@ -164,12 +164,20 @@ Page({
               },
             })
             if (task[index].type == 1) {
+              if(task[index].finish == false){
+                that.data.typeunfinish = that.data.typeunfinish - 130
+              }
               that.setData({
+                typeunfinish: that.data.typeunfinish,
                 type1: that.data.type1 - 1
               })
             }
             else {
+              if (task[index].finish == false) {
+                that.data.typeunfinish = that.data.typeunfinish - 220
+              }
               that.setData({
+                typeunfinish: that.data.typeunfinish,
                 type0: that.data.type0 - 1
               })
             }
