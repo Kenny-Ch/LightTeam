@@ -209,7 +209,9 @@ Page({
               prevPage.data.task.unshift(res.data[0])
               prevPage.setData({
                 task: prevPage.data.task,
-                taskListLength: prevPage.data.taskListLength + 250,
+                taskListLength: prevPage.data.taskListLength + 220,
+                type0: prevPage.data.type0+1,
+                typeunfinsh: prevPage.data.typeunfinsh + 220,
                 unfinishTask: prevPage.data.unfinishTask + 1,
                 de: 0
               })

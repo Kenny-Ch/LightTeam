@@ -92,11 +92,9 @@ Page({
               if(!res.data[0].finish){
                 if(res.data[0].type==0){
                   that.data.typeunfinish = that.data.typeunfinish + 220
-                  console.log(that.data.typeunfinish)
                 }
                 else{
                   that.data.typeunfinish = that.data.typeunfinish + 130
-                  console.log(that.data.typeunfinish)
                 }
               }
               that.setData({
@@ -111,7 +109,6 @@ Page({
         }
         
         console.log('【task-list】【获取指定的task信息】【获取成功】', that.data.task)
-        console.log('taskListLength', this.data.taskListLength)
       }
     })
 
@@ -122,7 +119,6 @@ Page({
     that.setData({
       currentTab: e.detail.current
     })
-    // console.log(e.detail.current)
   },
   /*** 点击tab切换***/
   swichNav: function(e) {
@@ -130,7 +126,6 @@ Page({
     that.setData({
       currentTab: e.target.dataset.current
     })
-    // console.log(e.detail.setdata.current)
   },
   // bindMemberList: function() {
   //   wx.redirectTo({
