@@ -156,8 +156,9 @@ Page({
     wx.navigateTo({
       url: "/pages/task/task?&teamName=" + teamNameIndex+
       "&taskId="+taskIdIndex+
-      "&userId="+ that.data.userId+
-      "&leaderId="+ leaderIdIndex
+      "&userId="+ that.data.userId +
+      "&leaderId="+ leaderIdIndex +
+      "&openId=" + that.data.openId
     })
   },
   onChangeShowState: function(e) {
