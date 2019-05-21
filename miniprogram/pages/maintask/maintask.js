@@ -154,7 +154,7 @@ Page({
     var taskIdIndex = that.data.task[index]._id;
     var leaderIdIndex = that.data.task[index].leaderId
     wx.navigateTo({
-      url: '/pages/task/task?teamName' + teamNameIndex+
+      url: "/pages/task/task?&teamName=" + teamNameIndex+
       "&taskId="+taskIdIndex+
       "&userId="+ that.data.userId+
       "&leaderId="+ leaderIdIndex
@@ -176,7 +176,7 @@ onChangeDetail: function(e){
   var taskIdIndex = that.data.task[index]._id;
   var leaderIdIndex = that.data.task[index].leaderId
   wx.navigateTo({
-    url: '/pages/inform/inform?teamName' + teamNameIndex +
+    url: "/pages/inform/inform?&teamName=" + teamNameIndex +
       "&taskId=" + taskIdIndex +
       "&userId=" + that.data.userId +
       "&leaderId=" + leaderIdIndex
