@@ -170,8 +170,8 @@ Page({
             task.splice(index, 1);
             taskList.splice(index, 1);
             that.setData({
-              taskListLength: that.data.taskListLength - 230,
-              typeunfinish: that.data.typeunfinish - 230,
+              taskListLength: that.data.taskListLength - 220,
+              typeunfinish: that.data.typeunfinish - 220,
               type1: that.data.type1,
               type0: that.data.type0,
               task,
@@ -269,7 +269,7 @@ Page({
   },
   onFinish: function() {
     this.setData({
-      taskListLength:this.data.type0 * 230 + this.data.type1 * 130,
+      taskListLength:this.data.type0 * 220 + this.data.type1 * 130,
       finished: true
     })
   },
