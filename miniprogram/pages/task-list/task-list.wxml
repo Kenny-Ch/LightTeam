@@ -24,10 +24,11 @@
       <view wx:for="{{task}}" wx:key="{{_id}}">
         <view wx:if="{{item.finish == false}}">
           <view wx:if="{{item.type == 1}}">
-            <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:150rpx' bindtap='bindTaskDetail' data-index="{{index}}">
+            <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:130rpx' bindtap='bindTaskDetail' data-index="{{index}}">
               <view view class="box_b" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
-                <view class='box_card' style='background-color:#fff'></view>
+                <!-- <view class='box_card' style='background-color:#fff'></view> -->
                 <view class='text_taskname'>{{item.name}}</view>
+                <image src='/images/star.svg' style='left:86%;top:25%' class='icon_pen'></image>
               </view>
             </view>
           </view>
@@ -46,10 +47,9 @@
             </view>
           </view>
         </view>
-
       </view>
       <!-- 已完成 -->
-      <view class="{{de==0?'show_default':'hidden_default'}}">
+      <view>  <!-- class="{{de==0?'show_default':'hidden_default'}}" -->
         <image src='/images/down.png' class="finish {{!finished?'show':'hide'}}" bindtap='onFinish'></image>
         <image src='/images/up.png' class="finish {{finished?'show':'hide'}}" bindtap='onUnfinish'></image>
         <text class='finish' style='left:100rpx;top:280rpx'>已完成任务</text>
@@ -57,10 +57,11 @@
       <view class="{{finished == true? 'show':'hide'}}" wx:for="{{task}}">
         <view wx:if="{{item.finish == true}}">
           <view wx:if="{{item.type == 1}}">
-            <view class='back' style='position:relative;top:300rpx;background-color:#fff;height:150rpx'>
+            <view class='back' style='position:relative;top:300rpx;background-color:#fff;height:130rpx'>
               <view view class="box_b" style='top:20rpx;'>
-                <view class='box_card' style='background-color:#fff'></view>
+                <!-- <view class='box_card' style='background-color:#fff'></view> -->
                 <view class='text_taskname'>{{item.name}}</view>
+                <image src='/images/star.svg' style='left:86%;top:25%' class='icon_pen'></image>
               </view>
             </view>
           </view>
