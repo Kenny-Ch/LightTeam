@@ -90,17 +90,21 @@ Page({
               else
                 that.data.type1++;
               if(!res.data[0].finish){
-                if(res.data[0].type==0)
-                  that.data.typeunfinish=that.data.typeunfinish + 250
-                else
-                  that.data.typeunfinish = that.data.typeunfinish + 150
+                if(res.data[0].type==0){
+                  that.data.typeunfinish = that.data.typeunfinish + 220
+                  console.log(that.data.typeunfinish)
+                }
+                else{
+                  that.data.typeunfinish = that.data.typeunfinish + 130
+                  console.log(that.data.typeunfinish)
+                }
               }
               that.setData({
                 task: that.data.task,
                 type0: that.data.type0,
                 type1: that.data.type1,
-                taskListLength: that.data.typeunfinish + 400,
-                typeunfinish: that.data.typeunfinish + 400
+                taskListLength: that.data.typeunfinish,
+                typeunfinish: that.data.typeunfinish 
               })
             }
           })
@@ -166,8 +170,8 @@ Page({
             task.splice(index, 1);
             taskList.splice(index, 1);
             that.setData({
-              taskListLength: that.data.taskListLength - 250,
-              typeunfinish: that.data.typeunfinish - 250,
+              taskListLength: that.data.taskListLength - 230,
+              typeunfinish: that.data.typeunfinish - 230,
               type1: that.data.type1,
               type0: that.data.type0,
               task,
@@ -265,13 +269,13 @@ Page({
   },
   onFinish: function() {
     this.setData({
-      taskListLength:this.data.type0 * 250 + this.data.type1 * 150 + 400,
+      taskListLength:this.data.type0 * 230 + this.data.type1 * 130,
       finished: true
     })
   },
   onUnfinish: function() {
     this.setData({
-      taskListLength: this.data.typeunfinish + 400, 
+      taskListLength: this.data.typeunfinish, 
       finished: false
     })
   }

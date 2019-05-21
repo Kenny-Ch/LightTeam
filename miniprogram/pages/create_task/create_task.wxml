@@ -4,7 +4,7 @@
     <view class='title'>{{teamName}}</view>
     <view>
       <text></text>
-      <input type='text' placeholder=' 请输入标题' placeholder-class='placeholder' bindinput='bindTaskNameInput'></input>
+      <input type='text' placeholder=' 请输入任务标题' placeholder-class='placeholder' bindinput='bindTaskNameInput'></input>
     </view>
   </view>
 

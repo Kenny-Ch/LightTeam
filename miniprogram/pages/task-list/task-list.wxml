@@ -14,12 +14,12 @@
   </view>
 </view>
 <!-- <view style='position:relative;top:200rpx'> -->
-<swiper current="{{currentTab}}" class="back" duration="300" style="height:{{currentTab?taskListLength2+'rpx':taskListLength+'rpx'}}" bindchange="bindChange">
+<swiper current="{{currentTab}}" class="back" duration="300" style="height:{{currentTab?taskListLength2+'rpx':(taskListLength+400)+'rpx'}}" bindchange="bindChange">
 
 
 
   <swiper-item>
-    <scroll-view scroll-y="true" style="height:{{taskListLength}}rpx">
+    <scroll-view scroll-y="true" style="height:{{taskListLength+400}}rpx">
       <view class="{{de==1?'show_default':'hidden_default'}}">你还没有任务哦</view>
       <view wx:for="{{task}}" wx:key="{{_id}}">
         <view wx:if="{{item.finish == false}}">
