@@ -2,12 +2,7 @@ const cloud = require('wx-server-sdk')
 cloud.init()
 const db = cloud.database()
 exports.main = async(event, context) => {
-  var time=0;
-  if (event.remind == '1天')
-    time = -86400000 + 28800000
-  else
-    time = -3600000 + 28800000
-  var date = new Date(new Date().getTime() + time);
+  var date = new Date(new Date().getTime() + 28800000);
   var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + ' ' + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes());
   var res = await db.collection('templateMsg').where({
     endTime: db.command.lte(currentDate)

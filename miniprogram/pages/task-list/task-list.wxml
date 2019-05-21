@@ -49,7 +49,7 @@
 
       </view>
       <!-- 已完成 -->
-      <view>
+      <view class="{{de==0?'show_default':'hidden_default'}}">
         <image src='/images/down.png' class="finish {{!finished?'show':'hide'}}" bindtap='onFinish'></image>
         <image src='/images/up.png' class="finish {{finished?'show':'hide'}}" bindtap='onUnfinish'></image>
         <text class='finish' style='left:100rpx;top:280rpx'>已完成任务</text>

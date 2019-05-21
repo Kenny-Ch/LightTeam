@@ -21,6 +21,7 @@ Page({
     taskList: [],
     task: [],
     userList: [],
+    type: '',
     uhide: 0,
     currentTab: '',
     hiddenButton: true,
@@ -62,8 +63,6 @@ Page({
           unfinishTask: res.data[0].unfinishTask,
           leaderId: res.data[0].leader
         })
-        
-
         console.log('【task-list】【获取指定的team信息】【获取成功】', res.data[0])
         if (that.data.taskList.length == 0) {
           that.setData({
@@ -105,9 +104,8 @@ Page({
             }
           })
         }
+        
         console.log('【task-list】【获取指定的task信息】【获取成功】', that.data.task)
-        
-        
         console.log('taskListLength', this.data.taskListLength)
       }
     })
@@ -141,11 +139,12 @@ Page({
     var index = e.currentTarget.dataset.index; //获取当前长按图片下标
     var taskIndexId = that.data.taskList[index];
     var finish = that.data.task[index].finish;
+    var type = that.data.task[index].type;
     if (this.data.userId == this.data.leaderId) {
       wx.showModal({
         title: '提示',
         content: '确定要删除此任务吗？',
-        success: function(res) {
+        success: function(res) {   
           if (res.confirm) {
             console.log('【task-list】【长按删除】【点击确定】', '索引为：', index, taskIndexId);
             db.collection('task').doc(taskIndexId).remove({
@@ -177,6 +176,7 @@ Page({
                 de: 1
               })
             }
+
           } else if (res.cancel) {
             console.log('【task-list】【长按删除】【点击取消】');
             return false;

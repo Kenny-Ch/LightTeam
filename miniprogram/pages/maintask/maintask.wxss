@@ -19,7 +19,6 @@
 }
 
 /*任务盒子*/
-
 .box_a {
   position: relative;
   width: 670rpx;

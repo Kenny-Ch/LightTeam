@@ -224,6 +224,14 @@ Page({
             }
           })
           if (that.data.remind != 3) {
+            var time = 0;
+            if (that.data.remind == 2)
+              time = 86400000
+            else
+              time = 3600000
+            var endTime = that.data.dateEnd + ' ' + that.data.timeEnd;
+            var endDate = new Date(Date.parse(endTime.replace(/-/g, "/")) - time);
+            var end = endDate.getFullYear() + '-' + (endDate.getMonth() + 1 < 10 ? "0" + (endDate.getMonth() + 1) : endDate.getMonth() + 1) + '-' + (endDate.getDate() < 10 ? "0" + endDate.getDate() : endDate.getDate()) + ' ' (endDate.getHours() < 10 ? "0" + endDate.getHours() : endDate.getHours()) + ':' + (endDate.getMinutes() < 10 ? "0" + endDate.getMinutes() : endDate.getMinutes());
             db.collection('templateMsg').add({
               data: {
                 openId: [that.data.openId],
@@ -233,7 +241,7 @@ Page({
                 taskId: res._id,
                 teamName: that.data.teamName,
                 taskName: that.data.taskName,
-                endTime: that.data.dateEnd + ' ' + that.data.timeEnd,
+                endTime: end,
                 remind: (that.data.remind == 2) ? '1天' : '1小时'
               },
               success(res) {

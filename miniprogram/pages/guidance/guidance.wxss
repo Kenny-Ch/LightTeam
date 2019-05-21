@@ -179,4 +179,19 @@
   line-height: 250%;
   border-top: 0.01rpx solid gray;
 }
+
+.homepage_team_add {
+  border-radius: 100px;
+  position: fixed;
+  font-size: 80rpx;
+  left: 620rpx;
+  top: 85%;
+  height: 100rpx;
+  width: 100rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #6bb8ff;
+  color: white;
+}
 @import "../maintask/maintask.wxss"
+
