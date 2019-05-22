@@ -49,7 +49,7 @@
         </view>
       </view>
       <!-- 已完成 -->
-      <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:100rpx'>
+      <view class="back {{de==0?'show':'hide'}}" style='position:relative;top:320rpx;background-color:#fff;height:100rpx'>
         <image src='/images/down.png' class="finish {{!finished?'show':'hide'}}" style='top:40rpx' bindtap='onFinish'></image>
         <image src='/images/up.png' class="finish {{finished?'show':'hide'}}" style='top:40rpx' bindtap='onUnfinish'></image>
         <text class='finish' style='position:relative;left:100rpx;'>已完成任务</text>
