@@ -11,6 +11,7 @@ Page({
     showView: [],
     leaderId:'',
     de: 0,
+    unfinshtasks:0
   },
   /**
    * 生命周期函数--监听页面加载
@@ -42,7 +43,17 @@ Page({
                         userId: res.data[0]._id,
                         taskList: res.data[0].taskList
                       })
-                      console.log('【maintask】【user集合中获取该用户所参与的所有taskid】【获取成功】', that.data.taskList)
+                      console.log('【maintask】【user集合中获取该用户所参与的所有taskid】【获取成功】', that.data.taskList)  
+                       if(res.data[0].taskList.length==0){
+                        that.setData({
+                          de:1
+                        })
+                       }
+                        else{
+                          that.setData({
+                            de:0
+                          })
+                        }
                       for (var i = that.data.taskList.length - 1; i >= 0; i--) {
                         var c = 0;
                         db.collection('task').where({
@@ -51,13 +62,20 @@ Page({
                           success(res) {
                             that.data.task.push(res.data[0])
                             that.data.task[count].show = false
-                            // var taskstart = "task[" + c + "].startDate"
-                            // var taskend = "task[" + c + "].endDate"
+                            if(!res.data[0].finish)
+                              that.data.unfinshtasks=that.data.unfinshtasks+1
+                            if (res.data[0].type == 1) {
+                              for (var j = 0; j < res.data[0].accept.length; j++) {
+                                if (that.data.userId == res.data[0].userList[j].id) {
+                                  that.data.unfinshtasks = that.data.unfinshtasks + res.data[0].accept[j]?-1:0
+                                  that.data.task[count].finish = res.data[0].accept[j]
+                                }
+                              }
+                            }
                             that.setData({
                               task: that.data.task,
-                              // [taskstart]: that.data.task[c].startDate.substring(5, 10) + ' ',
-                              // [taskend]: ' to ' + that.data.task[c].endDate.substring(5, 10) + ' ',
-                              showView: that.data.showView
+                              showView: that.data.showView,
+                              unfinshtasks:that.data.unfinshtasks
                             })
                             if (res.data[0].type == 0) {
                               var taskstart = "task[" + c + "].startDate"
@@ -71,23 +89,7 @@ Page({
                             c++
                           }
                         })
-                        if(i==0){
-                          console.log(that.data.task)
-                          for (var i = 0; i < that.data.task.length; i++) {
-                            console.log('12131321')
-                            if (!that.data.task[i].finish)
-                              console.log(that.data.task[i].finish);
-                            if (i == that.data.task.length - 1)
-                              that.setData({
-                                de: 1
-                              })
-                          }
-                          if (that.data.taskList.length == 0) {
-                            that.setData({
-                              de: 1
-                            })
-                          }
-                        }
+                          
                       }
                       var count = 0;
                       for (var i = 0; i < that.data.task.length; i++) {
@@ -123,6 +125,7 @@ Page({
 
     showView: (options.showView == "true" ? true : false)
   },
+
   deleteTask: function(e) {
     var that = this;
     var task = that.data.tsak;

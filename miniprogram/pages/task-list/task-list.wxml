@@ -25,7 +25,7 @@
         <view wx:if="{{item.finish == false}}">
           <view wx:if="{{item.type == 1}}">
             <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:130rpx' bindtap='bindTaskDetail' data-index="{{index}}">
-              <view view class="box_b" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
+              <view class="box_b" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
                 <!-- <view class='box_card' style='background-color:#fff'></view> -->
                 <view class='text_taskname'>{{item.name}}</view>
                 <image src='/images/star.svg' style='left:86%;top:25%' class='icon_pen'></image>
@@ -49,7 +49,7 @@
         </view>
       </view>
       <!-- 已完成 -->
-      <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:100rpx'>
+      <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:100rpx' bindtap='ffinish'>
         <image src='/images/down.png' class="finish {{!finished?'show':'hide'}}" style='top:40rpx' bindtap='onFinish'></image>
         <image src='/images/up.png' class="finish {{finished?'show':'hide'}}" style='top:40rpx' bindtap='onUnfinish'></image>
         <text class='finish' style='position:relative;left:100rpx;'>已完成任务</text>
@@ -57,8 +57,8 @@
       <view class="{{finished == true? 'show':'hide'}}" wx:for="{{task}}">
         <view wx:if="{{item.finish == true}}">
           <view wx:if="{{item.type == 1}}">
-            <view class='back' style='position:relative;top:300rpx;background-color:#fff;height:130rpx'>
-              <view view class="box_b" style='top:20rpx;'>
+            <view class='back' style='position:relative;top:300rpx;background-color:#fff;height:130rpx' bindtap='bindTaskDetail' data-index="{{index}}">
+              <view class="box_b" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
                 <!-- <view class='box_card' style='background-color:#fff'></view> -->
                 <view class='text_taskname'>{{item.name}}</view>
                 <image src='/images/star.svg' style='left:86%;top:25%' class='icon_pen'></image>

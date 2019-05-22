@@ -122,7 +122,7 @@ Page({
           db.collection('team').doc(that.data.teamId).update({
             data: {
               taskList: db.command.push(that.data.taskid),
-              unfinishTask: that.data.unfinishTask + 1
+              // unfinishTask: that.data.unfinishTask + 1
             },
           })
           let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
@@ -137,7 +137,7 @@ Page({
                 taskListLength: prevPage.data.taskListLength + 130,
                 type1: prevPage.data.type1 + 1,
                 typeunfinsh: prevPage.data.typeunfinsh + 130,
-                unfinishTask: prevPage.data.unfinishTask + 1,
+                // unfinishTask: prevPage.data.unfinishTask + 1,
                 de: 0
               })
               //上一个页面内执行setData操作，将我们想要的信息保存住。当我们返回去的时候，页面已经处理完毕。

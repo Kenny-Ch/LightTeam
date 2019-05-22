@@ -34,7 +34,8 @@ Page({
     nu: 0,
     type0: 0,
     type1: 0,
-    finished: false
+    finished: false,
+    ii:0
   },
   /**
    * 生命周期函数--监听页面加载
@@ -85,10 +86,17 @@ Page({
           }).get({
             success(res) {
               that.data.task.push(res.data[0])
-              if(res.data[0].type==0)
+              if(res.data[0].type==0){
                 that.data.type0++;
+              }  
               else{
                 that.data.type1++;
+                for(var j=0;j<res.data[0].accept.length;j++){
+                  if(that.data.userId==res.data[0].userList[j].id){
+                    that.data.task[that.data.ii].finish=res.data[0].accept[j]
+                  }
+                  
+                }
               }
               if(!res.data[0].finish){
                 if(res.data[0].type==0){
@@ -103,25 +111,12 @@ Page({
                 type0: that.data.type0,
                 type1: that.data.type1,
                 taskListLength: that.data.typeunfinish,
-                typeunfinish: that.data.typeunfinish 
+                typeunfinish: that.data.typeunfinish,
+                ii:that.data.ii+1
               })
             }
           })
         }
-        // for(var i=0;i<that.data.task.length;i++){
-        //   for (var j = 0; j < that.data.task[i].accept.length; j++) {
-        //     console.log('111111', j)
-        //     console.log('22222', i, j, that.data.userId, that.data.task[i].userList[j].id, that.data.task[i])
-        //     if (that.data.userId == that.data.task[i].userList[j].id) {
-        //       console.log('22222', i, j, that.data.userId, that.data.task[i].userList[j].id, that.data.task[ii])
-        //       if (that.data.task[i].accept[j]) {
-        //         console.log('3333333', that.data.task[i].finish)
-        //         that.data.task[i].finish = true
-        //       }
-        //     }
-        //   }
-        // }
-        
         console.log('【task-list】【获取指定的task信息】【获取成功】', that.data.task)
       }
     })
@@ -290,16 +285,18 @@ Page({
       url: '/pages/create_task/create_task?teamId=' + this.data.teamId + "&openId=" + this.data.openId + "&userId=" + this.data.userId + "&teamName=" + this.data.teamName + "&unfinishTask=" + this.data.unfinishTask
     })
   },
-  onFinish: function() {
-    this.setData({
-      taskListLength:this.data.type0 * 220 + this.data.type1 * 130,
-      finished: true
-    })
+  ffinish:function(){
+    if(this.data.finished){
+      this.setData({
+        taskListLength: this.data.typeunfinish,
+        finished: false
+      })
+    }
+    else{
+      this.setData({
+        taskListLength: this.data.type0 * 220 + this.data.type1 * 130 + 10,
+        finished: true
+      })
+    }
   },
-  onUnfinish: function() {
-    this.setData({
-      taskListLength: this.data.typeunfinish, 
-      finished: false
-    })
-  }
 })
