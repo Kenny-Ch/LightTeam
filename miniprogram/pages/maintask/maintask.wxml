@@ -3,7 +3,7 @@
   <!-- 任务 -->
   <view wx:if="{{item.type == 0}}">
     <view wx:if="{{!task[index].finish}}">
-      <view class="{{item.show?'box_a':'box_b'}}" bindlongpress="deleteTask" data-index="{{index}}" bindtap='onChangeShowState'>
+      <view class="{{item.show?'box_a':'box_b'}}" data-index="{{index}}" bindtap='onChangeShowState'>
         <view class='text_taskname'>{{item.name}}</view>
         <view class='box_card tagsColor{{item.tag}}'></view>
         <!-- up and down icon start -->
@@ -28,7 +28,7 @@
   <!-- 通知 -->
   <view wx:if="{{item.type == 1}}">
     <view wx:if="{{!task[index].finish}}">
-      <view class="box_b" bindlongpress="deleteTask" bindtap='onChangeDetail' data-index="{{index}}">
+      <view class="box_b" bindtap='onChangeDetail' data-index="{{index}}">
         <view class='text_taskname'>{{item.name}}</view>
         <image src='/images/inform.svg' style='left:86%;top:25%' class='icon_pen'></image>
       </view>
