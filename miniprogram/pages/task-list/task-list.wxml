@@ -19,7 +19,7 @@
 
 
   <swiper-item>
-    <scroll-view scroll-y="true" style="height:{{taskListLength+400}}rpx">
+    <scroll-view scroll-y="true" scroll-x="true" style="height:{{taskListLength+400}}rpx">
       <view class="{{de==1?'show_default':'hidden_default'}}">你还没有任务哦</view>
       <view wx:for="{{task}}" wx:key="{{_id}}">
         <view wx:if="{{item.finish == false}}">
@@ -57,7 +57,7 @@
       <view class="{{finished == true? 'show':'hide'}}" wx:for="{{task}}">
         <view wx:if="{{item.finish == true}}">
           <view wx:if="{{item.type == 1}}">
-            <view class='back' style='position:relative;top:300rpx;background-color:#fff;height:130rpx' bindtap='bindTaskDetail' data-index="{{index}}">
+            <view class='back' style='position:relative;top:320rpx;background-color:#fff;height:130rpx' bindtap='bindTaskDetail' data-index="{{index}}">
               <view class="box_b" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
                 <!-- <view class='box_card' style='background-color:#fff'></view> -->
                 <view class='text_taskname'>{{item.name}}</view>
@@ -85,7 +85,7 @@
   </swiper-item>
 
   <swiper-item>
-    <scroll-view scroll-y="true" style="height:{{taskListLength2}}rpx">
+    <scroll-view scroll-y="true" scroll-x="true" style="height:{{taskListLength2}}rpx">
       <view class="{{nu==1?'show_default':'hidden_default'}}">你还没有成员哦</view>
       <view class='back' style='position:relative;top:320rpx;'>
         <view wx:for="{{userList}}">
