@@ -46,16 +46,16 @@
   </view>
   <view style='position:absolute;top:550rpx;width:100%;'>
     <form bindsubmit='bindReceiveTask' report-submit='true' hidden="{{(buttonHidden1 && buttonHidden2)}}">
-      <view style='position:relative;margin-top:74rpx;' bindtouchend='bindReceiveTask'>
-        <button form-type="submit" class='button' style="background-color:{{buttonHidden1?'#d9d9d9':''}}"></button>
-        <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view>
+      <view style='position:relative;margin-top:74rpx;'>
+        <button form-type="submit" class='button' style="background-color:{{buttonHidden1?'#d9d9d9':''}}">收到</button>
+        <!-- <view style='position:absolute;top:18rpx;left:337rpx;color:#fff;font-size:40rpx;'>收到</view> -->
       </view>
     </form>
     <view hidden="{{buttonHidden2}}">
       <!-- hidden="{{buttonHidden2}}" -->
       <view style='position:relative;margin-top:74rpx;'>
-        <button class='button' bindtap='finishtask'></button>
-        <view style='position:absolute;top:18rpx;left:298rpx;color:#fff;font-size:40rpx;' bindtap='finishtask'>完成任务</view>
+        <button class='button' bindtap='finishtask'>完成任务</button>
+        <!-- <view style='position:absolute;top:18rpx;left:298rpx;color:#fff;font-size:40rpx;' bindtap='finishtask'>完成任务</view> -->
       </view>
     </view>
 
