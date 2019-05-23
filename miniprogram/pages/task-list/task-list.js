@@ -80,7 +80,7 @@ Page({
             hiddenButton: false
           })
         }
-        for (let i = 0; i < that.data.taskList.length; i++) {
+        for (let i = that.data.taskList.length-1; i >= 0 ; i--) {
           db.collection('task').where({
             _id: that.data.taskList[i]
           }).get({
@@ -146,7 +146,7 @@ Page({
     var task = that.data.task;
     var taskList = that.data.taskList;
     var index = e.currentTarget.dataset.index; //获取当前长按图片下标
-    var taskIndexId = that.data.taskList[index];
+    var taskIndexId = that.data.taskList[that.data.taskList.length-1-index];
     var finish = that.data.task[index].finish;
     var type = that.data.task[index].type;
     if (this.data.userId == this.data.leaderId) {
@@ -186,7 +186,7 @@ Page({
               })
             }
             task.splice(index, 1);
-            taskList.splice(index, 1);
+            taskList.splice(that.data.taskList.length-1-index, 1);
             that.setData({
               taskListLength: that.data.taskListLength - 220,
               typeunfinish: that.data.typeunfinish - 220,

@@ -58,31 +58,31 @@ Page({
           //   })
           // }
           for (var i = this.data.i; i < this.data.memberList.length; i++) {
-            if (this.data.userId == this.data.leaderId) {
-              this.setData({
-                buttonHidden1: true,
-                buttonHidden2: this.data.finish,
-              })
-              this.data.accept[this.data.i] = true;
-              var that = this;
-              db.collection('task').doc(that.data.taskId).update({
-                data: {
-                  accept: that.data.accept
-                }
-              })
-              break;
-            }
+            // if (this.data.userId == this.data.leaderId) {
+            //   this.setData({
+            //     buttonHidden1: true,
+            //     buttonHidden2: this.data.finish,
+            //   })
+            //   this.data.accept[this.data.i] = true;
+            //   var that = this;
+            //   db.collection('task').doc(that.data.taskId).update({
+            //     data: {
+            //       accept: that.data.accept
+            //     }
+            //   })
+            //   break;
+            // }
             if (this.data.memberList[i].id == this.data.userId) {
               this.setData({
                 buttonHidden1: this.data.accept[i],
-                buttonHidden2: this.data.finish,
+                // buttonHidden2: this.data.finish,
                 i: i
               })
-              if (!this.data.buttonHidden1) {
-                this.setData({
-                  buttonHidden2: true
-                })
-              }
+              // if (!this.data.buttonHidden1) {
+              //   this.setData({
+              //     buttonHidden2: true
+              //   })
+              // }
               break;
             }
           }
@@ -124,21 +124,21 @@ Page({
       that.setData({
         accept: that.data.accept,
         buttonHidden1: true,
-        buttonHidden2: false
+        // buttonHidden2: false
       })
       console.log("【task】【已接受任务】【更新成功】")
     })
   },
-  finishtask: function () {
-    wx.cloud.callFunction({
-      name: 'finishTask',
-      data: {
-        taskId: this.data.taskId
-      },
-    })
-    this.setData({
-      buttonHidden2: true,
-      state: "已完成"
-    })
-  }
+  // finishtask: function () {
+  //   wx.cloud.callFunction({
+  //     name: 'finishTask',
+  //     data: {
+  //       taskId: this.data.taskId
+  //     },
+  //   })
+  //   this.setData({
+  //     buttonHidden2: true,
+  //     state: "已完成"
+  //   })
+  // }
 })
