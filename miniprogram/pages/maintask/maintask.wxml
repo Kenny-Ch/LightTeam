@@ -30,7 +30,7 @@
     <view wx:if="{{!task[index].finish}}">
       <view class="box_b" bindlongpress="deleteTask" bindtap='onChangeDetail' data-index="{{index}}">
         <view class='text_taskname'>{{item.name}}</view>
-        <image src='/images/star.svg' style='left:86%;top:25%' class='icon_pen'></image>
+        <image src='/images/inform.svg' style='left:86%;top:25%' class='icon_pen'></image>
       </view>
     </view>
   </view>

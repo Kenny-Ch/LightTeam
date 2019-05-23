@@ -28,7 +28,7 @@
               <view class="box_b" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
                 <!-- <view class='box_card' style='background-color:#fff'></view> -->
                 <view class='text_taskname'>{{item.name}}</view>
-                <image src='/images/star.svg' style='left:86%;top:25%' class='icon_pen'></image>
+                <image src='/images/inform.svg' style='left:86%;top:25%' class='icon_pen'></image>
               </view>
             </view>
           </view>
@@ -61,7 +61,7 @@
               <view class="box_b" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
                 <!-- <view class='box_card' style='background-color:#fff'></view> -->
                 <view class='text_taskname'>{{item.name}}</view>
-                <image src='/images/star.svg' style='left:86%;top:25%' class='icon_pen'></image>
+                <image src='/images/inform.svg' style='left:86%;top:25%' class='icon_pen'></image>
               </view>
             </view>
           </view>
