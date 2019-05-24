@@ -19,7 +19,7 @@
 
 
   <swiper-item>
-    <scroll-view scroll-y="true" scroll-x="true" style="height:{{taskListLength+400}}rpx">
+    <scroll-view scroll-y="true" scroll-x="true" style="height:{{taskListLength+420}}rpx">
       <view class="{{de==1?'show_default':'hidden_default'}}">你还没有任务哦</view>
       <view wx:for="{{task}}" wx:key="{{_id}}">
         <view wx:if="{{item.finish == false}}">
