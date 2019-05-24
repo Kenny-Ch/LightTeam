@@ -14,7 +14,7 @@
   </view>
 </view>
 <!-- <view style='position:relative;top:200rpx'> -->
-<swiper current="{{currentTab}}" class="back" duration="300" style="height:{{currentTab?taskListLength2+'rpx':(taskListLength+400)+'rpx'}}" bindchange="bindChange">
+<swiper current="{{currentTab}}" class="back" duration="300" style="height:{{currentTab?taskListLength2+'rpx':(taskListLength+420)+'rpx'}}" bindchange="bindChange">
 
 
 
@@ -50,8 +50,8 @@
       </view>
       <!-- 已完成 -->
       <view class="back {{de==0?'show':'hide'}}" style='position:relative;top:320rpx;background-color:#fff;height:100rpx' bindtap='ffinish'>
-        <image src='/images/down.png' class="finish {{!finished?'show':'hide'}}" style='top:40rpx' ></image>
-        <image src='/images/up.png' class="finish {{finished?'show':'hide'}}" style='top:40rpx' ></image>
+        <image src='/images/down.png' class="finish {{!finished?'show':'hide'}}" style='top:40rpx'></image>
+        <image src='/images/up.png' class="finish {{finished?'show':'hide'}}" style='top:40rpx'></image>
         <text class='finish' style='position:relative;left:100rpx;'>已完成任务</text>
       </view>
       <view class="{{finished == true? 'show':'hide'}}" wx:for="{{task}}">
@@ -68,7 +68,7 @@
           <view wx:if="{{item.type == 0}}">
             <view class='back' style='position:relative;top:320rpx;background-color:#fff;' bindtap='bindTaskDetail' data-index="{{index}}">
               <view class="box_a" style='top:20rpx;' bindlongpress='longPressDelete' data-index="{{index}}" id="{{index}}">
-                <view class='box_card' style='background-color:{{boxcolor[item.tag]}}'></view>
+                <view class='box_card' style='background-color:{{boxcolor[5]}}'></view>
                 <view class="{{(uhide==tags._id)?'hide':'show'}}">
                 </view>
                 <view class="{{(uhide==tags._id)?'show':'hide'}}">

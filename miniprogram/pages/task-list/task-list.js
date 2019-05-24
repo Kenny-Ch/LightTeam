@@ -29,7 +29,7 @@ Page({
     taskListLength2: 1,
     typeunfinish: 0,
     actualLength:1,
-    boxcolor: ["rgba(210, 210, 210, 1)", "#fc2100", "#fff659", "#27e530", "#5a97f6"],
+    boxcolor: ["rgba(210, 210, 210, 1)", "#fc2100", "#fff659", "#27e530", "#5a97f6","#fff"],
     de: 0,
     nu: 0,
     type0: 0,

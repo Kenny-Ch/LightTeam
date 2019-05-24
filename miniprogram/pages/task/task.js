@@ -28,10 +28,10 @@ Page({
     i: 0,
     state: '',
     taskId: '',
-    url:[],
-    type:2,
-    tmsgid:'',
-    openId:''
+    url: [],
+    type: 2,
+    tmsgid: '',
+    openId: ''
   },
 
   /**
@@ -61,8 +61,8 @@ Page({
               memberList: res.data.userList,
               accept: res.data.accept,
               taskIntroduction: res.data.taskIntroduction,
-              type:res.data.type,
-              tmsgid:res.data.tmsgid
+              type: res.data.type,
+              tmsgid: res.data.tmsgid
             })
           var date = new Date();
           var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes());
@@ -110,12 +110,10 @@ Page({
             if (i <= 7) {
               if (i == 7) {
                 this.data.url.push();
-              }
-              else {
+              } else {
                 this.data.url.push(this.data.memberList[i].Url);
               }
-            }
-            else{
+            } else {
               this.data.url.push();
             }
           }
@@ -142,7 +140,7 @@ Page({
         openId: that.data.openId,
         userId: that.data.userId,
         tmsgid: that.data.tmsgid,
-        type:0
+        type: 0
       },
     }).then(res => {
       that.setData({
@@ -154,15 +152,23 @@ Page({
     })
   },
   finishtask: function() {
-    wx.cloud.callFunction({
-      name: 'finishTask',
-      data: {
-        taskId: this.data.taskId
-      },
-    })
-    this.setData({
-      buttonHidden2: true,
-      state: "已完成"
+    wx.showModal({
+      title: '提示',
+      content: '确定已完成此任务了吗？一旦完成不得修改噢',
+      success: function(res) {
+        if (res.confirm) {
+          wx.cloud.callFunction({
+            name: 'finishTask',
+            data: {
+              taskId: this.data.taskId
+            },
+          })
+          this.setData({
+            buttonHidden2: true,
+            state: "已完成"
+          })
+        }
+      }
     })
   }
 })
