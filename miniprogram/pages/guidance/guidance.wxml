@@ -29,11 +29,11 @@
     <view class='tabbar'>
       <!-- 左边 -->
       <view>
-        <image src='/images/tabbar1.png' style='position:relative;top:94%;left:20%;height:50rpx;width:50rpx;'></image>
-        <text style='position:relative;top:37rpx;left:14%;height:50rpx;width:100rpx;font-size: 20rpx;color:green'>团队</text>
+        <image src='/images/tabbar1.png' style='position:relative;top:12rpx;left:20%;height:50rpx;width:50rpx;'></image>
+        <text style='position:relative;top:39rpx;left:14%;height:50rpx;width:100rpx;font-size: 20rpx;color:green'>团队</text>
         <!-- 右边 -->
-        <image src='/images/tabbar4.png' style='position:relative;top:94%;left:55%;height:50rpx;width:50rpx;'></image>
-        <text style='position:relative;top:37rpx;left:49%;height:50rpx;width:100rpx;font-size: 20rpx;'>任务</text>
+        <image src='/images/tabbar4.png' style='position:relative;top:12rpx;left:55%;height:50rpx;width:50rpx;'></image>
+        <text style='position:relative;top:39rpx;left:49%;height:50rpx;width:100rpx;font-size: 20rpx;'>任务</text>
       </view>
 
     </view>
@@ -69,10 +69,10 @@
     <view class='tabbar'>
       <!-- 左边 -->
       <view>
-        <image src='/images/tabbar1.png' style='position:relative;top:94%;left:20%;height:50rpx;width:50rpx;'></image>
+        <image src='/images/tabbar1.png' style='position:relative;top:12rpx;left:20%;height:50rpx;width:50rpx;'></image>
         <text style='position:relative;top:37rpx;left:14%;height:50rpx;width:100rpx;font-size: 20rpx;color:green'>团队</text>
         <!-- 右边 -->
-        <image src='/images/tabbar4.png' style='position:relative;top:94%;left:55%;height:50rpx;width:50rpx;'></image>
+        <image src='/images/tabbar4.png' style='position:relative;top:12rpx;left:55%;height:50rpx;width:50rpx;'></image>
         <text style='position:relative;top:37rpx;left:49%;height:50rpx;width:100rpx;font-size: 20rpx;'>任务</text>
       </view>
 
@@ -270,17 +270,17 @@
     <view class='tabbar'>
       <!-- 左边 -->
       <view>
-        <image src='/images/tabbar1.png' style='position:relative;top:94%;left:20%;height:50rpx;width:50rpx;color:green;'></image>
+        <image src='/images/tabbar1.png' style='position:relative;top:12rpx;left:20%;height:50rpx;width:50rpx;color:green;'></image>
         <text style='position:relative;top:37rpx;left:14%;height:50rpx;width:100rpx;font-size: 20rpx;'>团队</text>
         <!-- 右边 -->
-        <image src='/images/tabbar4.png' style='position:relative;top:94%;left:55%;height:50rpx;width:50rpx;'></image>
+        <image src='/images/tabbar4.png' style='position:relative;top:12rpx;left:55%;height:50rpx;width:50rpx;'></image>
         <text style='position:relative;top:37rpx;left:49%;height:50rpx;width:100rpx;font-size: 20rpx;'>任务</text>
       </view>
     </view>
     <view class="homepage_team_add" bindtap="bind1" style='top:80%'>+</view>
     <view class='lucency'>
       <view class="guidance">
-        <image src='/images/guidance5.png' style='position:fixed;top:85%;left:40rpx;height:260rpx;width:520rpx;'></image>
+        <image src='/images/guidance5.png' style='position:fixed;top:82%;left:40rpx;height:260rpx;width:520rpx;'></image>
       </view>
     </view>
     <view style='position:fixed;top:93%;left:60%;height:90rpx;width:150rpx;' bindtap='bind7'></view>
@@ -347,10 +347,10 @@
   <view class='tabbar'>
     <!-- 左边 -->
     <view>
-      <image src='/images/tabbar2.png' style='position:relative;top:94%;left:20%;height:50rpx;width:50rpx;'></image>
-      <text style='position:relative;top:37rpx;left:14%;height:50rpx;width:100rpx;font-size: 20rpx;'>团队</text>
+      <image src='/images/tabbar2.png' style='position:relative;top:12rpx;left:20%;height:50rpx;width:50rpx;'></image>
+      <text style='position:relative;top:39rpx;left:14%;height:50rpx;width:100rpx;font-size: 20rpx;'>团队</text>
       <!-- 右边 -->
-      <image src='/images/tabbar3.png' style='position:relative;top:94%;left:55%;height:50rpx;width:50rpx;'></image>
+      <image src='/images/tabbar3.png' style='position:relative;top:12rpx;left:55%;height:50rpx;width:50rpx;'></image>
       <text style='position:relative;top:37rpx;left:49%;height:50rpx;width:100rpx;font-size: 20rpx;color:green'>任务</text>
     </view>
 
