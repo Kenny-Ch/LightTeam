@@ -15,7 +15,7 @@ input{
 }
 .picker2{
   border: 1rpx solid #e6e6e6;
-  width: 270rpx;
+  width: 300rpx;
   height: 77rpx;
   border-radius: 10rpx;
 }
