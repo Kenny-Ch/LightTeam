@@ -1,77 +1,81 @@
 <form bindsubmit='bindSave' report-submit='true'>
-<view>
-  <view class='item'>
-    <view class='title'>{{teamName}}</view>
-    <view>
-      <text></text>
-      <input type='text' placeholder=' 请输入任务标题' placeholder-class='placeholder' bindinput='bindTaskNameInput'></input>
-    </view>
-  </view>
-
-  <view class='item'>
-    <view class='title'>起始与结束</view>
-    <view class='picker' style='position:relative;'>
-      <picker mode="date" value="" start="0001-01-01" end="9999-12-32" bindchange='bindDateBeginChange' style='width:220rpx;display:inline-block;'>
-        <text class='picker-text'>{{dateBegin}}</text>
-      </picker>
-      <picker mode="time" value="" start="00:00" end="99:99" bindchange='bindTimeBeginChange' style='width:220rpx;display:inline-block;'>
-        <text class='picker-text'>{{timeBegin}}</text>
-      </picker>
-      <image src='/images/datepicker.svg' class="DatePickerImg"></image>
-    </view>
-
-    <view class='picker' style='position:relative;'>
-      <picker mode="date" value="" start="0001-01-01" end="9999-12-32" bindchange='bindDateEndChange' style='width:220rpx;display:inline-block;'>
-        <text class='picker-text'>{{dateEnd}}</text>
-      </picker>
-      <picker mode="time" value="" start="00:00" end="99:99" bindchange='bindTimeEndChange' style='width:220rpx;display:inline-block;'>
-        <text class='picker-text'>{{timeEnd}}</text>
-      </picker>
-      <image src='/images/datepicker.svg' class="DatePickerImg"></image>
-    </view>
-  </view>
-
-  <view class='item'>
-    <view class='title'>参与成员</view>
-    <view class='peopleimg-box' bindtap='bindChooseMember'>
-      <view wx:for='{{batchIds}}' style='padding-left:20rpx;'>
-        <image src='{{url[index]}}' style='left:{{index*70+10}}rpx;'></image>
+  <view>
+    <view class='item'>
+      <view class='title'>{{teamName}}</view>
+      <view>
+        <text></text>
+        <input type='text' placeholder=' 请输入任务标题' placeholder-class='placeholder' bindinput='bindTaskNameInput'></input>
       </view>
-      <!-- <view><image src='/images/icon-pen.svg' style='width:40rpx;height:40rpx;position:absolute;right:40rpx;top:20rpx' ></image></view> -->
     </view>
-  </view>
 
+    <view class='item' style='height:250rpx'>
+      <view class='title'>起始与结束</view>
+      <view class='picker2' style='position:relative;'>
+        <picker mode="date" value="" start="0001-01-01" end="9999-12-32" bindchange='bindDateBeginChange' style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{dateBegin}}</text>
+        </picker>
+      </view>
+      <view class='picker' style='position:relative;left:300rpx;top:-100rpx;'>
+        <picker mode="time" value="" start="00:00" end="99:99" bindchange='bindTimeBeginChange' style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{timeBegin}}</text>
+        </picker>
+        <image src='/images/datepicker.svg' class="DatePickerImg"></image>
+      </view>
+      <view class='picker2' style='position:relative;top:-100rpx'>
+        <picker mode="date" value="" start="0001-01-01" end="9999-12-32" bindchange='bindDateEndChange' style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{dateEnd}}</text>
+        </picker>
+      </view>
+      <view class='picker' style='position:relative;left:300rpx;top:-200rpx;'>
+        <picker mode="time" value="" start="00:00" end="99:99" bindchange='bindTimeEndChange' style='width:220rpx;display:inline-block;'>
+          <text class='picker-text'>{{timeEnd}}</text>
+        </picker>
 
-  <view class='item'>
-    <view class='title'>
-      任务详情
+        <image src='/images/datepicker.svg' class="DatePickerImg"></image>
+      </view>
     </view>
-    <textarea class='peopleimg-box' placeholder=' 请输入任务详情' placeholder-class='placeholder' style='height:200rpx;padding-left: 10rpx;padding-top: 10rpx;color: #383838; font-size: 30rpx;' type='text' bindinput='bindTaskIntroductionInput' maxlength="-1"></textarea>
-  </view>
 
-  <view class='item'>
-    <view class='title'>结束前提醒</view>
-    <view class='mention-box'>
-      <view class="mentionButton {{(remind==1 )?'on':' '}} " bindtap='bindMentionTime' data-remind="1" style='left:-20rpx;top:0rpx'>提前一小时</view>
-      <view class="mentionButton {{(remind==2 )?'on':' '}} " bindtap='bindMentionTime' data-remind="2" style='left:10rpx;top:0rpx'>提前一天</view>
-      <view class="mentionButton {{(remind==3 )?'on':' '}} " bindtap='bindMentionTime' data-remind="3" style='left:40rpx;top:0rpx'>不提醒</view>
-    </view>
-  </view>
-
-  <view class='item'>
-    <view class='title'>标签</view>
-    <view class='picker'>
-      <picker bindchange="bindTagChange" value="{{index}}" range="{{tag}}">
-        <view class='tag' style='margin:0rpx;'>
-          <image src='/images/{{index}}.svg'></image>
-          <text>{{tag[index]}}</text>
+    <view class='item'>
+      <view class='title'>参与成员</view>
+      <view class='peopleimg-box' bindtap='bindChooseMember'>
+        <view wx:for='{{batchIds}}' style='padding-left:20rpx;'>
+          <image src='{{url[index]}}' style='left:{{index*70+10}}rpx;'></image>
         </view>
-      </picker>
+        <!-- <view><image src='/images/icon-pen.svg' style='width:40rpx;height:40rpx;position:absolute;right:40rpx;top:20rpx' ></image></view> -->
+      </view>
     </view>
+
+
+    <view class='item'>
+      <view class='title'>
+        任务详情
+      </view>
+      <textarea class='peopleimg-box' placeholder=' 请输入任务详情' placeholder-class='placeholder' style='height:200rpx;padding-left: 10rpx;padding-top: 10rpx;color: #383838; font-size: 30rpx;' type='text' bindinput='bindTaskIntroductionInput' maxlength="-1"></textarea>
+    </view>
+
+    <view class='item'>
+      <view class='title'>结束前提醒</view>
+      <view class='mention-box'>
+        <view class="mentionButton {{(remind==1 )?'on':' '}} " bindtap='bindMentionTime' data-remind="1" style='left:-20rpx;top:0rpx'>提前一小时</view>
+        <view class="mentionButton {{(remind==2 )?'on':' '}} " bindtap='bindMentionTime' data-remind="2" style='left:10rpx;top:0rpx'>提前一天</view>
+        <view class="mentionButton {{(remind==3 )?'on':' '}} " bindtap='bindMentionTime' data-remind="3" style='left:40rpx;top:0rpx'>不提醒</view>
+      </view>
+    </view>
+
+    <view class='item'>
+      <view class='title'>标签</view>
+      <view class='picker'>
+        <picker bindchange="bindTagChange" value="{{index}}" range="{{tag}}">
+          <view class='tag' style='margin:0rpx;'>
+            <image src='/images/{{index}}.svg'></image>
+            <text>{{tag[index]}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+
   </view>
 
-
-</view>
-
-<button style='margin-bottom:30rpx' form-type="submit">保存</button>
+  <button style='margin-bottom:30rpx' form-type="submit">保存</button>
 </form>

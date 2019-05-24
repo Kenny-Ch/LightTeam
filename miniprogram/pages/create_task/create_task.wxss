@@ -9,7 +9,13 @@ input{
 }
 .picker{
   border: 1rpx solid #e6e6e6;
-  width: 650rpx;
+  width: 300rpx;
+  height: 77rpx;
+  border-radius: 10rpx;
+}
+.picker2{
+  border: 1rpx solid #e6e6e6;
+  width: 270rpx;
   height: 77rpx;
   border-radius: 10rpx;
 }
