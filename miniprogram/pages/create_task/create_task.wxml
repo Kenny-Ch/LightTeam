@@ -66,7 +66,7 @@
 
     <view class='item'>
       <view class='title'>标签</view>
-      <view class='picker'>
+      <view class='picker' style='width:630rpx'>
         <picker bindchange="bindTagChange" value="{{index}}" range="{{tag}}">
           <view class='tag' style='margin:0rpx;'>
             <image src='/images/{{index}}.svg'></image>
