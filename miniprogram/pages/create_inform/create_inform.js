@@ -74,16 +74,28 @@ Page({
     })
 },
   bindSave: function (event) {
-    if (!this.data.taskName ||
-      !this.data.taskIntroduction ||
-      (this.data.batchIds.length == 0)) {
-      console.log('【create_form】【创建通知信息输入情况】【输入不完整】', event)
+    if (!this.data.taskName) {
       wx.showToast({
-        title: '通知的信息填写有误或不完整',
+        title: '通知名未填写~',
         icon: 'none',
         duration: 2000
       })
-    } else {
+    }
+    else if (this.data.batchIds.length == 0) {
+      wx.showToast({
+        title: '通知成员未选择~',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    else if (!this.data.taskIntroduction) {
+      wx.showToast({
+        title: '通知详情未填写~',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+     else {
       var acceptarr = [];
       var that = this;
       for (var i = 0; i < this.data.batchIds.length; i++) {

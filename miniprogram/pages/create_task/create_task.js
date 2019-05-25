@@ -125,27 +125,77 @@ Page({
     var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes())
     var begin = this.data.dateBegin + this.data.timeBegin;
     var end = this.data.dateEnd + this.data.timeEnd;
-    if (!this.data.taskName ||
-      !this.data.taskIntroduction ||
-      !this.data.dateBegin ||
-      !this.data.dateEnd ||
-      !this.data.timeBegin ||
-      !this.data.timeEnd ||
-      (this.data.batchIds.length == 0) ||
-      ((this.data.dateBegin + this.data.timeBegin) >= (this.data.dateEnd + this.data.timeEnd)) ||
-      (currentDate >= (this.data.dateEnd + this.data.timeEnd)) ||
-      this.data.dateBegin.length == 7 ||
-      this.data.timeBegin.length == 7 ||
-      this.data.dateEnd.length == 7 ||
-      this.data.timeEnd.length == 7 ||
-      this.data.remind == 0) {
-      console.log('【create_task】【创建任务信息输入情况】【输入不完整】', event)
+    if (!this.data.taskName){
       wx.showToast({
-        title: '任务的信息填写有误或不完整',
+        title: '任务名未填写~',
         icon: 'none',
         duration: 2000
       })
-    } else {
+    }
+    else if (this.data.dateBegin.length == 7) {
+      wx.showToast({
+        title: '任务的起始日期未选择~',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    else if (this.data.timeBegin.length == 7) {
+      wx.showToast({
+        title: '任务的起始时间未选择~',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    else if (this.data.dateEnd.length == 7 ) {
+      wx.showToast({
+        title: '任务的结束日期未选择~',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    else if (this.data.timeEnd.length == 7) {
+      wx.showToast({
+        title: '任务的结束时间未选择~',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    else if ((this.data.dateBegin + this.data.timeBegin) >= (this.data.dateEnd + this.data.timeEnd)) {
+      wx.showToast({
+        title: '任务的结束日期时间应当晚于开始日期时间~',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    else if (currentDate >= (this.data.dateEnd + this.data.timeEnd)) {
+      wx.showToast({
+        title: '任务的结束日期时间应当晚于当前日期时间~',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    else if (this.data.batchIds.length == 0) {
+      wx.showToast({
+        title: '任务的参与成员未选择~',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    else if (!this.data.taskIntroduction) {
+      wx.showToast({
+        title: '任务详情未填写~',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    else if (this.data.remind == 0) {
+      wx.showToast({
+        title: '任务的提醒方式还未选择~',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+ else {
       this.setData({
         formId: event.detail.formId
       })
