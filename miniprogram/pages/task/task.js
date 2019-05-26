@@ -31,7 +31,8 @@ Page({
     url: [],
     type: 2,
     tmsgid: '',
-    openId: ''
+    openId: '',
+    teamId:''
   },
 
   /**
@@ -62,7 +63,8 @@ Page({
               accept: res.data.accept,
               taskIntroduction: res.data.taskIntroduction,
               type: res.data.type,
-              tmsgid: res.data.tmsgid
+              tmsgid: res.data.tmsgid,
+              teamId: res.data.team
             })
           var date = new Date();
           var currentDate = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes());
@@ -152,6 +154,7 @@ Page({
     })
   },
   finishtask: function() {
+    var that = this;
     wx.showModal({
       title: '提示',
       content: '确定已完成此任务了吗？一旦完成不得修改噢',
@@ -160,10 +163,12 @@ Page({
           wx.cloud.callFunction({
             name: 'finishTask',
             data: {
-              taskId: this.data.taskId
+              taskId: that.data.taskId,
+              teamId: that.data.teamId,
+              tmsgid: that.data.tmsgid
             },
           })
-          this.setData({
+          that.setData({
             buttonHidden2: true,
             state: "已完成"
           })

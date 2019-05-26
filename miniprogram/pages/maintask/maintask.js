@@ -8,7 +8,6 @@ Page({
     userInfo: {},
     taskList: [],
     task: [],
-    showView: [],
     leaderId:'',
     de: 0,
     unfinshtasks:0
@@ -16,7 +15,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  onPullDownRefresh: function () {
+    this.setData({
+      openId: '',
+      userId: '',
+      userInfo: {},
+      taskList: [],
+      task: [],
+      leaderId: '',
+      de: 0,
+      unfinshtasks: 0
+    })
+    this.onLoad();
+  },
   onLoad: function(options) {
+    wx.stopPullDownRefresh()
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -74,7 +87,6 @@ Page({
                             }
                             that.setData({
                               task: that.data.task,
-                              showView: that.data.showView,
                               unfinshtasks:that.data.unfinshtasks
                             })
                             if (res.data[0].type == 0) {
@@ -123,7 +135,6 @@ Page({
       }
     })
 
-    showView: (options.showView == "true" ? true : false)
   },
 
   deleteTask: function(e) {

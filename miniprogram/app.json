@@ -20,7 +20,6 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": " ",
-    "enablePullDownRefresh": true,
     "backgroundColor": "#6bb8ff"
   },
   "tabBar": {

@@ -40,7 +40,53 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  onPullDownRefresh: function () {
+    var teamId= this.data.teamId;
+    var openId= this.data.openId;
+    var userId= this.data.userId;
+    // wx.showNavigationBarLoading() //在标题栏中显示加载
+    //模拟加载
+    this.setData({
+      showToolbar: false,
+      boxStyle: 'box_b',
+      up: true,
+      down: false,
+      teamName: '',
+      memberNum: '',
+      teamIntroduce: '',
+      leaderId: '',
+      taskList: [],
+      task: [],
+      userList: [],
+      type: '',
+      uhide: 0,
+      hiddenButton: true,
+      taskListLength: 1,
+      taskListLength2: 1,
+      typeunfinish: 0,
+      actualLength: 1,
+      de: 0,
+      nu: 0,
+      type0: 0,
+      type1: 0,
+      finished: false,
+      ii: 0
+    })
+    this.onLoad({
+      teamId: teamId,
+      openId: openId,
+      userId: userId
+    });
+    // setTimeout(function () {
+    //   // complete
+    //   // wx.hideNavigationBarLoading() //完成停止加载
+
+
+    //    //停止下拉刷新
+    // }, 1000);
+  },
   onLoad: function(options) {
+    wx.stopPullDownRefresh()
     console.log('【task-list】【index界面传入参数】', options)
     this.setData({
       teamId: options.teamId,

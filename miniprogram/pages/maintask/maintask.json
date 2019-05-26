@@ -2,5 +2,7 @@
   "navigationBarBackgroundColor": "#ffffff",
   "navigationBarTitleText": "轻团队LightTeam",
   "navigationBarTextStyle": "black",
-  "usingComponents": {}
+  "usingComponents": {},
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "light"
 }

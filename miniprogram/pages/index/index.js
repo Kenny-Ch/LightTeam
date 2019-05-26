@@ -7,15 +7,25 @@ Page({
     avatarUrl: './user-unlogin.png',
     userInfo: {},
     logged: false,
-    takeSession: false,
-    requestResult: '',
     openId:'',
     teamList: [],
     team:[],
     de: 0,
   },
-  
+    onPullDownRefresh: function () {
+      this.setData({
+        avatarUrl: './user-unlogin.png',
+        userInfo: {},
+        logged: false,
+        openId: '',
+        teamList: [],
+        team: [],
+        de: 0,
+      })
+      this.onLoad();
+  },
   onLoad: function(options) {
+    wx.stopPullDownRefresh()
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) { // 已经授权
