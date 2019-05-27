@@ -9,6 +9,8 @@
 <view class='welcomeAfter'>您将会加入{{teamName}}</view>
 <view class='inputTitle'>请输入您在团队中的备注名</view>
 <view class='input'><input type='text' bindinput="onUserOtherNameInput"></input></view>
-<view class='joinButton' bindtap='addTeam'><button disabled="{{hasLogined}}">加入</button></view>
+<view class='joinButton' bindtap='addTeam'><button disabled="{{disable}}">加入</button></view>
 <!-- <view class='buttonWord2'>加入</view> -->
 </view>
+
+<!-- <loading hidden="{{hidden}}">加载中</loading> -->

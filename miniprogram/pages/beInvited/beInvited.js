@@ -16,7 +16,8 @@ Page({
     userOtherName: '',
     listLength: 0,
     hasLogined: false,
-    userInfo: {}
+    userInfo: {},
+    disable:false
   },
 
   /**
@@ -245,6 +246,9 @@ Page({
   },
   addTeam: function(e) {
     if (this.data.userOtherName) {
+      this.setData({
+        disable:true
+      })
       teamCollection.doc(this.data.teamId)
         .get({
           success: res => {
