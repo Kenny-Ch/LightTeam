@@ -11,10 +11,10 @@
 </view>
 <view>
 <view>
-  <button form-type='submit' class='submit' bindtap='addData'></button>
-  <view class='submit-text' bindtap='addData'>
+  <button form-type='submit' class='submit' bindtap='addData' disabled='{{disable}}' style='color:#6bb8ff;'> 创建团队</button>
+  <!-- <view class='submit-text' bindtap='addData' >
     <text>创建团队</text>
-  </view>
+  </view> -->
 </view>
 
 </view>

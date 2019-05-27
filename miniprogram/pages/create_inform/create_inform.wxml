@@ -25,4 +25,4 @@
   </view>
 </view>
 
-<button bindtap='bindSave' style='margin-bottom:30rpx'>保存</button>
+<button bindtap='bindSave' style='margin-bottom:30rpx' disabled='{{disable}}'>保存</button>

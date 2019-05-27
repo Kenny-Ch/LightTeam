@@ -17,7 +17,8 @@ Page({
     url: [],
     batchIds: [],
     accept: [],
-    unfinishTask: 0
+    unfinishTask: 0,
+    disable:false
   },
   onLoad: function (options) {
     console.log('【create_form】【task-list界面传入参数】', options)
@@ -96,6 +97,9 @@ Page({
       })
     }
      else {
+       this.setData({
+         disable:true
+       })
       var acceptarr = [];
       var that = this;
       for (var i = 0; i < this.data.batchIds.length; i++) {

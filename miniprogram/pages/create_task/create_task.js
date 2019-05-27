@@ -35,7 +35,8 @@ Page({
     batchIds: [],
     accept: [],
     unfinishTask: 0,
-    formId: ''
+    formId: '',
+    disable:false
   },
   onLoad: function(options) {
     console.log('【create_task】【task-list界面传入参数】', options)
@@ -197,7 +198,8 @@ Page({
     }
  else {
       this.setData({
-        formId: event.detail.formId
+        formId: event.detail.formId,
+        disable: true
       })
       var acceptarr = [];
       var that = this;

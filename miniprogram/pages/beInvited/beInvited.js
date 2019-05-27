@@ -17,7 +17,9 @@ Page({
     listLength: 0,
     hasLogined: false,
     userInfo: {},
-    disable:false
+    disable: false,
+    hidden: false,
+    hidden1:false
   },
 
   /**
@@ -37,6 +39,7 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           console.log("【beinvited】【用户授权】【已授权】")
           this.setData({
+            hidden1:true,
             hasLogined: true,
             hide: true
           })
@@ -100,6 +103,9 @@ Page({
                                   break;
                                 }
                               }
+                              that.setData({
+                                hidden: true
+                              })
                             }
                           })
                       }
@@ -120,7 +126,9 @@ Page({
         }
       }
     })
-
+    // this.setData({
+    //   hidden:true
+    // })
   },
   bindGetUserInfo: function(e) {
     if (e.detail.userInfo) {
@@ -165,7 +173,7 @@ Page({
                             },
                             success(res) {
                               that.setData({
-                                userId:res._id
+                                userId: res._id
                               })
                               // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
                               console.log(res)
@@ -247,7 +255,7 @@ Page({
   addTeam: function(e) {
     if (this.data.userOtherName) {
       this.setData({
-        disable:true
+        disable: true
       })
       teamCollection.doc(this.data.teamId)
         .get({
@@ -284,8 +292,7 @@ Page({
           }
         })
 
-    }
-    else{
+    } else {
       wx.showToast({
         title: '备注名未填写~',
         icon: 'none',

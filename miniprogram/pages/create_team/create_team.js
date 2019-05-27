@@ -12,7 +12,8 @@ Page({
     openId:'',
     userId:'',
     nickName:'',
-    url:''
+    url:'',
+    disable:false
   },
   onLoad:function(options){
     console.log('【create_team】【index界面传入参数】【传入成功】',options)
@@ -77,6 +78,9 @@ Page({
     }
     else{
       var that = this;
+      that.setData({
+        disable:true
+      })
       teamCollection.add({
         data: {
           "name": this.data.teamName,

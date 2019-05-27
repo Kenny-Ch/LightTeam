@@ -133,6 +133,10 @@ Page({
   bindReceiveTask: function(e) {
     this.data.accept[this.data.i] = true;
     var that = this;
+    that.setData({
+      buttonHidden1: true,
+      buttonHidden2: false
+    })
     wx.cloud.callFunction({
       name: "updateAccept",
       data: {
@@ -147,8 +151,7 @@ Page({
     }).then(res => {
       that.setData({
         accept: that.data.accept,
-        buttonHidden1: true,
-        buttonHidden2: false
+        
       })
       console.log("【task】【已接受任务】【更新成功】")
     })
@@ -160,6 +163,10 @@ Page({
       content: '确定已完成此任务了吗？一旦完成不得修改噢',
       success: function(res) {
         if (res.confirm) {
+          that.setData({
+            buttonHidden2: true,
+            state: "已完成"
+          })
           wx.cloud.callFunction({
             name: 'finishTask',
             data: {
@@ -168,10 +175,7 @@ Page({
               tmsgid: that.data.tmsgid
             },
           })
-          that.setData({
-            buttonHidden2: true,
-            state: "已完成"
-          })
+          
         }
       }
     })

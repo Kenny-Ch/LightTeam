@@ -111,6 +111,9 @@ Page({
     })
   },
   bindReceiveTask: function () {
+    this.setData({
+      buttonHidden1:true
+    })
     this.data.accept[this.data.i] = true;
     var that = this;
     wx.cloud.callFunction({
@@ -123,7 +126,6 @@ Page({
     }).then(res => {
       that.setData({
         accept: that.data.accept,
-        buttonHidden1: true,
         // buttonHidden2: false
       })
       console.log("【task】【已接受任务】【更新成功】")
