@@ -30,6 +30,8 @@ Page({
   },
   onLoad: function(options) {
     wx.stopPullDownRefresh()
+    var that = this;
+    var count = 0;
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -46,8 +48,7 @@ Page({
                     openId: res.result.openid
                   })
                   console.log("【maintask】【已授权】【已获取用户信息】【信息成功存入data中】", this.data.openId, this.data.userInfo)
-                  var that = this;
-                  var count = 0
+                  
                   db.collection('user').where({
                     _openid: that.data.openId
                   }).get({
@@ -67,26 +68,27 @@ Page({
                             de:0
                           })
                         }
+                        var ttask = new Array();
                       for (var i = that.data.taskList.length - 1; i >= 0; i--) {
                         var c = 0;
                         db.collection('task').where({
                           _id: that.data.taskList[i]
                         }).get({
                           success(res) {
-                            that.data.task.push(res.data[0])
-                            that.data.task[count].show = false
+                            ttask.push(res.data[0])
+                            ttask[count].show = false
                             if(!res.data[0].finish)
                               that.data.unfinshtasks=that.data.unfinshtasks+1
                             if (res.data[0].type == 1) {
                               for (var j = 0; j < res.data[0].accept.length; j++) {
                                 if (that.data.userId == res.data[0].userList[j].id) {
                                   that.data.unfinshtasks = that.data.unfinshtasks + res.data[0].accept[j]?-1:0
-                                  that.data.task[count].finish = res.data[0].accept[j]
+                                  ttask[count].finish = res.data[0].accept[j]
                                 }
                               }
                             }
                             that.setData({
-                              task: that.data.task,
+                              task: ttask,
                               unfinshtasks:that.data.unfinshtasks
                             })
                             if (res.data[0].type == 0) {

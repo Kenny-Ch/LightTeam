@@ -61,17 +61,19 @@ Page({
           success(res) {
             that.setData({
               userId:res.data[0]._id,
-              teamList: res.data[0].teamList
+              teamList: res.data[0].teamList,
+              team:[]
             })
             console.log('【index】【user集合中获取该用户所参与的所有teamid】【获取成功】',that.data.teamList)
+            var tteam= new Array();
             for (var i = 0; i < that.data.teamList.length; i++) {
               db.collection('team').where({
                 _id: that.data.teamList[i]
               }).get({
                 success(res) {
-                  that.data.team.unshift(res.data[0])
+                  tteam.unshift(res.data[0])
                   that.setData({
-                    team: that.data.team
+                    team: tteam
                   })
                 }
               })

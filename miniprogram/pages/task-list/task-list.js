@@ -126,12 +126,13 @@ Page({
             hiddenButton: false
           })
         }
+        var ttask = new Array();
         for (let i = that.data.taskList.length-1; i >= 0 ; i--) {
           db.collection('task').where({
             _id: that.data.taskList[i]
           }).get({
             success(res) {
-              that.data.task.push(res.data[0])
+              ttask.push(res.data[0])
               if(res.data[0].type==0){
                 that.data.type0++;
               }  
@@ -139,7 +140,7 @@ Page({
                 that.data.type1++;
                 for(var j=0;j<res.data[0].accept.length;j++){
                   if(that.data.userId==res.data[0].userList[j].id){
-                    that.data.task[that.data.ii].finish=res.data[0].accept[j]
+                    ttask[that.data.ii].finish=res.data[0].accept[j]
                   }
                   
                 }
@@ -153,7 +154,7 @@ Page({
                 }
               }
               that.setData({
-                task: that.data.task,
+                task: ttask,
                 type0: that.data.type0,
                 type1: that.data.type1,
                 taskListLength: that.data.typeunfinish,
